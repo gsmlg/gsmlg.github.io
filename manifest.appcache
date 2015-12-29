@@ -1,0 +1,20 @@
+CACHE MANIFEST
+# 2015-12-30:v1
+# Explicitly cached 'master entries'.
+
+CACHE:
+/favicon.ico
+index.html
+bundle.css
+bundle.js
+
+# Resources that require the user to be online.
+
+NETWORK:
+/myapi
+http://blog.gsmlg.com
+
+# index.html will be served if main is inaccessible
+
+FALLBACK:
+/main /index.html
