@@ -1,11 +1,16 @@
 import React,{Component} from 'react';
+import Clock from './clock';
+import Heroes from './heroes';
 
 class App extends Component {
-    props = {}
 
     render () {
         return (
-            <h1>Application</h1>
+            <div>
+                <Clock />
+                <h1>Application</h1>
+                <Heroes />
+            </div>
         );
     }
 }

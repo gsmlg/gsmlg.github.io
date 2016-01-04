@@ -1,8 +1,11 @@
 module.exports = function (gulp) {
 
     var webpack = require('webpack-stream');
+    var fs = require('fs');
+    var path = require('path');
+    var manifest = path.join(__dirname, '..', 'manifest.appcache');
 
-    gulp.task('build:js', function() {
+    gulp.task('build:js', function(done) {
         return gulp.src('assets/javascripts/application.js')
             .pipe(webpack({
                 module: {
@@ -27,6 +30,18 @@ module.exports = function (gulp) {
                 }
             }))
             .pipe(gulp.dest('./'));
+    });
+    
+    gulp.task('build', ['build:js'], function(done) {
+        fs.readFile(manifest, function(error, data){
+            if (error) {
+                return done(error);
+            }
+            data = data.toString().replace(/^\# Update:.+$/m, `# Update: ${new Date().toISOString()}`);
+            fs.writeFile(manifest, data, 'utf-8', function(error){
+                done(error);
+            });
+        });
     });
 
 };
