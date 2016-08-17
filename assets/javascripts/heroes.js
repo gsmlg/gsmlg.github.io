@@ -1,16 +1,17 @@
-import React, {Component} from 'react'
+import React, {Component, PropTypes} from 'react'
 
 export default class Heroes extends Component {
     
-    props = { heroes: [] }
+    propTypes = {
+        heroes: PropTypes.array.isRequired
+    }
     
     getList () {
-        var heroes = this.props.heroes || [];
-        return heroes.map(function(hero, i){
+        return this.props.heroes.map(function(hero, i){
             return (<li key={i}>
-            <img className="hero-img" src={hero.head_img} />
-            <span className="hero-name"></span>
-            </li>)
+                <img className="hero-img" src={hero.head_img} />
+                <span className="hero-name">{hero.name}</span>
+            </li>);
         });
     }
     

@@ -35226,6 +35226,9 @@
 	    _createClass(App, [{
 	        key: 'render',
 	        value: function render() {
+	
+	            var heroes = [{ name: 'Joe', head_img: 'img' }, { name: 'Foe', head_img: 'img' }, { name: 'Loe', head_img: 'img' }, { name: 'Roe', head_img: 'img' }, { name: 'Moe', head_img: 'img' }, { name: 'Yoe', head_img: 'img' }];
+	
 	            return _react2["default"].createElement(
 	                'div',
 	                null,
@@ -35235,7 +35238,7 @@
 	                    null,
 	                    'Application'
 	                ),
-	                _react2["default"].createElement(_heroes2["default"], null)
+	                _react2["default"].createElement(_heroes2["default"], { heroes: heroes })
 	            );
 	        }
 	    }]);
@@ -35352,19 +35355,24 @@
 	            args[_key] = arguments[_key];
 	        }
 	
-	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Heroes)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.props = { heroes: [] }, _temp), _possibleConstructorReturn(_this, _ret);
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Heroes)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.propTypes = {
+	            heroes: _react.PropTypes.array.isRequired
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
 	
 	    _createClass(Heroes, [{
 	        key: "getList",
 	        value: function getList() {
-	            var heroes = this.props.heroes || [];
-	            return heroes.map(function (hero, i) {
+	            return this.props.heroes.map(function (hero, i) {
 	                return _react2["default"].createElement(
 	                    "li",
 	                    { key: i },
 	                    _react2["default"].createElement("img", { className: "hero-img", src: hero.head_img }),
-	                    _react2["default"].createElement("span", { className: "hero-name" })
+	                    _react2["default"].createElement(
+	                        "span",
+	                        { className: "hero-name" },
+	                        hero.name
+	                    )
 	                );
 	            });
 	        }
