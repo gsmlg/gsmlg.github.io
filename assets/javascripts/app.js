@@ -16,9 +16,9 @@ class App extends Component {
         ];
         
         return (
-            <div>
-                <Clock />
-                <h1>Application</h1>
+            <div className="application-wrap">
+                <Clock className="clock" />
+                <h1 className="h1-title">Application</h1>
                 <Heroes heroes={heroes} />
             </div>
         );
