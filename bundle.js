@@ -35231,11 +35231,11 @@
 	
 	            return _react2["default"].createElement(
 	                'div',
-	                null,
-	                _react2["default"].createElement(_clock2["default"], null),
+	                { className: 'application-wrap' },
+	                _react2["default"].createElement(_clock2["default"], { className: 'clock' }),
 	                _react2["default"].createElement(
 	                    'h1',
-	                    null,
+	                    { className: 'h1-title' },
 	                    'Application'
 	                ),
 	                _react2["default"].createElement(_heroes2["default"], { heroes: heroes })
