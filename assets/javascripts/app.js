@@ -7,12 +7,12 @@ class App extends Component {
     render () {
         
         let heroes = [
-            {name: 'Joe', head_img: 'img'},
-            {name: 'Foe', head_img: 'img'},
-            {name: 'Loe', head_img: 'img'},
-            {name: 'Roe', head_img: 'img'},
-            {name: 'Moe', head_img: 'img'},
-            {name: 'Yoe', head_img: 'img'},
+            {name: 'Joe', head_img: 'img/joe'},
+            {name: 'Foe', head_img: 'img/foe'},
+            {name: 'Loe', head_img: 'img/loe'},
+            {name: 'Roe', head_img: 'img/roe'},
+            {name: 'Moe', head_img: 'img/moe'},
+            {name: 'Yoe', head_img: 'img/yoe'},
         ];
         
         return (
