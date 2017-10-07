@@ -11,9 +11,6 @@ config :logger, level: :warn
 
 # Configure your database
 config :gsmlg, Gsmlg.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "gsmlg_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+  adapter: EctoMnesia.Adapter
+
+config :mnesia, :dir, 'priv/data/mnesia/test'

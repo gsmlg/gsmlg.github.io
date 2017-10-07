@@ -50,9 +50,6 @@ config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
 config :gsmlg, Gsmlg.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "gsmlg_dev",
-  hostname: "localhost",
-  pool_size: 10
+  adapter: EctoMnesia.Adapter
+
+config :mnesia, :dir, 'priv/data/mnesia/dev'

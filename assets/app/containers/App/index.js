@@ -18,12 +18,16 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
   display: flex;
+  width: 100%;
   min-height: 100%;
-  padding: 0 16px;
   flex-direction: column;
+`;
+
+const BodyWrapper = styled.div`
+  flex: 1;
 `;
 
 export default function App() {
@@ -36,11 +40,13 @@ export default function App() {
         <meta name="description" content="A React.js Boilerplate application" />
       </Helmet>
       <Header />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/features" component={FeaturePage} />
-        <Route path="" component={NotFoundPage} />
-      </Switch>
+      <BodyWrapper>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/features" component={FeaturePage} />
+          <Route path="" component={NotFoundPage} />
+        </Switch>
+      </BodyWrapper>
       <Footer />
     </AppWrapper>
   );
