@@ -50,7 +50,7 @@ const ReactBoilerplate = {
       const includeDependencies = uniq(dependencyNames.concat(include));
 
       return {
-        reactBoilerplateDeps: pullAll(includeDependencies, exclude),
+        gsmlgDeps: pullAll(includeDependencies, exclude),
       };
     },
   },

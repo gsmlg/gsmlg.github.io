@@ -25,6 +25,12 @@ module.exports = require('./webpack.base.babel')({
       minChunks: 2,
       async: true,
     }),
+    new webpack.DefinePlugin({
+      DEBUG: JSON.stringify(false),
+    }),
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'production',
+    }),
 
     // Minify and optimize the index.html
     new HtmlWebpackPlugin({

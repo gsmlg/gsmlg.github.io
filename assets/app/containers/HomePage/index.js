@@ -10,15 +10,24 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import Helmet from 'react-helmet';
+
+import Layout from 'components/Layout';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-  render() {
-    return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
-    );
-  }
+    render() {
+        return (
+          <Layout>
+              <Helmet
+                  title="HomePage"
+                  meta={[
+                    { name: 'description', content: 'Description of HomePage' },
+                  ]}
+                  />
+              <div className="well">
+                  <h1>这里是我的主页！</h1>
+              </div>
+          </Layout>
+        );
+    }
 }

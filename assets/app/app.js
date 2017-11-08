@@ -36,7 +36,8 @@ import { translationMessages } from './i18n';
 import './global-styles';
 
 // Create redux store with history
-const initialState = {};
+import DATA from './data';
+const initialState = DATA;
 const history = createHistory();
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
@@ -67,10 +68,10 @@ if (module.hot) {
 // Chunked polyfill for browsers without Intl support
 if (!window.Intl) {
   (new Promise((resolve) => {
-    resolve(import('intl'));
+    resolve(import(/* webpackChunkName: 'intl' */'intl'));
   }))
     .then(() => Promise.all([
-      import('intl/locale-data/jsonp/en.js'),
+      import(/* webpackChunkName: 'intl.en' */'intl/locale-data/jsonp/en.js'),
     ]))
     .then(() => render(translationMessages))
     .catch((err) => {

@@ -6,6 +6,23 @@ const path = require('path');
 const webpack = require('webpack');
 const config = require('../config');
 
+const marked = require('marked');
+const hljs = require('highlight.js');
+
+const renderer = new marked.Renderer();
+
+renderer.code = (code, language) => {
+  try {
+    return `<pre class="hljs"><code class="language-${language}">` +
+      (language ? hljs.highlight(language, code).value : hljs.highlightAuto(code).value)+
+      '</code></pre>';
+  } catch (e) {
+    return '<pre class="hljs"><code class="language-auto">' +
+      (hljs.highlightAuto(code).value) +
+      '</code></pre>';
+  }
+};
+
 // Remove this line once the following warning goes away (it was meant for webpack loader authors not users):
 // 'DeprecationWarning: loaderUtils.parseQuery() received a non-string value which can be problematic,
 // see https://github.com/webpack/loader-utils/issues/56 parseQuery() will be replaced with getOptions()
@@ -53,12 +70,24 @@ module.exports = (options) => ({
           {
             loader: 'image-webpack-loader',
             options: {
-              progressive: true,
-              optimizationLevel: 7,
-              interlaced: false,
+              mozjpeg: {
+                progressive: true,
+                quality: 65,
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
               pngquant: {
                 quality: '65-90',
                 speed: 4,
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75,
               },
             },
           },
@@ -67,6 +96,19 @@ module.exports = (options) => ({
       {
         test: /\.html$/,
         use: 'html-loader',
+      },
+      {
+        test: /\.md$/,
+        use: [
+          'html-loader',
+          {
+            loader: 'markdown-loader',
+            options: {
+              renderer,
+              gfm: true,
+            },
+          },
+        ],
       },
       {
         test: /\.json$/,
