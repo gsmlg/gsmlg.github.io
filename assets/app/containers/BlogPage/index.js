@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
+import List, { ListItem, ListItemText } from 'material-ui/List';
 
 import Layout from 'components/Layout';
 
@@ -21,10 +22,10 @@ class BlogPage extends React.Component { // eslint-disable-line react/prefer-sta
       if (a.id > b.id) return -1;
       return 0;
     }).map((blog) => (
-      <div key={blog.name} className="col-md-12">
+      <ListItem key={blog.name} className="col-md-12">
         <h3><Link to={`/blogs/${blog.name}`}>{blog.title}</Link></h3>
         <time>{blog.date}</time>
-      </div>
+      </ListItem>
     ));
     return (
       <Layout>
@@ -34,9 +35,9 @@ class BlogPage extends React.Component { // eslint-disable-line react/prefer-sta
             { name: 'description', content: 'Description of BlogPage' },
           ]}
         />
-        <div className="container-fluid">
+        <List>
           {blogList}
-        </div>
+        </List>
       </Layout>
     );
   }
