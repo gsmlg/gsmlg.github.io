@@ -9,22 +9,21 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import Layout from 'components/Layout';
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import NoteIcon from 'material-ui-icons/Note';
 
 export class KeynotePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
-    let {Keynotes} = this.props;
-    let noteList = Keynotes.reverse().toJS();
-    let list = noteList.map((note) => {
-      return (
-        <section key={note.name} className="list-group">
-          <a className="list-group-item" href={note.link} target="_blank">
-            <h3 className="list-group-item-heading">{note.name}</h3>
-            <author className="list-group-item-text">{note.author}</author>
-          </a>
-        </section>
-      );
-    });
+    const { Keynotes } = this.props;
+    const noteList = Keynotes.reverse().toJS();
+    const list = noteList.map((note) => (
+      <ListItem key={note.name} component="a" href={note.link} target="_blank">
+        <ListItemIcon><NoteIcon /></ListItemIcon>
+        <ListItemText primary={note.name} />
+        <ListItemText secondary={note.author} />
+      </ListItem>
+    ));
     return (
       <Layout>
         <Helmet
@@ -33,9 +32,9 @@ export class KeynotePage extends React.Component { // eslint-disable-line react/
             { name: 'description', content: 'Description of KeynotePage' },
           ]}
         />
-        <div className="container-fluid">
+        <List>
           {list}
-        </div>
+        </List>
       </Layout>
     );
   }

@@ -10,24 +10,43 @@
  */
 
 import React from 'react';
+import { compose } from 'redux';
 import Helmet from 'react-helmet';
+import { withStyles } from 'material-ui/styles';
 
+import Paper from 'material-ui/Paper';
+import Typography from 'material-ui/Typography';
 import Layout from 'components/Layout';
 
-export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-    render() {
-        return (
-          <Layout>
-              <Helmet
-                  title="HomePage"
-                  meta={[
-                    { name: 'description', content: 'Description of HomePage' },
-                  ]}
-                  />
-              <div className="well">
-                  <h1>这里是我的主页！</h1>
-              </div>
-          </Layout>
-        );
-    }
+const styles = theme => ({
+  root: theme.mixins.gutters({
+    paddingTop: 16,
+    paddingBottom: 16,
+    margin: theme.spacing.unit * 3,
+  }),
+});
+
+class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  render() {
+    const { classes } = this.props;
+    return (
+      <Layout>
+        <Helmet
+          title="HomePage"
+          meta={[
+            { name: 'description', content: 'Description of HomePage' },
+          ]}
+        />
+        <Paper className={classes.root} elevation={4}>
+          <Typography type="headline" component="h3" >
+            这里是我的主页！
+          </Typography>
+        </Paper>
+      </Layout>
+    );
+  }
 }
+
+export default compose(
+  withStyles(styles),
+)(HomePage);

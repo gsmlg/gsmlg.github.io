@@ -9,7 +9,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
-import List, { ListItem, ListItemText } from 'material-ui/List';
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import WebIcon from 'material-ui-icons/Web';
 
 import Layout from 'components/Layout';
 
@@ -22,9 +23,10 @@ class BlogPage extends React.Component { // eslint-disable-line react/prefer-sta
       if (a.id > b.id) return -1;
       return 0;
     }).map((blog) => (
-      <ListItem key={blog.name} className="col-md-12">
-        <h3><Link to={`/blogs/${blog.name}`}>{blog.title}</Link></h3>
-        <time>{blog.date}</time>
+      <ListItem inset key={blog.name} component={Link} to={`/blogs/${blog.name}`}>
+        <ListItemIcon ><WebIcon /></ListItemIcon>
+        <ListItemText primary={blog.title} />
+        <ListItemText secondary={blog.date} />
       </ListItem>
     ));
     return (
