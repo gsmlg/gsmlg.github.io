@@ -53,5 +53,4 @@ const mapStateToProps = (state) => ({
   Blogs: state.get('Blogs'),
 });
 
-
 export default connect(mapStateToProps)(BlogPage);

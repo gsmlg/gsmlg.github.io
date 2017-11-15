@@ -16,7 +16,6 @@ import Button from 'material-ui/Button';
 import { styles as btnStyles } from 'material-ui/Button/Button';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
-import { blue } from 'material-ui/colors';
 
 const styles = (theme) => ({
   root: {
@@ -25,15 +24,16 @@ const styles = (theme) => ({
     flexDirection: 'column',
   },
   flex: {
+    display: 'flex',
     flex: 1,
   },
   footer: {
     height: '2em',
     lineHeight: '2em',
     textAlign: 'center',
-    marginTop: '1.5em',
-    color: blue[50],
-    backgroundColor: blue[500],
+    marginTop: '0.5em',
+    color: theme.palette.getContrastText(theme.palette.primary[500]),
+    backgroundColor: theme.palette.primary[500],
   },
   menuButton: {
     marginLeft: -12,
@@ -53,7 +53,7 @@ class Layout extends React.PureComponent { // eslint-disable-line react/prefer-s
     } = this.props;
     return (
       <section className={classes.root}>
-        <AppBar position="static" >
+        <AppBar position="static">
           <Toolbar>
             <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
               <MenuIcon />
@@ -65,7 +65,6 @@ class Layout extends React.PureComponent { // eslint-disable-line react/prefer-s
               <Button color="contrast" component={NavLink} to="/networks" activeClassName={classes.raised} >Networks</Button>
               <Button color="contrast" component={NavLink} to="/games" activeClassName={classes.raised} >Games</Button>
             </Typography>
-            <Button color="contrast">Login</Button>
           </Toolbar>
         </AppBar>
         <section className={classes.flex}>
