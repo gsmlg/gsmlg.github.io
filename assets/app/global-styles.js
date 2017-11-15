@@ -30,4 +30,13 @@ injectGlobal`
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
+  .blog-content {
+    img {
+      max-width: 100%;
+    }
+    .hljs {
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+  }
 `;

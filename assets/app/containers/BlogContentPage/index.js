@@ -5,15 +5,27 @@
  */
 
 import React from 'react';
+import { compose } from 'redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
+import { withStyles } from 'material-ui/styles';
 
-import { extend, find } from 'lodash';
-
+import Paper from 'material-ui/Paper';
+import Typography from 'material-ui/Typography';
+import Divider from 'material-ui/Divider';
 import Layout from 'components/Layout';
 
 import 'highlight.js/styles/monokai-sublime.css';
+
+const styles = theme => ({
+  root: theme.mixins.gutters({
+    flex: 1,
+    paddingTop: 16,
+    paddingBottom: 16,
+    margin: theme.spacing.unit * 3,
+  }),
+});
 
 class BlogContentPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
@@ -37,9 +49,13 @@ class BlogContentPage extends React.PureComponent { // eslint-disable-line react
     if (DEBUG) {
       console.log(this.props);
     }
-    let { Blogs, match } = this.props;
-    let blog = Blogs.find((val, key) => (val.get('name') === match.params.blog_name)).toJS();
-    let html = this.state.blogContent;
+    const {
+      Blogs,
+      classes,
+      match,
+    } = this.props;
+    const blog = Blogs.find((val, key) => (val.get('name') === match.params.blog_name)).toJS();
+    const html = this.state.blogContent;
     return (
       <Layout>
         <Helmet
@@ -48,15 +64,15 @@ class BlogContentPage extends React.PureComponent { // eslint-disable-line react
             { name: 'description', content: blog.description },
           ]}
           />
-        <section className="blog">
-          <header className="blog-header">
-            <h1 className="blog-title">{blog.title}</h1>
-            <div className="blog-author">Author: <author>{blog.author}</author></div>
-            <div className="blog-create-time">Created At: <time>{blog.date}</time></div>
-          </header><hr/>
-          <section className="blog-content" dangerouslySetInnerHTML={{__html: html}}>
-          </section>
-        </section>
+        <Paper className={classes.root} elevation={4}>
+          <header>
+            <Typography type="headline" component="h1">{blog.title}</Typography>
+            <Typography type="subheading" component="div">Author: {blog.author}</Typography>
+            <Typography type="subheading" component="div">Created At: {blog.date}</Typography>
+          </header>
+          <Divider />
+          <Typography className="blog-content" component="section" dangerouslySetInnerHTML={{ __html: html }} />
+        </Paper>
       </Layout>
     );
   }
@@ -70,4 +86,9 @@ const mapStateToProps = (state) => ({
   Blogs: state.get('Blogs')
 });
 
-export default connect(mapStateToProps)(BlogContentPage);
+const withConnect = connect(mapStateToProps);
+
+export default compose(
+  withConnect,
+  withStyles(styles),
+)(BlogContentPage);
