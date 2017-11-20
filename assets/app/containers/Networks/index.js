@@ -13,6 +13,9 @@ import { map, each } from 'lodash';
 import injectReducer from 'utils/injectReducer';
 
 import Layout from 'components/Layout';
+import Grid from 'material-ui/Grid';
+import Card from './card';
+
 import { doCheck, checkDone } from './actions';
 import makeSelectNetworks from './selectors';
 import reducer from './reducer';
@@ -43,17 +46,20 @@ export class Networks extends React.Component { // eslint-disable-line react/pre
   }
 
   checkSite(site) {
-    let {doCheck, checkDone} = this.props;
+    const {
+      doCheck,
+      checkDone,
+    } = this.props;
     return new Promise((resolve, reject) => {
       doCheck(site);
-      let xhr = new XMLHttpRequest();
-      let times = new Date(), timef;
+      const xhr = new XMLHttpRequest();
+      const times = new Date();
       setTimeout(() => { if (xhr.readyState < 4) {xhr.abort();reject()}}, 3000);
       xhr.onreadystatechange = (e) => {
+        const timef = new Date();
+        const t = timef - times;
         switch (xhr.readyState) {
           case 4:
-            timef = new Date();
-            let t = timef - times
             resolve(t);
             break;
         }
@@ -71,8 +77,8 @@ export class Networks extends React.Component { // eslint-disable-line react/pre
   }
 
   render() {
-    let {Networks} = this.props;
-    let {vultr} = Networks;
+    const { Networks } = this.props;
+    const { vultr } = Networks;
 
     return (
       <Layout>
@@ -82,47 +88,17 @@ export class Networks extends React.Component { // eslint-disable-line react/pre
             { name: 'description', content: 'Description of Networks' },
           ]}
           />
-        <div className="list-group">
-          {map(vultr, (host) => {
-            let colClass = "col-lg-2 col-md-2";
-            return (
-              <div key={host.id} className="list-group-item">
-                <h3 className="list-group-item-heading">
-                  <span style={{marginRight: '2em'}}>{host.name}</span>
-                  <small>{host.host}</small>
-                </h3>
-                <section className="list-group-item-text">
-                  <div className="ping-site-status row">
-                    <div className={colClass}>
-                      <span>Delay: </span>
-                      <span>{host.delay}</span>
-                    </div>
-                    <div className={colClass}>
-                      <span>Min Delay: </span>
-                      <span>{host.minDelay}</span>
-                    </div>
-                    <div className={colClass}>
-                      <span>Max Delay: </span>
-                      <span>{host.maxDelay}</span>
-                    </div>
-                    <div className={colClass}>
-                      <span>Average Delay: </span>
-                      <span>{host.averageDelay}</span>
-                    </div>
-                    <div className={colClass}>
-                      <span>Package Lost: </span>
-                      <span>{host.lost}</span>
-                    </div>
-                    <div className={colClass}>
-                      <span>Times:  </span>
-                      <span>{host.times}</span>
-                    </div>
-                  </div>
-                </section>
-              </div>
-            );
-          })}
-        </div>
+        <Grid container justify="center" spacing={24}>
+          <Grid item md={11} sm={10}>
+            <Grid container spacing={24} justify="center">
+              {map(vultr, (host) => (
+                <Grid item md={3} sm={4} >
+                  <Card host={host} />
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
+        </Grid>
       </Layout>
     );
   }
