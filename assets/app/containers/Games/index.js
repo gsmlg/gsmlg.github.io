@@ -11,23 +11,15 @@ import { createStructuredSelector } from 'reselect';
 import Helmet from 'react-helmet';
 import Layout from 'components/Layout';
 import { Link } from 'react-router-dom';
+import Grid from 'material-ui/Grid';
+import Paper from 'material-ui/Paper';
+import Typography from 'material-ui/Typography';
 import makeSelectGames from './selectors';
 
 export class Games extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
-    let { Games } = this.props;
-    let noteList = Games.reverse();
-    let list = noteList.map((note) => {
-      return (
-        <section key={note.name} className="list-group">
-          <a className="list-group-item" href={note.link} target="_blank">
-            <h3 className="list-group-item-heading">{note.name}</h3>
-            <author className="list-group-item-text">{note.author}</author>
-          </a>
-        </section>
-      );
-    });
+    const { Games } = this.props;
     return (
       <Layout>
         <Helmet
@@ -36,14 +28,19 @@ export class Games extends React.Component { // eslint-disable-line react/prefer
             { name: 'description', content: 'Description of KeynotePage' },
           ]}
         />
-        <div className="container-fluid">
-          {list}
-          <section className="list-group">
-            <Link className="list-group-item" to="/games/chinese-chess" >
-              <h3 className="list-group-item-heading">{'中国象棋'}</h3>
-            </Link>
-          </section>
-        </div>
+        <Grid container justify="center">
+          <Grid item md={11}>
+            <Grid container>
+              <Grid item md={4}>
+                <Paper>
+                  <Link to="/games/chinese-chess">
+                    <Typography component="h3" >{'中国象棋'}</Typography>
+                  </Link>
+                </Paper>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
       </Layout>
     );
   }

@@ -15,44 +15,6 @@ const styles = (theme) => ({
 
 });
 
-/*
-  <div key={host.id} className="list-group-item">
-  <h3 className="list-group-item-heading">
-  <span style={{marginRight: '2em'}}>{host.name}</span>
-  <small>{host.host}</small>
-  </h3>
-  <section className="list-group-item-text">
-  <div className="ping-site-status row">
-  <div className={colClass}>
-  <span>Delay: </span>
-  <span>{host.delay}</span>
-  </div>
-  <div className={colClass}>
-  <span>Min Delay: </span>
-  <span>{host.minDelay}</span>
-  </div>
-  <div className={colClass}>
-  <span>Max Delay: </span>
-  <span>{host.maxDelay}</span>
-  </div>
-  <div className={colClass}>
-  <span>Average Delay: </span>
-  <span>{host.averageDelay}</span>
-  </div>
-  <div className={colClass}>
-  <span>Package Lost: </span>
-  <span>{host.lost}</span>
-  </div>
-  <div className={colClass}>
-  <span>Times:  </span>
-  <span>{host.times}</span>
-  </div>
-  </div>
-  </section>
-  </div>
-
- */
-
 function NetworkCard (props) {
   const {
     classes,
