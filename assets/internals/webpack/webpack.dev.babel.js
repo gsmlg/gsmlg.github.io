@@ -10,9 +10,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const config = require('../config');
-const logger = require('../../server/logger');
+const logger = require('../logger');
 const pkg = require(path.resolve(config.root, 'package.json'));
-const dllPlugin = pkg.dllPlugin;
+const { dllPlugin } = pkg;
 
 const plugins = [
   new webpack.HotModuleReplacementPlugin(), // Tell webpack we want hot reloading

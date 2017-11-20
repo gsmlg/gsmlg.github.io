@@ -6,20 +6,33 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { withStyles } from 'material-ui/styles';
+
 import Helmet from 'react-helmet';
 import Layout from 'components/Layout';
 import { Link } from 'react-router-dom';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
+
 import makeSelectGames from './selectors';
+
+const styles = (theme) => ({
+  root: {
+    marginTop: '1em',
+  },
+});
 
 export class Games extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
-    const { Games } = this.props;
+    const {
+      classes,
+      Games,
+    } = this.props;
     return (
       <Layout>
         <Helmet
@@ -28,7 +41,7 @@ export class Games extends React.Component { // eslint-disable-line react/prefer
             { name: 'description', content: 'Description of KeynotePage' },
           ]}
         />
-        <Grid container justify="center">
+        <Grid container justify="center" className={classes.root}>
           <Grid item md={11}>
             <Grid container>
               <Grid item md={4}>
@@ -61,4 +74,9 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Games);
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
+
+export default compose(
+  withConnect,
+  withStyles(styles),
+)(Games);

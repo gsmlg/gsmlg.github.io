@@ -11,6 +11,7 @@ import Helmet from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { map, each } from 'lodash';
 import injectReducer from 'utils/injectReducer';
+import { withStyles } from 'material-ui/styles';
 
 import Layout from 'components/Layout';
 import Grid from 'material-ui/Grid';
@@ -19,6 +20,12 @@ import Card from './card';
 import { doCheck, checkDone } from './actions';
 import makeSelectNetworks from './selectors';
 import reducer from './reducer';
+
+const styles = (theme) => ({
+  root: {
+    marginTop: '1em',
+  },
+});
 
 export class Networks extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -77,7 +84,10 @@ export class Networks extends React.Component { // eslint-disable-line react/pre
   }
 
   render() {
-    const { Networks } = this.props;
+    const {
+      classes,
+      Networks,
+    } = this.props;
     const { vultr } = Networks;
 
     return (
@@ -88,7 +98,7 @@ export class Networks extends React.Component { // eslint-disable-line react/pre
             { name: 'description', content: 'Description of Networks' },
           ]}
           />
-        <Grid container justify="center" spacing={24}>
+        <Grid container justify="center" spacing={24} className={classes.root}>
           <Grid item md={11} sm={10}>
             <Grid container spacing={24} justify="center">
               {map(vultr, (host) => (
@@ -127,4 +137,5 @@ const withReducer = injectReducer({ key: 'networks', reducer });
 export default compose(
   withReducer,
   withConnect,
+  withStyles(styles),
 )(Networks);
