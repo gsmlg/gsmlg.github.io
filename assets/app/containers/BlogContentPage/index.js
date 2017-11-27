@@ -18,7 +18,7 @@ import Layout from 'components/Layout';
 
 import 'highlight.js/styles/monokai-sublime.css';
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: theme.mixins.gutters({
     flex: 1,
     paddingTop: 16,
@@ -41,14 +41,11 @@ class BlogContentPage extends React.PureComponent { // eslint-disable-line react
     import(/* webpackChunkName: 'BlogContentPage.[request]' */ `data/blogs/${name}.md`).then((html) => {
       this.setState({ blogContent: html });
     }).catch((error) => {
-      this.setState({blogContent: '<h1 style="color: red">Load content fail!<h1>'});
+      this.setState({ blogContent: '<h1 style="color: red">Load content fail!<h1>' });
     });
   }
 
   render() {
-    if (DEBUG) {
-      console.log(this.props);
-    }
     const {
       Blogs,
       classes,
@@ -63,7 +60,7 @@ class BlogContentPage extends React.PureComponent { // eslint-disable-line react
           meta={[
             { name: 'description', content: blog.description },
           ]}
-          />
+        />
         <Paper className={classes.root} elevation={4}>
           <header>
             <Typography type="headline" component="h1">{blog.title}</Typography>
@@ -83,7 +80,7 @@ BlogContentPage.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  Blogs: state.get('Blogs')
+  Blogs: state.get('Blogs'),
 });
 
 const withConnect = connect(mapStateToProps);

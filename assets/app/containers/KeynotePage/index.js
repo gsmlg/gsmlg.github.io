@@ -45,8 +45,8 @@ KeynotePage.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-  Keynotes: state.get('Keynotes')
+const mapStateToProps = (state) => ({
+  Keynotes: state.get('Keynotes'),
 });
 
 function mapDispatchToProps(dispatch) {

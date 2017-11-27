@@ -14,6 +14,7 @@ defmodule Gsmlg.Application do
       supervisor(GsmlgWeb.Endpoint, []),
       # Start your own worker by calling: Gsmlg.Worker.start_link(arg1, arg2, arg3)
       # worker(Gsmlg.Worker, [arg1, arg2, arg3]),
+      supervisor(Gsmlg.Node.Supervisor, []),
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
