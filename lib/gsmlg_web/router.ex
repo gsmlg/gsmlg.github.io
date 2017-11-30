@@ -18,11 +18,20 @@ defmodule GsmlgWeb.Router do
 
     get "/", PageController, :index
 
-    get "/*path", PageController, :not_found
   end
 
   # Other scopes may use custom stacks.
   scope "/api", GsmlgWeb do
     pipe_through :api
+
+    resources "/blogs", BlogController, only: [:index, :create, :update, :show]
+
+  end
+
+  scope "/", GsmlgWeb do
+    pipe_through :browser # Use the default browser stack
+
+    get "/*not_found", PageController, :not_found
+
   end
 end

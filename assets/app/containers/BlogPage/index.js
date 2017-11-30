@@ -23,7 +23,7 @@ class BlogPage extends React.Component { // eslint-disable-line react/prefer-sta
       if (a.id > b.id) return -1;
       return 0;
     }).map((blog) => (
-      <ListItem inset key={blog.name} component={Link} to={`/blogs/${blog.name}`}>
+      <ListItem key={blog.name} component={Link} to={`/blogs/${blog.name}`}>
         <ListItemIcon ><WebIcon /></ListItemIcon>
         <ListItemText primary={blog.title} />
         <ListItemText secondary={blog.date} />
