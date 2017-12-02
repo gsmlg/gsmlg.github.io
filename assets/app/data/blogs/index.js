@@ -72,4 +72,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 10,
+  name: 'headless-browser',
+  title: '无界面浏览器 - Firefox, Chrome',
+  date: '2017-11-30',
+  author: 'Gao',
+});
+
 export default blogs;
