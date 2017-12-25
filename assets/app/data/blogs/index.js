@@ -80,4 +80,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 11,
+  name: 'spacemacs-config',
+  title: 'Spacemacs配置',
+  date: '2017-12-23',
+  author: 'Gao'
+});
+
 export default blogs;
