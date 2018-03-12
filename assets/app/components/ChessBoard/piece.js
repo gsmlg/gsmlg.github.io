@@ -9,7 +9,7 @@ import { DragSource } from 'react-dnd';
  */
 const cardSource = {
   canDrag(props) {
-    return props.item.type === 6;
+    return props.item.type >= 0;
   },
 
   isDragging(props, monitor) {
