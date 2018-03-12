@@ -6,7 +6,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { compose } from 'redux';
+import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
@@ -15,9 +15,17 @@ import Board from 'components/ChessBoard';
 
 import reducer from './reducer';
 import makeSelectChineseChess from './selectors';
+import {
+  movePiece,
+} from './actions';
 
 export class ChineseChess extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const {
+      chess,
+      movePiece
+    } = this.props;
+
     return (
       <div style={{ width: '100%', height: '100%' }}>
         <Helmet
@@ -26,25 +34,22 @@ export class ChineseChess extends React.Component { // eslint-disable-line react
             { name: 'description', content: '中国象棋游戏' },
           ]}
         />
-        <Board ></Board>
+        <Board {...chess} movePiece={movePiece} ></Board>
       </div>
     );
   }
 }
 
 ChineseChess.propTypes = {
-  dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
-  ChineseChess: makeSelectChineseChess(),
+  chess: makeSelectChineseChess(),
 });
 
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch,
-  };
-}
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  movePiece,
+}, dispatch);
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 

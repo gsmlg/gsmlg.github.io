@@ -9,9 +9,7 @@ import { DragSource } from 'react-dnd';
  */
 const cardSource = {
   canDrag(props) {
-    return true;
-    // You can disallow drag based on props
-    return props.isReady;
+    return props.item.type === 6;
   },
 
   isDragging(props, monitor) {
@@ -24,7 +22,7 @@ const cardSource = {
 
   beginDrag(props, monitor, component) {
     // Return the data describing the dragged item
-    const item = { id: props.id };
+    const item = props.item;
     return item;
   },
 
@@ -45,7 +43,7 @@ const cardSource = {
     const dropResult = monitor.getDropResult();
 
     // This is a good place to call some Flux action
-    CardActions.moveCardToList(item.id, dropResult.listId);
+    // CardActions.moveCardToList(item.id, dropResult.listId);
   }
 };
 
@@ -64,7 +62,7 @@ function collect(connect, monitor) {
 
 class Piece extends Component {
   render() {
-    const { x, y, connectDragSource } = this.props;
+    const { connectDragSource, item } = this.props;
 
     return connectDragSource(
       <div style={{
@@ -82,8 +80,9 @@ class Piece extends Component {
         borderRadius: '50%',
         backgroundColor: 'white',
         userSelect: 'none',
+        color: item.color,
       }}>
-        {this.props.children}
+        {item.name}
       </div>
     );
   }
