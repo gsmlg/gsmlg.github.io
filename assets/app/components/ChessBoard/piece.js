@@ -17,7 +17,7 @@ const cardSource = {
     // (like a card in Kanban board dragged between lists)
     // you can implement something like this to keep its
     // appearance dragged:
-    return monitor.getItem().id === props.id;
+    return monitor.getItem().id === props.item.id;
   },
 
   beginDrag(props, monitor, component) {

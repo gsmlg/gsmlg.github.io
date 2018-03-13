@@ -20,9 +20,9 @@ class ChessBoard extends React.PureComponent { // eslint-disable-line react/pref
     const y = Math.floor(i / 9);
     const movePiece = this.props.movePiece;
     const { blackPieces, redPieces } = this.props;
-    const piceses = redPieces.concat(blackPieces);
-    const item = _.find(piceses, {position: {x: x, y: y}});
-    const key = (item != null && item.live) ? <Piece item={item} /> : null;
+    const pieces = _.filter(redPieces.concat(blackPieces), { live: true });
+    const item = _.find(pieces, {position: {x: x, y: y}});
+    const key = (item != null) ? <Piece item={item} /> : null;
 
     return (
       <div
@@ -33,7 +33,15 @@ class ChessBoard extends React.PureComponent { // eslint-disable-line react/pref
           position: 'relative',
           backgroundColor: 'transparent',
         }}>
-        <Square x={x} y={y} movePiece={movePiece}>
+        <Square
+          piece={item}
+          x={x}
+          y={y}
+          movePiece={movePiece}
+          canDrop={this.props.canDrop}
+          pieces={pieces}
+          kill={() => item && this.props.kill(item)}
+        >
           {key}
         </Square>
       </div>

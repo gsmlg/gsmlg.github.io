@@ -10,7 +10,8 @@ const chessSquareTarget = {
   canDrop(props, monitor) {
     // You can disallow drop based on props or item
     const item = monitor.getItem();
-    return true;
+    const { x, y, pieces } = props;
+    return props.canDrop(item, { x, y }, pieces);
   },
 
   hover(props, monitor, component) {
@@ -43,6 +44,7 @@ const chessSquareTarget = {
 
     // You can do something with it
     props.movePiece(item, { x, y });
+    props.kill();
 
     // You can also do nothing and return a drop result,
     // which will be available as monitor.getDropResult()
@@ -70,9 +72,9 @@ function collect(connect, monitor) {
 class Square extends Component {
   render() {
     const { x, y } = this.props;
-    const { isOver, canDrop, connectDropTarget } = this.props;
+    const { isOver, canDrop, connectDropTarget, piece } = this.props;
 
-    const bgColor = isOver ? 'green' : 'transparent';
+    let bgColor = canDrop ? (piece ? 'red' : 'green') : 'transparent';
 
     return connectDropTarget(
       <div style={{
@@ -98,6 +100,5 @@ class Square extends Component {
 
 Square.propTypes = {
 };
-
 
 export default DropTarget('Piece', chessSquareTarget, collect)(Square);

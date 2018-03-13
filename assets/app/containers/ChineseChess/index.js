@@ -17,13 +17,109 @@ import reducer from './reducer';
 import makeSelectChineseChess from './selectors';
 import {
   movePiece,
+  kill,
 } from './actions';
+
+const canDrop = (item, pos, pieces) => {
+  const fx = item.position.x;
+  const fy = item.position.y;
+  const tx = pos.x;
+  const ty = pos.y;
+
+  const target = _.find(pieces, { position: pos });
+  if (target && target.color === item.color) return false;
+
+  switch(item.type) {
+    case 0: // 帅
+    case 1: // 士
+    case 2: // 相
+    case 3: // 马
+      return true;
+    case 4: // 车
+      if (fx === tx) {
+        let count = 0;
+        if (ty > fy) {
+          for ( let i = fy + 1; i <= ty; i++ ) {
+            if (_.find(pieces, { position: { x: fx, y: i } })) count++;
+          }
+        } else {
+          for ( let i = fy - 1; i >= ty; i-- ) {
+            if (_.find(pieces, { position: { x: fx, y: i } })) count++;
+          }
+        }
+        return count == 0 || (count == 1 && target);
+      } else if (fy === ty) {
+        let count = 0;
+        if (tx > fx) {
+          for ( let i = fx + 1; i <= tx; i++ ) {
+            if (_.find(pieces, { position: { x: i, y: fy } })) count++;
+          }
+        } else {
+          for ( let i = fx - 1; i >= tx; i-- ) {
+            if (_.find(pieces, { position: { x: i, y: fy } })) count++;
+          }
+        }
+        return count == 0 || (count == 1 && target);
+      } else {
+        return false;
+      }
+    case 5: // 炮
+      if (fx === tx) {
+        let count = 0;
+        if (ty > fy) {
+          for ( let i = fy + 1; i <= ty; i++ ) {
+            if (_.find(pieces, { position: { x: fx, y: i } })) count++;
+          }
+        } else {
+          for ( let i = fy - 1; i >= ty; i-- ) {
+            if (_.find(pieces, { position: { x: fx, y: i } })) count++;
+          }
+        }
+        return count == 0 || (count == 2 && target);
+      } else if (fy === ty) {
+        let count = 0;
+        if (tx > fx) {
+          for ( let i = fx + 1; i <= tx; i++ ) {
+            if (_.find(pieces, { position: { x: i, y: fy } })) count++;
+          }
+        } else {
+          for ( let i = fx - 1; i >= tx; i-- ) {
+            if (_.find(pieces, { position: { x: i, y: fy } })) count++;
+          }
+        }
+        return count == 0 || (count == 2 && target);
+      } else {
+        return false;
+      }
+    case 6: // 兵
+      if (item.color === 'red') {
+        if (item.position.y > 4) {
+          return (pos.x === item.position.x && pos.y === item.position.y + 1)
+            || (pos.x === item.position.x + 1 && pos.y === item.position.y)
+            || (pos.x === item.position.x - 1 && pos.y === item.position.y);
+        } else {
+          return pos.x === item.position.x && pos.y === item.position.y + 1;
+        }
+      } else {
+        if (item.position.y < 5) {
+          return (pos.x === item.position.x && pos.y === item.position.y - 1)
+            || (pos.x === item.position.x + 1 && pos.y === item.position.y)
+            || (pos.x === item.position.x - 1 && pos.y === item.position.y);
+        } else {
+          return pos.x === item.position.x && pos.y === item.position.y - 1;
+        }
+      }
+      break;
+  }
+  return false;
+};
 
 export class ChineseChess extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     const {
       chess,
-      movePiece
+      movePiece,
+      kill,
     } = this.props;
 
     return (
@@ -34,7 +130,11 @@ export class ChineseChess extends React.Component { // eslint-disable-line react
             { name: 'description', content: '中国象棋游戏' },
           ]}
         />
-        <Board {...chess} movePiece={movePiece} ></Board>
+        <Board
+          {...chess}
+          kill={kill}
+          movePiece={movePiece}
+          canDrop={canDrop} ></Board>
       </div>
     );
   }
@@ -49,6 +149,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   movePiece,
+  kill,
 }, dispatch);
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

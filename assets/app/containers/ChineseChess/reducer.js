@@ -8,6 +8,7 @@ import { fromJS } from 'immutable';
 import {
   DEFAULT_ACTION,
   MOVE_POSITION,
+  KILL,
 } from './constants';
 
 const PieceTypes = [
@@ -203,15 +204,23 @@ const initialState = fromJS({
 
 function chineseChessReducer(state = initialState, action) {
   const { type, payload } = action;
+  let index;
   switch (type) {
     case DEFAULT_ACTION:
       return state;
     case MOVE_POSITION:
-      const index = Number(payload.item.id.slice(1));
+      index = Number(payload.item.id.slice(1));
       if (payload.item.color === 'red') {
         return state.mergeIn(['redPieces', index, 'position'], payload.position);
       } else {
         return state.mergeIn(['blackPieces', index, 'position'], payload.position);
+      }
+    case KILL:
+      index = Number(payload.item.id.slice(1));
+      if (payload.item.color === 'red') {
+        return state.mergeIn(['redPieces', index, 'live'], false);
+      } else {
+        return state.mergeIn(['blackPieces', index, 'live'], false);
       }
     default:
       return state;

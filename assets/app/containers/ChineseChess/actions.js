@@ -7,13 +7,14 @@
 import {
   DEFAULT_ACTION,
   MOVE_POSITION,
+  KILL,
 } from './constants';
 
 export function defaultAction() {
   return {
     type: DEFAULT_ACTION,
   };
-}
+};
 
 export const movePiece = (item,position) => ({
   type: MOVE_POSITION,
@@ -21,4 +22,11 @@ export const movePiece = (item,position) => ({
     item,
     position,
   },
-})
+});
+
+export const kill = (item) => ({
+  type: KILL,
+  payload: {
+    item,
+  },
+});
