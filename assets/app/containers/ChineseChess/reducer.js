@@ -200,6 +200,7 @@ const initialState = fromJS({
     p.live = true;
     return p;
   }),
+  turn: 'red',
 });
 
 function chineseChessReducer(state = initialState, action) {
@@ -211,9 +212,9 @@ function chineseChessReducer(state = initialState, action) {
     case MOVE_POSITION:
       index = Number(payload.item.id.slice(1));
       if (payload.item.color === 'red') {
-        return state.mergeIn(['redPieces', index, 'position'], payload.position);
+        return state.mergeIn(['redPieces', index, 'position'], payload.position).set('turn', 'black');
       } else {
-        return state.mergeIn(['blackPieces', index, 'position'], payload.position);
+        return state.mergeIn(['blackPieces', index, 'position'], payload.position).set('turn', 'red');
       }
     case KILL:
       index = Number(payload.item.id.slice(1));
