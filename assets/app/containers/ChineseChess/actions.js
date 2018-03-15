@@ -7,7 +7,9 @@
 import {
   DEFAULT_ACTION,
   MOVE_POSITION,
+  MOVE_POSITION_REMOTE,
   KILL,
+  START,
 } from './constants';
 
 export function defaultAction() {
@@ -24,9 +26,22 @@ export const movePiece = (item,position) => ({
   },
 });
 
+export const movePieceRemote = (item,position) => ({
+  type: MOVE_POSITION_REMOTE,
+  payload: {
+    item,
+    position,
+  },
+});
+
 export const kill = (item) => ({
   type: KILL,
   payload: {
     item,
   },
+});
+
+export const start = () => ({
+  type: START,
+  payload: {},
 });

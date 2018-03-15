@@ -8,6 +8,7 @@ import { fromJS } from 'immutable';
 import {
   DEFAULT_ACTION,
   MOVE_POSITION,
+  MOVE_POSITION_REMOTE,
   KILL,
 } from './constants';
 
@@ -209,6 +210,7 @@ function chineseChessReducer(state = initialState, action) {
   switch (type) {
     case DEFAULT_ACTION:
       return state;
+    case MOVE_POSITION_REMOTE:
     case MOVE_POSITION:
       index = Number(payload.item.id.slice(1));
       if (payload.item.color === 'red') {

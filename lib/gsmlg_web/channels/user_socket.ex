@@ -2,7 +2,7 @@ defmodule GsmlgWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", GsmlgWeb.RoomChannel
+  channel "room:chess", GsmlgWeb.ChessChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
