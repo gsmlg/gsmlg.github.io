@@ -26,7 +26,7 @@ defmodule GsmlgWeb.ChessChannel do
 
   def handle_in("move_chess", payload, socket) do
     # Phoenix.Channel.broadcast("room:chess", "move_chess", payload)
-    puts "move to "
+    IO.puts "move to "
     push socket, "move_chess", payload
     {:noreply, socket}
   end
