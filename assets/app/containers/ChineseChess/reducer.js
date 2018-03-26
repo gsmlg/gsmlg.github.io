@@ -8,6 +8,7 @@ import { fromJS } from 'immutable';
 import {
   DEFAULT_ACTION,
   MOVE_POSITION,
+  MOVE_POSITION_REMOTE,
   KILL,
 } from './constants';
 
@@ -200,6 +201,7 @@ const initialState = fromJS({
     p.live = true;
     return p;
   }),
+  turn: 'red',
 });
 
 function chineseChessReducer(state = initialState, action) {
@@ -208,12 +210,13 @@ function chineseChessReducer(state = initialState, action) {
   switch (type) {
     case DEFAULT_ACTION:
       return state;
+    case MOVE_POSITION_REMOTE:
     case MOVE_POSITION:
       index = Number(payload.item.id.slice(1));
       if (payload.item.color === 'red') {
-        return state.mergeIn(['redPieces', index, 'position'], payload.position);
+        return state.mergeIn(['redPieces', index, 'position'], payload.position).set('turn', 'black');
       } else {
-        return state.mergeIn(['blackPieces', index, 'position'], payload.position);
+        return state.mergeIn(['blackPieces', index, 'position'], payload.position).set('turn', 'red');
       }
     case KILL:
       index = Number(payload.item.id.slice(1));

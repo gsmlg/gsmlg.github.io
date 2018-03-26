@@ -11,108 +11,35 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import injectReducer from 'utils/injectReducer';
+import injectSaga from 'utils/injectSaga';
 import Board from 'components/ChessBoard';
+import { withStyles } from 'material-ui/styles';
+
+import Grid from 'material-ui/Grid';
+import Paper from 'material-ui/Paper';
+import Button from 'material-ui/Button';
+import Typography from 'material-ui/Typography';
+import Divider from 'material-ui/Divider';
 
 import reducer from './reducer';
+import saga from './saga';
 import makeSelectChineseChess from './selectors';
 import {
   movePiece,
   kill,
+  start,
 } from './actions';
+import canDrop from './canDrop';
 
-const canDrop = (item, pos, pieces) => {
-  const fx = item.position.x;
-  const fy = item.position.y;
-  const tx = pos.x;
-  const ty = pos.y;
-
-  const target = _.find(pieces, { position: pos });
-  if (target && target.color === item.color) return false;
-
-  switch(item.type) {
-    case 0: // 帅
-    case 1: // 士
-    case 2: // 相
-    case 3: // 马
-      return true;
-    case 4: // 车
-      if (fx === tx) {
-        let count = 0;
-        if (ty > fy) {
-          for ( let i = fy + 1; i <= ty; i++ ) {
-            if (_.find(pieces, { position: { x: fx, y: i } })) count++;
-          }
-        } else {
-          for ( let i = fy - 1; i >= ty; i-- ) {
-            if (_.find(pieces, { position: { x: fx, y: i } })) count++;
-          }
-        }
-        return count == 0 || (count == 1 && target);
-      } else if (fy === ty) {
-        let count = 0;
-        if (tx > fx) {
-          for ( let i = fx + 1; i <= tx; i++ ) {
-            if (_.find(pieces, { position: { x: i, y: fy } })) count++;
-          }
-        } else {
-          for ( let i = fx - 1; i >= tx; i-- ) {
-            if (_.find(pieces, { position: { x: i, y: fy } })) count++;
-          }
-        }
-        return count == 0 || (count == 1 && target);
-      } else {
-        return false;
-      }
-    case 5: // 炮
-      if (fx === tx) {
-        let count = 0;
-        if (ty > fy) {
-          for ( let i = fy + 1; i <= ty; i++ ) {
-            if (_.find(pieces, { position: { x: fx, y: i } })) count++;
-          }
-        } else {
-          for ( let i = fy - 1; i >= ty; i-- ) {
-            if (_.find(pieces, { position: { x: fx, y: i } })) count++;
-          }
-        }
-        return count == 0 || (count == 2 && target);
-      } else if (fy === ty) {
-        let count = 0;
-        if (tx > fx) {
-          for ( let i = fx + 1; i <= tx; i++ ) {
-            if (_.find(pieces, { position: { x: i, y: fy } })) count++;
-          }
-        } else {
-          for ( let i = fx - 1; i >= tx; i-- ) {
-            if (_.find(pieces, { position: { x: i, y: fy } })) count++;
-          }
-        }
-        return count == 0 || (count == 2 && target);
-      } else {
-        return false;
-      }
-    case 6: // 兵
-      if (item.color === 'red') {
-        if (item.position.y > 4) {
-          return (pos.x === item.position.x && pos.y === item.position.y + 1)
-            || (pos.x === item.position.x + 1 && pos.y === item.position.y)
-            || (pos.x === item.position.x - 1 && pos.y === item.position.y);
-        } else {
-          return pos.x === item.position.x && pos.y === item.position.y + 1;
-        }
-      } else {
-        if (item.position.y < 5) {
-          return (pos.x === item.position.x && pos.y === item.position.y - 1)
-            || (pos.x === item.position.x + 1 && pos.y === item.position.y)
-            || (pos.x === item.position.x - 1 && pos.y === item.position.y);
-        } else {
-          return pos.x === item.position.x && pos.y === item.position.y - 1;
-        }
-      }
-      break;
-  }
-  return false;
-};
+const styles = (theme) => ({
+  paper: {
+    width: '320px',
+    height: '480px',
+  },
+  button: {
+    margin: theme.spacing.unit,
+  },
+});
 
 export class ChineseChess extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -120,6 +47,8 @@ export class ChineseChess extends React.Component { // eslint-disable-line react
       chess,
       movePiece,
       kill,
+      start,
+      classes,
     } = this.props;
 
     return (
@@ -130,11 +59,25 @@ export class ChineseChess extends React.Component { // eslint-disable-line react
             { name: 'description', content: '中国象棋游戏' },
           ]}
         />
-        <Board
-          {...chess}
-          kill={kill}
-          movePiece={movePiece}
-          canDrop={canDrop} ></Board>
+        <Grid container spacing={24}>
+          <Grid item xs={12} sm={6}>
+            <Paper>
+              <Board
+                {...chess}
+                kill={kill}
+                movePiece={movePiece}
+                canDrop={canDrop}
+              />
+            </Paper>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Paper className={classes.paper}>
+              <Button variant="raised" color="primary" className={classes.button} onClick={start}>
+                Start Game
+              </Button>
+            </Paper>
+          </Grid>
+        </Grid>
       </div>
     );
   }
@@ -150,13 +93,17 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   movePiece,
   kill,
+  start,
 }, dispatch);
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 const withReducer = injectReducer({ key: 'chineseChess', reducer });
+const withSaga = injectSaga({ key: 'chineseChess', saga });
 
 export default compose(
+  withStyles(styles),
   withReducer,
+  withSaga,
   withConnect,
 )(ChineseChess);

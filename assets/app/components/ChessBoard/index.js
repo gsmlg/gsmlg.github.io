@@ -22,7 +22,7 @@ class ChessBoard extends React.PureComponent { // eslint-disable-line react/pref
     const { blackPieces, redPieces } = this.props;
     const pieces = _.filter(redPieces.concat(blackPieces), { live: true });
     const item = _.find(pieces, {position: {x: x, y: y}});
-    const key = (item != null) ? <Piece item={item} /> : null;
+    const key = (item != null) ? <Piece item={item} turn={this.props.turn} /> : null;
 
     return (
       <div
