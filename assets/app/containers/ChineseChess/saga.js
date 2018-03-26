@@ -2,22 +2,20 @@ import { takeLatest, call, put, select } from 'redux-saga/effects';
 import { Socket } from 'phoenix';
 import {
   MOVE_POSITION,
+  CONNECT,
   START,
 } from './constants';
 import {
+  initPieces,
   movePiece,
   movePieceRemote,
 } from './actions';
+import { store } from '../../app';
 
 let socket;
 let channel;
 
-export function* moveChess(action) {
-  const { payload } = action;
-  channel.push('move_chess', payload);
-}
-
-export function* start() {
+export function* connect() {
   const params = {};
   socket = new Socket('/socket', { params, logger: console.log });
   socket.connect();
@@ -25,7 +23,10 @@ export function* start() {
     channel = socket.channel(`room:chess`, {});
     if (!channel.isJoined()) {
       channel.join();
-      channel.on('move_chess', (data) => {
+      channel.on('init_pieces', (data) => {
+        store.dispatch(initPieces(data.pieces));
+      })
+      channel.on('move_chess_remote', (data) => {
         store.dispatch(movePieceRemote(data.item, data.position));
       });
     }
@@ -34,8 +35,18 @@ export function* start() {
   }
 }
 
+export function* start() {
+  channel.push('start');
+}
+
+export function* moveChess(action) {
+  const { payload } = action;
+  channel.push('move_chess', payload);
+}
+
 // Individual exports for testing
 export default function* defaultSaga() {
+  yield takeLatest(CONNECT, connect);
   yield takeLatest(START, start);
   yield takeLatest(MOVE_POSITION, moveChess);
 }

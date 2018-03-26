@@ -27,6 +27,7 @@ import makeSelectChineseChess from './selectors';
 import {
   movePiece,
   kill,
+  connectRoom,
   start,
 } from './actions';
 import canDrop from './canDrop';
@@ -47,6 +48,7 @@ export class ChineseChess extends React.Component { // eslint-disable-line react
       chess,
       movePiece,
       kill,
+      connectRoom,
       start,
       classes,
     } = this.props;
@@ -72,6 +74,9 @@ export class ChineseChess extends React.Component { // eslint-disable-line react
           </Grid>
           <Grid item xs={12} sm={6}>
             <Paper className={classes.paper}>
+              <Button variant="raised" color="primary" className={classes.button} onClick={connectRoom}>
+                Connect to Room
+              </Button>
               <Button variant="raised" color="primary" className={classes.button} onClick={start}>
                 Start Game
               </Button>
@@ -93,6 +98,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   movePiece,
   kill,
+  connectRoom,
   start,
 }, dispatch);
 

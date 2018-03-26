@@ -2,6 +2,7 @@ defmodule GsmlgWeb.ChessChannel do
   use Phoenix.Channel
   alias Guardian.Phoenix.Socket
   alias Phoenix.Socket.Broadcast
+  alias Gsmlg.Chess.Room
   require Logger
 
   def join("room:chess", msg, socket) do
@@ -10,7 +11,8 @@ defmodule GsmlgWeb.ChessChannel do
   end
 
   def handle_info({:after_join, _msg}, socket) do
-
+    {:ok, pieces} = Room.get_pieces
+    push socket, "init_pieces", %{pieces: pieces}
     {:noreply, socket}
   end
 
@@ -24,10 +26,14 @@ defmodule GsmlgWeb.ChessChannel do
     :ok
   end
 
+  def handle_in("start", _payload, socket) do
+    {:ok, pieces} = Room.start_room
+    push socket, "init_pieces", %{pieces: pieces}
+    {:noreply, socket}
+  end
   def handle_in("move_chess", payload, socket) do
-    # Phoenix.Channel.broadcast("room:chess", "move_chess", payload)
-    IO.puts "move to "
-    push socket, "move_chess", payload
+    Room.move_chess(payload)
+    broadcast!(socket, "move_chess_remote", payload)
     {:noreply, socket}
   end
   def handle_in("new:msg", _msg, socket) do
