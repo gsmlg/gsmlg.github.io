@@ -85,7 +85,15 @@ blogs.push({
   name: 'spacemacs-config',
   title: 'Spacemacs配置',
   date: '2017-12-23',
-  author: 'Gao'
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 12,
+  name: 'browsewithcaret',
+  title: '关于accessibility.browsewithcaret',
+  date: '2018-03-26',
+  author: 'Gao',
 });
 
 export default blogs;
