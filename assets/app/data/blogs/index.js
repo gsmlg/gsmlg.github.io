@@ -96,4 +96,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 13,
+  name: 'webpack-dll-eval-bug',
+  title: 'Webpack DLL Plugin 引起的Bug',
+  date: '2018-04-02',
+  author: 'Gao',
+});
+
 export default blogs;
