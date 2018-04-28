@@ -34,8 +34,15 @@ console.log(someone);
 
 ### 禁止重声名
 
+`let` 会禁止重新声名变量
+
 ### const
+
+`const` 声名时必须赋值
 
 ### 临时性死区
 
+使用`cosnt`或者`let`声名变量，如果在之前调用他们，会抛出一个异常`ReferenceError`
+
+这时使用 `typeof` 操作时也是不安全的，这里成为临时性死区 (Temporal Dead Zone)
 

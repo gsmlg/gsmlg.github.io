@@ -1,6 +1,7 @@
 ## Node.js 10 ChangeLog
 
-| **Current** |
+| Current |
+| :--- |
 | 10.0.0 |
 
 ** 2018-04-24, Version 10.0.0 (Current), @jasnell **

@@ -112,4 +112,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 15,
+  name: 'es6-const-let',
+  title: 'ECMAScript 2015 块级作用域绑定',
+  date: '2018-04-28',
+  author: 'Gao',
+});
+
 export default blogs;
