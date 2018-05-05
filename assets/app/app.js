@@ -39,7 +39,7 @@ import './global-styles';
 import DATA from './data';
 const initialState = DATA;
 const history = createHistory();
-const store = configureStore(initialState, history);
+export const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
 const render = (messages) => {

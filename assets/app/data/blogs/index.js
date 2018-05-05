@@ -80,4 +80,44 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 11,
+  name: 'spacemacs-config',
+  title: 'Spacemacs配置',
+  date: '2017-12-23',
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 12,
+  name: 'browsewithcaret',
+  title: '关于accessibility.browsewithcaret',
+  date: '2018-03-26',
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 13,
+  name: 'webpack-dll-eval-bug',
+  title: 'Webpack DLL Plugin 引起的Bug',
+  date: '2018-04-02',
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 14,
+  name: 'nodejs-v10',
+  title: 'Node.js v10 发布',
+  date: '2018-04-28',
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 15,
+  name: 'es6-const-let',
+  title: 'ECMAScript 2015 块级作用域绑定',
+  date: '2018-04-28',
+  author: 'Gao',
+});
+
 export default blogs;
