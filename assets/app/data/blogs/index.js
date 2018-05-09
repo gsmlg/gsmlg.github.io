@@ -1,4 +1,4 @@
-let blogs = [];
+const blogs = [];
 
 blogs.push({
   id: 1,
@@ -117,6 +117,14 @@ blogs.push({
   name: 'es6-const-let',
   title: 'ECMAScript 2015 块级作用域绑定',
   date: '2018-04-28',
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 16,
+  name: 'ubuntu-18.04-ruby-and-elixir',
+  title: '在Ubuntu18.04上安装ruby和elixir开发环境',
+  date: '2018-05-09',
   author: 'Gao',
 });
 
