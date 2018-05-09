@@ -20,12 +20,12 @@ export function* connect() {
   socket = new Socket('/socket', { params, logger: console.log });
   socket.connect();
   try {
-    channel = socket.channel(`room:chess`, {});
+    channel = socket.channel('room:chess', {});
     if (!channel.isJoined()) {
       channel.join();
       channel.on('init_pieces', (data) => {
         store.dispatch(initPieces(data.pieces));
-      })
+      });
       channel.on('move_chess_remote', (data) => {
         store.dispatch(movePieceRemote(data.item, data.position));
       });

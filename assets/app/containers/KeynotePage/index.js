@@ -13,7 +13,6 @@ import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import NoteIcon from 'material-ui-icons/Note';
 
 export class KeynotePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
-
   render() {
     const { Keynotes } = this.props;
     const noteList = Keynotes.reverse().toJS();

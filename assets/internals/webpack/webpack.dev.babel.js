@@ -35,12 +35,10 @@ const plugins = [
 
 if (dllPlugin) {
   glob.sync(`${dllPlugin.path}/*.dll.js`).forEach((dllPath) => {
-    plugins.push(
-      new AddAssetHtmlPlugin({
-        filepath: dllPath,
-        includeSourcemap: false,
-      })
-    );
+    plugins.push(new AddAssetHtmlPlugin({
+      filepath: dllPath,
+      includeSourcemap: false,
+    }));
   });
 }
 

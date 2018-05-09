@@ -18,7 +18,7 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Layout from 'components/Layout';
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: theme.mixins.gutters({
     flex: 1,
     paddingTop: 16,
@@ -48,6 +48,4 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
   }
 }
 
-export default compose(
-  withStyles(styles),
-)(HomePage);
+export default compose(withStyles(styles), )(HomePage);

@@ -10,7 +10,7 @@ import {
 } from './constants';
 
 const initialState = fromJS({
-  games: []
+  games: [],
 });
 
 function gamesReducer(state = initialState, action) {

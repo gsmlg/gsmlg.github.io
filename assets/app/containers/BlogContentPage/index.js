@@ -28,7 +28,6 @@ const styles = (theme) => ({
 });
 
 class BlogContentPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-
   constructor(...args) {
     super(...args);
     this.state = Object.assign({}, this.state, {

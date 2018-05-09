@@ -16,7 +16,9 @@ import VultrHosts from './vultrHosts';
 const initialState = fromJS({ vultr: VultrHosts });
 
 function networksReducer(state = initialState, action) {
-  var id, vultr, site;
+  let id,
+    vultr,
+    site;
   switch (action.type) {
     case DEFAULT_ACTION:
       return state;

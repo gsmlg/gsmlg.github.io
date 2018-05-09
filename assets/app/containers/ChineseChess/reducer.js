@@ -43,16 +43,16 @@ function chineseChessReducer(state = initialState, action) {
       index = Number(payload.item.id.slice(1));
       if (payload.item.color === 'red') {
         return state.mergeIn(['redPieces', index, 'position'], payload.position).set('turn', 'black');
-      } else {
-        return state.mergeIn(['blackPieces', index, 'position'], payload.position).set('turn', 'red');
       }
+      return state.mergeIn(['blackPieces', index, 'position'], payload.position).set('turn', 'red');
+
     case KILL:
       index = Number(payload.item.id.slice(1));
       if (payload.item.color === 'red') {
         return state.mergeIn(['redPieces', index, 'live'], false);
-      } else {
-        return state.mergeIn(['blackPieces', index, 'live'], false);
       }
+      return state.mergeIn(['blackPieces', index, 'live'], false);
+
     default:
       return state;
   }

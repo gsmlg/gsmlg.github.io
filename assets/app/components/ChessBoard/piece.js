@@ -44,7 +44,7 @@ const cardSource = {
 
     // This is a good place to call some Flux action
     // CardActions.moveCardToList(item.id, dropResult.listId);
-  }
+  },
 };
 
 /**
@@ -56,7 +56,7 @@ function collect(connect, monitor) {
     // to let React DnD handle the drag events:
     connectDragSource: connect.dragSource(),
     // You can ask the monitor about the current drag state:
-    isDragging: monitor.isDragging()
+    isDragging: monitor.isDragging(),
   };
 }
 
@@ -64,8 +64,8 @@ class Piece extends Component {
   render() {
     const { connectDragSource, item } = this.props;
 
-    return connectDragSource(
-      <div style={{
+    return connectDragSource(<div
+      style={{
         width: '50px',
         height: '50px',
         position: 'absolute',
@@ -81,10 +81,10 @@ class Piece extends Component {
         backgroundColor: 'white',
         userSelect: 'none',
         color: item.color,
-      }}>
-        {item.name}
-      </div>
-    );
+      }}
+    >
+      {item.name}
+    </div>);
   }
 }
 

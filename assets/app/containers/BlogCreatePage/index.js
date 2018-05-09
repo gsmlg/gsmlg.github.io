@@ -25,7 +25,7 @@ import makeSelectBlogCreate from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: theme.mixins.gutters({
     flex: 1,
     paddingTop: 16,

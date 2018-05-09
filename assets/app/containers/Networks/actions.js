@@ -13,21 +13,21 @@ import {
 export function defaultAction(host) {
   return {
     type: DEFAULT_ACTION,
-    host: host,
+    host,
   };
 }
 
 export function doCheck(site) {
   return {
     type: DO_CHECK,
-    site: site,
+    site,
   };
 }
 
 export function checkDone(site, time) {
   return {
     type: CHECK_DONE,
-    site: site,
-    time: time,
+    site,
+    time,
   };
 }

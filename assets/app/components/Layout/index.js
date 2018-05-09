@@ -49,7 +49,7 @@ class Layout extends React.PureComponent { // eslint-disable-line react/prefer-s
   render() {
     const {
       classes,
-      children
+      children,
     } = this.props;
     return (
       <section className={classes.root}>

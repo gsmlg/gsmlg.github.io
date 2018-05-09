@@ -28,7 +28,6 @@ const styles = (theme) => ({
 });
 
 export class Networks extends React.Component { // eslint-disable-line react/prefer-stateless-function
-
   componentDidMount() {
     this.stop = false;
     this.checkQueue();
@@ -39,10 +38,10 @@ export class Networks extends React.Component { // eslint-disable-line react/pre
   }
 
   checkQueue() {
-    let { vultr } = this.props.Networks;
-    var prevPromise = Promise.resolve(true);
+    const { vultr } = this.props.Networks;
+    let prevPromise = Promise.resolve(true);
     each(vultr, (site) => {
-      let thisPromise = prevPromise.then(()=>{
+      const thisPromise = prevPromise.then(() => {
         if (this.stop) throw Error;
         return this.checkSite(site);
       });
@@ -61,7 +60,7 @@ export class Networks extends React.Component { // eslint-disable-line react/pre
       doCheck(site);
       const xhr = new XMLHttpRequest();
       const times = new Date();
-      setTimeout(() => { if (xhr.readyState < 4) {xhr.abort();reject()}}, 3000);
+      setTimeout(() => { if (xhr.readyState < 4) { xhr.abort(); reject(); } }, 3000);
       xhr.onreadystatechange = (e) => {
         const timef = new Date();
         const t = timef - times;
@@ -75,10 +74,8 @@ export class Networks extends React.Component { // eslint-disable-line react/pre
       xhr.open('HEAD', `//${site.host}`);
       xhr.send(null);
     })
-      .catch(() => {
-        return null;
-      })
-      .then((time)=> {
+      .catch(() => null)
+      .then((time) => {
         checkDone(site, time);
       });
   }
@@ -97,7 +94,7 @@ export class Networks extends React.Component { // eslint-disable-line react/pre
           meta={[
             { name: 'description', content: 'Description of Networks' },
           ]}
-          />
+        />
         <Grid container justify="center" spacing={24} className={classes.root}>
           <Grid item md={11} sm={10}>
             <Grid container spacing={24} justify="center">
