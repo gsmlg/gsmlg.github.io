@@ -11,21 +11,23 @@ import {
   movePieceRemote,
 } from './actions';
 import { store } from '../../app';
+import {
+  makeSelectSocket,
+} from '../App/selectors';
 
-let socket;
 let channel;
 
 export function* connect() {
   const params = {};
-  socket = new Socket('/socket', { params, logger: console.log });
-  socket.connect();
+  const socket = yield select(makeSelectSocket());
+
   try {
-    channel = socket.channel(`room:chess`, {});
+    channel = socket.channel('room:chess', {});
     if (!channel.isJoined()) {
       channel.join();
       channel.on('init_pieces', (data) => {
         store.dispatch(initPieces(data.pieces));
-      })
+      });
       channel.on('move_chess_remote', (data) => {
         store.dispatch(movePieceRemote(data.item, data.position));
       });

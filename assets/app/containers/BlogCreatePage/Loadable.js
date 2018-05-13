@@ -8,6 +8,6 @@ import Loadable from 'react-loadable';
 import LayoutLoading from 'components/Layout/loading';
 
 export default Loadable({
-  loader: () => import(/* webpackChunkName: BlogCreatePage */'./index'),
+  loader: () => import(/* webpackChunkName: "BlogCreatePage" */'./index'),
   loading: LayoutLoading,
 });

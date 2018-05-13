@@ -2,7 +2,7 @@ defmodule Gsmlg.Node.Distributed do
   use GenServer
 
   def start_link() do
-    GenServer.start_link(__MODULE__, nil, name: :distributed_state_process);
+    GenServer.start_link(__MODULE__, nil, name: __MODULE__);
   end
 
   def start_node(name) do
@@ -11,6 +11,13 @@ defmodule Gsmlg.Node.Distributed do
 
   def stop_node() do
     GenServer.call(__MODULE__, :stop)
+  end
+
+  @doc """
+  get node state
+  """
+  def get_state do
+    GenServer.call(__MODULE__, :get_state)
   end
 
   def init(_) do
@@ -37,7 +44,10 @@ defmodule Gsmlg.Node.Distributed do
     |> Keyword.put(:alive?, Node.alive?)
     |> Keyword.put(:self, Node.self)
     |> Keyword.put(:pid, nil)
-    {:replay, {:ok}, state}
+    {:reply, {:ok}, state}
   end
 
+  def handle_call(:get_state, _from, state) do
+    {:reply, {:ok, state}, state}
+  end
 end

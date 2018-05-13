@@ -6,13 +6,16 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import WebIcon from 'material-ui-icons/Web';
-
 import Layout from 'components/Layout';
+
+import injectReducer from 'utils/injectReducer';
+import reducer from './reducer';
 
 class BlogPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -53,4 +56,11 @@ const mapStateToProps = (state) => ({
   Blogs: state.get('Blogs'),
 });
 
-export default connect(mapStateToProps)(BlogPage);
+const withConnect = connect(mapStateToProps);
+
+const withReducer = injectReducer({ key: 'Blogs', reducer });
+
+export default compose(
+  withReducer,
+  withConnect,
+)(BlogPage);

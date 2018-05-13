@@ -27,7 +27,7 @@ const styles = (theme) => ({
   },
 });
 
-export class Networks extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export class NetworksPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   componentDidMount() {
     this.stop = false;
@@ -39,10 +39,10 @@ export class Networks extends React.Component { // eslint-disable-line react/pre
   }
 
   checkQueue() {
-    let { vultr } = this.props.Networks;
-    var prevPromise = Promise.resolve(true);
+    const { vultr } = this.props.Networks;
+    let prevPromise = Promise.resolve(true);
     each(vultr, (site) => {
-      let thisPromise = prevPromise.then(()=>{
+      const thisPromise = prevPromise.then(() => {
         if (this.stop) throw Error;
         return this.checkSite(site);
       });
@@ -97,12 +97,12 @@ export class Networks extends React.Component { // eslint-disable-line react/pre
           meta={[
             { name: 'description', content: 'Description of Networks' },
           ]}
-          />
+        />
         <Grid container justify="center" spacing={24} className={classes.root}>
           <Grid item md={11} sm={10}>
             <Grid container spacing={24} justify="center">
               {map(vultr, (host) => (
-                <Grid item md={3} sm={4} >
+                <Grid key={host.host} item md={3} sm={4} >
                   <Card host={host} />
                 </Grid>
               ))}
@@ -113,10 +113,6 @@ export class Networks extends React.Component { // eslint-disable-line react/pre
     );
   }
 }
-
-Networks.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = createStructuredSelector({
   Networks: makeSelectNetworks(),
@@ -138,4 +134,4 @@ export default compose(
   withReducer,
   withConnect,
   withStyles(styles),
-)(Networks);
+)(NetworksPage);
