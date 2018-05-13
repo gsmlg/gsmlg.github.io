@@ -1,6 +1,7 @@
 import { takeLatest, take, call, put, select } from 'redux-saga/effects';
 import { Socket } from 'phoenix';
 
+import { store } from '../../app';
 import {
   INIT,
   MOUNT,
@@ -16,7 +17,7 @@ import {
 
 function* init() {
   const params = {};
-  const socket = new Socket('/socket', { params, logger: socketLogger });
+  const socket = new Socket('/socket', { params, logger: (...args) => store.dispatch(socketLogger(...args)) });
   yield put(setSocket(socket));
 }
 
@@ -36,5 +37,4 @@ export default function* defaultSaga() {
   yield takeLatest(INIT, init);
   yield takeLatest(MOUNT, mount);
   yield takeLatest(UNMOUNT, unmount);
-
 }

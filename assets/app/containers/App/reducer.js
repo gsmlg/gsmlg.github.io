@@ -30,7 +30,7 @@ function appReducer(state = initialState, action) {
     case SET_SOCKET:
       return state.set('socket', payload.socket);
     case LOG_SOCKET:
-      return state.update('socketLogs', (logs) => logs.push(payload).slice(-1000, -1));
+      return state.update('socketLogs', (logs) => logs.unshift({ kind: payload.kind, msg: payload.msg, data: payload.data }).take(1985));
     default:
       return state;
   }
