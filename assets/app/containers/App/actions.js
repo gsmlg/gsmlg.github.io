@@ -7,6 +7,7 @@ import {
   MOUNT,
   UNMOUNT,
   SET_SOCKET,
+  LOG_SOCKET,
 } from './constants';
 
 export function init() {
@@ -39,6 +40,13 @@ export function setSocket(socket) {
   };
 }
 
-export function socketLogger(...logs) {
-  console.log(...logs);
+export function socketLogger(kind, msg, data) {
+  return {
+    type: LOG_SOCKET,
+    payload: {
+      kind,
+      msg,
+      data,
+    },
+  };
 }
