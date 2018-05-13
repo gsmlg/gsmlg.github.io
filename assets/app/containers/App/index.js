@@ -11,8 +11,11 @@
  * the linting exception.
  */
 
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { PureComponent } from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { bindActionCreators, compose } from 'redux';
 
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
@@ -21,23 +24,70 @@ import BlogContentPage from 'containers/BlogContentPage/Loadable';
 import BlogCreatePage from 'containers/BlogCreatePage/Loadable';
 import ChineseChess from 'containers/ChineseChess/Loadable';
 import KeynotePage from 'containers/KeynotePage/Loadable';
-import Games from 'containers/Games/Loadable';
-import Networks from 'containers/Networks/Loadable';
+import GamesPage from 'containers/GamesPage/Loadable';
+import NetworksPage from 'containers/NetworksPage/Loadable';
 
-export default function App() {
-  return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/blogs" component={BlogPage} />
-        <Route exact path="/blogs/create" component={BlogCreatePage} />
-        <Route exact path="/blogs/:blog_name" component={BlogContentPage} />
-        <Route exact path="/keynotes" component={KeynotePage} />
-        <Route exact path="/games" component={Games} />
-        <Route exact path="/networks" component={Networks} />
-        <Route exact path="/games/chinese-chess" component={ChineseChess} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
-  );
+import injectSaga from 'utils/injectSaga';
+import injectReducer from 'utils/injectReducer';
+import saga from './saga';
+import reducer from './reducer';
+import {
+} from './selectors';
+import {
+  init,
+  mount,
+  unmount,
+} from './actions';
+
+class App extends PureComponent {
+  componentWillMount() {
+    this.props.init();
+  }
+
+  componentDidMount() {
+    this.props.mount();
+  }
+
+  componentWillUnmount() {
+    this.props.unmount();
+  }
+
+  render() {
+    return (
+      <div>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/blogs" component={BlogPage} />
+          <Route exact path="/blogs/create" component={BlogCreatePage} />
+          <Route exact path="/blogs/:blog_name" component={BlogContentPage} />
+          <Route exact path="/keynotes" component={KeynotePage} />
+          <Route exact path="/games" component={GamesPage} />
+          <Route exact path="/networks" component={NetworksPage} />
+          <Route exact path="/games/chinese-chess" component={ChineseChess} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </div>
+    );
+  }
 }
+
+const mapStateToProps = createStructuredSelector({
+});
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  init,
+  mount,
+  unmount,
+}, dispatch);
+
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
+
+const withReducer = injectReducer({ key: 'APP', reducer });
+const withSaga = injectSaga({ key: 'APP', saga });
+
+export default compose(
+  withRouter,
+  withReducer,
+  withSaga,
+  withConnect,
+)(App);

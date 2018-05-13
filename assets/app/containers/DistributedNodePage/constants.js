@@ -1,10 +1,10 @@
 /*
  *
- * {{ properCase name }} constants
+ * DistributedNodePage constants
  *
  */
 
-const domain = 'app/{{ properCase name }}';
+const domain = 'app/DistributedNodePage';
 
 export const INIT = `${domain}/INIT`;
 

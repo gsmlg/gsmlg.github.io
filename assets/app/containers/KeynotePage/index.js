@@ -6,13 +6,18 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import Layout from 'components/Layout';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import NoteIcon from 'material-ui-icons/Note';
 
-export class KeynotePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+import injectReducer from 'utils/injectReducer';
+import reducer from './reducer';
+
+class KeynotePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+
   render() {
     const { Keynotes } = this.props;
     const noteList = Keynotes.reverse().toJS();
@@ -41,7 +46,6 @@ export class KeynotePage extends React.Component { // eslint-disable-line react/
 
 KeynotePage.propTypes = {
   Keynotes: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -54,4 +58,11 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(KeynotePage);
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
+
+const withReducer = injectReducer({ key: 'Keynotes', reducer });
+
+export default compose(
+  withReducer,
+  withConnect,
+)(KeynotePage);

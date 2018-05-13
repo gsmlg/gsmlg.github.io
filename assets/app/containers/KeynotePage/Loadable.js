@@ -6,5 +6,5 @@ import LayoutLoading from 'components/Layout/loading';
 
 export default Loadable({
   loader: () => import(/* webpackChunkName: 'KeynotePage' */'./index'),
-  loading: () => LayoutLoading,
+  loading: LayoutLoading,
 });

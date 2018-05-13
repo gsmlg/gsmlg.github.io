@@ -36,8 +36,7 @@ import { translationMessages } from './i18n';
 import './global-styles';
 
 // Create redux store with history
-import DATA from './data';
-const initialState = DATA;
+const initialState = {};
 const history = createHistory();
 export const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');

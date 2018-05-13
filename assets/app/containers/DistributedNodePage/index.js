@@ -1,30 +1,21 @@
 /**
  *
- * {{properCase name }}
+ * DistributedNodePage
  *
  */
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-{{#if wantHeaders}}
 import { Helmet } from 'react-helmet';
-{{/if}}
-{{#if wantMessages}}
 import { FormattedMessage } from 'react-intl';
-{{/if}}
-{{#if wantActionsAndReducer}}
 import { createStructuredSelector } from 'reselect';
-{{/if}}
 import { bindActionCreators, compose } from 'redux';
 
-{{#if wantSaga}}
 import injectSaga from 'utils/injectSaga';
-{{/if}}
-{{#if wantActionsAndReducer}}
 import injectReducer from 'utils/injectReducer';
 import {
-  makeSelect{{properCase name}},
+  makeSelectDistributedNodePage,
 } from './selectors';
 import reducer from './reducer';
 import {
@@ -32,16 +23,11 @@ import {
   mount,
   unmount,
 } from './actions';
-{{/if}}
-{{#if wantSaga}}
 import saga from './saga';
-{{/if}}
-{{#if wantMessages}}
 import messages from './messages';
-{{/if}}
 
-export class {{ properCase name }} extends {{{ type }}} { // eslint-disable-line react/prefer-stateless-function
-  componentwillmount() {
+export class DistributedNodePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  componentWillMount() {
     this.props.init();
   }
 
@@ -56,28 +42,22 @@ export class {{ properCase name }} extends {{{ type }}} { // eslint-disable-line
   render() {
     return (
       <div>
-      {{#if wantHeaders}}
         <Helmet>
-          <title>{{properCase name}}</title>
-          <meta name="description" content="Description of {{properCase name}}" />
+          <title>DistributedNodePage</title>
+          <meta name="description" content="Description of DistributedNodePage" />
         </Helmet>
-      {{/if}}
-      {{#if wantMessages}}
         <FormattedMessage {...messages.header} />
-      {{/if}}
       </div>
     );
   }
 }
 
-{{ properCase name }}.propTypes = {
+DistributedNodePage.propTypes = {
 };
 
-{{#if wantActionsAndReducer}}
 const mapStateToProps = createStructuredSelector({
-  {{ camelCase name }}: makeSelect{{properCase name}}(),
+  distributedNodePage: makeSelectDistributedNodePage(),
 });
-{{/if}}
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   init,
@@ -85,23 +65,13 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
   unmount,
 }, dispatch)
 
-{{#if wantActionsAndReducer}}
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-const withReducer = injectReducer({ key: '{{ camelCase name }}', reducer });
-{{else}}
-const withConnect = connect(null, mapDispatchToProps);
-{{/if}}
-{{#if wantSaga}}
-const withSaga = injectSaga({ key: '{{ camelCase name }}', saga });
-{{/if}}
+const withReducer = injectReducer({ key: 'distributedNodePage', reducer });
+const withSaga = injectSaga({ key: 'distributedNodePage', saga });
 
 export default compose(
-{{#if wantActionsAndReducer}}
   withReducer,
-{{/if}}
-{{#if wantSaga}}
   withSaga,
-{{/if}}
   withConnect,
-)({{ properCase name }});
+)(DistributedNodePage);

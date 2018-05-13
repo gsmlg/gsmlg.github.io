@@ -11,14 +11,16 @@ import {
   movePieceRemote,
 } from './actions';
 import { store } from '../../app';
+import {
+  makeSelectSocket,
+} from '../App/selectors';
 
-let socket;
 let channel;
 
 export function* connect() {
   const params = {};
-  socket = new Socket('/socket', { params, logger: console.log });
-  socket.connect();
+  const socket = yield select(makeSelectSocket());
+
   try {
     channel = socket.channel('room:chess', {});
     if (!channel.isJoined()) {

@@ -1,6 +1,6 @@
 /*
  *
- * {{ properCase name }} reducer
+ * DistributedNodePage reducer
  *
  */
 
@@ -13,7 +13,7 @@ import {
 
 const initialState = fromJS({});
 
-function {{ camelCase name }}Reducer(state = initialState, action) {
+function distributedNodePageReducer(state = initialState, action) {
   switch (action.type) {
     case INIT:
       return state;
@@ -26,4 +26,4 @@ function {{ camelCase name }}Reducer(state = initialState, action) {
   }
 }
 
-export default {{ camelCase name }}Reducer;
+export default distributedNodePageReducer;

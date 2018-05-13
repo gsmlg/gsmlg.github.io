@@ -1,4 +1,4 @@
-/*
+/**
  *
  * Games
  *
@@ -26,7 +26,8 @@ const styles = (theme) => ({
   },
 });
 
-export class Games extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export class GamesPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+
   render() {
     const {
       classes,
@@ -58,23 +59,13 @@ export class Games extends React.Component { // eslint-disable-line react/prefer
   }
 }
 
-Games.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-};
-
 const mapStateToProps = createStructuredSelector({
   Games: makeSelectGames(),
 });
 
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch,
-  };
-}
-
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
+const withConnect = connect(mapStateToProps);
 
 export default compose(
   withConnect,
   withStyles(styles),
-)(Games);
+)(GamesPage);
