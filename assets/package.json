@@ -7,7 +7,6 @@
     "url": "git://github.com/react-boilerplate/react-boilerplate.git"
   },
   "engines": {
-    "npm": ">=3",
     "node": ">=5"
   },
   "author": "Max Stoiber",
@@ -29,7 +28,7 @@
     "start:production": "./yarn run test && ./yarn run build && ./yarn run start:prod",
     "start:prod": "cross-env NODE_ENV=production node server",
     "start:watch": "cross-env NODE_ENV=development webpack --config internals/webpack/webpack.dev.babel.js --color -p --progress -w",
-    "presetup": "npm i chalk shelljs",
+    "presetup": "./yarn add chalk && ./yarn add --dev shelljs",
     "setup": "node ./internals/scripts/setup.js",
     "postsetup": "./yarn run build:dll",
     "clean": "shjs ./internals/scripts/clean.js",
@@ -179,6 +178,7 @@
       "express",
       "ip",
       "minimist",
+      "shelljs",
       "sanitize.css"
     ],
     "include": [
