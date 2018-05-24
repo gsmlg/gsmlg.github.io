@@ -47,7 +47,7 @@ export class GamesPage extends React.Component { // eslint-disable-line react/pr
               <Grid item md={4}>
                 <Paper>
                   <Link to="/games/chinese-chess">
-                    <Typography component="h3" >{'中国象棋'}</Typography>
+                    <Typography component="h3" >中国象棋</Typography>
                   </Link>
                 </Paper>
               </Grid>
@@ -57,7 +57,6 @@ export class GamesPage extends React.Component { // eslint-disable-line react/pr
       </Layout>
     );
   }
-
 }
 
 const mapStateToProps = createStructuredSelector({

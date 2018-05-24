@@ -18,7 +18,7 @@ export function defaultAction() {
   return {
     type: DEFAULT_ACTION,
   };
-};
+}
 
 export function initPieces(pieces) {
   return {
@@ -27,11 +27,11 @@ export function initPieces(pieces) {
       pieces,
       redPieces: pieces.filter((p) => p.color === 'red'),
       blackPieces: pieces.filter((p) => p.color === 'black'),
-    }
-  }
+    },
+  };
 }
 
-export const movePiece = (item,position) => ({
+export const movePiece = (item, position) => ({
   type: MOVE_POSITION,
   payload: {
     item,
@@ -39,7 +39,7 @@ export const movePiece = (item,position) => ({
   },
 });
 
-export const movePieceRemote = (item,position) => ({
+export const movePieceRemote = (item, position) => ({
   type: MOVE_POSITION_REMOTE,
   payload: {
     item,
@@ -56,7 +56,7 @@ export const kill = (item) => ({
 
 export const connectRoom = () => ({
   type: CONNECT,
-  payload: {}
+  payload: {},
 });
 
 export const start = () => ({

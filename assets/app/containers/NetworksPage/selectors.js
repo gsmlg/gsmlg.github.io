@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-import {each, map, last, compact, min, max, sum, sortBy} from 'lodash';
+import { each, map, last, compact, min, max, sum, sortBy } from 'lodash';
 
 /**
  * Direct selector to the networks state domain

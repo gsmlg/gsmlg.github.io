@@ -60,7 +60,7 @@ export class NetworksPage extends React.Component { // eslint-disable-line react
       doCheck(site);
       const xhr = new XMLHttpRequest();
       const times = new Date();
-      setTimeout(() => { if (xhr.readyState < 4) {xhr.abort();reject()}}, 3000);
+      setTimeout(() => { if (xhr.readyState < 4) { xhr.abort(); reject(); } }, 3000);
       xhr.onreadystatechange = (e) => {
         const timef = new Date();
         const t = timef - times;
@@ -74,9 +74,7 @@ export class NetworksPage extends React.Component { // eslint-disable-line react
       xhr.open('HEAD', `//${site.host}`);
       xhr.send(null);
     })
-      .catch(() => {
-        return null;
-      })
+      .catch(() => null)
       .then((time) => {
         checkDone(site, time);
       });

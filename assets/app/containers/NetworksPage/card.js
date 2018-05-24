@@ -61,6 +61,4 @@ function NetworkCard(props) {
   );
 }
 
-export default compose(
-  withStyles(styles),
-)(NetworkCard);
+export default compose(withStyles(styles), )(NetworkCard);

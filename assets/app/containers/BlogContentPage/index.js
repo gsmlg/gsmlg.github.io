@@ -17,6 +17,8 @@ import Divider from '@material-ui/core/Divider';
 import Layout from 'components/Layout';
 
 import 'highlight.js/styles/monokai-sublime.css';
+import injectReducer from 'utils/injectReducer';
+import reducer from '../BlogPage/reducer';
 
 const styles = (theme) => ({
   root: theme.mixins.gutters({
@@ -28,7 +30,6 @@ const styles = (theme) => ({
 });
 
 class BlogContentPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-
   constructor(...args) {
     super(...args);
     this.state = Object.assign({}, this.state, {
@@ -85,7 +86,10 @@ const mapStateToProps = (state) => ({
 
 const withConnect = connect(mapStateToProps);
 
+const withReducer = injectReducer({ key: 'Blogs', reducer });
+
 export default compose(
+  withReducer,
   withConnect,
   withStyles(styles),
 )(BlogContentPage);

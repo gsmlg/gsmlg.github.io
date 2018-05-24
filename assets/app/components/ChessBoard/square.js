@@ -50,7 +50,7 @@ const chessSquareTarget = {
     // which will be available as monitor.getDropResult()
     // in the drag source's endDrag() method
     return { moved: true };
-  }
+  },
 };
 
 /**
@@ -65,36 +65,44 @@ function collect(connect, monitor) {
     isOver: monitor.isOver(),
     isOverCurrent: monitor.isOver({ shallow: true }),
     canDrop: monitor.canDrop(),
-    itemType: monitor.getItemType()
+    itemType: monitor.getItemType(),
   };
 }
 
 class Square extends Component {
   render() {
     const { x, y } = this.props;
-    const { isOver, canDrop, connectDropTarget, piece } = this.props;
+    const {
+      isOver, canDrop, connectDropTarget, piece,
+    } = this.props;
 
-    let bgColor = canDrop ? (piece ? 'red' : 'green') : 'transparent';
+    const bgColor = canDrop ? (piece ? 'red' : 'green') : 'transparent';
 
-    return connectDropTarget(
-      <div style={{
+    return connectDropTarget(<div
+      style={{
         width: '100%',
         height: '100%',
         backgroundColor: bgColor,
-      }}>
-        <div style={{
+      }}
+    >
+      <div
+        style={{
           height: '1px',
           width: [0, 8].includes(x) ? '50%' : '100%',
           backgroundColor: 'black',
-          transform: `translate(${x===0?'30px':0}, 30px)`}} />
-        <div style={{
-          height: ([0, 9].includes(y) || ([4,5].includes(y) && ![0,8].includes(x)) ) ? '50%' : '100%',
+          transform: `translate(${x === 0 ? '30px' : 0}, 30px)`,
+        }}
+      />
+      <div
+        style={{
+          height: ([0, 9].includes(y) || ([4, 5].includes(y) && ![0, 8].includes(x))) ? '50%' : '100%',
           width: '1px',
           backgroundColor: 'black',
-          transform: `translate(30px, ${y===0 || (y == 5 && ![0,8].includes(x))?'30px':0})`}} />
-        {this.props.children}
-      </div>
-    );
+          transform: `translate(30px, ${y === 0 || (y == 5 && ![0, 8].includes(x)) ? '30px' : 0})`,
+        }}
+      />
+      {this.props.children}
+    </div>);
   }
 }
 

@@ -128,4 +128,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 17,
+  name: 'makefile',
+  title: 'Makefile使用',
+  date: '2018-05-16',
+  author: 'Gao',
+});
+
 export default blogs;

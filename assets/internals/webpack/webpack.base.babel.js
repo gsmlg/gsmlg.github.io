@@ -13,13 +13,13 @@ const renderer = new marked.Renderer();
 
 renderer.code = (code, language) => {
   try {
-    return `<pre class="hljs"><code class="language-${language}">` +
-      (language ? hljs.highlight(language, code).value : hljs.highlightAuto(code).value)+
-      '</code></pre>';
+    return `<pre class="hljs"><code class="language-${language}">${
+      language ? hljs.highlight(language, code).value : hljs.highlightAuto(code).value
+    }</code></pre>`;
   } catch (e) {
-    return '<pre class="hljs"><code class="language-auto">' +
-      (hljs.highlightAuto(code).value) +
-      '</code></pre>';
+    return `<pre class="hljs"><code class="language-auto">${
+      hljs.highlightAuto(code).value
+    }</code></pre>`;
   }
 };
 
