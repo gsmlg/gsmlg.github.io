@@ -1,4 +1,4 @@
-/*
+/**
  *
  * DistributedNodePage reducer
  *

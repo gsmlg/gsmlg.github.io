@@ -10,14 +10,18 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import WebIcon from 'material-ui-icons/Web';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import WebIcon from '@material-ui/icons/Web';
 import Layout from 'components/Layout';
+import Immutable from 'immutable';
 
 import injectReducer from 'utils/injectReducer';
 import reducer from './reducer';
 
-class BlogPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+class BlogPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     const { Blogs } = this.props;
 
@@ -49,7 +53,6 @@ class BlogPage extends React.Component { // eslint-disable-line react/prefer-sta
 }
 
 BlogPage.propTypes = {
-  Blogs: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -10,8 +10,11 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import Layout from 'components/Layout';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import NoteIcon from 'material-ui-icons/Note';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import NoteIcon from '@material-ui/icons/Note';
 
 import injectReducer from 'utils/injectReducer';
 import reducer from './reducer';

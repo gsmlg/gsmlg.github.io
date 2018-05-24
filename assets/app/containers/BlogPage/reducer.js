@@ -6,7 +6,7 @@
 
 import { fromJS } from 'immutable';
 
-import DATA from 'data';
+import DATA from 'data/index';
 
 const initialState = fromJS(DATA.Blogs);
 

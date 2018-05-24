@@ -183,8 +183,8 @@ defmodule Gsmlg.Chess.ChessPieces do
   end
 
   def init_pieces() do
-    red = redPieces |> Enum.with_index |> Enum.map(fn({v, k}) -> v |> Map.put(:id, "r#{k}") |> Map.put(:color, "red") |> Map.put(:live, true) end)
-    black = blackPieces |> Enum.with_index |> Enum.map(fn({v, k}) -> v |> Map.put(:id, "b#{k}") |> Map.put(:color, "black") |> Map.put(:live, true) end)
+    red = redPieces() |> Enum.with_index |> Enum.map(fn({v, k}) -> v |> Map.put(:id, "r#{k}") |> Map.put(:color, "red") |> Map.put(:live, true) end)
+    black = blackPieces() |> Enum.with_index |> Enum.map(fn({v, k}) -> v |> Map.put(:id, "b#{k}") |> Map.put(:color, "black") |> Map.put(:live, true) end)
     red ++ black
   end
 

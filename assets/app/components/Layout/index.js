@@ -6,16 +6,16 @@
 
 import React from 'react';
 // import styled from 'styled-components';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 import { NavLink } from 'react-router-dom';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
-import { styles as btnStyles } from 'material-ui/Button/Button';
-import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui-icons/Menu';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import { styles as btnStyles } from '@material-ui/core/Button/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const styles = (theme) => ({
   root: {
@@ -32,8 +32,8 @@ const styles = (theme) => ({
     lineHeight: '2em',
     textAlign: 'center',
     marginTop: '0.5em',
-    color: theme.palette.getContrastText(theme.palette.primary[500]),
-    backgroundColor: theme.palette.primary[500],
+    color: theme.palette.getContrastText(theme.palette.primary.main),
+    backgroundColor: theme.palette.primary.main,
   },
   menuButton: {
     marginLeft: -12,
@@ -55,15 +55,15 @@ class Layout extends React.PureComponent { // eslint-disable-line react/prefer-s
       <section className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
+            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
               <MenuIcon />
             </IconButton>
             <Typography type="title" color="inherit" className={classes.flex}>
-              <Button color="contrast" component={NavLink} to="/" exact activeClassName={classes.raised} >Home</Button>
-              <Button color="contrast" component={NavLink} to="/blogs" activeClassName={classes.raised} >Blog</Button>
-              <Button color="contrast" component={NavLink} to="/keynotes" activeClassName={classes.raised} >Keynote</Button>
-              <Button color="contrast" component={NavLink} to="/networks" activeClassName={classes.raised} >Networks</Button>
-              <Button color="contrast" component={NavLink} to="/games" activeClassName={classes.raised} >Games</Button>
+              <Button color="inherit" component={NavLink} to="/" exact activeClassName={classes.raised} >Home</Button>
+              <Button color="inherit" component={NavLink} to="/blogs" activeClassName={classes.raised} >Blog</Button>
+              <Button color="inherit" component={NavLink} to="/keynotes" activeClassName={classes.raised} >Keynote</Button>
+              <Button color="inherit" component={NavLink} to="/networks" activeClassName={classes.raised} >Networks</Button>
+              <Button color="inherit" component={NavLink} to="/games" activeClassName={classes.raised} >Games</Button>
             </Typography>
           </Toolbar>
         </AppBar>

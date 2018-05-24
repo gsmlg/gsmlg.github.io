@@ -11,10 +11,10 @@ import Helmet from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { map, each } from 'lodash';
 import injectReducer from 'utils/injectReducer';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 import Layout from 'components/Layout';
-import Grid from 'material-ui/Grid';
+import Grid from '@material-ui/core/Grid';
 import Card from './card';
 
 import { doCheck, checkDone } from './actions';
@@ -28,7 +28,6 @@ const styles = (theme) => ({
 });
 
 export class NetworksPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
-
   componentDidMount() {
     this.stop = false;
     this.checkQueue();
@@ -78,7 +77,7 @@ export class NetworksPage extends React.Component { // eslint-disable-line react
       .catch(() => {
         return null;
       })
-      .then((time)=> {
+      .then((time) => {
         checkDone(site, time);
       });
   }

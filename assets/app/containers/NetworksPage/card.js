@@ -3,19 +3,21 @@ import PropTypes from 'prop-types';
 import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 
-import Paper from 'material-ui/Paper';
-import Card, { CardHeader, CardContent } from 'material-ui/Card';
-import Avatar from 'material-ui/Avatar';
-import Typography from 'material-ui/Typography';
-import Divider from 'material-ui/Divider';
+import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 const styles = (theme) => ({
 
 });
 
-function NetworkCard (props) {
+function NetworkCard(props) {
   const {
     classes,
     host,
@@ -34,7 +36,7 @@ function NetworkCard (props) {
         />
         <Divider />
         <CardContent>
-          <Typography component="p">
+          <Typography component="div">
             <span>Delay: </span>
             <span>{host.delay}</span>
             <Divider />

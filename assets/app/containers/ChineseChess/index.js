@@ -13,13 +13,13 @@ import { createStructuredSelector } from 'reselect';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import Board from 'components/ChessBoard';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 
-import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
-import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
-import Divider from 'material-ui/Divider';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 import reducer from './reducer';
 import saga from './saga';

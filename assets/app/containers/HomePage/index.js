@@ -12,10 +12,10 @@
 import React from 'react';
 import { compose } from 'redux';
 import Helmet from 'react-helmet';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 
-import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 import Layout from 'components/Layout';
 
 const styles = theme => ({

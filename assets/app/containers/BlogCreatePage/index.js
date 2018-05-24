@@ -10,14 +10,15 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 
-import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography';
-import Divider from 'material-ui/Divider';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 import Layout from 'components/Layout';
-import Input, { InputLabel } from 'material-ui/Input';
-import { FormControl, FormHelperText } from 'material-ui/Form';
+import Input, { InputLabel } from '@material-ui/core/Input';
+import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -25,7 +26,7 @@ import makeSelectBlogCreate from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: theme.mixins.gutters({
     flex: 1,
     paddingTop: 16,
@@ -78,7 +79,6 @@ export class BlogCreatePage extends React.PureComponent { // eslint-disable-line
 }
 
 BlogCreatePage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
