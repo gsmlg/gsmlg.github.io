@@ -8,7 +8,9 @@ import { fromJS } from 'immutable';
 
 import DATA from 'data/index';
 
-const initialState = fromJS(DATA.Blogs);
+const initialState = fromJS({
+  blogs: DATA.Blogs,
+});
 
 function blogPageReducer(state = initialState, action) {
   switch (action.type) {

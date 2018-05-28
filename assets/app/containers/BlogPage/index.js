@@ -23,19 +23,22 @@ import reducer from './reducer';
 
 class BlogPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const { Blogs } = this.props;
+    const { blogs } = this.props;
+    let blogList;
 
-    const blogList = Blogs.toJS().sort((a, b) => {
-      if (a.id < b.id) return 1;
-      if (a.id > b.id) return -1;
-      return 0;
-    }).map((blog) => (
-      <ListItem key={blog.name} component={Link} to={`/blogs/${blog.name}`}>
-        <ListItemIcon ><WebIcon /></ListItemIcon>
-        <ListItemText primary={blog.title} />
-        <ListItemText secondary={blog.date} />
-      </ListItem>
-    ));
+    if (blogs) {
+      blogList = blogs.toJS().sort((a, b) => {
+        if (a.id < b.id) return 1;
+        if (a.id > b.id) return -1;
+        return 0;
+      }).map((blog) => (
+        <ListItem key={blog.name} component={Link} to={`/blogs/${blog.name}`}>
+          <ListItemIcon ><WebIcon /></ListItemIcon>
+          <ListItemText primary={blog.title} />
+          <ListItemText secondary={blog.date} />
+        </ListItem>
+      ));
+    }
     return (
       <Layout>
         <Helmet
@@ -56,12 +59,12 @@ BlogPage.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  Blogs: state.get('Blogs'),
+  blogs: state.getIn(['blogs', 'blogs']),
 });
 
 const withConnect = connect(mapStateToProps);
 
-const withReducer = injectReducer({ key: 'Blogs', reducer });
+const withReducer = injectReducer({ key: 'blogs', reducer });
 
 export default compose(
   withReducer,
