@@ -30,6 +30,7 @@ renderer.code = (code, language) => {
 process.noDeprecation = true;
 
 module.exports = (options) => ({
+  mode: options.mode,
   entry: options.entry,
   output: Object.assign({ // Compile into js/build.js
     path: path.resolve(config.build_to),
@@ -112,6 +113,7 @@ module.exports = (options) => ({
       },
       {
         test: /\.json$/,
+        type: 'javascript/auto',
         use: 'json-loader',
       },
       {
@@ -142,7 +144,10 @@ module.exports = (options) => ({
     new webpack.NamedModulesPlugin(),
   ]),
   resolve: {
-    modules: ['app', 'node_modules'],
+    modules: [
+      'node_modules',
+      'app',
+    ],
     extensions: [
       '.js',
       '.jsx',

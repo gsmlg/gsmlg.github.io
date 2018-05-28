@@ -6,6 +6,7 @@ const OfflinePlugin = require('offline-plugin');
 const config = require('../config');
 
 module.exports = require('./webpack.base.babel')({
+  mode: 'production',
   // In production, we skip all hot-reloading stuff
   entry: [
     path.join(config.root, 'app/app.js'),

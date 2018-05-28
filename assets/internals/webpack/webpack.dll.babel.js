@@ -21,6 +21,7 @@ const dllConfig = defaults(pkg.dllPlugin, dllPlugin.defaults);
 const outputPath = join(config.root, dllConfig.path);
 
 module.exports = require('./webpack.base.babel')({
+  mode: 'development',
   context: config.root,
   entry: dllConfig.dlls ? dllConfig.dlls : dllPlugin.entry(pkg),
   devtool: 'eval',
