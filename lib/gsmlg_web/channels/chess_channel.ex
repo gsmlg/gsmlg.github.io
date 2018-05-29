@@ -3,7 +3,6 @@ defmodule GsmlgWeb.ChessChannel do
   alias Guardian.Phoenix.Socket
   alias Phoenix.Socket.Broadcast
   alias Gsmlg.Chess.Room
-  require Logger
 
   def join("room:chess", msg, socket) do
     send(self(), {:after_join, msg})

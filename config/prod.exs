@@ -15,7 +15,7 @@ use Mix.Config
 # which you typically run after static files are built.
 config :gsmlg, GsmlgWeb.Endpoint,
   load_from_system_env: true,
-  url: [host: "next.gsmlg.club", port: 443]
+  url: [host: "www.gsmlg.org", port: 443]
   # cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
@@ -67,4 +67,3 @@ config :gsmlg, Gsmlg.Repo,
   adapter: EctoMnesia.Adapter
 
 config :mnesia, :dir, "priv/data/mnesia/prod"
-
