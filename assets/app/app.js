@@ -34,7 +34,7 @@ import { translationMessages } from './i18n';
 
 // Import CSS reset and Global Styles
 import './global-styles';
-console.log(process.env.NODE_ENV);
+
 // Create redux store with history
 import initialState from './data/index';
 const history = createHistory();
