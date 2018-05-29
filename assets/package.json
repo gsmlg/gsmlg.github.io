@@ -23,7 +23,7 @@
     "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color -p --progress --hide-modules --display-optimization-bailout",
     "build:clean": "rimraf ../priv/static",
     "build:dll": "node ./internals/scripts/dependencies.js",
-    "start:watch": "cross-env NODE_ENV=development webpack --config internals/webpack/webpack.dev.babel.js --color -p --progress -w",
+    "start:watch": "cross-env NODE_ENV=development webpack --mode development --config internals/webpack/webpack.dev.babel.js --color -p --progress -w",
     "presetup": "./yarn add chalk && ./yarn add --dev shelljs",
     "setup": "node ./internals/scripts/setup.js",
     "postsetup": "./yarn run build:dll",
@@ -287,8 +287,9 @@
     "imports-loader": "0.8.0",
     "ip": "^1.1.5",
     "jest-cli": "23.0.1",
+    "json-loader": "^0.5.7",
     "lint-staged": "~7.1.2",
-    "markdown-loader": "^2.0.1",
+    "markdown-loader": "^3.0.0",
     "node-plop": "0.13.0",
     "null-loader": "0.1.1",
     "offline-plugin": "5.0.3",
@@ -299,7 +300,7 @@
     "shelljs": "0.8.2",
     "style-loader": "0.21.0",
     "url-loader": "1.0.1",
-    "webpack": "4.9.1",
+    "webpack": "4.10.1",
     "webpack-cli": "^2.1.4"
   }
 }

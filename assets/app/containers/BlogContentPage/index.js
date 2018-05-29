@@ -39,7 +39,7 @@ class BlogContentPage extends React.PureComponent { // eslint-disable-line react
 
   componentDidMount() {
     const name = this.props.match.params.blog_name;
-    import(/* webpackChunkName: 'BlogContentPage.[request]' */ `data/blogs/${name}.md`).then((html) => {
+    import(/* webpackChunkName: 'BlogContentPage.[request]' */ `data/blogs/${name}.md`).then(({ default: html }) => {
       this.setState({ blogContent: html });
     }).catch((error) => {
       this.setState({ blogContent: '<h1 style="color: red">Load content fail!<h1>' });
