@@ -23,7 +23,7 @@
     "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color -p --progress --hide-modules --display-optimization-bailout",
     "build:clean": "rimraf ../priv/static",
     "build:dll": "node ./internals/scripts/dependencies.js",
-    "start:watch": "cross-env NODE_ENV=development webpack --mode development --config internals/webpack/webpack.dev.babel.js --color -p --progress -w",
+    "start:watch": "cross-env NODE_ENV=development webpack --mode development --config internals/webpack/webpack.dev.babel.js --color --progress -w",
     "presetup": "./yarn add chalk && ./yarn add --dev shelljs",
     "setup": "node ./internals/scripts/setup.js",
     "postsetup": "./yarn run build:dll",
