@@ -144,4 +144,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 19,
+  name: 'vpn-setup-macos',
+  title: '在macOS中配置VPN',
+  date: '2018-06-22',
+  author: 'Gao',
+});
+
 export default blogs;
