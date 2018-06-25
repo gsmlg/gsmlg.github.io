@@ -48,3 +48,55 @@ $4 client ip
 $5 remote ip
 $6 local gateway
 ```
+
+### 命令行中控制VPN
+
+```
+VPN connections
+
+Usage: scutil --nc [command]
+
+	list
+		List available network connection services in the current set
+
+	status <service>
+		Indicate whether a given service is connected, as well as extended status information for the service
+
+	show <service>
+		Display configuration information for a given service
+
+	statistics <service>
+		Provide statistics on bytes, packets, and errors for a given service
+
+	select <service>
+		Make the given service active in the current set. This allows it to be started
+
+	start <service> [--user user] [--password password] [--secret secret]
+		Start a given service. Can take optional arguments for user, password, and secret
+
+	stop <service>
+		Stop a given service
+
+	suspend <service>
+		Suspend a given service (PPP, Modem on Hold)
+
+	resume <service>
+		Resume a given service (PPP, Modem on Hold)
+
+	ondemand [-W] [hostname]
+	ondemand -- --refresh
+		Display VPN on-demand information
+
+	trigger <hostname> [background] [port]
+		Trigger VPN on-demand with specified hostname, and optional port and background flag
+
+	enablevpn <service or vpn type> [path]
+		Enables the given VPN application type. Takes either a service or VPN type. Pass a path to set ApplicationURL
+
+	disablevpn <service or vpn type>
+		Disables the given VPN application type. Takes either a service or VPN type
+
+	help
+		Display available commands for --nc
+
+```
