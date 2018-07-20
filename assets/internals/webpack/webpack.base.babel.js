@@ -66,33 +66,12 @@ module.exports = (options) => ({
       },
       {
         test: /\.(jpg|png|gif)$/,
-        use: [
-          'file-loader',
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65,
-              },
-              // optipng.enabled: false will disable optipng
-              optipng: {
-                enabled: false,
-              },
-              pngquant: {
-                quality: '65-90',
-                speed: 4,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              // the webp option will enable WEBP
-              webp: {
-                quality: 75,
-              },
-            },
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 30000,
           },
-        ],
+        },
       },
       {
         test: /\.html$/,
@@ -121,7 +100,7 @@ module.exports = (options) => ({
         use: {
           loader: 'url-loader',
           options: {
-            limit: 10000,
+            limit: 30000,
           },
         },
       },

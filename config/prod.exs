@@ -16,7 +16,10 @@ use Mix.Config
 config :gsmlg, GsmlgWeb.Endpoint,
   load_from_system_env: true,
   url: [host: "gsmlg.org", port: 443],
-  check_origin: false
+  server: true,
+  root: ".",
+  check_origin: false,
+  version: Application.spec(:gsmlg, :vsn)
   # cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production

@@ -44,6 +44,7 @@ defmodule Gsmlg.Mixfile do
       {:guardian, "~> 1.0-beta"},
       {:httpoison, "~> 0.11.1"},
       {:poison, "~> 3.1.0"},
+      {:distillery, "~> 1.5", runtime: false},
     ]
   end
 
