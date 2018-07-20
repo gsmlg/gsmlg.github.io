@@ -3,7 +3,7 @@ defmodule GsmlgWeb.PageController do
   plug :put_layout, false
 
   def index(conn, _params) do
-    if Mix.env == :prod do
+    if Application.get_env(:gsmlg, :environment) == :prod do
       conn
       |> put_resp_content_type("text/html")
       |> send_file(200, Path.join([Application.app_dir(:gsmlg), "priv", "static", "index.html"]))
@@ -15,7 +15,7 @@ defmodule GsmlgWeb.PageController do
   end
 
   def not_found(conn, _params) do
-    if Mix.env == :prod do
+    if Application.get_env(:gsmlg, :environment) == :prod do
       conn
       |> put_resp_content_type("text/html")
       |> send_file(404, Path.join([Application.app_dir(:gsmlg), "priv", "static", "index.html"]))
