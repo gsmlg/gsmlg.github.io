@@ -15,8 +15,8 @@ import { FormattedMessage } from 'react-intl';
 {{/if}}
 {{#if wantActionsAndReducer}}
 import { createStructuredSelector } from 'reselect';
-{{/if}}
 import { bindActionCreators, compose } from 'redux';
+{{/if}}
 
 {{#if wantSaga}}
 import injectSaga from 'utils/injectSaga';
@@ -41,7 +41,8 @@ import messages from './messages';
 {{/if}}
 
 export class {{ properCase name }} extends {{{ type }}} { // eslint-disable-line react/prefer-stateless-function
-  componentwillmount() {
+{{#if wantActionsAndReducer}}
+  componentWillMount() {
     this.props.init();
   }
 
@@ -53,6 +54,7 @@ export class {{ properCase name }} extends {{{ type }}} { // eslint-disable-line
     this.props.unmount();
   }
 
+{{/if}}
   render() {
     return (
       <div>
@@ -77,13 +79,13 @@ export class {{ properCase name }} extends {{{ type }}} { // eslint-disable-line
 const mapStateToProps = createStructuredSelector({
   {{ camelCase name }}: makeSelect{{properCase name}}(),
 });
-{{/if}}
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   init,
   mount,
   unmount,
-}, dispatch)
+}, dispatch);
+{{/if}}
 
 {{#if wantActionsAndReducer}}
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
