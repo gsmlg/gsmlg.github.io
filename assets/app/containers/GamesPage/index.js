@@ -24,6 +24,15 @@ const styles = (theme) => ({
   root: {
     marginTop: '1em',
   },
+  paper: {
+    padding: '1em',
+  },
+  link: {
+    textDecoration: 'none',
+  },
+  text: {
+    fontSize: '1.44em',
+  },
 });
 
 export class GamesPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -45,9 +54,9 @@ export class GamesPage extends React.Component { // eslint-disable-line react/pr
           <Grid item md={11}>
             <Grid container>
               <Grid item md={4}>
-                <Paper>
-                  <Link to="/games/chinese-chess">
-                    <Typography component="h3" >中国象棋</Typography>
+                <Paper className={classes.paper}>
+                  <Link to="/games/chinese-chess" className={classes.link}>
+                    <Typography className={classes.text} component="h3" >中国象棋</Typography>
                   </Link>
                 </Paper>
               </Grid>

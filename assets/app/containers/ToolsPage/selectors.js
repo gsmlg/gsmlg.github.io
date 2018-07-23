@@ -14,7 +14,7 @@ export const selectToolsPageDomain = (state) => state.get('tools');
  * Default selector used by ToolsPage
  */
 
-const makeSelectToolsPage = () => createSelector(
+export const makeSelectToolsPage = () => createSelector(
   selectToolsPageDomain,
   (substate) => substate.toJS()
 );

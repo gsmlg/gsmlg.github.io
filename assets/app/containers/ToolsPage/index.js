@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { bindActionCreators, compose } from 'redux';
+import { withStyles } from '@material-ui/core/styles';
 
 import Layout from 'components/Layout';
 import { Link } from 'react-router-dom';
@@ -30,7 +31,22 @@ import {
 } from './actions';
 import saga from './saga';
 
-class ToolsPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+const styles = (theme) => ({
+  root: {
+    marginTop: '1em',
+  },
+  paper: {
+    padding: '1em',
+  },
+  link: {
+    textDecoration: 'none',
+  },
+  text: {
+    fontSize: '1.44em',
+  },
+});
+
+export class ToolsPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   componentWillMount() {
     this.props.init();
   }
@@ -44,6 +60,9 @@ class ToolsPage extends React.PureComponent { // eslint-disable-line react/prefe
   }
 
   render() {
+    const {
+      classes,
+    } = this.props;
     return (
       <Layout>
         <Helmet
@@ -56,9 +75,9 @@ class ToolsPage extends React.PureComponent { // eslint-disable-line react/prefe
           <Grid item md={11}>
             <Grid container>
               <Grid item md={4}>
-                <Paper>
-                  <Link to="/tools/vultr-networks">
-                    <Typography component="h3" >Vultr Networks Delay</Typography>
+                <Paper className={classes.paper}>
+                  <Link className={classes.link} to="/tools/vultr-networks">
+                    <Typography className={classes.text} component="h3" >Vultr Networks Delay</Typography>
                   </Link>
                 </Paper>
               </Grid>
@@ -92,4 +111,5 @@ export default compose(
   withReducer,
   withSaga,
   withConnect,
+  withStyles(styles),
 )(ToolsPage);
