@@ -48,11 +48,11 @@ class BlogContentPage extends React.PureComponent { // eslint-disable-line react
 
   render() {
     const {
-      Blogs,
+      blogs,
       classes,
       match,
     } = this.props;
-    const blog = Blogs.find((val, key) => (val.get('name') === match.params.blog_name)).toJS();
+    const blog = blogs.find((val, key) => (val.get('name') === match.params.blog_name)).toJS();
     const html = this.state.blogContent;
     return (
       <Layout>
@@ -77,16 +77,16 @@ class BlogContentPage extends React.PureComponent { // eslint-disable-line react
 }
 
 BlogContentPage.propTypes = {
-  Blogs: PropTypes.object.isRequired,
+  blogs: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  Blogs: state.get('Blogs'),
+  blogs: state.getIn(['blogs', 'blogs']),
 });
 
 const withConnect = connect(mapStateToProps);
 
-const withReducer = injectReducer({ key: 'Blogs', reducer });
+const withReducer = injectReducer({ key: 'blogs', reducer });
 
 export default compose(
   withReducer,

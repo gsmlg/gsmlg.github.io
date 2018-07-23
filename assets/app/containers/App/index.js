@@ -22,10 +22,11 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import BlogPage from 'containers/BlogPage/Loadable';
 import BlogContentPage from 'containers/BlogContentPage/Loadable';
 import BlogCreatePage from 'containers/BlogCreatePage/Loadable';
-import ChineseChess from 'containers/ChineseChess/Loadable';
 import KeynotePage from 'containers/KeynotePage/Loadable';
-import GamesPage from 'containers/GamesPage/Loadable';
+import ToolsPage from 'containers/ToolsPage/Loadable';
 import NetworksPage from 'containers/NetworksPage/Loadable';
+import GamesPage from 'containers/GamesPage/Loadable';
+import ChineseChess from 'containers/ChineseChess/Loadable';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -61,8 +62,9 @@ class App extends PureComponent {
           <Route exact path="/blogs/create" component={BlogCreatePage} />
           <Route exact path="/blogs/:blog_name" component={BlogContentPage} />
           <Route exact path="/keynotes" component={KeynotePage} />
+          <Route exact path="/tools" component={ToolsPage} />
+          <Route exact path="/tools/vultr-networks" component={NetworksPage} />
           <Route exact path="/games" component={GamesPage} />
-          <Route exact path="/networks" component={NetworksPage} />
           <Route exact path="/games/chinese-chess" component={ChineseChess} />
           <Route component={NotFoundPage} />
         </Switch>

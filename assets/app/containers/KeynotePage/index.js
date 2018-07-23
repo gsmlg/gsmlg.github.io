@@ -20,10 +20,9 @@ import injectReducer from 'utils/injectReducer';
 import reducer from './reducer';
 
 class KeynotePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
-
   render() {
-    const { Keynotes } = this.props;
-    const noteList = Keynotes.reverse().toJS();
+    const { keynotes } = this.props;
+    const noteList = keynotes.reverse().toJS();
     const list = noteList.map((note) => (
       <ListItem key={note.name} component="a" href={note.link} target="_blank">
         <ListItemIcon><NoteIcon /></ListItemIcon>
@@ -48,11 +47,11 @@ class KeynotePage extends React.Component { // eslint-disable-line react/prefer-
 }
 
 KeynotePage.propTypes = {
-  Keynotes: PropTypes.object.isRequired,
+  keynotes: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  Keynotes: state.get('Keynotes'),
+  keynotes: state.get('keynotes'),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -63,7 +62,7 @@ function mapDispatchToProps(dispatch) {
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-const withReducer = injectReducer({ key: 'Keynotes', reducer });
+const withReducer = injectReducer({ key: 'keynotes', reducer });
 
 export default compose(
   withReducer,
