@@ -11,11 +11,11 @@ copy:
 	\cp _build/prod/rel/gsmlg/releases/$$(grep version mix.exs |awk -F'["]' '{print $$2}')/gsmlg.tar.gz .
 
 ghpage:
-	git branch -D __tmp
 	BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
 	./build_web.sh
 	git checkout -b __tmp
 	git add -f priv/static
 	git commit -m 'publish ghpage'
 	git push origin `git subtree split --prefix priv/static `:master --force
-	git checkout ${BRANCH}
+	git checkout elixir
+	git branch -D __tmp
