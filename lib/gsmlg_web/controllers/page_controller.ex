@@ -22,6 +22,7 @@ defmodule GsmlgWeb.PageController do
       |> halt()
     else
       conn
+      |> put_status(404)
       |> render("index.html")
     end
   end

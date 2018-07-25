@@ -24,6 +24,7 @@ defmodule GsmlgWeb.Router do
   scope "/api", GsmlgWeb do
     pipe_through :api
 
+    get "/nodes", NodeController, :index
     resources "/blogs", BlogController, only: [:index, :create, :update, :show]
 
   end
