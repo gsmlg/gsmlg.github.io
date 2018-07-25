@@ -280,7 +280,6 @@
     "eslint-plugin-redux-saga": "~0.8.0",
     "eventsource-polyfill": "0.9.6",
     "exports-loader": "0.7.0",
-    "favicons-webpack-plugin": "^0.0.9",
     "file-loader": "1.1.11",
     "html-loader": "0.5.5",
     "html-webpack-plugin": "3.2.0",
@@ -300,6 +299,7 @@
     "shelljs": "0.8.2",
     "style-loader": "0.21.0",
     "url-loader": "1.0.1",
+    "webapp-webpack-plugin": "^2.3.0",
     "webpack": "4.10.1",
     "webpack-cli": "^2.1.4"
   }

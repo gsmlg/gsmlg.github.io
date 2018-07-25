@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const WebappWebpackPlugin = require('webapp-webpack-plugin')
 const config = require('../config');
 
 module.exports = require('./webpack.base.babel')({
@@ -44,12 +44,19 @@ module.exports = require('./webpack.base.babel')({
       },
       inject: true,
     }),
-    new FaviconsWebpackPlugin({
+    new WebappWebpackPlugin({
       logo: 'images/icon.png',
       prefix: 'icons-[hash]/',
-      persistentCache: false,
+      cache: false,
       inject: true,
-      title: 'GSMLG Web',
+      favicons: {
+        path: '/',
+        appName: 'GSMLG',
+        developername: 'gsmlg',
+        developerURL: 'https://www.gsmlg.org',
+        background: '#414AB6',
+        theme_color: '#414AB6',
+      },
     }),
 
     // Put it in the end to capture all the HtmlWebpackPlugin's
