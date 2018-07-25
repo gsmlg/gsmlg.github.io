@@ -3,6 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const config = require('../config');
 
 module.exports = require('./webpack.base.babel')({
@@ -43,16 +44,19 @@ module.exports = require('./webpack.base.babel')({
       },
       inject: true,
     }),
+    new FaviconsWebpackPlugin({
+      logo: 'images/icon.png',
+      prefix: 'icons-[hash]/',
+      persistentCache: false,
+      inject: true,
+      title: 'GSMLG Web',
+    }),
 
     // Put it in the end to capture all the HtmlWebpackPlugin's
     // assets manipulations and do leak its manipulations to HtmlWebpackPlugin
     new OfflinePlugin({
       relativePaths: false,
       publicPath: '/',
-
-      // No need to cache .htaccess. See http://mxs.is/googmp,
-      // this is applied before any match in `caches` section
-      excludes: ['.htaccess'],
 
       caches: {
         main: [':rest:'],
@@ -65,8 +69,6 @@ module.exports = require('./webpack.base.babel')({
 
       // Removes warning for about `additional` section usage
       safeToUseOptionalCaches: true,
-
-      AppCache: false,
     }),
   ],
 

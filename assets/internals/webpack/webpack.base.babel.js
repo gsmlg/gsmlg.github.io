@@ -4,10 +4,10 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const config = require('../config');
-
 const marked = require('marked');
 const hljs = require('highlight.js');
+
+const config = require('../config');
 
 const renderer = new marked.Renderer();
 
