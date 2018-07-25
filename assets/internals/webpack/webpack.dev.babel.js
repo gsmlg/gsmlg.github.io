@@ -33,12 +33,12 @@ const plugins = [
     cache: true,
     prefix: 'icons/',
     inject: true,
-      favicons: {
-        path: '/',
-        appName: 'GSMLG',
-        background: '#414AB6',
-        theme_color: '#414AB6',
-      },
+    favicons: {
+      path: '/',
+      appName: 'GSMLG',
+      background: '#414AB6',
+      theme_color: '#414AB6',
+    },
   }),
   new CircularDependencyPlugin({
     exclude: /a\.js|node_modules/, // exclude node_modules

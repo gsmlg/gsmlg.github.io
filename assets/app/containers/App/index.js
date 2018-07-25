@@ -28,6 +28,7 @@ import NetworksPage from 'containers/NetworksPage/Loadable';
 import GamesPage from 'containers/GamesPage/Loadable';
 import ChineseChess from 'containers/ChineseChess/Loadable';
 
+import { withStyles } from '@material-ui/core/styles';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import saga from './saga';
@@ -39,6 +40,13 @@ import {
   mount,
   unmount,
 } from './actions';
+
+const styles = (theme) => ({
+  root: {
+    display: 'flex',
+    flex: 1,
+  },
+});
 
 class App extends PureComponent {
   componentWillMount() {
@@ -55,7 +63,7 @@ class App extends PureComponent {
 
   render() {
     return (
-      <div>
+      <div className={this.props.classes.root}>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/blogs" component={BlogPage} />
@@ -92,4 +100,5 @@ export default compose(
   withReducer,
   withSaga,
   withConnect,
+  withStyles(styles),
 )(App);

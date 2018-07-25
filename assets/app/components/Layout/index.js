@@ -22,6 +22,7 @@ const styles = (theme) => ({
     display: 'flex',
     minHeight: '100vh',
     flexDirection: 'column',
+    flex: 1,
   },
   flex: {
     display: 'flex',

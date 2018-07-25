@@ -4,7 +4,9 @@ import { injectGlobal } from 'styled-components';
 injectGlobal`
   html,
   body {
-    height: 100%;
+    display: flex;
+    flex: 1;
+    min-height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -20,9 +22,11 @@ injectGlobal`
   }
 
   #app {
+    display: flex;
+    flex: 1;
     background-color: #fafafa;
     min-height: 100%;
-    min-width: 100%;
+    width: 100%;
   }
 
   p,
