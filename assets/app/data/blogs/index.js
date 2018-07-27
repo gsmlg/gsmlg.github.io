@@ -152,4 +152,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 20,
+  name: 'using-docker',
+  title: '使用Docker',
+  date: '2018-07-27',
+  author: 'Gao',
+});
+
 export default blogs;
