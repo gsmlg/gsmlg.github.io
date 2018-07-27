@@ -4,7 +4,7 @@ default:
 	@echo " page: update to github pages           "
 	@echo "========================================"
 
-release: web build copy
+release: build copy
 
 page: web subtree
 
@@ -18,7 +18,9 @@ build:
 	@docker run --rm -v $$(pwd):/app -v $$(pwd)/build.sh:/build.sh --entrypoint /build.sh gsmlg/phoenix
 
 copy:
-	@\cp _build/prod/rel/gsmlg/releases/$$(grep version mix.exs |awk -F'["]' '{print $$2}')/gsmlg.tar.gz .
+	@export VER=$$(grep version mix.exs |awk -F'["]' '{print $$2}') ; \
+		\cp _build/prod/rel/gsmlg/releases/$${VER}/gsmlg.tar.gz . ; \
+		\cp gsmlg.tar.gz gsmlg-v$${VER}.tar.gz
 
 subtree:
 	@BRANCH=$(shell git rev-parse --abbrev-ref HEAD) echo $$BRANCH \

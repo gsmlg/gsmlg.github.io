@@ -1,5 +1,10 @@
 #!/bin/bash
 
+cd /app/assets
+rm -rf node_modules
+./yarn
+./yarn run build
+
 cd /app
 
 rm -rf _build deps
