@@ -43,12 +43,7 @@ defmodule Gsmlg.Node.Self do
   end
 
   def handle_call(:stop, _from, state) do
-    Node.stop
-    newState = state
-    |> Map.put(:alive?, Node.alive?)
-    |> Map.put(:self, Node.self)
-    |> Map.put(:pid, nil)
-    |> Map.put(:restart?, false)
+    newState = Self.node_stop(state)
     {:reply, {:ok, newState}, newState}
   end
 
@@ -59,7 +54,9 @@ defmodule Gsmlg.Node.Self do
   def handle_info(:keep_alive, state) do
     newState = case {Map.fetch!(state, :restart?), Map.fetch!(state, :alive?)} do
                  {true, false} -> Self.node_start(state)
-                 _ -> state
+                 _ ->
+                   GsmlgWeb.Endpoint.broadcast "node:lobby", "node_info", %{name: Node.self, isAlive: Node.alive?}
+                   state
                end
     Process.send_after(__MODULE__, :keep_alive, 60000)
     {:noreply, newState}
@@ -76,6 +73,17 @@ defmodule Gsmlg.Node.Self do
     |> Map.put(:self, Node.self)
     |> Map.put(:pid, pid)
     |> Map.put(:restart?, true)
+    GsmlgWeb.Endpoint.broadcast "node:lobby", "node_start", %{name: Node.self, isAlive: Node.alive?}
     newState
+  end
+
+  defp node_stop(state) do
+    Node.stop
+    newState = state
+    |> Map.put(:alive?, Node.alive?)
+    |> Map.put(:self, Node.self)
+    |> Map.put(:pid, nil)
+    |> Map.put(:restart?, false)
+    GsmlgWeb.Endpoint.broadcast "node:lobby", "node_stop", %{name: Node.self, isAlive: Node.alive?}
   end
 end

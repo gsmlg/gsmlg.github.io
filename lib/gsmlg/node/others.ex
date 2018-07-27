@@ -40,6 +40,7 @@ defmodule Gsmlg.Node.Others do
     newState = state
     |> Map.put(:nodes, nodes ++ [name])
     Node.connect(name)
+    GsmlgWeb.Endpoint.broadcast "node:lobby", "list_add", %{add_node: name, nodes: newState.nodes}
     {:reply, {:ok}, newState}
   end
 
@@ -47,6 +48,7 @@ defmodule Gsmlg.Node.Others do
     newState = state
     |> Map.put(:nodes, List.delete(nodes, name))
     Node.disconnect(name)
+    GsmlgWeb.Endpoint.broadcast "node:lobby", "list_remove", %{remove_node: name, nodes: newState.nodes}
     {:reply, {:ok}, newState}
   end
 
@@ -61,6 +63,7 @@ defmodule Gsmlg.Node.Others do
     Enum.each(nodes, fn(n) ->
       if Enum.member?(Node.list, n), do: Node.ping(n), else: Node.connect(n)
     end)
+    GsmlgWeb.Endpoint.broadcast "node:lobby", "list_info", %{node_list: Node.list, nodes: nodes}
     Process.send_after(__MODULE__, :keep_alive, 60000)
     {:noreply, state}
   end
