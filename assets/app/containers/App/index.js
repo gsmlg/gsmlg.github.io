@@ -19,12 +19,17 @@ import { bindActionCreators, compose } from 'redux';
 
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+
 import BlogPage from 'containers/BlogPage/Loadable';
 import BlogContentPage from 'containers/BlogContentPage/Loadable';
 import BlogCreatePage from 'containers/BlogCreatePage/Loadable';
+
 import KeynotePage from 'containers/KeynotePage/Loadable';
+
 import ToolsPage from 'containers/ToolsPage/Loadable';
 import NetworksPage from 'containers/NetworksPage/Loadable';
+import NodePage from 'containers/NodePage/Loadable';
+
 import GamesPage from 'containers/GamesPage/Loadable';
 import ChineseChess from 'containers/ChineseChess/Loadable';
 
@@ -72,6 +77,7 @@ class App extends PureComponent {
           <Route exact path="/keynotes" component={KeynotePage} />
           <Route exact path="/tools" component={ToolsPage} />
           <Route exact path="/tools/vultr-networks" component={NetworksPage} />
+          <Route exact path="/tools/nodes" component={NodePage} />
           <Route exact path="/games" component={GamesPage} />
           <Route exact path="/games/chinese-chess" component={ChineseChess} />
           <Route component={NotFoundPage} />

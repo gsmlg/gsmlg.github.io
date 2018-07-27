@@ -80,6 +80,11 @@ export class ToolsPage extends React.PureComponent { // eslint-disable-line reac
                     <Typography className={classes.text} component="h3" >Vultr Networks Delay</Typography>
                   </Link>
                 </Paper>
+                <Paper className={classes.paper}>
+                  <Link className={classes.link} to="/tools/nodes">
+                    <Typography className={classes.text} component="h3" >Phoenix Nodes</Typography>
+                  </Link>
+                </Paper>
               </Grid>
             </Grid>
           </Grid>

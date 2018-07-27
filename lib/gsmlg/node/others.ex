@@ -1,5 +1,6 @@
 defmodule Gsmlg.Node.Others do
   use GenServer
+  alias Gsmlg.Node.Others
 
   def start_link() do
     GenServer.start_link(__MODULE__, nil, name: __MODULE__);
@@ -16,7 +17,7 @@ defmodule Gsmlg.Node.Others do
   def get_nodes do
     case GenServer.call(__MODULE__, :get_state) do
       {:ok, %{nodes: nodes}} -> nodes
-      _ -> nil
+      _ ->[]
     end
   end
 
@@ -30,7 +31,7 @@ defmodule Gsmlg.Node.Others do
   end
 
   def init(_) do
-    state = %{nodes: list}
+    state = %{nodes: Others.list}
     Process.send_after(__MODULE__, :keep_alive, 60000)
     {:ok, state}
   end

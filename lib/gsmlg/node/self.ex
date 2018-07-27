@@ -1,5 +1,6 @@
 defmodule Gsmlg.Node.Self do
   use GenServer
+  alias Gsmlg.Node.Self
 
   def start_link() do
     GenServer.start_link(__MODULE__, nil, name: __MODULE__);
@@ -31,23 +32,14 @@ defmodule Gsmlg.Node.Self do
   end
 
   def init(_) do
-    state = %{alive?: Node.alive?, self: Node.self, pid: nil, restart?: true}
+    state = node_start(%{alive?: Node.alive?, self: Node.self, pid: nil, restart?: true})
     Process.send_after(__MODULE__, :keep_alive, 60000)
     {:ok, state}
   end
 
   def handle_call(:start, _from, state) do
-    pid = case Node.start(name) do
-      {:ok, pid} -> pid
-      {:error, {:already_started, pid}} -> pid
-      _ -> nil
-    end
-    newState = state
-    |> Map.put(:alive?, Node.alive?)
-    |> Map.put(:self, Node.self)
-    |> Map.put(:pid, pid)
-    |> Map.put(:restart?, true)
-    {:reply, {:ok, pid}, newState}
+    newState = Self.node_start(state)
+    {:reply, {:ok, newState}, newState}
   end
 
   def handle_call(:stop, _from, state) do
@@ -57,7 +49,7 @@ defmodule Gsmlg.Node.Self do
     |> Map.put(:self, Node.self)
     |> Map.put(:pid, nil)
     |> Map.put(:restart?, false)
-    {:reply, {:ok}, newState}
+    {:reply, {:ok, newState}, newState}
   end
 
   def handle_call(:get_state, _from, state) do
@@ -65,11 +57,25 @@ defmodule Gsmlg.Node.Self do
   end
 
   def handle_info(:keep_alive, state) do
-    case {Map.fetch!(state, :restart?), Map.fetch!(state, :alive?)} do
-      {true, false} -> start
-      _ -> nil
-    end
+    newState = case {Map.fetch!(state, :restart?), Map.fetch!(state, :alive?)} do
+                 {true, false} -> Self.node_start(state)
+                 _ -> state
+               end
     Process.send_after(__MODULE__, :keep_alive, 60000)
-    {:noreply, state}
+    {:noreply, newState}
+  end
+
+  defp node_start(state) do
+    pid = case Node.start(Self.name) do
+            {:ok, pid} -> pid
+            {:error, {:already_started, pid}} -> pid
+            _ -> nil
+          end
+    newState = state
+    |> Map.put(:alive?, Node.alive?)
+    |> Map.put(:self, Node.self)
+    |> Map.put(:pid, pid)
+    |> Map.put(:restart?, true)
+    newState
   end
 end
