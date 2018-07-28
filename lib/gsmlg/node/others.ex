@@ -58,16 +58,20 @@ defmodule Gsmlg.Node.Others do
   end
 
   def handle_info(:keep_alive, %{nodes: nodes} = state) do
-    Enum.each(Node.list, fn(n) ->
-      if !Enum.member?(nodes, n) do
-        nodes = nodes ++ [n]
-      end
-    end)
     Enum.each(nodes, fn(n) ->
       if Enum.member?(Node.list, n), do: Node.ping(n), else: Node.connect(n)
     end)
     GsmlgWeb.Endpoint.broadcast "node:lobby", "list_info", %{node_list: Node.list, nodes: nodes, from: Self.name}
+
     Process.send_after(__MODULE__, :keep_alive, 60000)
-    {:noreply, Map.put(state, :nodes, nodes)}
+
+    ext = []
+    Enum.each(Node.list, fn(n) ->
+      if !Enum.member?(nodes, n) do
+        ext = ext ++ [n]
+      end
+    end)
+
+    {:noreply, Map.put(state, :nodes, nodes ++ ext)}
   end
 end
