@@ -21,6 +21,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
 import Chip from '@material-ui/core/Chip';
 import ComputerIcon from '@material-ui/icons/Computer';
 import CloudIcon from '@material-ui/icons/Cloud';
@@ -55,6 +56,9 @@ const styles = (theme) => ({
     display: 'flex',
     flexDirection: 'column',
   },
+  chip: {
+    margin: '0.618em',
+  },
 });
 
 export class NodePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -75,7 +79,7 @@ export class NodePage extends React.PureComponent { // eslint-disable-line react
     return (
       <CardContent>
         {state.get('nodes').map((n) => (
-          <Chip label={n} avatar={<Avatar>{state.get('node_list').includes(n) ? <CloudIcon /> : <CloudOffIcon />}</Avatar>} />
+          <Chip key={n} className={this.props.classes.chip} label={n} avatar={<Avatar>{state.get('node_list').includes(n) ? <CloudIcon /> : <CloudOffIcon />}</Avatar>} />
         ))}
       </CardContent>
     );
@@ -132,7 +136,8 @@ export class NodePage extends React.PureComponent { // eslint-disable-line react
                         }
                         title={name}
                       />
-                      {this.content(from.get('name'))}
+                      <Divider />
+                      {this.content(from.get(name))}
                     </Card>
                   </Paper>
                 </Grid>

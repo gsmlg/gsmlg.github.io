@@ -68,6 +68,6 @@ defmodule Gsmlg.Node.Others do
     end)
     GsmlgWeb.Endpoint.broadcast "node:lobby", "list_info", %{node_list: Node.list, nodes: nodes, from: Self.name}
     Process.send_after(__MODULE__, :keep_alive, 60000)
-    {:noreply, state}
+    {:noreply, Map.put(state, :nodes, nodes)}
   end
 end
