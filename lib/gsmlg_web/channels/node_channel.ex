@@ -12,7 +12,7 @@ defmodule GsmlgWeb.NodeChannel do
 
   def handle_info({:after_join, _msg}, socket) do
     state = Gsmlg.Node.Self.get_state
-    push socket, "node_state", %{state: %{name: state.self, isAlive: state.alive?, nodes: Gsmlg.Node.Others.get_nodes}, node_list: Node.list}
+    push socket, "node_state", %{name: state.self, isAlive: state.alive?, nodes: Gsmlg.Node.Others.get_nodes, node_list: Node.list}
     {:noreply, socket}
   end
 

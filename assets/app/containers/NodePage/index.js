@@ -22,6 +22,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import ComputerIcon from '@material-ui/icons/Computer';
+import CloudIcon from '@material-ui/icons/Cloud';
+import CloudOffIcon from '@material-ui/icons/CloudOff';
 
 import Layout from 'components/Layout';
 
@@ -29,6 +31,8 @@ import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import {
   makeSelectNodePage,
+  makeSelectNode,
+  makeSelectList,
 } from './selectors';
 import reducer from './reducer';
 import {
@@ -65,7 +69,12 @@ export class NodePage extends React.PureComponent { // eslint-disable-line react
   }
 
   render() {
-    const { classes, theme } = this.props;
+    const {
+      classes,
+      theme,
+      node,
+      list,
+    } = this.props;
 
     return (
       <Layout>
@@ -76,7 +85,7 @@ export class NodePage extends React.PureComponent { // eslint-disable-line react
         <Grid container justify="center" className={classes.root}>
           <Grid item md={11} sm={10}>
             <Grid container spacing={24} justify="center">
-              <Grid key={1} item md={3} sm={4} >
+              <Grid key={node.get('name')} item md={3} sm={4} >
                 <Paper>
                   <Card>
                     <CardHeader
@@ -85,12 +94,34 @@ export class NodePage extends React.PureComponent { // eslint-disable-line react
                           <ComputerIcon />
                         </Avatar>
                       }
-                      title={'self'}
-                      subheader={'started'}
+                      title={node.get('name')}
+                      subheader={node.get('isAlive') ? 'Started' : 'Stopped'}
                     />
                   </Card>
                 </Paper>
               </Grid>
+            </Grid>
+            <Grid container spacing={24} justify="center">
+              {list.get('nodes').map((name) => (
+                <Grid key={name} item md={3} sm={4} >
+                  <Paper>
+                    <Card>
+                      <CardHeader
+                        avatar={
+                          <Avatar aria-label="Recipe" className={classes.avatar}>
+                            {
+                              list.get('node_list').includes(name) ?
+                                <CloudIcon /> :
+                                <CloudOffIcon />
+                            }
+                          </Avatar>
+                        }
+                        title={name}
+                      />
+                    </Card>
+                  </Paper>
+                </Grid>
+              ))}
             </Grid>
           </Grid>
         </Grid>
@@ -104,6 +135,8 @@ NodePage.propTypes = {
 
 const mapStateToProps = createStructuredSelector({
   nodePage: makeSelectNodePage(),
+  node: makeSelectNode(),
+  list: makeSelectList(),
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
