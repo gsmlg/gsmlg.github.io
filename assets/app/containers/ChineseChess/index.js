@@ -20,22 +20,29 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
+import Layout from 'components/Layout';
 
 import reducer from './reducer';
 import saga from './saga';
 import makeSelectChineseChess from './selectors';
-import {
-  movePiece,
-  kill,
-  connectRoom,
-  start,
-} from './actions';
+import * as actions from './actions';
 import canDrop from './canDrop';
 
 const styles = (theme) => ({
+  grid: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  boardPaper: {
+    width: '540px',
+    height: '600px',
+  },
   paper: {
     width: '320px',
-    height: '480px',
+    height: '600px',
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
   },
   button: {
     margin: theme.spacing.unit,
@@ -54,16 +61,16 @@ export class ChineseChess extends React.Component { // eslint-disable-line react
     } = this.props;
 
     return (
-      <div style={{ width: '100%', height: '100%' }}>
+      <Layout>
         <Helmet
           title="中国象棋"
           meta={[
             { name: 'description', content: '中国象棋游戏' },
           ]}
         />
-        <Grid container spacing={24}>
-          <Grid item xs={12} sm={6}>
-            <Paper>
+        <Grid container>
+          <Grid item xs={12} sm={12} className={classes.grid}>
+            <Paper className={classes.boardPaper}>
               <Board
                 {...chess}
                 kill={kill}
@@ -71,8 +78,6 @@ export class ChineseChess extends React.Component { // eslint-disable-line react
                 canDrop={canDrop}
               />
             </Paper>
-          </Grid>
-          <Grid item xs={12} sm={6}>
             <Paper className={classes.paper}>
               <Button variant="raised" color="primary" className={classes.button} onClick={connectRoom}>
                 Connect to Room
@@ -83,7 +88,7 @@ export class ChineseChess extends React.Component { // eslint-disable-line react
             </Paper>
           </Grid>
         </Grid>
-      </div>
+      </Layout>
     );
   }
 }
@@ -96,10 +101,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  movePiece,
-  kill,
-  connectRoom,
-  start,
+  ...actions,
 }, dispatch);
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
