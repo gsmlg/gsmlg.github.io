@@ -7,6 +7,7 @@
 import React from 'react';
 // import styled from 'styled-components';
 import HTML5Backend from 'react-dnd-html5-backend';
+import TouchBackend from 'react-dnd-touch-backend';
 import { DragDropContext } from 'react-dnd';
 import _ from 'lodash';
 
@@ -100,4 +101,6 @@ ChessBoard.propTypes = {
 
 };
 
-export default DragDropContext(HTML5Backend)(ChessBoard);
+const hasTouch = ('ontouchstart' in document.documentElement) || window.navigator.msPointerEnabled;
+
+export default DragDropContext(hasTouch ? TouchBackend : HTML5Backend)(ChessBoard);

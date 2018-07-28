@@ -10,8 +10,8 @@ defmodule GsmlgWeb.ChessChannel do
   end
 
   def handle_info({:after_join, _msg}, socket) do
-    {:ok, pieces} = Room.get_pieces
-    push socket, "init_pieces", %{pieces: pieces}
+    {:ok, %{pieces: pieces, turn: turn}} = Room.get_state
+    push socket, "init_pieces", %{pieces: pieces, turn: turn}
     {:noreply, socket}
   end
 
@@ -26,13 +26,15 @@ defmodule GsmlgWeb.ChessChannel do
   end
 
   def handle_in("start", _payload, socket) do
-    {:ok, pieces} = Room.start_room
-    push socket, "init_pieces", %{pieces: pieces}
+    {:ok, _} = Room.start_room
+    {:ok, %{pieces: pieces, turn: turn}} = Room.get_state
+    push socket, "init_pieces", %{pieces: pieces, turn: turn}
+    broadcast!(socket, "init_pieces", %{pieces: pieces, turn: turn})
     {:noreply, socket}
   end
   def handle_in("move_chess", payload, socket) do
-    Room.move_chess(payload)
-    broadcast!(socket, "move_chess_remote", payload)
+    {:ok, pieces} = Room.move_chess(payload)
+    broadcast!(socket, "move_chess_remote", Map.put(payload, :pieces, pieces))
     {:noreply, socket}
   end
   def handle_in("new:msg", _msg, socket) do

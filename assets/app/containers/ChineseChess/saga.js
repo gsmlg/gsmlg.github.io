@@ -1,54 +1,89 @@
-import { takeLatest, call, put, select } from 'redux-saga/effects';
+import { take, takeLatest, call, put, select } from 'redux-saga/effects';
+import { eventChannel } from 'redux-saga';
 import { Socket } from 'phoenix';
 import {
+  INIT,
+  MOUNT,
+  UNMOUNT,
   MOVE_POSITION,
   CONNECT,
   START,
 } from './constants';
 import {
-  initPieces,
-  movePiece,
+  initChannel,
+  unsetChannel,
+  setPieces,
   movePieceRemote,
+  changeTurn,
 } from './actions';
-import { store } from '../../app';
-import {
-  makeSelectSocket,
-} from '../App/selectors';
+import { makeSelectSocket } from '../App/selectors';
+import { makeSelectChannel } from './selectors';
 
-let channel;
+export function* start() {
+  const channel = yield select(makeSelectChannel());
+  channel.push('start');
+}
 
-export function* connect() {
-  const params = {};
-  const socket = yield select(makeSelectSocket());
+export function* moveChess(action) {
+  const channel = yield select(makeSelectChannel());
+  const { payload } = action;
+  channel.push('move_chess', payload);
+}
 
+export function* init() {
   try {
-    channel = socket.channel('room:chess', {});
-    if (!channel.isJoined()) {
-      channel.join();
-      channel.on('init_pieces', (data) => {
-        store.dispatch(initPieces(data.pieces));
-      });
-      channel.on('move_chess_remote', (data) => {
-        store.dispatch(movePieceRemote(data.item, data.position));
-      });
+    const socket = yield select(makeSelectSocket());
+    const channel = socket.channel('room:chess', {});
+    yield put(initChannel(channel));
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+function createChannel(channel) {
+  return eventChannel((emitter) => {
+    channel.on('init_pieces', (payload) => {
+      emitter(setPieces(payload.pieces));
+      emitter(changeTurn(payload.turn));
+    });
+    channel.on('move_chess_remote', (payload) => {
+      emitter(movePieceRemote(payload.item, payload.position));
+      emitter(setPieces(payload.pieces));
+    });
+    return () => channel.off();
+  });
+}
+
+export function* mount(act) {
+  try {
+    const channel = yield select(makeSelectChannel());
+    channel.join();
+    const conn = yield call(createChannel, channel);
+    while (true) {
+      const action = yield take(conn);
+      yield put(action);
     }
   } catch (err) {
     console.error(err);
   }
 }
 
-export function* start() {
-  channel.push('start');
-}
-
-export function* moveChess(action) {
-  const { payload } = action;
-  channel.push('move_chess', payload);
+export function* unmount() {
+  try {
+    const channel = yield select(makeSelectChannel());
+    channel.off();
+    channel.leave();
+    yield put(unsetChannel());
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 // Individual exports for testing
 export default function* defaultSaga() {
-  yield takeLatest(CONNECT, connect);
+  yield takeLatest(INIT, init);
+  yield takeLatest(MOUNT, mount);
+  yield takeLatest(UNMOUNT, unmount);
   yield takeLatest(START, start);
   yield takeLatest(MOVE_POSITION, moveChess);
 }

@@ -4,16 +4,26 @@
  *
  */
 
-export const DEFAULT_ACTION = 'app/chinesechess/default_action';
+const domain = 'app/chinesechess';
 
-export const INIT_PIECES = 'app/chinesechess/init_pieces';
+export const INIT = `${domain}/INIT`;
 
-export const MOVE_POSITION = 'app/chinesechess/move_position';
+export const MOUNT = `${domain}/MOUNT`;
 
-export const MOVE_POSITION_REMOTE = 'app/chinesechess/move_position_remote';
+export const UNMOUNT = `${domain}/UNMOUNT`;
 
-export const KILL = 'app/chinesechess/kill';
+export const INIT_CHANNEL = `${domain}/INIT_CHANNEL`;
 
-export const CONNECT = 'app/chinesechess/connect';
+export const UNSET_CHANNEL = `${domain}/UNSET_CHANNEL`;
 
-export const START = 'app/chinesechess/start';
+export const SET_PIECES = `${domain}/SET_PIECES`;
+
+export const MOVE_POSITION = `${domain}/MOVE_POSITION`;
+
+export const MOVE_POSITION_REMOTE = `${domain}/MOVE_POSITION_REMOTE`;
+
+export const KILL = `${domain}/KILL`;
+
+export const CHANGE_TURN = `${domain}/CHANGE_TURN`;
+
+export const START = `${domain}/START`;

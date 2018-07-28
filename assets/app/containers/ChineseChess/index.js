@@ -50,6 +50,18 @@ const styles = (theme) => ({
 });
 
 export class ChineseChess extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  componentWillMount() {
+    this.props.init();
+  }
+
+  componentDidMount() {
+    this.props.mount();
+  }
+
+  componentWillUnmount() {
+    this.props.unmount();
+  }
+
   render() {
     const {
       chess,
@@ -79,8 +91,8 @@ export class ChineseChess extends React.Component { // eslint-disable-line react
               />
             </Paper>
             <Paper className={classes.paper}>
-              <Button variant="raised" color="primary" className={classes.button} onClick={connectRoom}>
-                Connect to Room
+              <Button variant="raised" color="primary" className={classes.button}>
+                回合： {chess.turn}
               </Button>
               <Button variant="raised" color="primary" className={classes.button} onClick={start}>
                 Start Game
@@ -110,8 +122,8 @@ const withReducer = injectReducer({ key: 'chineseChess', reducer });
 const withSaga = injectSaga({ key: 'chineseChess', saga });
 
 export default compose(
-  withStyles(styles),
   withReducer,
   withSaga,
   withConnect,
+  withStyles(styles),
 )(ChineseChess);
