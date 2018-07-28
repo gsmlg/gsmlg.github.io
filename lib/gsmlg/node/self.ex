@@ -55,7 +55,7 @@ defmodule Gsmlg.Node.Self do
     newState = case {Map.fetch!(state, :restart?), Map.fetch!(state, :alive?)} do
                  {true, false} -> Self.node_start(state)
                  _ ->
-                   GsmlgWeb.Endpoint.broadcast "node:lobby", "node_info", %{name: Node.self, isAlive: Node.alive?}
+                   GsmlgWeb.Endpoint.broadcast "node:lobby", "node_info", %{name: Node.self, isAlive: Node.alive?, from: Self.name}
                    state
                end
     Process.send_after(__MODULE__, :keep_alive, 60000)
@@ -73,7 +73,7 @@ defmodule Gsmlg.Node.Self do
     |> Map.put(:self, Node.self)
     |> Map.put(:pid, pid)
     |> Map.put(:restart?, true)
-    GsmlgWeb.Endpoint.broadcast "node:lobby", "node_start", %{name: Node.self, isAlive: Node.alive?}
+    GsmlgWeb.Endpoint.broadcast "node:lobby", "node_start", %{name: Node.self, isAlive: Node.alive?, from: Self.name}
     newState
   end
 
@@ -84,6 +84,6 @@ defmodule Gsmlg.Node.Self do
     |> Map.put(:self, Node.self)
     |> Map.put(:pid, nil)
     |> Map.put(:restart?, false)
-    GsmlgWeb.Endpoint.broadcast "node:lobby", "node_stop", %{name: Node.self, isAlive: Node.alive?}
+    GsmlgWeb.Endpoint.broadcast "node:lobby", "node_stop", %{name: Node.self, isAlive: Node.alive?, from: Self.name}
   end
 end

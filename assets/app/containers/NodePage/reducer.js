@@ -21,7 +21,8 @@ const initialState = fromJS({
   node_list: [],
   name: '',
   isAlive: false,
-  socket: null,
+  from: {},
+  channel: null,
 });
 
 function nodePageReducer(state = initialState, action) {
@@ -38,12 +39,23 @@ function nodePageReducer(state = initialState, action) {
       return state.set('channel', payload.channel);
     case UNSET_CHANNEL:
       return state.set('channel', null);
-    case NODE_STATE:
+    case NODE_STATE: {
       return state.merge(payload);
-    case NODE_INFO:
-      return state.merge(payload);
-    case LIST_INFO:
-      return state.merge(payload);
+    }
+    case NODE_INFO: {
+      const { from, ...info } = payload;
+      if (from === state.get('name')) {
+        return state.mergeIn(['from', from], info).merge(info);
+      }
+      return state.mergeIn(['from', from], info);
+    }
+    case LIST_INFO: {
+      const { from, ...info } = payload;
+      if (from === state.get('name')) {
+        return state.mergeIn(['from', from], info).merge(info);
+      }
+      return state.mergeIn(['from', from], info);
+    }
     default:
       return state;
   }

@@ -23,6 +23,11 @@ export const makeSelectList = () => createSelector(
   (substate) => substate.filter((v, k) => k.indexOf('node') === 0)
 );
 
+export const makeSelectFrom = () => createSelector(
+  selectNodePageDomain,
+  (substate) => substate.get('from')
+);
+
 /**
  * Default selector used by NodePage
  */

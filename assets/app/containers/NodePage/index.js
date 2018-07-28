@@ -21,6 +21,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
+import Chip from '@material-ui/core/Chip';
 import ComputerIcon from '@material-ui/icons/Computer';
 import CloudIcon from '@material-ui/icons/Cloud';
 import CloudOffIcon from '@material-ui/icons/CloudOff';
@@ -33,6 +34,7 @@ import {
   makeSelectNodePage,
   makeSelectNode,
   makeSelectList,
+  makeSelectFrom,
 } from './selectors';
 import reducer from './reducer';
 import {
@@ -68,12 +70,24 @@ export class NodePage extends React.PureComponent { // eslint-disable-line react
     this.props.unmount();
   }
 
+  content(state) {
+    if (!state || !state.get('nodes')) return null;
+    return (
+      <CardContent>
+        {state.get('nodes').map((n) => (
+          <Chip label={n} avatar={<Avatar>{state.get('node_list').includes(n) ? <CloudIcon /> : <CloudOffIcon />}</Avatar>} />
+        ))}
+      </CardContent>
+    );
+  }
+
   render() {
     const {
       classes,
       theme,
       node,
       list,
+      from,
     } = this.props;
 
     return (
@@ -118,6 +132,7 @@ export class NodePage extends React.PureComponent { // eslint-disable-line react
                         }
                         title={name}
                       />
+                      {this.content(from.get('name'))}
                     </Card>
                   </Paper>
                 </Grid>
@@ -137,6 +152,7 @@ const mapStateToProps = createStructuredSelector({
   nodePage: makeSelectNodePage(),
   node: makeSelectNode(),
   list: makeSelectList(),
+  from: makeSelectFrom(),
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
