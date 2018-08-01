@@ -160,4 +160,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 21,
+  name: 'otp-on-startup',
+  title: '系统启动时启动Phoniex应用',
+  date: '2018-07-31',
+  author: 'Gao',
+});
+
 export default blogs;
