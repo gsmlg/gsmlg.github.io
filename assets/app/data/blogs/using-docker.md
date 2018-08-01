@@ -87,13 +87,61 @@ docker rm -v $(docker ps -aq -f status=exited)
 
 ### Docker 镜像构建与发布
 
-#### Docker Registry
-
 #### Dockerfile
 
+docker 构建一个镜像需要通过Dockerfile文件来配置镜像的内容
+
+一个构建的Dockerfile内容：
+
+```
+FROM alpine
+
+MAINTAINER GSMLG < me@gsmlg.org >
+
+RUN apk update \
+    && apk add curl \
+    && apk add stunnel \
+    && apk add squid \
+    && rm -rf /var/cache/apk/*
+
+COPY stunnel.conf pkey.pem cert.pem /etc/stunnel/
+
+EXPOSE 443
+
+COPY entrypoint.sh /
+
+ENTRYPOINT ["/entrypoint.sh"]
+```
+
+Dockerfile 配置说明
+
+
 #### push and pull
+
+`push`: 将本地镜像推送到远程
+
+`pull`: 拉取远程镜像
 
 
 ### 通过Docker Compose运行
 
+docker compose 通过yaml指定docker启动配置参数
+
+#### Docker Registry
+
+```
+registry:
+  restart: always
+  image: registry:2
+  ports:
+    - 127.0.0.1:5000:5000
+  volumes:
+    - ./data:/var/lib/registry
+
+```
+
 ### Docker Machine
+
+运行本地或远程的docker主机
+
+自动创建管理移除
