@@ -168,4 +168,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 22,
+  name: 'install-kubernetes',
+  title: '安装Kubernetes',
+  date: '2018-08-02',
+  author: 'Gao',
+});
+
 export default blogs;
