@@ -176,4 +176,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 23,
+  name: 'http-cache',
+  title: 'HTTP缓存控制',
+  date: '2018-08-08',
+  author: 'Gao',
+});
+
 export default blogs;
