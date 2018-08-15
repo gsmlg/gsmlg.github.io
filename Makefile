@@ -19,8 +19,9 @@ build:
 
 copy:
 	@export VER=$$(grep version mix.exs |awk -F'["]' '{print $$2}') ; \
-		\cp _build/prod/rel/gsmlg/releases/$${VER}/gsmlg.tar.gz . ; \
-		\cp gsmlg.tar.gz gsmlg-v$${VER}.tar.gz
+		export APP=$$(grep 'app:' mix.exs |awk -F'[:,]' '{print $$3}') ; \
+		\cp _build/prod/rel/$${APP}/releases/$${VER}/$${APP}.tar.gz . ; \
+		\cp $${APP}.tar.gz $${APP}-v$${VER}.tar.gz
 
 subtree:
 	@BRANCH=$(shell git rev-parse --abbrev-ref HEAD) echo $$BRANCH \
