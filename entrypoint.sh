@@ -34,7 +34,7 @@ cat <<EOF > /usr/vm.args
 EOF
 
 cat <<EOF > /sites/gsmlg_org
-upstream gsmlg_org {
+upstream gsmlg {
   server ${NAME}:${PORT};
 }
 

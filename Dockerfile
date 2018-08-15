@@ -18,7 +18,7 @@ RUN apk update \
     && curl -fsSLO https://static.gsmlg.org/gsmlg.tar.gz \
     && tar zxf gsmlg.tar.gz -C /usr \
     && rm -f gsmlg.tar.gz \
-    && rm -rf /var/cache/apk/* \
+    && rm -rf /var/cache/apk/*
 
 EXPOSE 80 4369
 
