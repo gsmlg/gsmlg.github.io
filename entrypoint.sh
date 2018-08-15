@@ -4,6 +4,7 @@ set -e
 
 PORT=${PORT:-80}
 NAME=${NAME:-gsmlg_org}
+SERVER_NAME=${SERVER_NAME:-"gsmlg.org www.gsmlg.org"}
 NODE_NAME=${NODE_NAME:-gsmlg@localhost}
 ERLCOOKIE=${ERLCOOKIE:-erlang_cookie_is_very_important}
 
