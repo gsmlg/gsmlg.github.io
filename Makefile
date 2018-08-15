@@ -15,7 +15,7 @@ web:
 		./yarn run build 
 
 build:
-	@docker run --rm -v $$(pwd):/app -v $$(pwd)/build.sh:/build.sh --entrypoint /build.sh gsmlg/phoenix
+	@docker run --rm -v $$(pwd):/app -v $$(pwd)/build.sh:/build.sh --entrypoint /build.sh gsmlg/phoenix:alpine
 
 copy:
 	@export VER=$$(grep version mix.exs |awk -F'["]' '{print $$2}') ; \
