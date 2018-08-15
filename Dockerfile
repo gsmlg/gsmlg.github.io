@@ -5,6 +5,7 @@ MAINTAINER GSMLG <me@gsmlg.org>
 ENV MIX_ENV=prod \
     PORT=80 \
     NAME=gsmlg \
+    SERVER_NAME=www.gsmlg.org \
     NODE_NAME=gsmlg_org \
     ERLCOOKIE=erlang_cookie
 

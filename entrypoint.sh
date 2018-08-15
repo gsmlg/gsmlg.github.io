@@ -40,7 +40,7 @@ upstream gsmlg_org {
 server {
   listen [::]:443 default_server ipv6only=on ssl http2;
   listen 443 default_server ssl http2;
-  server_name gsmlg.org www.gsmlg.org;
+  server_name ${SERVER_NAME};
 
   add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 
