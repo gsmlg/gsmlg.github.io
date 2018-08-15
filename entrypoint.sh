@@ -48,6 +48,8 @@ server {
   access_log /var/log/nginx/gsmlg_org.access.log;
   error_log /var/log/nginx/gsmlg_org.error.log;
 
+  include /etc/nginx/ssl.conf;
+
   location /socket {
     proxy_pass http://gsmlg;
     proxy_http_version 1.1;
