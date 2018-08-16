@@ -43,7 +43,7 @@ cat <<EOF > /usr/vm.args
 EOF
 
 cat <<EOF > /sites/gsmlg_org
-upstream gsmlg {
+upstream @gsmlg {
   server ${NAME}:${PORT};
 }
 
@@ -60,7 +60,7 @@ server {
   include /etc/nginx/ssl.conf;
 
   location /socket {
-    proxy_pass http://gsmlg;
+    proxy_pass http://@gsmlg;
     proxy_http_version 1.1;
     proxy_set_header Upgrade \$http_upgrade;
     proxy_set_header Connection "upgrade";
@@ -76,7 +76,7 @@ server {
     proxy_cache_bypass \$http_pragma;
     proxy_cache_revalidate on;
     proxy_redirect off;
-    proxy_pass http://gsmlg;
+    proxy_pass http://@gsmlg;
   }
 }
 EOF
