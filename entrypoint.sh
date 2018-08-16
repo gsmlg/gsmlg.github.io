@@ -72,4 +72,13 @@ server {
 }
 EOF
 
+HOST=$(echo $NODE_NAME | sed 's/^.*@//')
+cat /etc/hosts > /tmp/_hosts
+cat /tmp/_hosts |grep -v "$HOST" > /etc/hosts
+rm /tmp/_hosts
+cat <<EOF >> /etc/hosts
+127.0.0.1     $HOST
+::1           $HOST
+EOF
+
 /usr/bin/gsmlg foreground
