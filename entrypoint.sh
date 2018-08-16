@@ -81,4 +81,4 @@ server {
 }
 EOF
 
-/usr/bin/gsmlg foreground
+/app/bin/gsmlg foreground

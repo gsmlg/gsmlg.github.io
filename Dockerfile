@@ -17,7 +17,8 @@ RUN apk update \
     && apk add curl \
     && apk add bash \
     && curl -fsSLO https://static.gsmlg.org/gsmlg.tar.gz \
-    && tar zxf gsmlg.tar.gz -C /usr \
+    && mkdir /app \
+    && tar zxf gsmlg.tar.gz -C /app \
     && rm -f gsmlg.tar.gz \
     && rm -rf /var/cache/apk/*
 
