@@ -9,7 +9,8 @@ ENV MIX_ENV=prod \
     NODE_NAME=gsmlg_org \
     ERLCOOKIE=erlang_cookie
 
-ENV GSMLG_VERSION=0.2.2
+ENV GSMLG_VERSION=0.2.2 \
+    GIT_ID=b898aed
 
 RUN apk update \
     && apk add openssl \
