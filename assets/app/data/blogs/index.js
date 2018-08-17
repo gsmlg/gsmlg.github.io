@@ -184,4 +184,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 24,
+  name: 'vpn-client',
+  title: 'Setup VPN Client in Linux Server',
+  date: '2018-08-17',
+  author: 'Gao',
+});
+
 export default blogs;
