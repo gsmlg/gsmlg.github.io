@@ -10,7 +10,7 @@ RUN apk update \
     && cd /build/assets && ./yarn && ./yarn run build \
     && cd /build && mix do deps.get, compile, release \
     && mkdir /app \
-    && tar zxvf "/build/_build/prod/rel/gsmlg/releases/$(grep version /build/mix.exs |awk -F'[\"]' '{print $2}')/gsmlg.tar.gz" /app \
+    && tar zxvf "/build/_build/prod/rel/gsmlg/releases/$(grep version /build/mix.exs |awk -F'[\"]' '{print $2}')/gsmlg.tar.gz" -C /app \
     && rm -rf /var/cache/apk/*
 
 FROM alpine:3.8
