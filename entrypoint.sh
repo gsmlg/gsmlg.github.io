@@ -8,7 +8,7 @@ SERVER_NAME=${SERVER_NAME:-"gsmlg.org www.gsmlg.org"}
 NODE_NAME=${NODE_NAME:-gsmlg@localhost}
 ERLCOOKIE=${ERLCOOKIE:-erlang_cookie_is_very_important}
 
-cat <<EOF > /usr/vm.args
+cat <<EOF > /app/vm.args
 ## Name of the node
 -name $NODE_NAME
 
@@ -33,7 +33,7 @@ cat <<EOF > /usr/vm.args
 -smp auto
 EOF
 
-cat <<EOF > /sites/gsmlg_org
+test -d /sites && cat <<EOF > /sites/gsmlg_org
 upstream @gsmlg {
   server ${NAME}:${PORT};
 }

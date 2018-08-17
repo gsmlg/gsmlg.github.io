@@ -1,4 +1,4 @@
-FROM gsmlg/phoenix:alpine as builder
+FROM gsmlg/phoenix:alpine AS builder
 
 ENV MIX_ENV=prod \
     NAME=gsmlg
@@ -7,15 +7,15 @@ COPY . /build
 
 RUN apk update \
     && rm -rf /build/assets/node_modules /build/assets/_build /build/assets/deps \
-    && cd /build/assets \
-    && ./yarn && ./yarn run build \
-    && cd /build \
-    && mix do deps.get, compile, release \
-    && cp /build/_build/prod/rel/gsmlg/releases/$(grep version mix.exs |awk -F'["]' '{print $2}')/gsmlg.tar.gz / \
+    && cd /build/assets && ./yarn && ./yarn run build \
+    && cd /build && mix do deps.get, compile, release \
     && mkdir /app \
-    && tar zxf /gsmlg.tar.gz -C /app \
+    && tar zxvf "/build/_build/prod/rel/gsmlg/releases/$(grep version /build/mix.exs |awk -F'[\"]' '{print \$2}')/gsmlg.tar.gz" /app \
+    && rm -rf /var/cache/apk/*
 
 FROM alpine:3.8
+
+LABEL maintainer="GSMLG < me@gsmlg.org >"
 
 ENV PORT=80 \
     NAME=gsmlg \
@@ -25,13 +25,13 @@ ENV PORT=80 \
 
 RUN apk update \
     && apk add openssl \
-    && apk add curl \
+    && apk add bash \
     && rm -rf /var/cache/apk/*
+
+COPY entrypoint.sh /
 
 COPY --from=builder /app /
 
 EXPOSE 80 4369
-
-COPY entrypoint.sh /
 
 ENTRYPOINT ["/entrypoint.sh"]
