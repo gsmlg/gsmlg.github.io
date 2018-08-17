@@ -9,9 +9,8 @@ ENV MIX_ENV=prod \
     NODE_NAME=gsmlg_org \
     ERLCOOKIE=erlang_cookie
 
-COPY . /build
-
-RUN apk update \
+ADD . /build \
+    && apk update \
     && apk add openssl \
     && apk add curl \
     && rm -rf /build/assets/node_modules /build/assets/_build /build/assets/deps \
