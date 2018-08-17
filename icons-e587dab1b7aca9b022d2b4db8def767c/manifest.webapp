@@ -1,0 +1,14 @@
+{
+  "version": "3.4.0",
+  "name": "GSMLG",
+  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "icons": {
+    "60": "/icons-e587dab1b7aca9b022d2b4db8def767c/firefox_app_60x60.png",
+    "128": "/icons-e587dab1b7aca9b022d2b4db8def767c/firefox_app_128x128.png",
+    "512": "/icons-e587dab1b7aca9b022d2b4db8def767c/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": "GSMLG",
+    "url": "https://www.gsmlg.org"
+  }
+}
