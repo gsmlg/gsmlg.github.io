@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM gsmlg/phoenix:alpine
 
 MAINTAINER GSMLG <me@gsmlg.org>
 
@@ -9,17 +9,23 @@ ENV MIX_ENV=prod \
     NODE_NAME=gsmlg_org \
     ERLCOOKIE=erlang_cookie
 
-ENV GSMLG_VERSION=0.2.2 \
-    GIT_ID=570902d
+COPY . /build
 
 RUN apk update \
     && apk add openssl \
     && apk add curl \
-    && apk add bash \
-    && curl -fsSLO https://static.gsmlg.org/gsmlg.tar.gz \
+    && rm -rf /build/assets/node_modules /build/assets/_build /build/assets/deps \
+    && cd /build/assets \
+    && ./yarn && ./yarn run build \
+    && cd /build \
+    && mix do deps.get, compile, release \
+    && VER=$(grep version mix.exs |awk -F'["]' '{print $2}') \
+    && APP=$(grep 'app:' mix.exs |awk -F'[:,]' '{print $3}') \
+    && cp /build/_build/prod/rel/${APP}/releases/${VER}/${APP}.tar.gz / \
     && mkdir /app \
-    && tar zxf gsmlg.tar.gz -C /app \
-    && rm -f gsmlg.tar.gz \
+    && tar zxf /${APP}.tar.gz -C /app \
+    && rm -f /${APP}.tar.gz \
+    && rm -rf /build \
     && rm -rf /var/cache/apk/*
 
 EXPOSE 80 4369
