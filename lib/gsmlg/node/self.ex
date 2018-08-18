@@ -62,7 +62,7 @@ defmodule Gsmlg.Node.Self do
     {:noreply, newState}
   end
 
-  defp node_start(state) do
+  def node_start(state) do
     pid = case Node.start(Self.name) do
             {:ok, pid} -> pid
             {:error, {:already_started, pid}} -> pid
@@ -77,7 +77,7 @@ defmodule Gsmlg.Node.Self do
     newState
   end
 
-  defp node_stop(state) do
+  def node_stop(state) do
     Node.stop
     newState = state
     |> Map.put(:alive?, Node.alive?)
@@ -85,5 +85,6 @@ defmodule Gsmlg.Node.Self do
     |> Map.put(:pid, nil)
     |> Map.put(:restart?, false)
     GsmlgWeb.Endpoint.broadcast "node:lobby", "node_stop", %{name: Node.self, isAlive: Node.alive?, from: Self.name}
+    newState
   end
 end

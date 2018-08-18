@@ -65,10 +65,11 @@ defmodule Gsmlg.Node.Others do
 
     Process.send_after(__MODULE__, :keep_alive, 60000)
 
-    ext = []
-    Enum.each(Node.list, fn(n) ->
+    ext = Enum.reduce(Node.list, [], fn(n, acc) ->
       if !Enum.member?(nodes, n) do
-        ext = ext ++ [n]
+        [n | acc]
+      else
+        acc
       end
     end)
 
