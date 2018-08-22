@@ -28,7 +28,8 @@ defmodule Gsmlg.Node.Self do
   node name, used by Node.start
   """
   def name do
-    :"#{Gsmlg.name}@#{Gsmlg.hostname}"
+    nodeName = System.get_env("NODE_NAME")
+    :"#{nodeName}"
   end
 
   def init(_) do
