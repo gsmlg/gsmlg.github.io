@@ -7,6 +7,7 @@ NAME=${NAME:-gsmlg_org}
 SERVER_NAME=${SERVER_NAME:-"gsmlg.org www.gsmlg.org"}
 NODE_NAME=${NODE_NAME:-gsmlg@localhost}
 ERLCOOKIE=${ERLCOOKIE:-erlang_cookie_is_very_important}
+ERL_EPMD_PORT=${ERL_EPMD_PORT:-4369}
 
 HOST=$(echo $NODE_NAME | sed 's/^.*@//')
 cat /etc/hosts > /tmp/_hosts
@@ -20,7 +21,9 @@ EOF
 cat <<EOF > /app/vm.args
 ## Name of the node
 -name $NODE_NAME
--start_epmd false
+
+## Listening ports
+-kernel inet_dist_listen_min $(($ERL_EPMD_PORT + 1)) inet_dist_listen_max $(($ERL_EPMD_PORT + 1))
 
 ## Cookie for distributed erlang
 -setcookie $ERLCOOKIE

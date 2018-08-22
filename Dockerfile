@@ -18,6 +18,7 @@ FROM alpine:3.8
 LABEL maintainer="GSMLG < me@gsmlg.org >"
 
 ENV PORT=80 \
+    ERL_EPMD_PORT=4369 \
     NAME=gsmlg \
     SERVER_NAME=www.gsmlg.org \
     NODE_NAME=gsmlg_org \
