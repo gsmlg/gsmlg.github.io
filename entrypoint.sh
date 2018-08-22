@@ -30,7 +30,7 @@ cat <<EOF > /app/vm.args
 
 ## Heartbeat management; auto-restarts VM if it dies or becomes unresponsive
 ## (Disabled by default..use with caution!)
--heart
+##-heart
 
 ## Enable kernel poll and a few async threads
 ##+K true
