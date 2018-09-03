@@ -92,7 +92,9 @@ export class ChineseChess extends React.Component { // eslint-disable-line react
             </Paper>
             <Paper className={classes.paper}>
               <Button variant="raised" color="primary" className={classes.button}>
-                回合： {chess.turn}
+                回合：
+                {' '}
+                {chess.turn}
               </Button>
               <Button variant="raised" color="primary" className={classes.button} onClick={start}>
                 Start Game

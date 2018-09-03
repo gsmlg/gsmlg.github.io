@@ -103,15 +103,15 @@ export class NodePage extends React.PureComponent { // eslint-disable-line react
         <Grid container justify="center" className={classes.root}>
           <Grid item md={11} sm={10}>
             <Grid container spacing={24} justify="center">
-              <Grid key={node.get('name')} item md={3} sm={4} >
+              <Grid key={node.get('name')} item md={3} sm={4}>
                 <Paper>
                   <Card>
                     <CardHeader
-                      avatar={
+                      avatar={(
                         <Avatar aria-label="Recipe" className={classes.avatar}>
                           <ComputerIcon />
                         </Avatar>
-                      }
+                      )}
                       title={node.get('name')}
                       subheader={node.get('isAlive') ? 'Started' : 'Stopped'}
                     />
@@ -121,19 +121,19 @@ export class NodePage extends React.PureComponent { // eslint-disable-line react
             </Grid>
             <Grid container spacing={24} justify="center">
               {list.get('nodes').map((name) => (
-                <Grid key={name} item md={3} sm={4} >
+                <Grid key={name} item md={3} sm={4}>
                   <Paper>
                     <Card>
                       <CardHeader
-                        avatar={
+                        avatar={(
                           <Avatar aria-label="Recipe" className={classes.avatar}>
                             {
-                              list.get('node_list').includes(name) ?
-                                <CloudIcon /> :
-                                <CloudOffIcon />
+                              list.get('node_list').includes(name)
+                                ? <CloudIcon />
+                                : <CloudOffIcon />
                             }
                           </Avatar>
-                        }
+                        )}
                         title={name}
                       />
                       <Divider />

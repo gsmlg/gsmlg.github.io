@@ -36,7 +36,6 @@ const styles = (theme) => ({
 });
 
 export class GamesPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
-
   render() {
     const {
       classes,
@@ -56,7 +55,7 @@ export class GamesPage extends React.Component { // eslint-disable-line react/pr
               <Grid item md={4}>
                 <Paper className={classes.paper}>
                   <Link to="/games/chinese-chess" className={classes.link}>
-                    <Typography className={classes.text} component="h3" >中国象棋</Typography>
+                    <Typography className={classes.text} component="h3">中国象棋</Typography>
                   </Link>
                 </Paper>
               </Grid>

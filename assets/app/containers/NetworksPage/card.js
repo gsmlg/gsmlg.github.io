@@ -26,11 +26,11 @@ function NetworkCard(props) {
     <Paper>
       <Card className={classes.card}>
         <CardHeader
-          avatar={
+          avatar={(
             <Avatar aria-label="Recipe" className={classes.avatar}>
               {host.name[0]}
             </Avatar>
-          }
+          )}
           title={host.name}
           subheader={host.host}
         />

@@ -33,7 +33,7 @@ class BlogPage extends React.PureComponent { // eslint-disable-line react/prefer
         return 0;
       }).map((blog) => (
         <ListItem key={blog.name} component={Link} to={`/blogs/${blog.name}`}>
-          <ListItemIcon ><WebIcon /></ListItemIcon>
+          <ListItemIcon><WebIcon /></ListItemIcon>
           <ListItemText primary={blog.title} />
           <ListItemText secondary={blog.date} />
         </ListItem>

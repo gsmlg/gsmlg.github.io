@@ -30,6 +30,11 @@ import { translationMessages } from './i18n';
 // Import CSS reset and Global Styles
 import './global-styles';
 
+// Install ServiceWorker and AppCache in the end since
+// it's not most important operation and if main code fails,
+// we do not want it installed
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
+
 // Create redux store with history
 // import initialState from './data/index';
 const initialState = {};
@@ -75,9 +80,4 @@ if (!window.Intl) {
 } else {
   render(translationMessages);
 }
-
-// Install ServiceWorker and AppCache in the end since
-// it's not most important operation and if main code fails,
-// we do not want it installed
-import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 OfflinePluginRuntime.install();

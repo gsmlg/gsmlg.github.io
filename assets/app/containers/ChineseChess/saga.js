@@ -1,4 +1,6 @@
-import { take, takeLatest, call, put, select } from 'redux-saga/effects';
+import {
+  take, takeLatest, call, put, select,
+} from 'redux-saga/effects';
 import { eventChannel } from 'redux-saga';
 import { Socket } from 'phoenix';
 import {

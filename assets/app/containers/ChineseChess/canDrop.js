@@ -93,7 +93,7 @@ const canDrop = (item, pos, pieces) => {
           }
         }
         return count == 0 || (count == 1 && target);
-      } else if (fy === ty) {
+      } if (fy === ty) {
         let count = 0;
         if (tx > fx) {
           for (let i = fx + 1; i <= tx; i++) {
@@ -121,7 +121,7 @@ const canDrop = (item, pos, pieces) => {
           }
         }
         return count == 0 || (count == 2 && target);
-      } else if (fy === ty) {
+      } if (fy === ty) {
         let count = 0;
         if (tx > fx) {
           for (let i = fx + 1; i <= tx; i++) {

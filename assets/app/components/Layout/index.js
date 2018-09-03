@@ -60,11 +60,11 @@ class Layout extends React.PureComponent { // eslint-disable-line react/prefer-s
               <MenuIcon />
             </IconButton>
             <Typography type="title" color="inherit" className={classes.flex}>
-              <Button color="inherit" component={NavLink} to="/" exact activeClassName={classes.raised} >Home</Button>
-              <Button color="inherit" component={NavLink} to="/blogs" activeClassName={classes.raised} >Blog</Button>
-              <Button color="inherit" component={NavLink} to="/keynotes" activeClassName={classes.raised} >Keynote</Button>
-              <Button color="inherit" component={NavLink} to="/tools" activeClassName={classes.raised} >Tools</Button>
-              <Button color="inherit" component={NavLink} to="/games" activeClassName={classes.raised} >Games</Button>
+              <Button color="inherit" component={NavLink} to="/" exact activeClassName={classes.raised}>Home</Button>
+              <Button color="inherit" component={NavLink} to="/blogs" activeClassName={classes.raised}>Blog</Button>
+              <Button color="inherit" component={NavLink} to="/keynotes" activeClassName={classes.raised}>Keynote</Button>
+              <Button color="inherit" component={NavLink} to="/tools" activeClassName={classes.raised}>Tools</Button>
+              <Button color="inherit" component={NavLink} to="/games" activeClassName={classes.raised}>Games</Button>
             </Typography>
           </Toolbar>
         </AppBar>

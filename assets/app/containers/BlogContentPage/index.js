@@ -65,8 +65,14 @@ class BlogContentPage extends React.PureComponent { // eslint-disable-line react
         <Paper className={classes.root} elevation={4}>
           <header>
             <Typography type="headline" component="h1">{blog.title}</Typography>
-            <Typography type="subheading" component="div">Author: {blog.author}</Typography>
-            <Typography type="subheading" component="div">Created At: {blog.date}</Typography>
+            <Typography type="subheading" component="div">
+Author:
+              {blog.author}
+            </Typography>
+            <Typography type="subheading" component="div">
+Created At:
+              {blog.date}
+            </Typography>
           </header>
           <Divider />
           <Typography className="blog-content" component="section" dangerouslySetInnerHTML={{ __html: html }} />

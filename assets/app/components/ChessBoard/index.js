@@ -77,7 +77,8 @@ class ChessBoard extends React.PureComponent { // eslint-disable-line react/pref
             fontSize: '24px',
             userSelect: 'none',
           }}
-        >楚 河
+        >
+楚 河
         </div>
         <div
           style={{
@@ -90,7 +91,8 @@ class ChessBoard extends React.PureComponent { // eslint-disable-line react/pref
             fontSize: '24px',
             userSelect: 'none',
           }}
-        >漢 界
+        >
+漢 界
         </div>
       </div>
     );

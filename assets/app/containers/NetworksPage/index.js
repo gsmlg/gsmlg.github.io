@@ -99,7 +99,7 @@ export class NetworksPage extends React.Component { // eslint-disable-line react
           <Grid item md={11} sm={10}>
             <Grid container spacing={24} justify="center">
               {map(vultr, (host) => (
-                <Grid key={host.host} item md={3} sm={4} >
+                <Grid key={host.host} item md={3} sm={4}>
                   <Card host={host} />
                 </Grid>
               ))}

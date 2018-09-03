@@ -39,7 +39,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
           ]}
         />
         <Paper className={classes.root} elevation={4}>
-          <Typography type="headline" component="h3" >
+          <Typography type="headline" component="h3">
             这里是我的主页！
           </Typography>
         </Paper>
