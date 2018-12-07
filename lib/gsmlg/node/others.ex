@@ -24,7 +24,6 @@ defmodule Gsmlg.Node.Others do
 
   def list do
     [
-      :"gsmlg@beijing.gsmlg.org",
       :"gsmlg@london.gsmlg.org",
       :"gsmlg@newyork.gsmlg.org",
       :"gsmlg@singapore.gsmlg.org",
