@@ -4,6 +4,8 @@ default:
 	@echo " page: update to github pages           "
 	@echo "========================================"
 
+publish: docker dockerhub
+
 release: build copy
 
 page: web subtree
@@ -31,3 +33,10 @@ subtree:
 	git push origin `git subtree split --prefix priv/static `:master --force \
 	git checkout $$BRANCH \
 	git branch -D __tmp
+
+docker:
+	@docker build -t gsmlg/gsmlg.org:latest .
+
+dockerhub:
+	docker publish -t gsmlg/gsmlg.org:latest
+
