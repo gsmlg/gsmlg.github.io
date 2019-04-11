@@ -21,7 +21,7 @@ ENV PORT=80 \
     ERL_EPMD_PORT=4369 \
     NAME=gsmlg \
     SERVER_NAME=www.gsmlg.org \
-    NODE_NAME=gsmlg_org \
+    NODE_NAME=me@gsmlg.org \
     ERLCOOKIE=erlang_cookie
 
 RUN apk update \
