@@ -192,4 +192,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 25,
+  name: 'knative',
+  title: 'Introduce Knative',
+  date: '2019-07-10',
+  author: 'Gao',
+});
+
 export default blogs;
