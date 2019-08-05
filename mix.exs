@@ -42,7 +42,7 @@ defmodule Gsmlg.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 2.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:guardian, "~> 1.0"},
+      {:guardian, "~> 2.0"},
       {:httpoison, "~> 1.0"},
       {:poison, "~> 3.0"},
       {:distillery, "~> 2.0-pre", runtime: false},
