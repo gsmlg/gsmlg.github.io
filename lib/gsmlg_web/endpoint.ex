@@ -1,7 +1,9 @@
 defmodule GsmlgWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :gsmlg
 
-  socket "/socket", GsmlgWeb.UserSocket
+  socket "/socket", GsmlgWeb.UserSocket, 
+    websocket: true,
+    longpull: false
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -27,7 +29,7 @@ defmodule GsmlgWeb.Endpoint do
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
-    json_decoder: Poison
+    json_decoder: Phoenix.json_library()
 
   plug Plug.MethodOverride
   plug Plug.Head

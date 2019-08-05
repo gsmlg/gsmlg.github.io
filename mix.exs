@@ -35,17 +35,17 @@ defmodule Gsmlg.Mixfile do
     [
       {:phoenix, "~> 1.4.0"},
       {:phoenix_pubsub, "~> 1.0"},
-      {:phoenix_ecto, "~> 3.2"},
+      {:phoenix_ecto, "~> 3.0"},
       {:ecto_mnesia, "~> 0.9"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 2.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:guardian, "~> 1.0"},
+      {:guardian, "~> 2.0"},
       {:httpoison, "~> 1.0"},
-      {:poison, "~> 3.0"},
-      {:distillery, "~> 2.0-pre", runtime: false},
+      {:jason, "~> 1.0"},
+      {:distillery, "~> 2.0", runtime: false},
     ]
   end
 

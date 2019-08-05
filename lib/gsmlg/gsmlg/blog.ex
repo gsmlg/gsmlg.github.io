@@ -53,9 +53,9 @@ defmodule Gsmlg.Gsmlg.Blog do
   end
 end
 
-defimpl Poison.Encoder, for: Gsmlg.Gsmlg.Blog do
+defimpl Jason.Encoder, for: Gsmlg.Gsmlg.Blog do
   def encode(blog, options) do
-    Poison.Encoder.encode(%{
+    Jason.Encoder.encode(%{
       id: blog.id,
       title: blog.title,
       author: blog.author,
