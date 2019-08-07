@@ -1,23 +1,25 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 import Layout from './index';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+}));
 
-function LayoutLoading(props) {
-  const { classes } = props;
+function LayoutLoading(props, ref) {
+  const classes = useStyles();
+
   return (
-    <Layout>
+    <Layout ref={ref}>
       <div className={classes.root}>
         <CircularProgress />
       </div>
@@ -25,8 +27,4 @@ function LayoutLoading(props) {
   );
 }
 
-LayoutLoading.propTypes = {
-
-};
-
-export default withStyles(styles)(LayoutLoading);
+export default React.forwardRef(LayoutLoading);

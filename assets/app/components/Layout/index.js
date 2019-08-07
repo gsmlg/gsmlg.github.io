@@ -43,11 +43,11 @@ const useStyles = makeStyles((theme) => ({
   raised: {},
 }));
 
-const Layout = ({ children }) => {
+const Layout = ({ children }, ref) => {
   const classes = useStyles();
 
   return (
-    <section className={classes.root}>
+    <section className={classes.root} ref={ref}>
       <AppBar position="static">
         <Toolbar>
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
@@ -75,8 +75,4 @@ const Layout = ({ children }) => {
 };
 
 
-Layout.propTypes = {
-
-};
-
-export default Layout;
+export default React.forwardRef(Layout);

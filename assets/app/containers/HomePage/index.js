@@ -12,23 +12,24 @@
 import React from 'react';
 import { compose } from 'redux';
 import { Helmet } from 'react-helmet';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Layout from 'components/Layout';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   root: theme.mixins.gutters({
     flex: 1,
     paddingTop: 16,
     paddingBottom: 16,
     margin: theme.spacing(3),
   }),
-});
+}));
 
 const HomePage = (props) => { // eslint-disable-line react/prefer-stateless-function
-  const { classes } = props;
+  const classes = useStyles();
+
   return (
     <Layout>
       <Helmet
@@ -46,4 +47,4 @@ const HomePage = (props) => { // eslint-disable-line react/prefer-stateless-func
   );
 };
 
-export default compose(withStyles(styles), )(HomePage);
+export default HomePage;

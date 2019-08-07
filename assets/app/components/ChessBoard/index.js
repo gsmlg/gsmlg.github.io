@@ -8,7 +8,7 @@ import React from 'react';
 // import styled from 'styled-components';
 import HTML5Backend from 'react-dnd-html5-backend';
 import TouchBackend from 'react-dnd-touch-backend';
-import { DndProvider } from 'react-dnd'
+import { DndProvider } from 'react-dnd';
 import _ from 'lodash';
 
 import Square from './square';
@@ -78,7 +78,7 @@ class ChessBoard extends React.PureComponent { // eslint-disable-line react/pref
             userSelect: 'none',
           }}
         >
-楚 河
+          楚 河
         </div>
         <div
           style={{
@@ -92,7 +92,7 @@ class ChessBoard extends React.PureComponent { // eslint-disable-line react/pref
             userSelect: 'none',
           }}
         >
-漢 界
+          漢 界
         </div>
       </div>
     );
