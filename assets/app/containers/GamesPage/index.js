@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { withStyles } from '@material-ui/core/styles';
 
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import Layout from 'components/Layout';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';

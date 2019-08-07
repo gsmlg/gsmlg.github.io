@@ -12,7 +12,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import Layout from 'components/Layout';
 
 import messages from './messages';

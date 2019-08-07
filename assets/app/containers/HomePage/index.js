@@ -11,7 +11,7 @@
 
 import React from 'react';
 import { compose } from 'redux';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { withStyles } from '@material-ui/core/styles';
 
 import Paper from '@material-ui/core/Paper';
@@ -23,29 +23,27 @@ const styles = (theme) => ({
     flex: 1,
     paddingTop: 16,
     paddingBottom: 16,
-    margin: theme.spacing.unit * 3,
+    margin: theme.spacing(3),
   }),
 });
 
-class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-  render() {
-    const { classes } = this.props;
-    return (
-      <Layout>
-        <Helmet
-          title="HomePage"
-          meta={[
-            { name: 'description', content: 'Description of HomePage' },
-          ]}
-        />
-        <Paper className={classes.root} elevation={4}>
-          <Typography type="headline" component="h3">
-            这里是我的主页！
-          </Typography>
-        </Paper>
-      </Layout>
-    );
-  }
-}
+const HomePage = (props) => { // eslint-disable-line react/prefer-stateless-function
+  const { classes } = props;
+  return (
+    <Layout>
+      <Helmet
+        title="HomePage"
+        meta={[
+          { name: 'description', content: 'Description of HomePage' },
+        ]}
+      />
+      <Paper className={classes.root} elevation={4}>
+        <Typography type="headline" component="h3">
+          这里是我的主页！
+        </Typography>
+      </Paper>
+    </Layout>
+  );
+};
 
 export default compose(withStyles(styles), )(HomePage);

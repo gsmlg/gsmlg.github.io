@@ -31,7 +31,7 @@ const styles = (theme) => ({
     flex: 1,
     paddingTop: 16,
     paddingBottom: 16,
-    margin: theme.spacing.unit * 3,
+    margin: theme.spacing(3),
   }),
 });
 

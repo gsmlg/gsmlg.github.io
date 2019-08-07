@@ -7,7 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { map, each } from 'lodash';
 import injectReducer from 'utils/injectReducer';

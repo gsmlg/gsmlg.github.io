@@ -8,7 +8,7 @@ import React from 'react';
 import { compose } from 'redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { withStyles } from '@material-ui/core/styles';
 
 import Paper from '@material-ui/core/Paper';
@@ -25,7 +25,7 @@ const styles = (theme) => ({
     flex: 1,
     paddingTop: 16,
     paddingBottom: 16,
-    margin: theme.spacing.unit * 3,
+    margin: theme.spacing(3),
   }),
 });
 

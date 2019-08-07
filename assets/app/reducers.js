@@ -4,7 +4,7 @@
 
 import { combineReducers } from 'redux-immutable';
 import { fromJS } from 'immutable';
-import { connectRouter } from 'connected-react-router';
+import { connectRouter } from 'connected-react-router/immutable';
 
 import history from 'utils/history';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';

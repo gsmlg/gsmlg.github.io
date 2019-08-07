@@ -16,8 +16,9 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { bindActionCreators, compose } from 'redux';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
-import GlobalStyle from '../../global-styles';
+import GlobalStyle from 'global-styles';
 
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
@@ -48,11 +49,7 @@ import {
   unmount,
 } from './actions';
 
-const styles = (theme) => ({
-  root: {
-    display: 'flex',
-    flex: 1,
-  },
+const theme = createMuiTheme({
 });
 
 class App extends PureComponent {
@@ -70,22 +67,24 @@ class App extends PureComponent {
 
   render() {
     return (
-      <div className={this.props.classes.root}>
-        <GlobalStyle />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/blogs" component={BlogPage} />
-          <Route exact path="/blogs/create" component={BlogCreatePage} />
-          <Route exact path="/blogs/:blog_name" component={BlogContentPage} />
-          <Route exact path="/keynotes" component={KeynotePage} />
-          <Route exact path="/tools" component={ToolsPage} />
-          <Route exact path="/tools/vultr-networks" component={NetworksPage} />
-          <Route exact path="/tools/nodes" component={NodePage} />
-          <Route exact path="/games" component={GamesPage} />
-          <Route exact path="/games/chinese-chess" component={ChineseChess} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </div>
+      <MuiThemeProvider theme={theme}>
+        <div style={{ display: 'flex', flex: 1 }}>
+          <GlobalStyle />
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/blogs" component={BlogPage} />
+            <Route exact path="/blogs/create" component={BlogCreatePage} />
+            <Route exact path="/blogs/:blog_name" component={BlogContentPage} />
+            <Route exact path="/keynotes" component={KeynotePage} />
+            <Route exact path="/tools" component={ToolsPage} />
+            <Route exact path="/tools/vultr-networks" component={NetworksPage} />
+            <Route exact path="/tools/nodes" component={NodePage} />
+            <Route exact path="/games" component={GamesPage} />
+            <Route exact path="/games/chinese-chess" component={ChineseChess} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
@@ -109,5 +108,4 @@ export default compose(
   withReducer,
   withSaga,
   withConnect,
-  withStyles(styles),
 )(App);
