@@ -67,7 +67,7 @@ const Layout = ({ children }, ref) => {
       </section>
       <footer className={classes.footer}>
         <div className="container">
-          Copyright © 2017-2018 GSMLG - Powered by GSMLG Web.
+          Copyright © 2017-2019 GSMLG - Powered by GSMLG Web.
         </div>
       </footer>
     </section>
