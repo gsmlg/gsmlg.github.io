@@ -12,8 +12,8 @@ import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory';
+import { ConnectedRouter } from 'connected-react-router';
+import history from 'utils/history';
 
 // Import root app
 import App from 'containers/App';
@@ -38,7 +38,6 @@ import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 // Create redux store with history
 // import initialState from './data/index';
 const initialState = {};
-const history = createHistory();
 export const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 

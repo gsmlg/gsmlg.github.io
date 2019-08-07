@@ -17,6 +17,8 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { bindActionCreators, compose } from 'redux';
 
+import GlobalStyle from '../../global-styles';
+
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
@@ -69,6 +71,7 @@ class App extends PureComponent {
   render() {
     return (
       <div className={this.props.classes.root}>
+        <GlobalStyle />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/blogs" component={BlogPage} />

@@ -4,14 +4,32 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const marked = require('marked');
+const hljs = require('highlight.js');
 
-module.exports = options => ({
+const config = require('../config');
+
+const renderer = new marked.Renderer();
+
+renderer.code = (code, language) => {
+  try {
+    return `<pre class="hljs"><code class="language-${language}">${
+      language ? hljs.highlight(language, code).value : hljs.highlightAuto(code).value
+    }</code></pre>`;
+  } catch (e) {
+    return `<pre class="hljs"><code class="language-auto">${
+      hljs.highlightAuto(code).value
+    }</code></pre>`;
+  }
+};
+
+module.exports = (options) => ({
   mode: options.mode,
   entry: options.entry,
   output: Object.assign(
     {
       // Compile into js/build.js
-      path: path.resolve(process.cwd(), 'build'),
+      path: path.resolve(config.build_to),
       publicPath: '/',
     },
     options.output,
@@ -95,6 +113,19 @@ module.exports = options => ({
       {
         test: /\.html$/,
         use: 'html-loader',
+      },
+      {
+        test: /\.md$/,
+        use: [
+          'html-loader',
+          {
+            loader: 'markdown-loader',
+            options: {
+              renderer,
+              gfm: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(mp4|webm)$/,
