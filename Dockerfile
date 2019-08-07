@@ -13,7 +13,7 @@ RUN apk update \
     && tar zxvf "/build/_build/prod/rel/gsmlg/releases/$(grep version /build/mix.exs |awk -F'[\"]' '{print $2}')/gsmlg.tar.gz" -C /app \
     && rm -rf /var/cache/apk/*
 
-FROM alpine:3.8
+FROM alpine:3.10
 
 LABEL maintainer="GSMLG < me@gsmlg.org >"
 
