@@ -13,5 +13,5 @@ export MIX_ENV=prod
 
 mix deps.get
 mix compile
-mix release
+mix distillery.release --env prod
 
