@@ -2405,16 +2405,16 @@ babel-plugin-lodash@3.3.4:
     lodash "^4.17.10"
     require-package-name "^2.0.1"
 
-babel-plugin-react-intl@4.1.6:
-  version "4.1.6"
-  resolved "https://registry.yarnpkg.com/babel-plugin-react-intl/-/babel-plugin-react-intl-4.1.6.tgz#c05ca00bb3828a15190e6c5f880d267c1d2a91a7"
-  integrity sha512-Aw7seMojU2Ai1f09mP2fu18Y8zixMLiSR4QlJLbAPeFgZoVjzAgTw1Weym3YVRI03lOe8FjOechqYK650dksUA==
+babel-plugin-react-intl@4.1.8:
+  version "4.1.8"
+  resolved "https://registry.yarnpkg.com/babel-plugin-react-intl/-/babel-plugin-react-intl-4.1.8.tgz#4140cda2ee16c3036fbb5dfd395155ee430c1958"
+  integrity sha512-Jv4lBMIno4y+UddE5p+f9Tt1u8PKw9s7Hp6+80OWOpMARgjmQtDCLli0UHjIGSBpuDd/6ZvC44fRgAjV63/umQ==
   dependencies:
     "@babel/core" "^7.4.5"
     "@babel/helper-plugin-utils" "^7.0.0"
     "@types/babel__core" "^7.1.2"
     fs-extra "^8.0.1"
-    intl-messageformat-parser "^3.0.2"
+    intl-messageformat-parser "^3.0.4"
 
 babel-plugin-react-transform@3.0.0:
   version "3.0.0"
