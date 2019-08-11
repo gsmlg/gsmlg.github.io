@@ -232,7 +232,7 @@
     "minimist": "1.2.0",
     "phoenix": "^1.4.9",
     "prop-types": "15.7.2",
-    "react": "16.8.6",
+    "react": "16.9.0",
     "react-dnd": "^9.3.4",
     "react-dnd-html5-backend": "^9.3.4",
     "react-dnd-touch-backend": "^9.3.4",
