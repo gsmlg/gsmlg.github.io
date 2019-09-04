@@ -2439,16 +2439,16 @@ babel-plugin-lodash@3.3.4:
     lodash "^4.17.10"
     require-package-name "^2.0.1"
 
-babel-plugin-react-intl@4.1.8:
-  version "4.1.8"
-  resolved "https://registry.yarnpkg.com/babel-plugin-react-intl/-/babel-plugin-react-intl-4.1.8.tgz#4140cda2ee16c3036fbb5dfd395155ee430c1958"
-  integrity sha512-Jv4lBMIno4y+UddE5p+f9Tt1u8PKw9s7Hp6+80OWOpMARgjmQtDCLli0UHjIGSBpuDd/6ZvC44fRgAjV63/umQ==
+babel-plugin-react-intl@4.1.16:
+  version "4.1.16"
+  resolved "https://registry.yarnpkg.com/babel-plugin-react-intl/-/babel-plugin-react-intl-4.1.16.tgz#96d63a007f2aa77b53b93bf7d5ba4f4da8dc7937"
+  integrity sha512-JzP+HkF7C+eOAcruygiRIrBgikh2n2xsV3hMBYib3SlqTxZu2pEW2g85nk8Zm1TJ32LvPOEnvZKwWnB0443/CQ==
   dependencies:
     "@babel/core" "^7.4.5"
     "@babel/helper-plugin-utils" "^7.0.0"
     "@types/babel__core" "^7.1.2"
     fs-extra "^8.0.1"
-    intl-messageformat-parser "^3.0.4"
+    intl-messageformat-parser "^3.1.0"
 
 babel-plugin-react-transform@3.0.0:
   version "3.0.0"
@@ -5833,7 +5833,7 @@ intl-locales-supported@^1.4.5:
   resolved "https://registry.yarnpkg.com/intl-locales-supported/-/intl-locales-supported-1.4.7.tgz#24acc88e1337429dbf1926463e6234c1325bbe6d"
   integrity sha512-3arwVxqTBWRom7NiK9GUB25qLtJToH3QYxqMjbbq/+R3Pz3mMQo4GbWQxgM57Aj0bQnrZipht1fwous+QIPduQ==
 
-intl-messageformat-parser@^3.0.4, intl-messageformat-parser@^3.0.7:
+intl-messageformat-parser@^3.0.7, intl-messageformat-parser@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-3.1.0.tgz#747e3dbafaf1c1fd07dffa6e4f54ed60e0336ca7"
   integrity sha512-HUa6oLTy3Q+X0mpmk3g5as8WiM1F2AtssfsmNbFUu4yf+y/eD6aggpbnfjxT4uTJFL9JhcsE2gQfzAF2PTTsFg==
