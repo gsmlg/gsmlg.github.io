@@ -4378,10 +4378,10 @@ eslint-plugin-react@7.14.3:
     prop-types "^15.7.2"
     resolve "^1.10.1"
 
-eslint-plugin-redux-saga@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-redux-saga/-/eslint-plugin-redux-saga-1.0.0.tgz#2b5d21d4c0de57a2b4c724668ea4f22ec280c91f"
-  integrity sha512-l502FJzxvSTVwhKfZ+2t2DMS7iW6o9ErlZLDpSH28UFbxuQsh5/g8vik8aT0EGSCOhMfiRzF8t0nnRb85XlMpA==
+eslint-plugin-redux-saga@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-redux-saga/-/eslint-plugin-redux-saga-1.1.0.tgz#e47e5572e4f951eb5bbda11cf7e07bea391a468a"
+  integrity sha512-h6QCo7qQGUQR+sXnkgU4aTo8vMI/I0tttM3fk0jdkP7wqTNHGvSyJLGFFchwiBqg6Tfg64zK68tzSq31wesS6w==
 
 eslint-scope@3.7.1:
   version "3.7.1"
