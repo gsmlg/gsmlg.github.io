@@ -5,18 +5,18 @@ set -e
 PORT=${PORT:-80}
 NAME=${NAME:-gsmlg_org}
 SERVER_NAME=${SERVER_NAME:-"gsmlg.org www.gsmlg.org"}
-NODE_NAME=${NODE_NAME:-gsmlg@gsmlg.org}
+NODE_NAME="me@${NODE_NAME:-gsmlg@gsmlg.org}"
 ERLCOOKIE=${ERLCOOKIE:-erlang_cookie_is_very_important}
 ERL_EPMD_PORT=${ERL_EPMD_PORT:-4369}
 
-HOST=$(echo $NODE_NAME | sed 's/^.*@//')
-cat /etc/hosts > /tmp/_hosts
-cat /tmp/_hosts |grep -v "$HOST" > /etc/hosts
-rm /tmp/_hosts
-cat <<EOF >> /etc/hosts
-127.0.0.1     $HOST
-::1           $HOST
-EOF
+#HOST=$(echo $NODE_NAME | sed 's/^.*@//')
+#cat /etc/hosts > /tmp/_hosts
+#cat /tmp/_hosts |grep -v "$HOST" > /etc/hosts
+#rm /tmp/_hosts
+#cat <<EOF >> /etc/hosts
+#127.0.0.1     $HOST
+#::1           $HOST
+#EOF
 
 cat <<EOF > /app/vm.args
 ## Name of the node
@@ -44,45 +44,6 @@ cat <<EOF > /app/vm.args
 
 # Enable SMP automatically based on availability
 -smp auto
-EOF
-
-test -d /sites && cat <<EOF > /sites/gsmlg_org
-upstream @gsmlg {
-  server ${NAME}:${PORT};
-}
-
-server {
-  listen [::]:443 default_server ipv6only=on ssl http2;
-  listen 443 default_server ssl http2;
-  server_name ${SERVER_NAME};
-
-  add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
-
-  access_log /var/log/nginx/gsmlg_org.access.log;
-  error_log /var/log/nginx/gsmlg_org.error.log;
-
-  include /etc/nginx/ssl.conf;
-
-  location /socket {
-    proxy_pass http://@gsmlg;
-    proxy_http_version 1.1;
-    proxy_set_header Upgrade \$http_upgrade;
-    proxy_set_header Connection "upgrade";
-  }
-
-  location / {
-    proxy_connect_timeout 600s;
-    proxy_read_timeout 600s;
-    proxy_send_timeout 600s;
-    proxy_set_header X-Real-IP \$remote_addr;
-    proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
-    proxy_set_header Host \$http_host;
-    proxy_cache_bypass \$http_pragma;
-    proxy_cache_revalidate on;
-    proxy_redirect off;
-    proxy_pass http://@gsmlg;
-  }
-}
 EOF
 
 /app/bin/gsmlg foreground
