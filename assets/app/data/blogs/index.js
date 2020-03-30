@@ -208,4 +208,44 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 27,
+  name: 'lint-code',
+  title: 'Lint Code',
+  date: '2019-10-14',
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 28,
+  name: 'jenkins-in-k8s',
+  title: 'Jenkins in Kubernetes',
+  date: '2019-11-24',
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 29,
+  name: 'tektoncd',
+  title: 'Tekton Pipelines',
+  date: '2020-01-04',
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 30,
+  name: 'prow',
+  title: 'Prow',
+  date: '2020-01-05',
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 31,
+  name: 'k3s',
+  title: '全面了解k3s',
+  date: '2020-03-05',
+  author: 'Gao',
+});
+
 export default blogs;
