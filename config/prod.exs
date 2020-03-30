@@ -70,6 +70,6 @@ config :logger, level: :info
 # import_config "prod.secret.exs"
 # Configure your database
 config :gsmlg, Gsmlg.Repo,
-  adapter: EctoMnesia.Adapter
+  adapter: Etso.Adapter
 
 config :mnesia, :dir, "priv/data/mnesia/prod"

@@ -13,6 +13,6 @@ config :logger, level: :warn
 
 # Configure your database
 config :gsmlg, Gsmlg.Repo,
-  adapter: EctoMnesia.Adapter
+  adapter: Etso.Adapter
 
 config :mnesia, :dir, 'priv/data/mnesia/test'

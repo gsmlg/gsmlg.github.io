@@ -1,5 +1,5 @@
 defmodule Gsmlg.Repo do
-  use Ecto.Repo, otp_app: :gsmlg
+  use Ecto.Repo, otp_app: :gsmlg, adapter: Etso.Adapter
 
   @doc """
   Dynamically loads the repository url from the

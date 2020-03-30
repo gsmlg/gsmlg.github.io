@@ -52,6 +52,6 @@ config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
 config :gsmlg, Gsmlg.Repo,
-  adapter: EctoMnesia.Adapter
+  adapter: Etso.Adapter
 
 config :mnesia, :dir, 'priv/data/mnesia/dev'

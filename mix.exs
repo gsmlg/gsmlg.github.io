@@ -20,7 +20,7 @@ defmodule Gsmlg.Mixfile do
   def application do
     [
       mod: {Gsmlg.Application, []},
-      extra_applications: [:logger, :runtime_tools, :ecto_mnesia]
+      extra_applications: [:logger, :runtime_tools]
     ]
   end
 
@@ -35,8 +35,8 @@ defmodule Gsmlg.Mixfile do
     [
       {:phoenix, "~> 1.4.0"},
       {:phoenix_pubsub, "~> 1.0"},
-      {:phoenix_ecto, "~> 3.0"},
-      {:ecto_mnesia, "~> 0.9"},
+      {:phoenix_ecto, "~> 4.0"},
+      {:etso, "~> 0.1.1"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
