@@ -248,4 +248,20 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 32,
+  name: 's2i',
+  title: 'Source to Image',
+  date: '2019-08-15',
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 33,
+  name: 'build-with-s2i',
+  title: '使用 s2i Build镜像',
+  date: '2019-08-15',
+  author: 'Gao',
+});
+
 export default blogs;
