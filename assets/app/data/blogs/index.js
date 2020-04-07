@@ -264,4 +264,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 34,
+  name: 'stop-an-erlang-vm',
+  title: '终止erlang VM的10种方式',
+  date: '2020-04-07',
+  author: 'Gao',
+});
+
 export default blogs;
