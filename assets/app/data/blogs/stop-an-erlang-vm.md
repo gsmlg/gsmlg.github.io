@@ -141,4 +141,4 @@ Crash dump is being written to: erl_crash.dump...done
 
 10. Turn off your Computer
 
-![laugh](evil-laugh.jpg)
+![laugh](stop-an-erlang-vm/evil-laugh.jpg)
