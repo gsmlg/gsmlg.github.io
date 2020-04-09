@@ -317,7 +317,7 @@
     "ip": "^1.1.5",
     "jest-cli": "25.2.7",
     "jest-dom": "4.0.0",
-    "jest-styled-components": "7.0.1",
+    "jest-styled-components": "7.0.2",
     "json-loader": "^0.5.7",
     "lint-staged": "10.1.2",
     "markdown-loader": "^5.1.0",
