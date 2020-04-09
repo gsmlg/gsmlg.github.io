@@ -272,4 +272,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 35,
+  name: 'move-alias-from-webpack-to-babel',
+  title: '使用Babel的来代替webpack别名',
+  date: '2020-04-09',
+  author: 'Gao',
+});
+
 export default blogs;
