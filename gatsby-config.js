@@ -4,9 +4,9 @@ const playgroundHastPlugin = require("./src/utils/playgroundHastPlugin")
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Starter",
+    title: "GSMLG CMS",
     description: "-- placeholder --",
-    author: "damassi.pappas@gmail.com",
+    author: "gsmlg.com@gmail.com",
   },
   plugins: [
     {
