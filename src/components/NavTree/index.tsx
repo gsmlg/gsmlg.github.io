@@ -8,7 +8,7 @@ import { Link, StaticQuery, graphql } from "gatsby"
 import { get, includes, reject, sortBy } from "lodash"
 import { Box } from "rebass"
 
-export const NavTree = _props => {
+export const NavTree = (_props) => {
   return (
     <StaticQuery
       query={graphql`
@@ -29,14 +29,14 @@ export const NavTree = _props => {
           }
         }
       `}
-      render={data => {
+      render={(data) => {
         return renderNavTree(buildNavTree(data))
       }}
     />
   )
 }
 
-function renderNavTree(tree: TreeNode[], treeDepth: number = 0) {
+function renderNavTree(tree: TreeNode[], treeDepth = 0) {
   const getTreeLayout = () => {
     if (treeDepth > 0) {
       return {
@@ -126,9 +126,9 @@ function buildNavTree(data) {
   }, [])
 
   // Perform various operations depending on frontmatter
-  const sorted = sortBy(routes, route => route.data.order)
-  const visible = reject(sorted, route => route.data.hideInNav)
-  const navTree = pathListToTree(visible).map(path => path.children)[0]
+  const sorted = sortBy(routes, (route) => route.data.order)
+  const visible = reject(sorted, (route) => route.data.hideInNav)
+  const navTree = pathListToTree(visible).map((path) => path.children)[0]
   return navTree
 }
 

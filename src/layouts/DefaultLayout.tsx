@@ -1,4 +1,4 @@
-import MDXRenderer from "gatsby-mdx/mdx-renderer"
+import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer"
 import React from "react"
 import { Box, Flex } from "rebass"
 import { Link, graphql } from "gatsby"
