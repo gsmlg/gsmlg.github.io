@@ -9,7 +9,7 @@ export default function DocsLayout(props) {
   const {
     data: {
       mdx: {
-        code,
+        body,
         frontmatter: { title },
       },
     },
@@ -27,7 +27,7 @@ export default function DocsLayout(props) {
       </Box>
       <Box p={2}>
         <Serif size="8">{title}</Serif>
-        <MDXRenderer>{code.body}</MDXRenderer>
+        <MDXRenderer>{body}</MDXRenderer>
       </Box>
     </Flex>
   )
@@ -44,9 +44,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
       }
-      code {
-        body
-      }
+      body
     }
   }
 `

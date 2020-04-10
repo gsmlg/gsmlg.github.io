@@ -58,13 +58,6 @@ module.exports = {
         path: `${__dirname}/content/blog/`,
       },
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "mdx",
-        path: `${__dirname}/content/mdx/`,
-      },
-    },
     "gatsby-plugin-catch-links",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-typescript",

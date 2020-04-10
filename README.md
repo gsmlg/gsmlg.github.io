@@ -1,5 +1,7 @@
 # Barebones Gatsby Starter
 
+start point: [damassi/gatsby-starter-typescript-rebass-netlifycms](https://github.com/damassi/gatsby-starter-typescript-rebass-netlifycms)
+
 - [TypeScript](https://www.typescriptlang.org/)
 - [Styled Components](https://www.styled-components.com/)
 - [Rebass](https://github.com/rebassjs/rebass)
