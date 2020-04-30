@@ -41,6 +41,12 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 20,
   },
   raised: {},
+  icp: {
+    fontWeight: 'bold',
+    marginRight: 20,
+    marginLeft: 20,
+  },
+  copyright: {},
 }));
 
 const Layout = ({ children }, ref) => {
@@ -67,8 +73,9 @@ const Layout = ({ children }, ref) => {
       </section>
       <footer className={classes.footer}>
         <div className="container">
-          <span className="icp">京ICP备20014476号</span>
-          Copyright © 2017-2020 GSMLG - Powered by GSMLG Web.
+          <span className={classes.icp}>京ICP备20014476号</span>
+          <br />
+          <span className={classes.copyright}>Copyright © 2017-2020 GSMLG - Powered by GSMLG Web.</span>
         </div>
       </footer>
     </section>
