@@ -67,7 +67,8 @@ const Layout = ({ children }, ref) => {
       </section>
       <footer className={classes.footer}>
         <div className="container">
-          Copyright © 2017-2019 GSMLG - Powered by GSMLG Web.
+          <span className="icp">京ICP备20014476号</span>
+          Copyright © 2017-2020 GSMLG - Powered by GSMLG Web.
         </div>
       </footer>
     </section>
