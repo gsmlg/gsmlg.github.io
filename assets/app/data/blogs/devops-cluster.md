@@ -141,3 +141,4 @@ nfs服务器和集群机器之间网络有问题，导致无法共享存储，�
 
 碰到tekton升级0.12版本，更新了git资源到task来实现共享工作空间
 
+给nfs，tekton，rancher增加了toleration，将他们调度到master，防止worker过于繁忙，导致的无法服务问题
