@@ -285,7 +285,15 @@ blogs.push({
   name: 'k3s-errors-too-many-open-files',
   title: 'K3s集群无法启动错误排查 - too many open files',
   date: '2020-05-12',
-  author: 'Gao'
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 37,
+  name: 'devops-cluster',
+  title: 'DevOps集群',
+  date: '2020-05-12',
+  author: 'Gao',
 })
 
 export default blogs;
