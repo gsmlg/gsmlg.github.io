@@ -14,8 +14,7 @@ config :gsmlg, GsmlgWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "v3HZYcVkxKaUUbrg/k7m4Ru3HxUkXAtY9xDPTnnRKa3q8RpekScBEiJuBRDTTsyv",
   render_errors: [view: GsmlgWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Gsmlg.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub_server: Gsmlg.PubSub
 
 # Configures Elixir's Logger
 config :logger, :console,

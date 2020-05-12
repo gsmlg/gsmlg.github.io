@@ -12,6 +12,7 @@ defmodule Gsmlg.Application do
       supervisor(Gsmlg.Repo, []),
       # Start the endpoint when the application starts
       supervisor(GsmlgWeb.Endpoint, []),
+      {Phoenix.PubSub, [name: Gsmlg.PubSub, adapter: Phoenix.PubSub.PG2]},
       # Start your own worker by calling: Gsmlg.Worker.start_link(arg1, arg2, arg3)
       # worker(Gsmlg.Worker, [arg1, arg2, arg3]),
       supervisor(Gsmlg.Node.Supervisor, []),
