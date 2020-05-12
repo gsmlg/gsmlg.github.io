@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
   },
   footer: {
-    height: '2em',
+    // height: '2em',
     lineHeight: '2em',
     textAlign: 'center',
     marginTop: '0.5em',
