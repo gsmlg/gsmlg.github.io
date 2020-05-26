@@ -294,7 +294,7 @@ blogs.push({
   title: 'DevOps集群',
   date: '2020-05-12',
   author: 'Gao',
-})；
+});
 
 blogs.push({
   id: 38,
@@ -302,6 +302,6 @@ blogs.push({
   title: 'SocketIO使用解析',
   date: '2020-05-26',
   author: 'Gao',
-})；
+});
 
 export default blogs;
