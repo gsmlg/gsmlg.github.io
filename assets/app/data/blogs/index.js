@@ -304,4 +304,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 38,
+  name: 'web-ssh',
+  title: '浏览器中使用Shell和SSH',
+  date: '2020-05-27',
+  author: 'Gao',
+});
+
 export default blogs;
