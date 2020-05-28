@@ -108,6 +108,12 @@ module.exports = require('./webpack.base.babel')({
 
       // Removes warning for about `additional` section usage
       safeToUseOptionalCaches: true,
+
+      autoUpdate: 1000 * 60 * 24,
+
+      ServiceWorker: {
+        entry: 'sw.js',
+      },
     }),
 
     new CompressionPlugin({

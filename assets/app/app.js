@@ -79,4 +79,27 @@ if (!window.Intl) {
 } else {
   render(translationMessages);
 }
-OfflinePluginRuntime.install();
+OfflinePluginRuntime.install({
+  onInstalled() {
+    console.log('App is ready for offline usage');
+  },
+  onUpdating() {
+    console.log('App is updating');
+  },
+  onUpdateReady() {
+    console.log('App is Ready for update');
+    setTimeout(() => {
+      OfflinePluginRuntime.applyUpdate();
+    }, 5000);
+  },
+  onUpdateFailed() {
+    console.log('App update failed');
+  },
+  onUpdated() {
+    console.log('App has updated');
+  },
+});
+
+setInterval(() => {
+  OfflinePluginRuntime.update();
+}, 1000 * 60 * 4);
