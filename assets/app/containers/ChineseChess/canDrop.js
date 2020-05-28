@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 const canDrop = (item, pos, pieces) => {
   const fx = item.position.x;
   const fy = item.position.y;
@@ -7,7 +9,7 @@ const canDrop = (item, pos, pieces) => {
   const target = _.find(pieces, { position: pos });
   if (target && target.color === item.color) return false;
 
-  const hasntPiece = (pos) => !_.find(pieces, { position: pos });
+  const hasntPiece = (pos_) => !_.find(pieces, { position: pos_ });
 
   const rk = _.find(pieces, { color: 'red', type: 0 });
   const bk = _.find(pieces, { color: 'black', type: 0 });
@@ -25,7 +27,7 @@ const canDrop = (item, pos, pieces) => {
       if (tx < 3 || tx > 5) return false;
       if (item.color === 'red' && (ty > 2)) return false;
       if (item.color === 'black' && (ty < 7)) return false;
-      if (item.color == 'red') {
+      if (item.color === 'red') {
         if (tx === bk.position.x) {
           let count = 0;
           for (let i = rk.position.y + 1; i < bk.position.y; i++) {

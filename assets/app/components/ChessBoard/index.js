@@ -18,11 +18,17 @@ class ChessBoard extends React.PureComponent { // eslint-disable-line react/pref
   renderSquare(i) {
     const x = i % 9;
     const y = Math.floor(i / 9);
-    const movePiece = this.props.movePiece;
-    const { blackPieces, redPieces } = this.props;
+    const {
+      blackPieces,
+      redPieces,
+      movePiece,
+      turn,
+      canDrop,
+      kill,
+    } = this.props;
     const pieces = _.filter(redPieces.concat(blackPieces), { live: true });
     const item = _.find(pieces, { position: { x, y } });
-    const key = (item != null) ? <Piece item={item} turn={this.props.turn} /> : null;
+    const key = (item != null) ? <Piece item={item} turn={turn} /> : null;
 
     return (
       <div
@@ -39,9 +45,9 @@ class ChessBoard extends React.PureComponent { // eslint-disable-line react/pref
           x={x}
           y={y}
           movePiece={movePiece}
-          canDrop={this.props.canDrop}
+          canDrop={canDrop}
           pieces={pieces}
-          kill={() => item && this.props.kill(item)}
+          kill={() => item && kill(item)}
         >
           {key}
         </Square>
@@ -51,7 +57,7 @@ class ChessBoard extends React.PureComponent { // eslint-disable-line react/pref
 
   render() {
     const squares = [];
-    for (let i = 0; i < 90; i++) {
+    for (let i = 0; i < 90; i += 1) {
       squares.push(this.renderSquare(i));
     }
 
