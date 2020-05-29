@@ -51,13 +51,16 @@ const useStyles = makeStyles((theme) => ({
 
 const Layout = ({ children }, ref) => {
   const classes = useStyles();
+  const requestPerm = React.useCallback(() => {
+    Notification.requestPermission();
+  }, []);
 
   return (
     <section className={classes.root} ref={ref}>
       <AppBar position="static">
         <Toolbar>
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
+            <MenuIcon onClick={requestPerm} />
           </IconButton>
           <Typography type="title" color="inherit" className={classes.flex}>
             <Button color="inherit" component={NavLink} to="/" exact activeClassName={classes.raised}>Home</Button>
@@ -73,8 +76,11 @@ const Layout = ({ children }, ref) => {
       </section>
       <footer className={classes.footer}>
         <div className="container">
-          <span className={classes.icp}>京ICP备20014476号</span>
-          <br />
+          {location.hostname.includes('gsmiot.com') ? (
+            <>
+              <span className={classes.icp}>京ICP备20014476号</span>
+            </>
+          ): null}
           <span className={classes.copyright}>Copyright © 2017-2020 GSMLG - Powered by GSMLG Web.</span>
         </div>
       </footer>
