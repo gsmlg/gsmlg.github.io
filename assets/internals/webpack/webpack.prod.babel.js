@@ -124,20 +124,20 @@ module.exports = require('./webpack.base.babel')({
     }),
 
     new WebpackPwaManifest({
-      name: 'React Boilerplate',
-      short_name: 'React BP',
-      description: 'My React Boilerplate-based project!',
+      name: 'GSMLG Web Portal',
+      short_name: 'GSMLG',
+      description: 'GSMLG web portal for all gsmlg works!',
       background_color: '#fafafa',
       theme_color: '#b1624d',
       inject: true,
       ios: true,
       icons: [
         {
-          src: path.resolve('app/images/icon.png'),
+          src: path.join(config.root, 'app/images/icon.png'),
           sizes: [72, 96, 128, 144, 192, 384, 512],
         },
         {
-          src: path.resolve('app/images/icon.png'),
+          src: path.join(config.root, 'app/images/icon.png'),
           sizes: [120, 152, 167, 180],
           ios: true,
         },
