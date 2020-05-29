@@ -65,7 +65,7 @@ const Layout = ({ children }, ref) => {
           <Typography type="title" color="inherit" className={classes.flex}>
             <Button color="inherit" component={NavLink} to="/" exact activeClassName={classes.raised}>Home</Button>
             <Button color="inherit" component={NavLink} to="/blogs" activeClassName={classes.raised}>Blog</Button>
-            <Button color="inherit" component={NavLink} to="/keynotes" activeClassName={classes.raised}>Keynote</Button>
+            <Button color="inherit" component={NavLink} to="/keynotes" activeClassName={classes.raised}>Presentation</Button>
             <Button color="inherit" component={NavLink} to="/tools" activeClassName={classes.raised}>Tools</Button>
             <Button color="inherit" component={NavLink} to="/games" activeClassName={classes.raised}>Games</Button>
           </Typography>
