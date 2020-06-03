@@ -312,4 +312,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 40,
+  name: 'term-control-char',
+  title: 'xTerm中的控制模拟',
+  date: '2020-06-03',
+  author: 'Gao',
+});
+
 export default blogs;
