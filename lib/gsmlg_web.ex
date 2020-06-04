@@ -23,6 +23,7 @@ defmodule GsmlgWeb do
       import Plug.Conn
       import GsmlgWeb.Router.Helpers
       import GsmlgWeb.Gettext
+      import Phoenix.LiveView.Controller
     end
   end
 
@@ -40,6 +41,7 @@ defmodule GsmlgWeb do
       import GsmlgWeb.Router.Helpers
       import GsmlgWeb.ErrorHelpers
       import GsmlgWeb.Gettext
+      import Phoenix.LiveView.Helpers
     end
   end
 
@@ -48,6 +50,7 @@ defmodule GsmlgWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 

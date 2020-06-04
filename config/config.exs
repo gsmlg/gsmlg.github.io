@@ -14,7 +14,10 @@ config :gsmlg, GsmlgWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "v3HZYcVkxKaUUbrg/k7m4Ru3HxUkXAtY9xDPTnnRKa3q8RpekScBEiJuBRDTTsyv",
   render_errors: [view: GsmlgWeb.ErrorView, accepts: ~w(html json)],
-  pubsub_server: Gsmlg.PubSub
+  pubsub_server: Gsmlg.PubSub,
+  live_view: [
+    signing_salt: "W9dIqaWrHspJjmqKJNcEvqI62dRtaVGa"
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -27,3 +30,4 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
