@@ -320,4 +320,36 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 41,
+  name: 'http-entities-encoding',
+  title: 'HTTP 请求实体和编码',
+  date: '2020-06-09',
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 42,
+  name: 'http-i18n',
+  title: 'HTTP 国际化',
+  date: '2020-06-09',
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 43,
+  name: 'http-content-negotiation',
+  title: 'HTTP 内容协商与转码',
+  date: '2020-06-09',
+  author: 'Gao',
+});
+
+blogs.push({
+  id: 44,
+  name: 'http-publish-distribution',
+  title: 'HTTP 发布与分发',
+  date: '2020-06-09',
+  author: 'Gao',
+});
+
 export default blogs;
