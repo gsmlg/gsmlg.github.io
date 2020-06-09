@@ -59,8 +59,8 @@ const Layout = ({ children }, ref) => {
     <section className={classes.root} ref={ref}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon onClick={requestPerm} />
+          <IconButton onClick={requestPerm} className={classes.menuButton} color="inherit" aria-label="Menu">
+            <MenuIcon />
           </IconButton>
           <Typography type="title" color="inherit" className={classes.flex}>
             <Button color="inherit" component={NavLink} to="/" exact activeClassName={classes.raised}>Home</Button>
