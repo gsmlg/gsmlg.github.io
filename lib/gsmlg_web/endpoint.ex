@@ -12,8 +12,10 @@ defmodule GsmlgWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :gsmlg
 
   socket "/socket", GsmlgWeb.UserSocket,
-    websocket: true,
-    longpull: false
+    longpull: false,
+    websocket: [
+      connect_info: [:peer_data, :x_headers, :uri, :user_agent, session: @session_options]
+    ]
 
   socket "/live", Phoenix.LiveView.Socket,
     websocket: [connect_info: [session: @session_options]]

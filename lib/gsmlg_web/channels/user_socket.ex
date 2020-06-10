@@ -16,7 +16,13 @@ defmodule GsmlgWeb.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(_params, socket) do
+  def connect(params, socket, connect_info) do
+    IO.puts "Params: "
+    IO.inspect params
+    IO.puts "Socket: "
+    IO.inspect socket
+    IO.puts "Connect Info: "
+    IO.inspect connect_info
     {:ok, socket}
   end
 
