@@ -1,5 +1,7 @@
 # GSMLG
 
+![Docker deploy](https://github.com/gsmlg/gsmlg.github.io/workflows/Docker%20deploy/badge.svg?branch=elixir&event=push)
+
 ## To start development server:
 
   * Install dependencies with `mix deps.get`
