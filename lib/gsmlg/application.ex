@@ -32,7 +32,7 @@ defmodule Gsmlg.Application do
       # worker(Gsmlg.Worker, [arg1, arg2, arg3]),
       supervisor(Gsmlg.Node.Supervisor, []),
       supervisor(Gsmlg.Chess.Supervisor, []),
-      supervisor(Cluster.Supervisor, [topologies, [name: Gsmlg.ClusterSupervisor]])
+      {Cluster.Supervisor, [topologies, [name: Gsmlg.ClusterSupervisor]]},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
