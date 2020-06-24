@@ -352,4 +352,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 45,
+  name: 'libcluster',
+  title: 'Cluster中自动发现erlang node',
+  date: '2020-06-24',
+  author: 'Gao',
+});
+
 export default blogs;
