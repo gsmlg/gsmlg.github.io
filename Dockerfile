@@ -19,6 +19,7 @@ FROM alpine:3.11
 LABEL maintainer="GSMLG < me@gsmlg.org >"
 
 ENV PORT=80 \
+    REPLACE_OS_VARS=true \
     ERL_EPMD_PORT=4369 \
     NODE_NAME=gsmlg.org \
     ERLCOOKIE=erlang_cookie
