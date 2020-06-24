@@ -26,13 +26,12 @@ copy:
 		\cp $${APP}.tar.gz $${APP}-v$${VER}.tar.gz
 
 subtree:
-	@BRANCH=$(shell git rev-parse --abbrev-ref HEAD) echo $$BRANCH ; \
 	git branch -D __tmp ; \
 	git checkout -b __tmp ; \
 	git add -f priv/static ; \
 	git commit -m 'publish ghpage' ; \
 	git push origin `git subtree split --prefix priv/static `:master --force ; \
-	git checkout -f $$BRANCH ; \
+	git checkout -f elixir ; \
 	git branch -D __tmp
 
 docker:
