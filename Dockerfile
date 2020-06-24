@@ -22,6 +22,7 @@ ENV PORT=80 \
     REPLACE_OS_VARS=true \
     ERL_EPMD_PORT=4369 \
     NODE_NAME=gsmlg.org \
+    POD_IP=127.0.0.1 \
     ERLCOOKIE=erlang_cookie
 
 RUN apk update \

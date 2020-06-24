@@ -16,7 +16,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { bindActionCreators, compose } from 'redux';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, MuiThemeProvider, withStyles } from '@material-ui/core/styles';
 
 import GlobalStyle from 'global-styles';
 
@@ -36,7 +36,6 @@ import NodePage from 'containers/NodePage/Loadable';
 import GamesPage from 'containers/GamesPage/Loadable';
 import ChineseChess from 'containers/ChineseChess/Loadable';
 
-import { withStyles } from '@material-ui/core/styles';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import saga from './saga';

@@ -28,7 +28,7 @@ defmodule Gsmlg.Node.Self do
   node name, used by Node.start
   """
   def name do
-    nodeName = System.get_env("NODE_NAME")
+    nodeName = System.get_env("POD_IP")
     :"#{nodeName}"
   end
 

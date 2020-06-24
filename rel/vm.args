@@ -4,7 +4,7 @@
 ## must set `REPLACE_OS_VARS=true` in system environment to make {NODE_NAME} work
 
 ## Name of the node
--name <%= release_name %>@${NODE_NAME}
+-name <%= release_name %>@${POD_IP}
 
 ## Cookie for distributed erlang
 -setcookie ${ERLCOOKIE}
