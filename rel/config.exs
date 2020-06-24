@@ -39,6 +39,7 @@ environment :prod do
   set include_src: false
   set cookie: :"Y8KKf^;B&j:Ft$7SbS0O21$C!%!J)|YiedD@4BNQ:9I@.14L)9r^?T:bFh~]}6o>"
   set vm_args: "rel/vm.args"
+  set preconfigure_hooks: "rel/hooks/pre_configure"
 end
 
 # You may define one or more releases in this file.
@@ -52,4 +53,3 @@ release :gsmlg do
     :runtime_tools
   ]
 end
-

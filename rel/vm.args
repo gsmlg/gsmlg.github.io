@@ -3,10 +3,10 @@
 ## http://erlang.org/doc/man/erl.html
 
 ## Name of the node
--name <%= release_name %>@127.0.0.1
+-name <%= release_name %>@${NODE_NAME}
 
 ## Cookie for distributed erlang
--setcookie <%= release.profile.cookie %>
+-setcookie ${ERLCOOKIE}
 
 ## Heartbeat management; auto-restarts VM if it dies or becomes unresponsive
 ## (Disabled by default..use with caution!)
@@ -25,6 +25,6 @@
 ## Tweak GC to run more often
 ##-env ERL_FULLSWEEP_AFTER 10
 
-# Enable SMP automatically based on availability
-# On OTP21+, this is not needed anymore.
--smp auto
+## Enable SMP automatically based on availability
+## On OTP21+, this is not needed anymore.
+##-smp auto

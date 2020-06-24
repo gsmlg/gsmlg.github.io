@@ -6,6 +6,21 @@ defmodule Gsmlg.Application do
   def start(_type, _args) do
     import Supervisor.Spec
 
+    topologies = [
+      gsmlg: [
+        strategy: Cluster.Strategy.Kubernetes,
+        config: [
+          mode: :ip,
+          kubernetes_ip_lookup_mode: :pods,
+          kubernetes_node_basename: System.get_env("NODE_NAME", "#{Gsmlg.name}"),
+          kubernetes_selector: System.get_env("SELECTOR", "gsmlg.org/app=blog"),
+          kubernetes_namespace: System.get_env("NAMESPACE", "#{Gsmlg.name}"),
+          polling_interval: 10_000
+        ]
+      ]
+    ]
+
+
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
@@ -17,6 +32,7 @@ defmodule Gsmlg.Application do
       # worker(Gsmlg.Worker, [arg1, arg2, arg3]),
       supervisor(Gsmlg.Node.Supervisor, []),
       supervisor(Gsmlg.Chess.Supervisor, []),
+      supervisor(Cluster.Supervisor, [topologies, [name: Gsmlg.ClusterSupervisor]])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

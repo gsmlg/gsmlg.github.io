@@ -23,11 +23,7 @@ defmodule Gsmlg.Node.Others do
   end
 
   def list do
-    [
-      :"gsmlg@london.gsmlg.org",
-      :"gsmlg@newyork.gsmlg.org",
-      :"gsmlg@singapore.gsmlg.org",
-    ] |> List.delete(Gsmlg.Node.Self.name)
+    Node.list
   end
 
   def init(_) do

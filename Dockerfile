@@ -20,9 +20,7 @@ LABEL maintainer="GSMLG < me@gsmlg.org >"
 
 ENV PORT=80 \
     ERL_EPMD_PORT=4369 \
-    NAME=gsmlg \
-    SERVER_NAME=www.gsmlg.org \
-    NODE_NAME=me@gsmlg.org \
+    NODE_NAME=gsmlg.org \
     ERLCOOKIE=erlang_cookie
 
 RUN apk update \
@@ -30,10 +28,9 @@ RUN apk update \
     && apk add bash \
     && rm -rf /var/cache/apk/*
 
-COPY entrypoint.sh /
-
 COPY --from=builder /app /app
 
 EXPOSE 80 4369
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/app/bin/gsmlg", "foreground"]
+

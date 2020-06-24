@@ -47,6 +47,7 @@ defmodule Gsmlg.Mixfile do
       {:guardian, "~> 2.0"},
       {:httpoison, "~> 1.0"},
       {:jason, "~> 1.0"},
+      {:libcluster, "~> 3.2.1"},
       {:distillery, "~> 2.0", runtime: false},
     ]
   end
