@@ -12,7 +12,7 @@ defmodule Gsmlg.Application do
         config: [
           mode: :ip,
           kubernetes_ip_lookup_mode: :pods,
-          kubernetes_node_basename: System.get_env("NODE_NAME", "#{Gsmlg.name}"),
+          kubernetes_node_basename: "#{Gsmlg.name}",
           kubernetes_selector: System.get_env("SELECTOR", "gsmlg.org/app=blog"),
           kubernetes_namespace: System.get_env("NAMESPACE", "#{Gsmlg.name}"),
           polling_interval: 10_000
