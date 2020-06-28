@@ -12,7 +12,7 @@
  */
 
 import React, { PureComponent } from 'react';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { bindActionCreators, compose } from 'redux';
@@ -67,6 +67,7 @@ class App extends PureComponent {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
+        <BrowserRouter>
         <div style={{ display: 'flex', flex: 1 }}>
           <GlobalStyle />
           <Switch>
@@ -83,6 +84,7 @@ class App extends PureComponent {
             <Route component={NotFoundPage} />
           </Switch>
         </div>
+        </BrowserRouter>
       </MuiThemeProvider>
     );
   }
@@ -103,7 +105,6 @@ const withReducer = injectReducer({ key: 'APP', reducer });
 const withSaga = injectSaga({ key: 'APP', saga });
 
 export default compose(
-  withRouter,
   withReducer,
   withSaga,
   withConnect,
