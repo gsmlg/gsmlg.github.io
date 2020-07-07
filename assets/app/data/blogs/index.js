@@ -360,4 +360,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 46,
+  name: 'service-worker',
+  title: 'Service Worker',
+  date: '2020-07-02',
+  author: 'Gao',
+});
+
 export default blogs;

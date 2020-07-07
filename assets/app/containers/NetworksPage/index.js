@@ -18,7 +18,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from './card';
 
 import { doCheck, checkDone } from './actions';
-import makeSelectNetworks from './selectors';
+import { makeSelectNetworks } from './selectors';
 import reducer from './reducer';
 
 const styles = (theme) => ({
