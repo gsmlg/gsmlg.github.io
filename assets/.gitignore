@@ -3,9 +3,20 @@ coverage
 build
 node_modules
 stats.json
-npm-offline-mirror
+.pnp
+.pnp.js
 
-# Cruft
+# misc
 .DS_Store
-npm-debug.log
-.idea
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.env.development.local
+.env.test.local
+.env.production.local
+
+# boilerplate internals
+generated-cra-app
+.cra-template-rb
+template
