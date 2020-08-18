@@ -21,7 +21,7 @@
 4. 从`newAst`生成代码
 
 
-### tokenizer
+### Tokenizer
 
 将源代码转换为`token`流
 
