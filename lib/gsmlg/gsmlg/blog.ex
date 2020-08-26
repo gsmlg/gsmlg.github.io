@@ -62,7 +62,7 @@ defimpl Jason.Encoder, for: Gsmlg.Gsmlg.Blog do
       content: blog.content,
       resources: blog.resources,
       created_at: blog.created_at,
-      inerted_at: blog.inserted_at,
+      inserted_at: blog.inserted_at,
       updated_at: blog.updated_at,
     }, options)
   end
