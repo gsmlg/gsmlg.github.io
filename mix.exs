@@ -35,7 +35,7 @@ defmodule Gsmlg.Mixfile do
     [
       {:phoenix, "~> 1.5.0"},
       {:phoenix_pubsub, "~> 2.0"},
-      {:phoenix_live_view, "~> 0.13.2"},
+      {:phoenix_live_view, "~> 0.14"},
       {:floki, ">= 0.0.0", only: :test},
       {:phoenix_ecto, "~> 4.0"},
       {:etso, "~> 0.1.1"},
