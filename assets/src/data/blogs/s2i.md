@@ -2,29 +2,31 @@
 
 `Source-to-Image` (`s2i`) 是由`openshift`提供的一套从自动从代码构建到镜像的工具和流程。
 
-S2I 提供了一套镜像模版来对多种语言和矿建进行构建
+S2I提供了一套镜像模版来对多种语言和矿建进行构建
+
 
 ### 应用
 
-`s2i` 适用于将已有程序迁移到 docker 镜像。
-`s2i`提供了各类的 builder 镜像，可以针对不同的应用快速的完成构建。
-用户不再需要在为应用编写 Dockerfile，也不再需要在构建过程中运行安装依赖程序
-`s2i`可以对构建镜像进行版本管理，向控制代码仓库一样控制 build 环境
+`s2i` 适用于将已有程序迁移到docker镜像。
+`s2i`提供了各类的builder镜像，可以针对不同的应用快速的完成构建。
+用户不再需要在为应用编写Dockerfile，也不再需要在构建过程中运行安装依赖程序
+`s2i`可以对构建镜像进行版本管理，向控制代码仓库一样控制build环境
 `s2i`提供了可以持续流程，可以进行递增的项目编译，从而大大减少构建时间
+
 
 ### 原理
 
-`s2i`提供了 builder 镜像，提供了完整的编译运行环境。
-`s2i`会把代码注入到 builder 镜像中。在 builder 镜像中对源码进行处理，使其可以被运行。
+`s2i`提供了builder镜像，提供了完整的编译运行环境。
+`s2i`会把代码注入到builder镜像中。在builder镜像中对源码进行处理，使其可以被运行。
 
 处理脚本：
-
-- assemble 执行 build
+- assemble 执行build
 - run 运行
 - save-artifacts 保存构建供后续使用 optional
 - usage 显示使用信息 optional
 
-### 创建 Builder 镜像
+
+### 创建Builder镜像
 
 为`singlecloud`创建一个镜像
 
@@ -43,11 +45,10 @@ cd sc
 ```
 
 模版中提供了两个命令来处理
+- make build 构建builder镜像
+- make test 测试builder镜像
 
-- make build 构建 builder 镜像
-- make test 测试 builder 镜像
-
-##### 修改 Dockerfile 文件
+##### 修改Dockerfile文件
 
 ```Dockerfile
 # s2i-singlecloud
@@ -120,6 +121,7 @@ go build cmd/singlecloud/singlecloud.go
 mv singlecloud /go/bin/
 ```
 
+
 ##### 修改`s2i/bin/run`
 
 ```bash
@@ -135,7 +137,7 @@ mv singlecloud /go/bin/
 exec /go/bin/singlecloud
 ```
 
-#### 创建 builder 镜像
+#### 创建builder镜像
 
 ```bash
 make build
@@ -152,3 +154,4 @@ s2i build https://github.com/zdnscloud/singlecloud s2i-singlecloud singlecloud
 ```bash
 docker run -p 8080:80 --rm singlecloud singlecloud -listen :80
 ```
+

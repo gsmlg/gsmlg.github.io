@@ -5,7 +5,6 @@ Guide to setting up a new Ubuntu 18.04 dev environment with Ruby and Elixir inst
 ## Update system and install prerequisite packages
 
 Some of these packages may already be installed
-
 ```bash
 sudo apt-get install mercurial make binutils bison gcc \
  build-essential git curl zlib1g-dev openssl libssl-dev libreadline-dev \
@@ -15,37 +14,31 @@ sudo apt-get install mercurial make binutils bison gcc \
 ```
 
 Install postfix SMTP server (Choose internet site configuration and use the server's domain name)
-
 ```bash
 sudo apt-get install postfix
 ```
 
 Edit postfix config file
-
 ```bash
 sudo vim /etc/postfix/main.cf
 ```
 
 Set inet_interfaces to be loopback-only
-
 ```
 inet_interfaces = loopback-only
 ```
 
 Generate an SSH keypair used for deployments
-
 ```bash
 ssh-keygen -t rsa -C "YOUR@EMAIL.com"
 ```
 
 Copy the output of this command and paste into [github SSH key settings](https://github.com/settings/keys).
-
 ```bash
 cat ~/.ssh/id_rsa.pub
 ```
 
 Check to make sure SSH to github works with your key
-
 ```bash
 ssh -T git@github.com
 ```
@@ -57,7 +50,6 @@ sudo apt-get install postgresql-10 libpq-dev
 ```
 
 Set postgres user password
-
 ```
 sudo -u postgres psql
 postgres=# \password postgres
@@ -73,7 +65,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ```
 
 ## asdf version manager
-
 ```bash
 sudo apt-get install automake autoconf libreadline-dev libncurses-dev \
 libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev \
@@ -99,13 +90,11 @@ ruby -v
 ```
 
 Tell RubyGems to not install documentation for each gem
-
 ```bash
 echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 ```
 
 Install bundler and rails
-
 ```bash
 gem install bundler
 gem install rails
@@ -124,7 +113,6 @@ node -v
 ## Erlang, Elixir and Phoenix
 
 ### Erlang
-
 ```bash
 asdf plugin-add erlang
 asdf install erlang 20.3.4
@@ -132,7 +120,6 @@ asdf global erlang 20.3.4
 ```
 
 ### Elixir
-
 ```bash
 asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
 asdf install elixir 1.6.4
@@ -141,7 +128,6 @@ elixir -v
 ```
 
 ### Phoenix
-
 ```bash
 sudo apt-get install inotify-tools
 mix local.hex
@@ -155,7 +141,6 @@ mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_
 The wkhtmltopdf packge available in debian repo is version with unpatched QT. You most likely want version with patched QT, so download the precompiled binaries for Linux from https://wkhtmltopdf.org/downloads.html, extract them and cp the binaries in bin folder to `/usr/bin/`
 
 At the time of writing, the latest version is 0.12.4 which has an issue fetching remote images over https, so you will need to install libssl1.0-dev
-
 ```bash
 sudo apt-get install libssl1.0-dev
 ```
@@ -171,14 +156,12 @@ sudo apt-get install python-all-dev python-dev python3-pip \
 ```
 
 Add to .zshrc
-
 ```bash
 export CPLUS_INCLUDE_PATH=/usr/include/gdal
 export C_INCLUDE_PATH=/usr/include/gdal
 ```
 
 Make sure rgeo will be able to find geos
-
 ```bash
 sudo ln -s /usr/lib/x86_64-linux-gnu/libgeos-3.6.2.so /usr/lib/libgeos.so
 gem install rgeo

@@ -368,4 +368,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 47,
+  name: 'tiny-compiler',
+  title: '了解Compiler, Tiny compiler',
+  date: '2020-08-02',
+  author: 'Gao',
+});
+
 export default blogs;

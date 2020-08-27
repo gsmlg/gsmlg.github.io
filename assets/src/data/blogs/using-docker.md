@@ -1,17 +1,16 @@
 # Using Docker
 
-## 什么是 Docker
+## 什么是Docker
 
-Docker 利用现有的 Linux 容器技术，以不同方式将其封装及扩展
+Docker利用现有的Linux容器技术，以不同方式将其封装及扩展
 --主要是通过提供可以值的镜像，以及一个用户友好的接口
 --来创建一套完整的容器创建及发布方案
 
-Docker 平台拥有两个不同部分
-
+Docker平台拥有两个不同部分
 - 负责创建与运行容器的 Docker Engine
 - 用来发布容器的云服务 Docker Hub
 
-Docker 的哲学经常用航运集装箱的比喻来解释，这或许能解释 Docker 名字的由来。
+Docker的哲学经常用航运集装箱的比喻来解释，这或许能解释 Docker 名字的由来。
 
 这个比喻大概是这样：
 
@@ -22,7 +21,7 @@ Docker 的哲学经常用航运集装箱的比喻来解释，这或许能解释 
     集装箱的大小有了统一标准，并且设计的出发点是能以最少的人力在不同的运输方式之间搬运。
     所有运输机械都为运送集装箱而设计。运输不同类型物品可以使用不同的集装箱。
     因此运输产业只需要专注于处理集装箱的运输及存储问题，而集装箱内的物品完全由生产商负责。
-
+    
     Docker 的目的是把集装箱的标准化流程运用到IT行业中去。
     如今的典型系统可能包括Javascript框架、NoSQL数据库、消息队列、REST API，
     以及由各个不同编程语言所写的后端。
@@ -31,12 +30,13 @@ Docker 的哲学经常用航运集装箱的比喻来解释，这或许能解释 
     Docker容器简化了应用程序的移动，好比集装箱一样。
     开发人员只需专注开发，再也不用担心测试和发布时环境以及依赖关系带来的问题。
     运维部门只需专注于运行容器的核心问题。
+    
+    
+## 安装Docker
 
-## 安装 Docker
+Docker需要运行于64位的Linux系统上，内核版本需要大于3.10
 
-Docker 需要运行于 64 位的 Linux 系统上，内核版本需要大于 3.10
-
-macOS 可以从`docker.com`下载到 docker-ce 版本安装使用
+macOS可以从`docker.com`下载到docker-ce版本安装使用
 
 可以使用`homebrew`来安装
 
@@ -73,14 +73,14 @@ add-apt-repository \
 apt-get update
 
 apt-get install docker-ce
-
+ 
 ```
 
-## 运行 Docker
+## 运行Docker
 
 ### images 镜像
 
-docker 镜像是一个构建好的 docker 环境，可以使用 docker 直接启动一个镜像
+docker镜像是一个构建好的docker环境，可以使用docker直接启动一个镜像
 
 ```
 docker run debian
@@ -88,9 +88,9 @@ docker run debian
 
 运行镜像会自动从`docker hub`下载对应的镜像，并运行
 
-运行镜像会自动创建一个 container
+运行镜像会自动创建一个container
 
-查看运行中的 container：
+查看运行中的container：
 
 ```
 docker ps
@@ -105,17 +105,14 @@ docker run --rm -it gsmlg/phoenix
 # --rm remove after run
 ```
 
-当 docker 运行后会生成一个 container
+当docker运行后会生成一个container
 可以通过
-
 ```
 docker ps -a
 ```
+查看所有docker containers
 
-查看所有 docker containers
-
-删除无用的 container
-
+删除无用的container
 ```
 docker rm -v $(docker ps -aq -f status=exited)
 ```
@@ -124,9 +121,9 @@ docker rm -v $(docker ps -aq -f status=exited)
 
 #### Dockerfile
 
-docker 构建一个镜像需要通过 Dockerfile 文件来配置镜像的内容
+docker 构建一个镜像需要通过Dockerfile文件来配置镜像的内容
 
-一个构建的 Dockerfile 内容：
+一个构建的Dockerfile内容：
 
 ```
 FROM alpine
@@ -150,15 +147,17 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 Dockerfile 配置说明
 
+
 #### push and pull
 
 `push`: 将本地镜像推送到远程
 
 `pull`: 拉取远程镜像
 
-### 通过 Docker Compose 运行
 
-docker compose 通过 yaml 指定 docker 启动配置参数
+### 通过Docker Compose运行
+
+docker compose 通过yaml指定docker启动配置参数
 
 #### Docker Registry
 
@@ -175,6 +174,6 @@ registry:
 
 ### Docker Machine
 
-运行本地或远程的 docker 主机
+运行本地或远程的docker主机
 
 自动创建管理移除

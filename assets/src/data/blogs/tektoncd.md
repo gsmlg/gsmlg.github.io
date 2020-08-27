@@ -2,7 +2,7 @@
 
 ## Intro
 
-Tekton Pipelines 是一个为`Kubernetes`应用程序配置和运行`CI / CD`风格的`Pipelined`的开源实现
+Tekton Pipelines是一个为`Kubernetes`应用程序配置和运行`CI / CD`风格的`Pipelined`的开源实现
 
 `Pipeline` 创建 `Custom Resources` 作为构建模块来声明`pipelines`
 
@@ -14,13 +14,13 @@ Tekton Pipelines 是云原生的
 
 Tekton Pipelines 是解耦的
 
-- Pipeline 可以被部署于任意 k8s 集群
+- Pipeline 可以被部署于任意k8s集群
 - 组成`pipeline`的`task`可以分开独立运行
-- 向 Git repos 之类的资源可以轻松的在运行之间交换
+- 向Git repos之类的资源可以轻松的在运行之间交换
 
 Tekton Pipelines are Typed
 
-- 类型化的资源意味着对于诸如 Image 之类的资源，可以轻松地将资源输出
+- 类型化的资源意味着对于诸如Image之类的资源，可以轻松地将资源输出
 
 ### 此设计的高级细节：
 
@@ -47,6 +47,7 @@ To define a configuration file for a PipelineResource, you can specify the follo
 - Optional:
   - params - Parameters which are specific to each type of PipelineResource
 
+
 Types:
 
 - Git
@@ -56,9 +57,10 @@ Types:
 - Storage
 - CloutEvent
 
+
 ### Tasks
 
-Task(or ClusterTask) 是 CI 中一个组顺序执行的 step 的集合，是基本任务单位。Task 会在 pod 中运行。
+Task(or ClusterTask) 是CI中一个组顺序执行的step的集合，是基本任务单位。Task会在pod中运行。
 
 Task 需要声明三部分：
 
@@ -66,7 +68,7 @@ Task 需要声明三部分：
 - outputs
 - steps
 
-Task 在 namespace 中可用，ClusterTask 在整个集群可用
+Task 在namespace中可用，ClusterTask在整个集群可用
 
 Syntax:
 
@@ -85,13 +87,15 @@ To define a configuration file for a Task resource, you can specify the followin
   - stepTemplate - Specifies a Container step definition to use as the basis for all steps within your Task.
   - sidecars - Specifies sidecar containers to run alongside steps.
 
+
 ### Piplines
 
-Pipline 定义并执行一组 Task
+Pipline定义并执行一组Task
 
 Syntax:
 
 To define a configuration file for a Pipeline resource, you can specify the following fields:
+
 
 - Required:
   - apiVersion - Specifies the API version, for example tekton.dev/v1alpha1.
@@ -108,11 +112,11 @@ To define a configuration file for a Pipeline resource, you can specify the foll
       - retries - Used when the task is wanted to be executed if it fails. Could be a network error or a missing dependency. It does not apply to cancellations.
       - conditions - Used when a task is to be executed only if the specified conditions are evaluated to be true.
 
-Task 执行顺序，所有 Task 默认都会并行执行，除非指定了
 
+Task执行顺序，所有Task默认都会并行执行，除非指定了
 - from
 - runAfter
-  两项会指定 task 执行的依赖关系
+两项会指定task执行的依赖关系
 
 For example see this Pipeline spec:
 
@@ -184,50 +188,56 @@ build-app  build-frontend
     deploy-all
 ```
 
+
+
+
 ## 安装
 
-运行 kubectl 安装指定的 yaml 文件
+运行 kubectl 安装指定的yaml文件
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/gsmlg/pipeline/master/updated.yaml
 ```
 
-检查所有 pod 都处于`running`状态时，安装完成
+检查所有pod都处于`running`状态时，安装完成
 
 ```shell
 kubectl -n tekton-pipelines get pods
 ```
 
-安装 dashboard，更方便的查看 pipeline
+安装dashboard，更方便的查看pipeline
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/gsmlg/pipeline/master/updated_dashboard.yaml
 ```
+
 
 ## 演示运行一个`singlecloud`的构建过程
 
 创建账户
 
 ```yaml
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: pipeline-run-role
 rules:
-  - apiGroups:
-      - extensions
-    resources:
-      - deployments
-    verbs:
-      - get
-      - list
-      - watch
-      - create
-      - update
-      - patch
-      - delete
+- apiGroups:
+  - extensions
+  resources:
+  - deployments
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
 
 ---
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
@@ -237,11 +247,12 @@ roleRef:
   kind: ClusterRole
   name: pipeline-run-role
 subjects:
-  - kind: ServiceAccount
-    name: pipeline-run-service
-    namespace: default
+- kind: ServiceAccount
+  name: pipeline-run-service
+  namespace: default
 
 ---
+
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -251,6 +262,7 @@ secrets:
   - name: regcred
 
 ---
+
 apiVersion: v1
 data:
   .dockerconfigjson: <encoded docker registry auth data>
@@ -259,11 +271,15 @@ metadata:
   name: regcred
   namespace: default
 type: kubernetes.io/dockerconfigjson
+
 ```
+
+
 
 定义资源
 
 ```yaml
+
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
@@ -273,11 +289,15 @@ spec:
   params:
     - name: url
       value: docker.io/gsmlg/zcloud
+
+
 ```
 
-创建 task
+
+创建task
 
 ```yaml
+
 apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
@@ -294,7 +314,8 @@ spec:
         default: /workspace/docker-source/Dockerfile
       - name: pathToContext
         type: string
-        description: The build context used by Kaniko
+        description:
+          The build context used by Kaniko
           (https://github.com/GoogleContainerTools/kaniko#kaniko-build-contexts)
         default: /workspace/docker-source
   outputs:
@@ -306,8 +327,8 @@ spec:
       image: registry.zdns.cn/gsmlg/kaniko-project-executor:v0.13.0
       # specifying DOCKER_CONFIG is required to allow kaniko to detect docker credential
       env:
-        - name: 'DOCKER_CONFIG'
-          value: '/builder/home/.docker/'
+        - name: "DOCKER_CONFIG"
+          value: "/builder/home/.docker/"
       command:
         - /kaniko/executor
       args:
@@ -318,6 +339,7 @@ spec:
         - --skip-tls-verify
 
 ---
+
 apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
@@ -338,7 +360,8 @@ spec:
         default: /workspace/docker-source/Dockerfile
       - name: pathToContext
         type: string
-        description: The build context used by Kaniko
+        description:
+          The build context used by Kaniko
           (https://github.com/GoogleContainerTools/kaniko#kaniko-build-contexts)
         default: /workspace/docker-source
   outputs:
@@ -358,8 +381,8 @@ spec:
       image: registry.zdns.cn/gsmlg/kaniko-project-executor:v0.13.0
       # specifying DOCKER_CONFIG is required to allow kaniko to detect docker credential
       env:
-        - name: 'DOCKER_CONFIG'
-          value: '/builder/home/.docker/'
+        - name: "DOCKER_CONFIG"
+          value: "/builder/home/.docker/"
       command:
         - /kaniko/executor
       args:
@@ -370,6 +393,7 @@ spec:
         - --skip-tls-verify
 
 ---
+
 apiVersion: tekton.dev/v1alpha1
 kind: Pipeline
 metadata:
@@ -415,24 +439,28 @@ spec:
         name: build-zcloud
       resources:
         inputs:
-          - name: docker-source
-            resource: zcloud-repo
-          - name: uiImage
-            resource: singlecloud-ui-image
-            from:
-              - build-singlecloud-ui
-          - name: image
-            resource: singlecloud-image
-            from:
-              - build-singlecloud
+        - name: docker-source
+          resource: zcloud-repo
+        - name: uiImage
+          resource: singlecloud-ui-image
+          from:
+          - build-singlecloud-ui
+        - name: image
+          resource: singlecloud-image
+          from:
+          - build-singlecloud
         outputs:
-          - name: builtImage
-            resource: zcloud-image
+        - name: builtImage
+          resource: zcloud-image
+
+
 ```
 
-运行 pipelinue:
+
+运行pipelinue:
 
 ```yaml
+
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineRun
 metadata:
@@ -442,43 +470,44 @@ spec:
     name: zcloud-build-pipeline
   serviceAccount: pipeline-run-service
   resources:
-    - name: singlecloud-repo
-      resourceSpec:
-        type: git
-        params:
-          - name: revision
-            value: master
-          - name: url
-            value: https://github.com/zdnscloud/singlecloud
-    - name: singlecloud-ui-repo
-      resourceSpec:
-        type: git
-        params:
-          - name: revision
-            value: master
-          - name: url
-            value: https://github.com/zdnscloud/singlecloud-ui
-    - name: zcloud-repo
-      resourceSpec:
-        type: git
-        params:
-          - name: revision
-            value: master
-          - name: url
-            value: https://github.com/gsmlg/zcloud-image
-    - name: singlecloud-image
-      resourceSpec:
-        type: image
-        params:
-          - name: url
-            value: registry.zdns.cn/zcloud/singlecloud:master
-    - name: singlecloud-ui-image
-      resourceSpec:
-        type: image
-        params:
-          - name: url
-            value: registry.zdns.cn/zcloud/singlecloud-ui:master
-    - name: zcloud-image
-      resourceRef:
-        name: zcloud-image
+  - name: singlecloud-repo
+    resourceSpec:
+      type: git
+      params:
+      - name: revision
+        value: master
+      - name: url
+        value: https://github.com/zdnscloud/singlecloud
+  - name: singlecloud-ui-repo
+    resourceSpec:
+      type: git
+      params:
+      - name: revision
+        value: master
+      - name: url
+        value: https://github.com/zdnscloud/singlecloud-ui
+  - name: zcloud-repo
+    resourceSpec:
+      type: git
+      params:
+      - name: revision
+        value: master
+      - name: url
+        value: https://github.com/gsmlg/zcloud-image
+  - name: singlecloud-image
+    resourceSpec:
+      type: image
+      params:
+        - name: url
+          value: registry.zdns.cn/zcloud/singlecloud:master
+  - name: singlecloud-ui-image
+    resourceSpec:
+      type: image
+      params:
+        - name: url
+          value: registry.zdns.cn/zcloud/singlecloud-ui:master
+  - name: zcloud-image
+    resourceRef:
+      name: zcloud-image
+
 ```

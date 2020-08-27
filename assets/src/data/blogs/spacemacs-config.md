@@ -20,9 +20,9 @@
 
 ## 配置
 
-启动 Emacs 后，会在`~/.emacs.d/lisp/init.el`生成`spacemacs`配置
+启动Emacs后，会在`~/.emacs.d/lisp/init.el`生成`spacemacs`配置
 
-重度 Emacs 用户选择编辑模式为`emacs`
+重度Emacs用户选择编辑模式为`emacs`
 
 ### 配置概念：`layer`
 
@@ -32,7 +32,7 @@
 
 ### 配置`layer`
 
-常用 layer 添加：
+常用layer添加：
 
 - org
 - git
@@ -41,4 +41,9 @@
 - javascript
 - elixir
 
+
+
 [![Built with Spacemacs](https://cdn.rawgit.com/syl20bnr/spacemacs/442d025779da2f62fc86c2082703697714db6514/assets/spacemacs-badge.svg)](http://spacemacs.org)
+
+
+

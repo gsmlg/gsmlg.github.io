@@ -1,30 +1,30 @@
 ### 什么是 Knative？
 
-基于`Kubernetes`的平台，用于构建，部署和管理现代无服务器工作负载。
+基于`Kubernetes`的平台，用于构建，部署和管理现代无服务器工作负载。 
 
-knative 于 2018 年 7 月 24 日对外发布，是谷歌开源的 `serverless`架构方案，旨在提供一套简单易用的 `serverless`方案，把 `serverless` 标准化。目前参与的公司主要是 Google、Pivotal、IBM、Red Hat，。
+knative于2018年7月24日对外发布，是谷歌开源的 `serverless`架构方案，旨在提供一套简单易用的 `serverless`方案，把 `serverless` 标准化。目前参与的公司主要是 Google、Pivotal、IBM、Red Hat，。
 
 `Knative`让开发人员更高效
 `Knative`组件构建于`Kubernetes`之上，抽象出复杂的细节，使开发人员能够专注于重要的事情。
 通过编写成功的实际实现共享的最佳实践，`Knative`解决了构建，部署和管理云本机服务的“无聊但困难”的部分。
 
 ##### 亮点：
-
-- 针对常见应用程序用例提供更高级别抽象 API
+- 针对常见应用程序用例提供更高级别抽象API
 - 在几秒钟内即可提供可扩展，安全，无状态的服务
 - 松散耦合的特性，可以只使用需要的部分
-- 可插拔组件，可以使用自定的日志、监控、网络和 service mesh
-- Knative 可以在任何 k8s 运行的平台运行
+- 可插拔组件，可以使用自定的日志、监控、网络和service mesh
+- Knative可以在任何k8s运行的平台运行
 - 一致的开发体验，支持通用模式：GitOps, DockerOps, ManualOps.
-- Knative 可以与常见的工具和框架一起使用，例如 Django，Ruby on Rails，Spring 等等。
+- Knative可以与常见的工具和框架一起使用，例如Django，Ruby on Rails，Spring等等。
+
 
 ### knative 核心概念和原理
 
 为了实现 serverless 应用的管理，knative 把整个系统分成了三个部分：
 
-- Build：构建系统，把用户定义的函数和应用 build 成容器镜像
-- Serving：服务系统，用来配置应用的路由、升级策略、自动扩缩容等功能
-- Eventing：事件系统，用来自动完成事件的绑定和触发
+* Build：构建系统，把用户定义的函数和应用 build 成容器镜像
+* Serving：服务系统，用来配置应用的路由、升级策略、自动扩缩容等功能
+* Eventing：事件系统，用来自动完成事件的绑定和触发
 
 ##### Build 构建系统
 
@@ -33,6 +33,7 @@ build 的功能是把用户的代码自动化构建成容器镜像
 Knative 的特别之处在于两点：一是它的构建完成是在 kubernetes 中进行的，和整个 kubernetes 生态结合更紧密；另外，它旨在提供一个通用的标准化的构建组件，可以作为其他更大系统中的一部分。
 
 根据官方文档中的说的，是为了定义标准化、可移植、可重用、性能高效的构建方法.
+
 
 ##### Serving：服务系统
 
@@ -49,9 +50,10 @@ knative serving 功能是基于 kubernetes 和 istio 开发的，它使用 kuber
 
 ![62aa0d8d20401b05c4f6a51aada04eed](knative/3AFC8398-99AD-4331-B9D6-44EF8F58F2C2.png)
 
-- Configuration：应用的最新配置，也就是应用目前期望的状态，对应了 kubernetes 的容器管理（deployment）。每次应用升级都会更新 configuration，而 knative 也会保留历史版本的记录（图中的 revision），结合流量管理，knative 可以让多个不同的版本共同提供服务，方便蓝绿发布和滚动升级
-- Route：应用的路由规则，也就是进来的流量如何访问应用，对应了 istio 的流量管理（VirtualService）
-- Service：注意这里不是 kubernetes 中提供服务发现的那个 service，而是 knative 自定义的 CRD，它的全称目前是 services.serving.knative.dev 。单独控制 route 和 configuration 就能实现 serving 的所有功能，但 knative 更推荐使用 Service 来管理，因为它会自动帮你管理 route 和 configuration
+* Configuration：应用的最新配置，也就是应用目前期望的状态，对应了 kubernetes 的容器管理（deployment）。每次应用升级都会更新 configuration，而 knative 也会保留历史版本的记录（图中的 revision），结合流量管理，knative 可以让多个不同的版本共同提供服务，方便蓝绿发布和滚动升级
+* Route：应用的路由规则，也就是进来的流量如何访问应用，对应了 istio 的流量管理（VirtualService）
+* Service：注意这里不是 kubernetes 中提供服务发现的那个 service，而是 knative 自定义的 CRD，它的全称目前是 services.serving.knative.dev 。单独控制 route 和 configuration 就能实现 serving 的所有功能，但knative 更推荐使用 Service 来管理，因为它会自动帮你管理 route 和 configuration
+
 
 **knative serving 各组件之间的关系：**
 
@@ -68,30 +70,29 @@ serving 系统实现的功能是让应用/函数能够运行起来，并且自�
 
 事件概念的出现，让函数和具体的调用方能够解耦。函数部署出来不用关心谁会调用它，而事件源触发也不用关心谁会处理它。
 
-Knative Eventing 是一个旨在满足云原生开发的常见需求的系统，并提供可组合的原语以支持后期绑定事件源和事件使用者。
+Knative Eventing是一个旨在满足云原生开发的常见需求的系统，并提供可组合的原语以支持后期绑定事件源和事件使用者。
 
-Knative Eventing 围绕以下目标设计：
+Knative Eventing围绕以下目标设计：
 
-1. Knative Eventing 服务松散耦合。这些服务可以在各种平台上独立开发和部署（例如 Kubernetes，VM，SaaS 或 FaaS）。
-2. Event 的生产者和消费者是独立的。任何生产者（或源）都可以在有正在侦听的 Event 事件使用者之前生成 Event。在有创建这些 Event 的生产者之前，任何 Event 消费者都可以选择侦听的事件或事件类别。
-3. 其他服务可以连接到 Eventing 系统。这些服务可以执行以下功能：
-   - 创建新的应用不需要修改事件的生产者何消费者
-   - 从生产者选择和标记指定的时间集合
-4. 确保跨服务互操作性。 Knative Eventing 与 CNCF 无服务器工作组开发的 CloudEvents 规范一致。
+1. Knative Eventing服务松散耦合。这些服务可以在各种平台上独立开发和部署（例如Kubernetes，VM，SaaS或FaaS）。
+2. Event的生产者和消费者是独立的。任何生产者（或源）都可以在有正在侦听的Event事件使用者之前生成Event。在有创建这些Event的生产者之前，任何Event消费者都可以选择侦听的事件或事件类别。
+3. 其他服务可以连接到Eventing系统。这些服务可以执行以下功能：
+    * 创建新的应用不需要修改事件的生产者何消费者
+    * 从生产者选择和标记指定的时间集合
+4. 确保跨服务互操作性。 Knative Eventing与CNCF无服务器工作组开发的CloudEvents规范一致。
 
-### 安装 Knative
 
-Knative 依赖于 Ingress/Gateway，它能够将请求路由到 Knative Services。 目前，存在两种提供此功能的选项：
+### 安装Knative
 
-- Istio，基于 Envoy 的 Service Mesh
-- Gloo，基于 Envoy 的 API Gateway。
+Knative依赖于Ingress/Gateway，它能够将请求路由到Knative Services。 目前，存在两种提供此功能的选项：
+* Istio，基于Envoy的Service Mesh
+* Gloo，基于Envoy的API Gateway。
 
 安装过程：
+1. 安装istio
+2. 安装Knative
 
-1. 安装 istio
-2. 安装 Knative
-
-#### 首先安装 CRD
+#### 首先安装CRD
 
 label knative.dev/crd-install=true，可以防止安装过程中的竞争条件，而导致间歇性错误
 
@@ -103,7 +104,7 @@ label knative.dev/crd-install=true，可以防止安装过程中的竞争条件�
    --filename https://github.com/knative/serving/releases/download/v0.7.0/monitoring.yaml
 ```
 
-要完成 Knative 及其依赖项的安装，请再次运行 kubectl apply 命令，这次没有--selector 标志，以完成 Knative 及其依赖项的安装
+要完成Knative及其依赖项的安装，请再次运行kubectl apply命令，这次没有--selector标志，以完成Knative及其依赖项的安装
 
 ```shell
    kubectl apply --filename https://github.com/knative/serving/releases/download/v0.7.0/serving.yaml --selector networking.knative.dev/certificate-provider!=cert-manager \
@@ -112,7 +113,8 @@ label knative.dev/crd-install=true，可以防止安装过程中的竞争条件�
    --filename https://github.com/knative/serving/releases/download/v0.7.0/monitoring.yaml
 ```
 
-如果所有组件状态为你 running，确认安装成功
+
+如果所有组件状态为你running，确认安装成功
 
 ```shell
    kubectl get pods --namespace knative-serving
@@ -120,3 +122,7 @@ label knative.dev/crd-install=true，可以防止安装过程中的竞争条件�
    kubectl get pods --namespace knative-eventing
    kubectl get pods --namespace knative-monitoring
 ```
+
+
+
+

@@ -1,6 +1,6 @@
 ## Tern: JavaScript 智能分析工具
 
-Tern 是一个独立的 JavaScript 代码分析引擎
+Tern 是一个独立的JavaScript代码分析引擎
 
 Tern 被设计成为编辑器插件，用来强化编辑器的智能编辑。
 
@@ -29,12 +29,17 @@ Tern 被设计成为编辑器插件，用来强化编辑器的智能编辑。
 [在线文档](http://ternjs.net/doc/manual.html)
 
 配置文件，需要在项目下添加`.tern-project`文件
-格式为 JSON 格式，示例如下：
+格式为JSON格式，示例如下：
 
 ```json
 {
-  "libs": ["browser", "jquery"],
-  "loadEagerly": ["importantfile.js"],
+  "libs": [
+    "browser",
+    "jquery"
+  ],
+  "loadEagerly": [
+    "importantfile.js"
+  ],
   "plugins": {
     "doc_comment": {},
     "node": {},
@@ -43,16 +48,17 @@ Tern 被设计成为编辑器插件，用来强化编辑器的智能编辑。
     }
   }
 }
+
 ```
+
 
 #### libs
 
 整个项目中包含的库，由[JSON type descriptions](http://ternjs.net/doc/manual.html#typedef)格式指定
 
-使用 JSON 格式定义的库文档，全局有效
+使用JSON格式定义的库文档，全局有效
 
 已有预定义库：
-
 - browser
 - chai
 - ecmascript
@@ -65,7 +71,6 @@ Tern 被设计成为编辑器插件，用来强化编辑器的智能编辑。
 配置总是会加载的文件
 
 #### Plugins - 支持的插件：
-
 - commonjs
 - angular
 - complete_strings
@@ -94,7 +99,6 @@ yarn global add tern
 编辑器会自动从`PATH`下启动`tern`
 
 #### Emacs 使用
-
 ```lisp
 (maybe-require-package 'tern)
 (maybe-require-package 'company-tern)
@@ -103,7 +107,6 @@ yarn global add tern
 使用搜索`tern`开头的函数
 
 默认快捷键
-
 - `M-.` 跳到定义点
 - `m-,` 跳回
 - `C-c c` 读取类型
@@ -111,7 +114,7 @@ yarn global add tern
 
 #### 其它编辑器
 
-配置类似 Emacs
+配置类似Emacs
 
 快捷键检查通过命令搜索，预定义快捷键
 
@@ -147,3 +150,4 @@ Transfer-Encoding: chunked
 {"origin":"assets/javascripts/zddi/common/models/collection.js","start":361,"end":1130,"file":"assets/javascripts/zddi/common/models/collection.js","contextOffset":50,"context":"able: false,\n\n    model: Model,\n\n    constructor: "}%
 
 ```
+
