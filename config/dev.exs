@@ -13,7 +13,7 @@ config :gsmlg, GsmlgWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [node: ["./yarn", "run", "start:watch",
+  watchers: [node: ["./yarn", "run", "watch",
                     cd: Path.expand("../assets", __DIR__)]]
 
 # ## SSL Support
