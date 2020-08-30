@@ -1,6 +1,6 @@
-# 在Linux系统中配置VPN Client
+# 在 Linux 系统中配置 VPN Client
 
-在没有X的linux系统中安装启用VPN
+在没有 X 的 linux 系统中安装启用 VPN
 
 ## 安装
 
@@ -17,7 +17,7 @@ yum --enablerepo=epel -y install strongswan xl2tpd
 yum -y install strongswan xl2tpd
 ```
 
-### 配置VPN账户
+### 配置 VPN 账户
 
 ```shell
 VPN_SERVER_IP='你的VPN服务器IP'
@@ -26,7 +26,7 @@ VPN_USER='你的VPN用户名'
 VPN_PASSWORD='你的VPN密码'
 ```
 
-### 配置Strongswan
+### 配置 Strongswan
 
 ```shell
 cat > /etc/ipsec.conf <<EOF
@@ -174,3 +174,4 @@ ipsec down myvpn
 echo "d myvpn" > /var/run/xl2tpd/l2tp-control
 strongswan down myvpn
 ```
+````

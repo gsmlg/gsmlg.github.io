@@ -8,8 +8,7 @@
 var promise = navigator.mediaDevices.getUserMedia(constraints);
 ```
 
-
-#### 参数： *constraints*
+#### 参数： _constraints_
 
 可以配置为如下：
 
@@ -39,7 +38,7 @@ navigator.mediaDevices.getUsermedia({ video: { frameRate: { ideal: 10, max: 15 }
 
 `Promise` 对象
 
-- 成功返回为 [`MediaStream`](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream) 
+- 成功返回为 [`MediaStream`](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream)
 
 - 失败异常
   - AbortError
@@ -49,8 +48,6 @@ navigator.mediaDevices.getUsermedia({ video: { frameRate: { ideal: 10, max: 15 }
   - OverConstrainedError
   - SecurityError
   - TypeError
-
-
 
 ### 早期接口为 `navigator.getUserMedia()`
 
@@ -66,45 +63,46 @@ if (navigator.mediaDevices === undefined) {
 // with getUserMedia as it would overwrite existing properties.
 // Here, we will just add the getUserMedia property if it's missing.
 if (navigator.mediaDevices.getUserMedia === undefined) {
-  navigator.mediaDevices.getUserMedia = function(constraints) {
-
+  navigator.mediaDevices.getUserMedia = function (constraints) {
     // First get ahold of the legacy getUserMedia, if present
-    var getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+    var getUserMedia =
+      navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
     // Some browsers just don't implement it - return a rejected promise with an error
     // to keep a consistent interface
     if (!getUserMedia) {
-      return Promise.reject(new Error('getUserMedia is not implemented in this browser'));
+      return Promise.reject(
+        new Error('getUserMedia is not implemented in this browser'),
+      );
     }
 
     // Otherwise, wrap the call to the old navigator.getUserMedia with a Promise
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
       getUserMedia.call(navigator, constraints, resolve, reject);
     });
-  }
+  };
 }
 
-navigator.mediaDevices.getUserMedia({ audio: true, video: true })
-.then(function(stream) {
-  var video = document.querySelector('video');
-  // Older browsers may not have srcObject
-  if ("srcObject" in video) {
-    video.srcObject = stream;
-  } else {
-    // Avoid using this in new browsers, as it is going away.
-    video.src = window.URL.createObjectURL(stream);
-  }
-  video.onloadedmetadata = function(e) {
-    video.play();
-  };
-})
-.catch(function(err) {
-  console.log(err.name + ": " + err.message);
-});
-
+navigator.mediaDevices
+  .getUserMedia({ audio: true, video: true })
+  .then(function (stream) {
+    var video = document.querySelector('video');
+    // Older browsers may not have srcObject
+    if ('srcObject' in video) {
+      video.srcObject = stream;
+    } else {
+      // Avoid using this in new browsers, as it is going away.
+      video.src = window.URL.createObjectURL(stream);
+    }
+    video.onloadedmetadata = function (e) {
+      video.play();
+    };
+  })
+  .catch(function (err) {
+    console.log(err.name + ': ' + err.message);
+  });
 ```
 
 ### 兼容情况
 
 ![](get-user-media/can-i-use.png)
-

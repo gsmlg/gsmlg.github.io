@@ -44,7 +44,8 @@ export function BlogContent(props: Props) {
 
   const lastPost = blogs[blogs.length - 1];
 
-  const blog = blogs.find(b => b.name === props.match.params.blog_name) || lastPost;
+  const blog =
+    blogs.find(b => b.name === props.match.params.blog_name) || lastPost;
 
   const [content, setContent] = useState('');
 

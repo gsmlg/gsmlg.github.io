@@ -1,12 +1,12 @@
-## 为什么使用make
-    
-在项目中部署使用了makefile配置,来方便快速的执行一些工作流
+## 为什么使用 make
 
-相比于其它task runner，make的优势是不需要安装，所有系统当前都已经预置
+在项目中部署使用了 makefile 配置,来方便快速的执行一些工作流
+
+相比于其它 task runner，make 的优势是不需要安装，所有系统当前都已经预置
 
 方便，是最大的原因
 
-目前使用的makefile如下：
+目前使用的 makefile 如下：
 
 ```makefile
 GREEN=\033[0;32m
@@ -94,31 +94,31 @@ pull: download
 
 ### 定义变量
 
-makefile 中的变量定义和shell中一样，都可以直接使用
+makefile 中的变量定义和 shell 中一样，都可以直接使用
+
 ```
 abc = 123
 bcd += ddd
 cc := f2
 ```
-#### shel中的变量
 
-由于makefile中的变量和shell格式一样，所以当要使用shell变量时，
+#### shel 中的变量
+
+由于 makefile 中的变量和 shell 格式一样，所以当要使用 shell 变量时，
 会需要使用转义序列来处理，方式是两个`$`符号
 
 ### shell
 
-makefile 中的shell使用需要注意，每一行都会启动一个shell，单独运行
-当调用shell进行插值的时候，shell的执行顺序也不是顺序执行的
+makefile 中的 shell 使用需要注意，每一行都会启动一个 shell，单独运行
+当调用 shell 进行插值的时候，shell 的执行顺序也不是顺序执行的
 
-由于都是使用单独的shell，所以当想要使用相同的上下文时，
+由于都是使用单独的 shell，所以当想要使用相同的上下文时，
 可以使用`.ONESHELL`指令设置，或者是转义换行符
 
+### 连续的 task
 
+由于 makefile 中 shell 无法连续执行，所以，将 task 拆分成多个，然后通过 task 依赖关系顺序执行
 
-### 连续的task
+task 依赖，在 task 后输入其它的 task 名称，就会按照顺序，连续执行这些 task
 
-由于makefile中shell无法连续执行，所以，将task拆分成多个，然后通过task依赖关系顺序执行
-
-task依赖，在task后输入其它的task名称，就会按照顺序，连续执行这些task
-
-当出现错误，task队列会中断，这时需要在shell开始的行添加一个`-`来继续执行task
+当出现错误，task 队列会中断，这时需要在 shell 开始的行添加一个`-`来继续执行 task

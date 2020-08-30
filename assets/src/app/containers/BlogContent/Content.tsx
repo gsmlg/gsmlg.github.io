@@ -13,6 +13,10 @@ interface Props {
 
 export function Content({ content }: Props) {
   return (
-    <Typography className="blog-content" component="section" dangerouslySetInnerHTML={{ __html: content }} />
+    <Typography
+      className="blog-content"
+      component="section"
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
   );
 }

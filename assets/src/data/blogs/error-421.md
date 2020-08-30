@@ -10,11 +10,11 @@
 
 ### 排查过程
 
-首先为乐确认问题是在nginx转发时发生的，还是由浏览器发送的
+首先为乐确认问题是在 nginx 转发时发生的，还是由浏览器发送的
 
-只能使用抓包的方式进行排查，重新修改了服务器，关闭了https
+只能使用抓包的方式进行排查，重新修改了服务器，关闭了 https
 
-使用wireshark进行抓包
+使用 wireshark 进行抓包
 
 ```wireshark
 ip == 10.1.108.31 && ip.port = 80 && http
@@ -31,15 +31,15 @@ ip == 10.1.108.31 && ip.port = 80 && http
 
 检查了请求和响应
 
-查看chrome网络waterfall
+查看 chrome 网络 waterfall
 
 ![](error-421/time.png)
 
-查看发现，时间显示stalled时有一次请求
+查看发现，时间显示 stalled 时有一次请求
 
-之后walting时间段是重试的请求
+之后 walting 时间段是重试的请求
 
-测试了是否是keepalive的原因，`nginx.conf`设置：
+测试了是否是 keepalive 的原因，`nginx.conf`设置：
 
 ```nginx
 keepalive_timeoute 0;
@@ -49,7 +49,7 @@ keepalive_timeoute 0;
 
 使用了[`echo`](https://github.com/gsmlg/echo)服务进行测试
 
-通过测试发现，当服务器响应421时，浏览器会复制请求并再次请求服务器
+通过测试发现，当服务器响应 421 时，浏览器会复制请求并再次请求服务器
 
 ### 原因
 
@@ -82,19 +82,12 @@ RFC 7540 Hypertext Transfer Protocol Version 2 (HTTP/2) [链接](https://tools.i
       indicated by the method definition or explicit cache controls (see
       Section 4.2.2 of [RFC7234]).
 
-
 #### 确定原因
 
-http2中定义了421错误
+http2 中定义了 421 错误
 
-##### 421错误用于在http2中，在http2复用连接时，发现连接到的服务器不正确，则会由服务器返回响应码421，客户端收到后会重新建立连接并且发送相同的请求
+##### 421 错误用于在 http2 中，在 http2 复用连接时，发现连接到的服务器不正确，则会由服务器返回响应码 421，客户端收到后会重新建立连接并且发送相同的请求
 
 ### 解决方式
 
 使用通用的错误响应码`403`即可解决问题
-
-
-
-
-
-

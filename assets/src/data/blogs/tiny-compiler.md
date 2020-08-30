@@ -1,4 +1,4 @@
-构建一个简单的编译器, 将List格式的代码转换成C格式的
+构建一个简单的编译器, 将 List 格式的代码转换成 C 格式的
 
 原始代码
 
@@ -12,7 +12,6 @@
 
 ![A Compiler's Frontend](./tiny-compiler/compiler-frontend.jpg)
 
-
 根据编译过程来解决这个问题
 
 1. 生成`tokens`
@@ -20,19 +19,18 @@
 3. 转换`ast`到`newAst`
 4. 从`newAst`生成代码
 
-
 ### Tokenizer
 
 将源代码转换为`token`流
 
 ```js
-const tokenizer = (input) => {
+const tokenizer = input => {
   let pos = 0;
   let tokens = [];
-  while (pos <input.length) {
+  while (pos < input.length) {
     let char = input[pos];
 
-    const PAREN_MATCH = /[\(\)]/
+    const PAREN_MATCH = /[\(\)]/;
     if (PAREN_MATCH.test(char)) {
       tokens.push({ type: 'paren', value: char });
       pos++;
@@ -44,7 +42,7 @@ const tokenizer = (input) => {
     if (NAME_MATCH.test(char)) {
       let verb = char;
       while (NAME_MATCH_.test(input[++pos])) {
-          verb += input[pos]
+        verb += input[pos];
       }
       tokens.push({ type: 'name', value: verb });
       continue;
@@ -54,7 +52,7 @@ const tokenizer = (input) => {
     if (NUM_MATCH.test(char)) {
       let verb = char;
       while (NUM_MATCH.test(input[++pos])) {
-          verb += input[pos]
+        verb += input[pos];
       }
       tokens.push({ type: 'number', value: verb });
       continue;
@@ -71,16 +69,14 @@ const tokenizer = (input) => {
 };
 
 module.exports = tokenizer;
-
 ```
-
 
 ### Parser
 
 将`token`流转换为`AST`
 
 ```js
-const parser = (tokens) => {
+const parser = tokens => {
   let current = 0;
 
   const walk = () => {
@@ -106,7 +102,10 @@ const parser = (tokens) => {
 
       token = tokens[++current];
 
-      while ((token.type !== 'paren') || (token.type === 'paren' && token.value !== ')')) {
+      while (
+        token.type !== 'paren' ||
+        (token.type === 'paren' && token.value !== ')')
+      ) {
         node.params.push(walk());
         token = tokens[current];
       }
@@ -116,7 +115,7 @@ const parser = (tokens) => {
       return node;
     }
     throw new TypeError(token.type);
-  }
+  };
 
   let ast = {
     type: 'Program',
@@ -130,15 +129,12 @@ const parser = (tokens) => {
   return ast;
 };
 
-
 module.exports = parser;
-
 ```
-
 
 ### Traverser and Transformer
 
-`Traverser` 提供了遍历AST的方法
+`Traverser` 提供了遍历 AST 的方法
 
 `Transformer` 通过 `Traverser` 遍历语法树来修改 `AST`
 
@@ -146,9 +142,8 @@ module.exports = parser;
 
 ```js
 const traverser = (ast, visitor) => {
-
   const traverseArray = (array, parent) => {
-    array.forEach((child) => {
+    array.forEach(child => {
       traverseNode(child, parent);
     });
   };
@@ -184,19 +179,15 @@ const traverser = (ast, visitor) => {
   traverseNode(ast, null);
 };
 
-
 module.exports = traverser;
-
 ```
-
 
 #### Transformer
 
 ```js
 const traverser = require('./traverser');
 
-const transformer = (ast) => {
-
+const transformer = ast => {
   let newAst = {
     type: 'Program',
     body: [],
@@ -235,41 +226,33 @@ const transformer = (ast) => {
 
         parent._context.push(expression);
       },
-    }
-
-  })
+    },
+  });
 
   return newAst;
 };
 
 module.exports = transformer;
-
 ```
-
 
 ### Code Generator
 
 将`AST`重新生成为代码
 
 ```js
-
-const codeGenerator = (node) => {
-  switch(node.type) {
+const codeGenerator = node => {
+  switch (node.type) {
     case 'Program':
       return node.body.map(codeGenerator).join('\n');
 
     case 'ExpressionStatement':
-      return (
-        codeGenerator(node.expression) +
-        ';'
-      );
+      return codeGenerator(node.expression) + ';';
 
     case 'CallExpression':
       return (
         codeGenerator(node.callee) +
         '(' +
-        node.arguments.map(codeGenerator)
-        .join(', ') +
+        node.arguments.map(codeGenerator).join(', ') +
         ')'
       );
 
@@ -282,8 +265,7 @@ const codeGenerator = (node) => {
     default:
       throw new TypeError(node.type);
   }
-}
+};
 
 module.exports = codeGenerator;
-
 ```

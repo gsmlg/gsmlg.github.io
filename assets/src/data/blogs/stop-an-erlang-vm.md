@@ -1,7 +1,7 @@
-## 如何停止erlang VM
+## 如何停止 erlang VM
 
-当你需要停止一个Erlang VM的时候，如果你不知道怎么做？
-这里有10种方式介绍如何停止
+当你需要停止一个 Erlang VM 的时候，如果你不知道怎么做？
+这里有 10 种方式介绍如何停止
 
 ### 比较好的方式
 
@@ -22,12 +22,12 @@ The same as stop(0).
 所以，最直接的方式就是运行`init:stop(0)`。要明白这个指令如何运行，我们可以检查文档：
 
 ```
-All applications are taken down smoothly, all code is unloaded, 
-and all ports are closed before the system terminates by calling halt(Status). 
-If command-line flag -heart was specified, the heartprogram is terminated before the Erlang node terminates. 
+All applications are taken down smoothly, all code is unloaded,
+and all ports are closed before the system terminates by calling halt(Status).
+If command-line flag -heart was specified, the heartprogram is terminated before the Erlang node terminates.
 For more information, see heart(3).
 
-To limit the shutdown time, the time init is allowed to spend taking down applications, 
+To limit the shutdown time, the time init is allowed to spend taking down applications,
 command-line flag -shutdown_time is to be used.
 ```
 
@@ -41,8 +41,8 @@ VM，不处理应用的终止和任何的端口关闭
 
 3. JCL mode
 
-先前的方式需要你能够链接到erlang shell才可以执行。如果你做不到，或者是shell被阻止了该如何操作？
-如果你进入了shell，但是无法输入，你可以指键入`Ctrl-g`([JCL mode](http://erlang.org/doc/man/shell.html#jcl-mode))
+先前的方式需要你能够链接到 erlang shell 才可以执行。如果你做不到，或者是 shell 被阻止了该如何操作？
+如果你进入了 shell，但是无法输入，你可以指键入`Ctrl-g`([JCL mode](http://erlang.org/doc/man/shell.html#jcl-mode))
 
 这样操作的效果和`erlang:halt(0)`相同
 
@@ -56,40 +56,36 @@ BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
        (v)ersion (k)ill (D)b-tables (d)istribution
 ```
 
-可以用两种方式关闭erlang节点：
+可以用两种方式关闭 erlang 节点：
 
-* Press **Ctrl-c** again
-* Press **a** and then return
+- Press **Ctrl-c** again
+- Press **a** and then return
 
 效果都和`erlang:halt(0)`一样
-
 
 ### 不好的方式
 
 如果想要用一些不太好的方式来退出，并生成某些错误报告。
 那么，这些是可以做的选择……
 
-
 5. erlang:halt/1,2
 
 正如你看到的[这些文档](https://erldocs.com/current/erts/erlang.html?i=0&search=erlang:ha#halt/1)，
 `erlang:halt/1,2`可以提交一些选项并输出处理错误。可以看一下文档中的这些选项：
 
-* 如果你想要一个干净的关闭并且有一个合适的退出状态，使用整数比较好
-* 如果需要生成`erl_crash.dump`，使用一个`string`
-* 如果需要生成`core dump`，可以使用`atom` `abort`
+- 如果你想要一个干净的关闭并且有一个合适的退出状态，使用整数比较好
+- 如果需要生成`erl_crash.dump`，使用一个`string`
+- 如果需要生成`core dump`，可以使用`atom` `abort`
 
-当然，无论选择什么，都不会终止任何application和官彬任何ports，etc.
-
+当然，无论选择什么，都不会终止任何 application 和官彬任何 ports，etc.
 
 6. Just kill it
 
-Erlang VM只是一个操作系统进程，在类Unix系统可以使用关闭进程的信号来关闭进程。
-不同的信号会给Erlang VM不同的处理。通常的信号：`kill -SIGTERM`的行为会和`init:stop()`一样。
+Erlang VM 只是一个操作系统进程，在类 Unix 系统可以使用关闭进程的信号来关闭进程。
+不同的信号会给 Erlang VM 不同的处理。通常的信号：`kill -SIGTERM`的行为会和`init:stop()`一样。
 而`kill -SIGKILL`会和`erlang:halt(137)`一样
 
 还有一些其他的信号，生成`erl_crash.dump`: `kill -SIGUSR1`。
-
 
 ### 最恶的方式
 

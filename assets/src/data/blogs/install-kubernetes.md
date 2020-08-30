@@ -4,21 +4,20 @@
 
 基本配置要求：
 
-* One or more machines running one of:
-  * Ubuntu 16.04+
-  * Debian 9
-  * CentOS 7
-  * RHEL 7
-  * Fedora 25/26 (best-effort)
-  * HypriotOS v1.0.1+
-  * Container Linux (tested with 1576.4.0)
-* 2 GB or more of RAM per machine (any less will leave little room for your apps)
-* 2 CPUs or more
-* Full network connectivity between all machines in the cluster (public or private network is fine)
-* Unique hostname, MAC address, and product_uuid for every node. See here for more details.
-* Certain ports are open on your machines. See here for more details.
-* Swap disabled. You MUST disable swap in order for the kubelet to work properly.
-
+- One or more machines running one of:
+  - Ubuntu 16.04+
+  - Debian 9
+  - CentOS 7
+  - RHEL 7
+  - Fedora 25/26 (best-effort)
+  - HypriotOS v1.0.1+
+  - Container Linux (tested with 1576.4.0)
+- 2 GB or more of RAM per machine (any less will leave little room for your apps)
+- 2 CPUs or more
+- Full network connectivity between all machines in the cluster (public or private network is fine)
+- Unique hostname, MAC address, and product_uuid for every node. See here for more details.
+- Certain ports are open on your machines. See here for more details.
+- Swap disabled. You MUST disable swap in order for the kubelet to work properly.
 
 ## 安装 Docker
 
