@@ -27,9 +27,15 @@ import { ElixirNodes } from './containers/ElixirNodes/Loadable';
 
 import { Game } from './containers/Game/Loadable';
 
+import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
+import { reducer, sliceKey } from './containers/App/slice';
+// import { elixirNodesSaga } from './App/saga';
+
 const theme = createMuiTheme({});
 
 export function App() {
+  useInjectReducer({ key: sliceKey, reducer: reducer });
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>

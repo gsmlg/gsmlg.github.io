@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,8 +12,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import Layout from 'app/components/Layout';
 
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
-import { reducer, sliceKey } from './slice';
-import { selectElixirNodes } from './selectors';
+import { reducer, sliceKey, actions } from './slice';
+import { selectChannel } from './selectors';
 import { elixirNodesSaga } from './saga';
 
 interface Props {}
@@ -23,12 +23,18 @@ export function ElixirNodes(props: Props) {
   useInjectSaga({ key: sliceKey, saga: elixirNodesSaga });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const elixirNodes = useSelector(selectElixirNodes);
+  const elixirNodes = useSelector(selectChannel);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const dispatch = useDispatch();
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { t, i18n } = useTranslation();
+  useEffect(() => {
+    dispatch(actions.mount(null));
+    return () => {
+      dispatch(actions.unmount(null));
+    };
+  }, [dispatch]);
 
   return (
     <Layout>
@@ -40,4 +46,3 @@ export function ElixirNodes(props: Props) {
     </Layout>
   );
 }
-

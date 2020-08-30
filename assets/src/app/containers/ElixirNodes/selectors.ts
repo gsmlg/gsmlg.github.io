@@ -5,7 +5,7 @@ import { initialState } from './slice';
 
 const selectDomain = (state: RootState) => state.elixirNodes || initialState;
 
-export const selectElixirNodes = createSelector(
+export const selectChannel = createSelector(
   [selectDomain],
-  elixirNodesState => elixirNodesState,
+  elixirNodesState => elixirNodesState.channel,
 );
