@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "4.11.0",
+    "@material-ui/icons": "4.9.1",
     "@reduxjs/toolkit": "1.3.2",
     "@testing-library/jest-dom": "5.1.1",
     "@testing-library/react": "10.0.1",
@@ -54,7 +56,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "watch": "cra-build-watch --build-path ../priv/static",
+    "build": "react-scripts build && rm -rf ../priv/static && mv build ../priv/static",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:generators": "ts-node --project=./internals/ts-node.tsconfig.json ./internals/testing/test-generators.ts",
@@ -113,5 +116,8 @@
         "statements": 90
       }
     }
+  },
+  "devDependencies": {
+    "cra-build-watch": "3.2.0"
   }
 }
