@@ -56,7 +56,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "watch": "cra-build-watch --build-path ../priv/static",
+    "watch": "cra-build-watch --build-path ../priv/static --public-path /",
     "build": "react-scripts build && rm -rf ../priv/static && mv build ../priv/static",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

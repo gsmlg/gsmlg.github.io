@@ -8,7 +8,6 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components/macro';
 
 import Layout from 'app/components/Layout';
 
@@ -37,9 +36,8 @@ export function ElixirNodes(props: Props) {
         <title>ElixirNodes</title>
         <meta name="description" content="Description of ElixirNodes" />
       </Helmet>
-      <Div>{t('')}</Div>
+      <div>Nodes</div>
     </Layout>
   );
 }
 
-const Div = styled.div``;
