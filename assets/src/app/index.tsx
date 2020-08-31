@@ -6,10 +6,11 @@
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { GlobalStyle } from 'styles/global-styles';
 
@@ -28,13 +29,23 @@ import { ElixirNodes } from './containers/ElixirNodes/Loadable';
 import { Game } from './containers/Game/Loadable';
 
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
-import { reducer, sliceKey } from './containers/App/slice';
-// import { elixirNodesSaga } from './App/saga';
+import { reducer, sliceKey, actions } from './containers/App/slice';
+import { appSaga } from './containers/App/saga';
 
 const theme = createMuiTheme({});
 
 export function App() {
   useInjectReducer({ key: sliceKey, reducer: reducer });
+  useInjectSaga({ key: sliceKey, saga: appSaga });
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(actions.mount(null));
+    return () => {
+      dispatch(actions.unmount(null));
+    };
+  }, [dispatch]);
 
   return (
     <ThemeProvider theme={theme}>

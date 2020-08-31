@@ -45,7 +45,10 @@ export function VultrNetworks(props: Props) {
   const networks = hosts;
 
   React.useEffect(() => {
-    dispatch(actions.startCheck({}));
+    dispatch(actions.startCheck(null));
+    return () => {
+      actions.stopCheck(null);
+    };
   }, [dispatch]);
 
   return (

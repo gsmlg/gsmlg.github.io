@@ -13,6 +13,10 @@ const appSlice = createSlice({
   reducers: {
     mount(state, action: PayloadAction<any>) {},
     unmount(state, action: PayloadAction<any>) {},
+    setSocket(state, action: PayloadAction<any>) {
+      state.socket = action.payload;
+      return state;
+    },
   },
 });
 

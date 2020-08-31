@@ -9,3 +9,8 @@ export const selectChannel = createSelector(
   [selectDomain],
   elixirNodesState => elixirNodesState.channel,
 );
+
+export const selectElixirNodeState = createSelector(
+  [selectDomain],
+  elixirNodesState => elixirNodesState,
+);
