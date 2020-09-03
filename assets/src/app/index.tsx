@@ -27,6 +27,7 @@ import { VultrNetworks } from './containers/VultrNetworks/Loadable';
 import { ElixirNodes } from './containers/ElixirNodes/Loadable';
 
 import { Game } from './containers/Game/Loadable';
+import { Xiangqi } from './containers/Xiangqi/Loadable';
 
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { reducer, sliceKey, actions } from './containers/App/slice';
@@ -70,6 +71,7 @@ export function App() {
           <Route exact path="/tools/nodes" component={ElixirNodes} />
 
           <Route exact path="/games" component={Game} />
+          <Route exact path="/games/xiangqi" component={Xiangqi} />
 
           <Route component={NotFoundPage} />
         </Switch>

@@ -4,6 +4,7 @@ import { VultrNetworksState } from 'app/containers/VultrNetworks/types';
 import { ElixirNodesState } from 'app/containers/ElixirNodes/types';
 import { BlogState } from 'app/containers/Blog/types';
 import { GameState } from 'app/containers/Game/types';
+import { XiangqiState } from 'app/containers/Xiangqi/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 
@@ -17,5 +18,6 @@ export interface RootState {
   elixirNodes?: ElixirNodesState;
   blog?: BlogState;
   game?: GameState;
+  xiangqi?: XiangqiState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

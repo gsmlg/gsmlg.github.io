@@ -59,34 +59,30 @@ function collect(connect, monitor) {
   };
 }
 
-class Piece extends Component {
-  render() {
-    const { connectDragSource, item } = this.props;
-
-    return connectDragSource(
-      <div
-        style={{
-          width: '50px',
-          height: '50px',
-          position: 'absolute',
-          left: '50%',
-          top: '50%',
-          marginTop: '-25px',
-          marginLeft: '-25px',
-          fontSize: '30px',
-          textAlign: 'center',
-          lineHeight: '50px',
-          border: '1px solid black',
-          borderRadius: '50%',
-          backgroundColor: 'white',
-          userSelect: 'none',
-          color: item.color,
-        }}
-      >
-        {item.name}
-      </div>,
-    );
-  }
-}
+const Piece = ({ connectDragSource, item }) => {
+  return connectDragSource(
+    <div
+      style={{
+        width: '50px',
+        height: '50px',
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        marginTop: '-25px',
+        marginLeft: '-25px',
+        fontSize: '30px',
+        textAlign: 'center',
+        lineHeight: '50px',
+        border: '1px solid black',
+        borderRadius: '50%',
+        backgroundColor: 'white',
+        userSelect: 'none',
+        color: item.color,
+      }}
+    >
+      {item.name}
+    </div>,
+  );
+};
 
 export default DragSource('Piece', cardSource, collect)(Piece);
