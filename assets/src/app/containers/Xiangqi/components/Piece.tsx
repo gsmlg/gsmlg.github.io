@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { DragSource } from 'react-dnd';
 
 /**
@@ -34,12 +33,12 @@ const cardSource = {
 
     // When dropped on a compatible target, do something.
     // Read the original dragged item from getItem():
-    const item = monitor.getItem();
+    const item = monitor.getItem(); // eslint-disable-line
 
     // You may also read the drop result from the drop target
     // that handled the drop, if it returned an object from
     // its drop() method.
-    const dropResult = monitor.getDropResult();
+    const dropResult = monitor.getDropResult(); // eslint-disable-line
 
     // This is a good place to call some Flux action
     // CardActions.moveCardToList(item.id, dropResult.listId);

@@ -8,7 +8,6 @@ import React, { useState, useEffect } from 'react';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { TouchBackend } from 'react-dnd-touch-backend';
 import { DndProvider } from 'react-dnd';
-import _ from 'lodash';
 
 import { PieceShape } from '../types';
 import { ChessBoard } from './ChessBoard';

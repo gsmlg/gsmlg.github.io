@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { DropTarget } from 'react-dnd';
-import { ConnectedComponent } from 'react-redux';
 import { PieceShape } from '../types';
 
 /**
@@ -27,10 +25,10 @@ const chessSquareTarget = {
     // const componentRect = findDOMNode(component).getBoundingClientRect();
 
     // You can check whether we're over a nested drop target
-    const isJustOverThisOne = monitor.isOver({ shallow: true });
+    const isJustOverThisOne = monitor.isOver({ shallow: true }); // eslint-disable-line
 
     // You will receive hover() even for items for which canDrop() is false
-    const canDrop = monitor.canDrop();
+    const canDrop = monitor.canDrop(); // eslint-disable-line
   },
 
   drop(props, monitor, component) {
@@ -118,7 +116,7 @@ const Square = ({
           width: '1px',
           backgroundColor: 'black',
           transform: `translate(30px, ${
-            y === 0 || (y == 5 && ![0, 8].includes(x)) ? '30px' : 0
+            y === 0 || (y === 5 && ![0, 8].includes(x)) ? '30px' : 0
           })`,
         }}
       />

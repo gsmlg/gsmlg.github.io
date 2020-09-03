@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 import _ from 'lodash';
 
 import Square from './Square';

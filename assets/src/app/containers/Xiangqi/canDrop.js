@@ -98,7 +98,7 @@ const canDrop = (item, pos, pieces) => {
             if (_.find(pieces, { position: { x: fx, y: i } })) count++;
           }
         }
-        return count == 0 || (count == 1 && target);
+        return count === 0 || (count === 1 && target);
       }
       if (fy === ty) {
         let count = 0;
@@ -111,7 +111,7 @@ const canDrop = (item, pos, pieces) => {
             if (_.find(pieces, { position: { x: i, y: fy } })) count++;
           }
         }
-        return count == 0 || (count == 1 && target);
+        return count === 0 || (count === 1 && target);
       }
       return false;
 
@@ -127,7 +127,7 @@ const canDrop = (item, pos, pieces) => {
             if (_.find(pieces, { position: { x: fx, y: i } })) count++;
           }
         }
-        return count == 0 || (count == 2 && target);
+        return count === 0 || (count === 2 && target);
       }
       if (fy === ty) {
         let count = 0;
@@ -140,7 +140,7 @@ const canDrop = (item, pos, pieces) => {
             if (_.find(pieces, { position: { x: i, y: fy } })) count++;
           }
         }
-        return count == 0 || (count == 2 && target);
+        return count === 0 || (count === 2 && target);
       }
       return false;
 
@@ -163,8 +163,7 @@ const canDrop = (item, pos, pieces) => {
         );
       }
       return pos.x === item.position.x && pos.y === item.position.y - 1;
-
-      break;
+    // no default
   }
   return false;
 };

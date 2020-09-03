@@ -9,7 +9,7 @@ export function* mount() {
   const socket = yield select(selectSocket);
 
   try {
-    const channel = socket.channel('node:lobby', {});
+    const channel = socket.channel('node:lobby', params);
     yield put(actions.initChannel(channel));
 
     channel.join();
