@@ -10,15 +10,15 @@ import _ from 'lodash';
 import Square from './Square';
 import Piece from './Piece';
 
-import { PieceShape } from '../types';
+import { PieceShape, ChessColor } from '../types';
 
 interface Props {
   redPieces: PieceShape[];
   blackPieces: PieceShape[];
   kill: (item: object) => any;
   movePiece: (item: PieceShape, pos: object) => any;
-  canDrop: (item: object) => Boolean;
-  turn: string;
+  canDrop: (item: object, pos: object, pieces: object) => Boolean;
+  turn: ChessColor;
 }
 
 export const ChessBoard = ({
@@ -27,6 +27,7 @@ export const ChessBoard = ({
   movePiece,
   turn,
   kill,
+  canDrop,
 }: Props) => {
   const allPieces = redPieces.concat(blackPieces);
 
@@ -35,7 +36,7 @@ export const ChessBoard = ({
     const y = Math.floor(i / 9);
     const pieces = allPieces.filter(p => p.live === true);
     const item = _.find(pieces, { position: { x, y } });
-    const key = item != null ? <Piece item={item} /> : null;
+    const key = item != null ? <Piece item={item} turn={turn} /> : null;
     const killPiece = () => {
       item && kill(item);
     };
@@ -57,6 +58,7 @@ export const ChessBoard = ({
           movePiece={movePiece}
           pieces={pieces}
           kill={killPiece}
+          canDrop={canDrop}
         >
           {key}
         </Square>

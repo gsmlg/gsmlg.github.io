@@ -43,7 +43,7 @@ const chessSquareTarget = {
     const { x, y } = props;
 
     // You can do something with it
-    props.movePiece(item, { x, y });
+    props.movePiece({ item, position: { x, y } });
     props.kill();
 
     // You can also do nothing and return a drop result,
@@ -64,7 +64,7 @@ function collect(connect, monitor) {
     // You can ask the monitor about the current drag state:
     isOver: monitor.isOver(),
     isOverCurrent: monitor.isOver({ shallow: true }),
-    canDrop: monitor.canDrop(),
+    isDropable: monitor.canDrop(),
     itemType: monitor.getItemType(),
   };
 }
@@ -72,24 +72,25 @@ function collect(connect, monitor) {
 interface Props {
   x: number;
   y: number;
-  canDrop: any;
+  canDrop: (item: object, pos: object, pieces: object) => Boolean;
   connectDropTarget: any;
   piece: PieceShape | null;
   pieces: PieceShape[];
   movePiece: (item, object) => any;
   kill: () => any;
+  isDropable: Boolean;
   children: any;
 }
 
 const Square = ({
   x,
   y,
-  canDrop,
+  isDropable,
   connectDropTarget,
   piece,
   children,
 }: Props) => {
-  const bgColor = canDrop ? (piece ? 'red' : 'green') : 'transparent';
+  const bgColor = isDropable ? (piece ? 'red' : 'green') : 'transparent';
 
   return connectDropTarget(
     <div

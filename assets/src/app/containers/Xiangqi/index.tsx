@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { bindActionCreators } from 'redux';
@@ -60,7 +60,17 @@ export function Xiangqi(props: Props) {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { t, i18n } = useTranslation();
-  const { kill, movePiece, start } = bindActionCreators(actions, dispatch);
+  const { kill, movePiece, start, mount, unmount } = bindActionCreators(
+    actions,
+    dispatch,
+  );
+
+  useEffect(() => {
+    mount(null);
+    return () => {
+      unmount(null);
+    };
+  }, [mount, unmount]);
 
   return (
     <Layout>

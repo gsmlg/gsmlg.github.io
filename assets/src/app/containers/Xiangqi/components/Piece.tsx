@@ -58,7 +58,7 @@ function collect(connect, monitor) {
   };
 }
 
-const Piece = ({ connectDragSource, item }) => {
+const Piece = ({ connectDragSource, item, turn }) => {
   return connectDragSource(
     <div
       style={{
