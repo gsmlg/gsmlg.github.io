@@ -59,10 +59,10 @@
     "typescript": "4.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-app-rewired start",
     "watch": "cra-build-watch --build-path ../priv/static --public-path /",
-    "build": "react-scripts build && rm -rf ../priv/static && mv build ../priv/static",
-    "test": "react-scripts test",
+    "build": "react-app-rewired build && rm -rf ../priv/static && mv build ../priv/static",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "test:generators": "ts-node --project=./internals/ts-node.tsconfig.json ./internals/testing/test-generators.ts",
     "start:prod": "yarn build && serve -s build",
@@ -74,6 +74,7 @@
     "generate": "cross-env TS_NODE_PROJECT='./internals/ts-node.tsconfig.json' plop --plopfile internals/generators/plopfile.ts",
     "prettify": "prettier --write"
   },
+  "config-overrides-path": "internals/config-overrides.js",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -122,6 +123,11 @@
     }
   },
   "devDependencies": {
-    "cra-build-watch": "3.2.0"
+    "cra-build-watch": "3.2.0",
+    "highlight.js": "10.2.0",
+    "html-loader": "1.3.0",
+    "markdown-loader": "5.1.0",
+    "marked": "1.1.1",
+    "react-app-rewired": "2.1.6"
   }
 }

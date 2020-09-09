@@ -19,6 +19,7 @@ import { useInjectReducer } from 'utils/redux-injectors';
 
 import { selectBlog } from 'app/containers/Blog/selectors';
 import { reducer, sliceKey } from 'app/containers/Blog/slice';
+import 'highlight.js/styles/monokai-sublime.css';
 
 import { Content } from './Content';
 
@@ -28,12 +29,11 @@ interface Props {
   };
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {
     flex: 1,
-    paddingTop: 16,
-    paddingBottom: 16,
-    margin: 3,
+    padding: 16,
+    margin: theme.spacing(3),
   },
 }));
 
