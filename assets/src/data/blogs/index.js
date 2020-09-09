@@ -376,4 +376,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 48,
+  name: 'openapi-intro',
+  title: 'OpenAPI使用',
+  date: '2020-09-08',
+  author: 'Gao',
+});
+
 export default blogs;
