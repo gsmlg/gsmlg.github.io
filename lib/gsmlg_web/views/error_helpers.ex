@@ -1,4 +1,4 @@
-defmodule GsmlgWeb.ErrorHelpers do
+defmodule GSMLGWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule GsmlgWeb.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(GsmlgWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(GSMLGWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(GsmlgWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(GSMLGWeb.Gettext, "errors", msg, opts)
     end
   end
 end

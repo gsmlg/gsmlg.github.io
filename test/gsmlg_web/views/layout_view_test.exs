@@ -1,3 +1,3 @@
-defmodule GsmlgWeb.LayoutViewTest do
-  use GsmlgWeb.ConnCase, async: true
+defmodule GSMLGWeb.LayoutViewTest do
+  use GSMLGWeb.ConnCase, async: true
 end

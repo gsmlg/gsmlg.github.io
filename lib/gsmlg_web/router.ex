@@ -1,5 +1,5 @@
-defmodule GsmlgWeb.Router do
-  use GsmlgWeb, :router
+defmodule GSMLGWeb.Router do
+  use GSMLGWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,7 +13,7 @@ defmodule GsmlgWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", GsmlgWeb do
+  scope "/", GSMLGWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
@@ -21,7 +21,7 @@ defmodule GsmlgWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", GsmlgWeb do
+  scope "/api", GSMLGWeb do
     pipe_through :api
 
     get "/nodes", NodeController, :index
@@ -29,7 +29,7 @@ defmodule GsmlgWeb.Router do
 
   end
 
-  scope "/", GsmlgWeb do
+  scope "/", GSMLGWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/*not_found", PageController, :not_found

@@ -1,5 +1,5 @@
-defmodule GsmlgWeb.ErrorView do
-  use GsmlgWeb, :view
+defmodule GSMLGWeb.ErrorView do
+  use GSMLGWeb, :view
 
   def render("404.html", _assigns) do
     "Page not found"

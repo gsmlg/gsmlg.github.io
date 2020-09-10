@@ -1,5 +1,5 @@
-defmodule GsmlgWeb.PageController do
-  use GsmlgWeb, :controller
+defmodule GSMLGWeb.PageController do
+  use GSMLGWeb, :controller
   plug :put_layout, false
 
   def index(conn, _params) do

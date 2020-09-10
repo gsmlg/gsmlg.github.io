@@ -1,6 +1,6 @@
-defmodule GsmlgWeb.BlogController do
-  use GsmlgWeb, :controller
-  alias Gsmlg.Gsmlg.Blog
+defmodule GSMLGWeb.BlogController do
+  use GSMLGWeb, :controller
+  alias GSMLG.GSMLG.Blog
 
   def index(conn, _params) do
     conn

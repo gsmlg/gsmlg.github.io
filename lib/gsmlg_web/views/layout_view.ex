@@ -1,3 +1,3 @@
-defmodule GsmlgWeb.LayoutView do
-  use GsmlgWeb, :view
+defmodule GSMLGWeb.LayoutView do
+  use GSMLGWeb, :view
 end

@@ -7,14 +7,14 @@ use Mix.Config
 
 # General application configuration
 config :gsmlg,
-  ecto_repos: [Gsmlg.Repo]
+  ecto_repos: [GSMLG.Repo]
 
 # Configures the endpoint
-config :gsmlg, GsmlgWeb.Endpoint,
+config :gsmlg, GSMLGWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "v3HZYcVkxKaUUbrg/k7m4Ru3HxUkXAtY9xDPTnnRKa3q8RpekScBEiJuBRDTTsyv",
-  render_errors: [view: GsmlgWeb.ErrorView, accepts: ~w(html json)],
-  pubsub_server: Gsmlg.PubSub,
+  render_errors: [view: GSMLGWeb.ErrorView, accepts: ~w(html json)],
+  pubsub_server: GSMLG.PubSub,
   live_view: [
     signing_salt: "W9dIqaWrHspJjmqKJNcEvqI62dRtaVGa"
   ]

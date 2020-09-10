@@ -1,4 +1,4 @@
-defmodule Gsmlg.Repo.Migrations.CreateBlogs do
+defmodule GSMLG.Repo.Migrations.CreateBlogs do
   use Ecto.Migration
 
   def change do

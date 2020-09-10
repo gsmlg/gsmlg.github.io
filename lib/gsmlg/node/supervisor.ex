@@ -1,8 +1,8 @@
-defmodule Gsmlg.Node.Supervisor do
+defmodule GSMLG.Node.Supervisor do
   use Supervisor
-  alias Gsmlg.Node.Distributed
-  alias Gsmlg.Node.Self
-  alias Gsmlg.Node.Others
+  alias GSMLG.Node.Distributed
+  alias GSMLG.Node.Self
+  alias GSMLG.Node.Others
 
   def start_link() do
     Supervisor.start_link(__MODULE__, :ok);

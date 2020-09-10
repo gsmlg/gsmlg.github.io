@@ -1,6 +1,6 @@
-defmodule Gsmlg.Chess.Supervisor do
+defmodule GSMLG.Chess.Supervisor do
   use Supervisor
-  alias Gsmlg.Chess.Room
+  alias GSMLG.Chess.Room
 
   def start_link() do
     Supervisor.start_link(__MODULE__, :ok);

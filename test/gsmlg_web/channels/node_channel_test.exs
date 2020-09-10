@@ -1,7 +1,7 @@
-defmodule GsmlgWeb.NodeChannelTest do
-  use GsmlgWeb.ChannelCase
+defmodule GSMLGWeb.NodeChannelTest do
+  use GSMLGWeb.ChannelCase
 
-  alias GsmlgWeb.NodeChannel
+  alias GSMLGWeb.NodeChannel
 
   setup do
     {:ok, _, socket} =

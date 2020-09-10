@@ -1,4 +1,4 @@
-defmodule Gsmlg.Chess.ChessPieces do
+defmodule GSMLG.Chess.ChessPieces do
 
   def types() do
     [

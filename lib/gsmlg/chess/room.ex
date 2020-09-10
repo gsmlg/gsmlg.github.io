@@ -1,6 +1,6 @@
-defmodule Gsmlg.Chess.Room do
+defmodule GSMLG.Chess.Room do
   use GenServer
-  alias Gsmlg.Chess.ChessPieces
+  alias GSMLG.Chess.ChessPieces
 
   def start_link() do
     GenServer.start_link(__MODULE__, nil, name: __MODULE__)

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <%= csrf_meta_tag() %>
-    <title>Hello Gsmlg!</title>
+    <title>Hello GSMLG!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 

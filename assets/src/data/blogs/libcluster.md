@@ -33,9 +33,9 @@ topologies = [
     config: [
       mode: :ip,
       kubernetes_ip_lookup_mode: :pods,
-      kubernetes_node_basename: "#{Gsmlg.name}",
+      kubernetes_node_basename: "#{GSMLG.name}",
       kubernetes_selector: System.get_env("SELECTOR", "gsmlg.org/app=blog"),
-      kubernetes_namespace: System.get_env("NAMESPACE", "#{Gsmlg.name}"),
+      kubernetes_namespace: System.get_env("NAMESPACE", "#{GSMLG.name}"),
       polling_interval: 10_000
     ]
   ]

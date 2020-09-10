@@ -1,4 +1,4 @@
-defmodule Gsmlg.Repo do
+defmodule GSMLG.Repo do
   use Ecto.Repo, otp_app: :gsmlg, adapter: Etso.Adapter
 
   @doc """

@@ -1,4 +1,4 @@
-defmodule Gsmlg.DataCase do
+defmodule GSMLG.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule Gsmlg.DataCase do
 
   using do
     quote do
-      alias Gsmlg.Repo
+      alias GSMLG.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Gsmlg.DataCase
+      import GSMLG.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Gsmlg.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(GSMLG.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Gsmlg.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(GSMLG.Repo, {:shared, self()})
     end
 
     :ok

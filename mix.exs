@@ -1,4 +1,4 @@
-defmodule Gsmlg.Mixfile do
+defmodule GSMLG.Mixfile do
   use Mix.Project
 
   def project do
@@ -19,7 +19,7 @@ defmodule Gsmlg.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Gsmlg.Application, []},
+      mod: {GSMLG.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

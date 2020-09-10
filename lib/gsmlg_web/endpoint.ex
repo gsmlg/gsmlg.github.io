@@ -1,4 +1,4 @@
-defmodule GsmlgWeb.Endpoint do
+defmodule GSMLGWeb.Endpoint do
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
@@ -11,7 +11,7 @@ defmodule GsmlgWeb.Endpoint do
 
   use Phoenix.Endpoint, otp_app: :gsmlg
 
-  socket "/socket", GsmlgWeb.UserSocket,
+  socket "/socket", GSMLGWeb.UserSocket,
     longpull: false,
     websocket: [
       connect_info: [:peer_data, :x_headers, :uri, :user_agent, session: @session_options]
@@ -49,7 +49,7 @@ defmodule GsmlgWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug GsmlgWeb.Router
+  plug GSMLGWeb.Router
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.

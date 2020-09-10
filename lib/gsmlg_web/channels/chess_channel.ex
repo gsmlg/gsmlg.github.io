@@ -1,8 +1,8 @@
-defmodule GsmlgWeb.ChessChannel do
+defmodule GSMLGWeb.ChessChannel do
   use Phoenix.Channel
   alias Guardian.Phoenix.Socket
   alias Phoenix.Socket.Broadcast
-  alias Gsmlg.Chess.Room
+  alias GSMLG.Chess.Room
 
   def join("room:chess", msg, socket) do
     send(self(), {:after_join, msg})

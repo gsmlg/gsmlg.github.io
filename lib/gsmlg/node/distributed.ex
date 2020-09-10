@@ -1,4 +1,4 @@
-defmodule Gsmlg.Node.Distributed do
+defmodule GSMLG.Node.Distributed do
   use GenServer
 
   def start_link() do

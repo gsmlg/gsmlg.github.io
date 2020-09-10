@@ -1,5 +1,5 @@
-defmodule GsmlgWeb.NodeChannel do
-  use GsmlgWeb, :channel
+defmodule GSMLGWeb.NodeChannel do
+  use GSMLGWeb, :channel
 
   def join("node:lobby", payload, socket) do
     if authorized?(payload) do
@@ -11,8 +11,8 @@ defmodule GsmlgWeb.NodeChannel do
   end
 
   def handle_info({:after_join, _msg}, socket) do
-    state = Gsmlg.Node.Self.get_state
-    push socket, "node_state", %{name: state.self, isAlive: state.alive?, nodes: Gsmlg.Node.Others.get_nodes, node_list: Node.list}
+    state = GSMLG.Node.Self.get_state
+    push socket, "node_state", %{name: state.self, isAlive: state.alive?, nodes: GSMLG.Node.Others.get_nodes, node_list: Node.list}
     {:noreply, socket}
   end
 

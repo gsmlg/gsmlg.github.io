@@ -1,3 +1,3 @@
-defmodule GsmlgWeb.PageViewTest do
-  use GsmlgWeb.ConnCase, async: true
+defmodule GSMLGWeb.PageViewTest do
+  use GSMLGWeb.ConnCase, async: true
 end

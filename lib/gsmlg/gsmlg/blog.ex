@@ -1,9 +1,9 @@
-defmodule Gsmlg.Gsmlg.Blog do
+defmodule GSMLG.GSMLG.Blog do
   use Ecto.Schema
   import Ecto.Query, warn: false
   import Ecto.Changeset
-  alias Gsmlg.Repo
-  alias Gsmlg.Gsmlg.Blog
+  alias GSMLG.Repo
+  alias GSMLG.GSMLG.Blog
 
 
   schema "blogs" do
@@ -53,7 +53,7 @@ defmodule Gsmlg.Gsmlg.Blog do
   end
 end
 
-defimpl Jason.Encoder, for: Gsmlg.Gsmlg.Blog do
+defimpl Jason.Encoder, for: GSMLG.GSMLG.Blog do
   def encode(blog, options) do
     Jason.Encoder.encode(%{
       id: blog.id,

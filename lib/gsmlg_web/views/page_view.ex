@@ -1,5 +1,5 @@
-defmodule GsmlgWeb.PageView do
-  use GsmlgWeb, :view
+defmodule GSMLGWeb.PageView do
+  use GSMLGWeb, :view
 
   def render("index.html", _assigns) do
     index_html = Path.join([__DIR__, "..", "..", "..", "priv", "static", "index.html"])
