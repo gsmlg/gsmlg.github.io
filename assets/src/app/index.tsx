@@ -51,11 +51,8 @@ export function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Helmet
-          titleTemplate="%s - React Boilerplate"
-          defaultTitle="React Boilerplate"
-        >
-          <meta name="description" content="A React Boilerplate application" />
+        <Helmet titleTemplate="%s - Planet GSMLG" defaultTitle="Planet GSMLG">
+          <meta name="description" content="A Planet of GSMLG" />
         </Helmet>
 
         <Switch>
