@@ -384,4 +384,12 @@ blogs.push({
   author: 'Gao',
 });
 
+blogs.push({
+  id: 49,
+  name: 'about-ecs-prefix',
+  title: 'ECS递归与权威的prefix',
+  date: '2020-11-03',
+  author: 'Gao',
+});
+
 export default blogs;
