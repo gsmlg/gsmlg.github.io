@@ -1,0 +1,1062 @@
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#3f51b5"/><meta charSet="utf-8"/><meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/><title>Tekton Pipelines</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/css/2f26bb9842d84a608fa3.css" as="style"/><link rel="stylesheet" href="/_next/static/css/2f26bb9842d84a608fa3.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/main-8741ed3c7ec57f378f59.js" as="script"/><link rel="preload" href="/_next/static/chunks/webpack-95c2b224bccf352ee870.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.962935494b30c127d8df.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.df3badfa1389741d28a2.js" as="script"/><link rel="preload" href="/_next/static/chunks/3fbd0e4abf850ff07f64ccde56ee9630378b8e04.7ac8cae34eec6be35d96.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-37f2d112d23aeb2fbca1.js" as="script"/><link rel="preload" href="/_next/static/chunks/460fa7c48ecffb1b1bfdaf9b8a55cba3a474e08f.e4fd6e5862561852bfd0.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/blogs/%5Bslug%5D-ae308899b480e17c100a.js" as="script"/><style id="jss-server-side">.MuiPaper-root {
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #fff;
+}
+.MuiPaper-rounded {
+  border-radius: 4px;
+}
+.MuiPaper-outlined {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.MuiPaper-elevation0 {
+  box-shadow: none;
+}
+.MuiPaper-elevation1 {
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation2 {
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation3 {
+  box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation4 {
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation5 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation6 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation7 {
+  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation8 {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation9 {
+  box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation10 {
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation11 {
+  box-shadow: 0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation12 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation13 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation14 {
+  box-shadow: 0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation15 {
+  box-shadow: 0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation16 {
+  box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation17 {
+  box-shadow: 0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation18 {
+  box-shadow: 0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation19 {
+  box-shadow: 0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation20 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation21 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation22 {
+  box-shadow: 0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation23 {
+  box-shadow: 0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation24 {
+  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
+}
+.MuiTypography-root {
+  margin: 0;
+}
+.MuiTypography-body2 {
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+}
+.MuiTypography-body1 {
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+.MuiTypography-caption {
+  font-size: 0.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+  letter-spacing: 0.03333em;
+}
+.MuiTypography-button {
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+}
+.MuiTypography-h1 {
+  font-size: 6rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.167;
+  letter-spacing: -0.01562em;
+}
+.MuiTypography-h2 {
+  font-size: 3.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.00833em;
+}
+.MuiTypography-h3 {
+  font-size: 3rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.167;
+  letter-spacing: 0em;
+}
+.MuiTypography-h4 {
+  font-size: 2.125rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.235;
+  letter-spacing: 0.00735em;
+}
+.MuiTypography-h5 {
+  font-size: 1.5rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.334;
+  letter-spacing: 0em;
+}
+.MuiTypography-h6 {
+  font-size: 1.25rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+}
+.MuiTypography-subtitle1 {
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.00938em;
+}
+.MuiTypography-subtitle2 {
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.57;
+  letter-spacing: 0.00714em;
+}
+.MuiTypography-overline {
+  font-size: 0.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 2.66;
+  letter-spacing: 0.08333em;
+  text-transform: uppercase;
+}
+.MuiTypography-srOnly {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+.MuiTypography-alignLeft {
+  text-align: left;
+}
+.MuiTypography-alignCenter {
+  text-align: center;
+}
+.MuiTypography-alignRight {
+  text-align: right;
+}
+.MuiTypography-alignJustify {
+  text-align: justify;
+}
+.MuiTypography-noWrap {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.MuiTypography-gutterBottom {
+  margin-bottom: 0.35em;
+}
+.MuiTypography-paragraph {
+  margin-bottom: 16px;
+}
+.MuiTypography-colorInherit {
+  color: inherit;
+}
+.MuiTypography-colorPrimary {
+  color: #3f51b5;
+}
+.MuiTypography-colorSecondary {
+  color: #f50057;
+}
+.MuiTypography-colorTextPrimary {
+  color: rgba(0, 0, 0, 0.87);
+}
+.MuiTypography-colorTextSecondary {
+  color: rgba(0, 0, 0, 0.54);
+}
+.MuiTypography-colorError {
+  color: #f44336;
+}
+.MuiTypography-displayInline {
+  display: inline;
+}
+.MuiTypography-displayBlock {
+  display: block;
+}
+.MuiAppBar-root {
+  width: 100%;
+  display: flex;
+  z-index: 1100;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.MuiAppBar-positionFixed {
+  top: 0;
+  left: auto;
+  right: 0;
+  position: fixed;
+}
+@media print {
+  .MuiAppBar-positionFixed {
+    position: absolute;
+  }
+}
+  .MuiAppBar-positionAbsolute {
+    top: 0;
+    left: auto;
+    right: 0;
+    position: absolute;
+  }
+  .MuiAppBar-positionSticky {
+    top: 0;
+    left: auto;
+    right: 0;
+    position: sticky;
+  }
+  .MuiAppBar-positionStatic {
+    position: static;
+  }
+  .MuiAppBar-positionRelative {
+    position: relative;
+  }
+  .MuiAppBar-colorDefault {
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #f5f5f5;
+  }
+  .MuiAppBar-colorPrimary {
+    color: #fff;
+    background-color: #3f51b5;
+  }
+  .MuiAppBar-colorSecondary {
+    color: #fff;
+    background-color: #f50057;
+  }
+  .MuiAppBar-colorInherit {
+    color: inherit;
+  }
+  .MuiAppBar-colorTransparent {
+    color: inherit;
+    background-color: transparent;
+  }
+  .MuiToolbar-root {
+    display: flex;
+    position: relative;
+    align-items: center;
+  }
+  .MuiToolbar-gutters {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+@media (min-width:600px) {
+  .MuiToolbar-gutters {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+  .MuiToolbar-regular {
+    min-height: 56px;
+  }
+@media (min-width:0px) and (orientation: landscape) {
+  .MuiToolbar-regular {
+    min-height: 48px;
+  }
+}
+@media (min-width:600px) {
+  .MuiToolbar-regular {
+    min-height: 64px;
+  }
+}
+  .MuiToolbar-dense {
+    min-height: 48px;
+  }
+  .MuiButtonBase-root {
+    color: inherit;
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    display: inline-flex;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    align-items: center;
+    user-select: none;
+    border-radius: 0;
+    vertical-align: middle;
+    -moz-appearance: none;
+    justify-content: center;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .MuiButtonBase-root::-moz-focus-inner {
+    border-style: none;
+  }
+  .MuiButtonBase-root.Mui-disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+@media print {
+  .MuiButtonBase-root {
+    color-adjust: exact;
+  }
+}
+  .MuiButton-root {
+    color: rgba(0, 0, 0, 0.87);
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    min-width: 64px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+  }
+  .MuiButton-root:hover {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  .MuiButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+@media (hover: none) {
+  .MuiButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-root:hover.Mui-disabled {
+    background-color: transparent;
+  }
+  .MuiButton-label {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiButton-text {
+    padding: 6px 8px;
+  }
+  .MuiButton-textPrimary {
+    color: #3f51b5;
+  }
+  .MuiButton-textPrimary:hover {
+    background-color: rgba(63, 81, 181, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-textPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-textSecondary {
+    color: #f50057;
+  }
+  .MuiButton-textSecondary:hover {
+    background-color: rgba(245, 0, 87, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-textSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-outlined {
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    padding: 5px 15px;
+  }
+  .MuiButton-outlined.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .MuiButton-outlinedPrimary {
+    color: #3f51b5;
+    border: 1px solid rgba(63, 81, 181, 0.5);
+  }
+  .MuiButton-outlinedPrimary:hover {
+    border: 1px solid #3f51b5;
+    background-color: rgba(63, 81, 181, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-outlinedPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-outlinedSecondary {
+    color: #f50057;
+    border: 1px solid rgba(245, 0, 87, 0.5);
+  }
+  .MuiButton-outlinedSecondary:hover {
+    border: 1px solid #f50057;
+    background-color: rgba(245, 0, 87, 0.04);
+  }
+  .MuiButton-outlinedSecondary.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.26);
+  }
+@media (hover: none) {
+  .MuiButton-outlinedSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-contained {
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+  }
+  .MuiButton-contained:hover {
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+    background-color: #d5d5d5;
+  }
+  .MuiButton-contained.Mui-focusVisible {
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+  }
+  .MuiButton-contained:active {
+    box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+  }
+  .MuiButton-contained.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+@media (hover: none) {
+  .MuiButton-contained:hover {
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+  }
+}
+  .MuiButton-contained:hover.Mui-disabled {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  .MuiButton-containedPrimary {
+    color: #fff;
+    background-color: #3f51b5;
+  }
+  .MuiButton-containedPrimary:hover {
+    background-color: #303f9f;
+  }
+@media (hover: none) {
+  .MuiButton-containedPrimary:hover {
+    background-color: #3f51b5;
+  }
+}
+  .MuiButton-containedSecondary {
+    color: #fff;
+    background-color: #f50057;
+  }
+  .MuiButton-containedSecondary:hover {
+    background-color: #c51162;
+  }
+@media (hover: none) {
+  .MuiButton-containedSecondary:hover {
+    background-color: #f50057;
+  }
+}
+  .MuiButton-disableElevation {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation:hover {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation.Mui-focusVisible {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation:active {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation.Mui-disabled {
+    box-shadow: none;
+  }
+  .MuiButton-colorInherit {
+    color: inherit;
+    border-color: currentColor;
+  }
+  .MuiButton-textSizeSmall {
+    padding: 4px 5px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-textSizeLarge {
+    padding: 8px 11px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-outlinedSizeSmall {
+    padding: 3px 9px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-outlinedSizeLarge {
+    padding: 7px 21px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-containedSizeSmall {
+    padding: 4px 10px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-containedSizeLarge {
+    padding: 8px 22px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-fullWidth {
+    width: 100%;
+  }
+  .MuiButton-startIcon {
+    display: inherit;
+    margin-left: -4px;
+    margin-right: 8px;
+  }
+  .MuiButton-startIcon.MuiButton-iconSizeSmall {
+    margin-left: -2px;
+  }
+  .MuiButton-endIcon {
+    display: inherit;
+    margin-left: 8px;
+    margin-right: -4px;
+  }
+  .MuiButton-endIcon.MuiButton-iconSizeSmall {
+    margin-right: -2px;
+  }
+  .MuiButton-iconSizeSmall > *:first-child {
+    font-size: 18px;
+  }
+  .MuiButton-iconSizeMedium > *:first-child {
+    font-size: 20px;
+  }
+  .MuiButton-iconSizeLarge > *:first-child {
+    font-size: 22px;
+  }
+  .MuiIconButton-root {
+    flex: 0 0 auto;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 12px;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+  }
+  .MuiIconButton-root:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  .MuiIconButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    background-color: transparent;
+  }
+@media (hover: none) {
+  .MuiIconButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-edgeStart {
+    margin-left: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeStart {
+    margin-left: -3px;
+  }
+  .MuiIconButton-edgeEnd {
+    margin-right: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeEnd {
+    margin-right: -3px;
+  }
+  .MuiIconButton-colorInherit {
+    color: inherit;
+  }
+  .MuiIconButton-colorPrimary {
+    color: #3f51b5;
+  }
+  .MuiIconButton-colorPrimary:hover {
+    background-color: rgba(63, 81, 181, 0.04);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-colorSecondary {
+    color: #f50057;
+  }
+  .MuiIconButton-colorSecondary:hover {
+    background-color: rgba(245, 0, 87, 0.04);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-sizeSmall {
+    padding: 3px;
+    font-size: 1.125rem;
+  }
+  .MuiIconButton-label {
+    width: 100%;
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiSvgIcon-root {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    font-size: 1.5rem;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    flex-shrink: 0;
+    user-select: none;
+  }
+  .MuiSvgIcon-colorPrimary {
+    color: #3f51b5;
+  }
+  .MuiSvgIcon-colorSecondary {
+    color: #f50057;
+  }
+  .MuiSvgIcon-colorAction {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  .MuiSvgIcon-colorError {
+    color: #f44336;
+  }
+  .MuiSvgIcon-colorDisabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+  .MuiSvgIcon-fontSizeInherit {
+    font-size: inherit;
+  }
+  .MuiSvgIcon-fontSizeSmall {
+    font-size: 1.25rem;
+  }
+  .MuiSvgIcon-fontSizeLarge {
+    font-size: 2.1875rem;
+  }
+  .jss2 {
+    flex: 1 1 auto;
+    width: 100vw;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  .jss3 {
+    flex: 1;
+    display: flex;
+  }
+  .jss4 {
+    color: #fff;
+    margin-top: 0.5em;
+    text-align: center;
+    line-height: 2em;
+    background-color: #3f51b5;
+  }
+  .jss5 {
+    margin-left: -12px;
+    margin-right: 20px;
+  }
+  .jss7 {
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .MuiDivider-root {
+    border: none;
+    height: 1px;
+    margin: 0;
+    flex-shrink: 0;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  .MuiDivider-absolute {
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+  }
+  .MuiDivider-inset {
+    margin-left: 72px;
+  }
+  .MuiDivider-light {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  .MuiDivider-middle {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  .MuiDivider-vertical {
+    width: 1px;
+    height: 100%;
+  }
+  .MuiDivider-flexItem {
+    height: auto;
+    align-self: stretch;
+  }
+  .jss1 {
+    flex: 1;
+    margin: 24px;
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+  }
+@media (min-width:600px) {
+  .jss1 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}</style></head><body><div id="__next"><section class="jss2"><header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"><div class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"><button class="MuiButtonBase-root MuiIconButton-root jss5 MuiIconButton-colorInherit" tabindex="0" type="button" aria-label="Menu"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></span></button><p class="MuiTypography-root jss3 MuiTypography-body1 MuiTypography-colorInherit" type="title"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button"><span class="MuiButton-label"><a href="/">Home</a></span></button><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button"><span class="MuiButton-label"><a href="/blogs">Blog</a></span></button></p></div></header><section class="jss3"><div class="MuiPaper-root jss1 MuiPaper-elevation4 MuiPaper-rounded"><header><h1 class="MuiTypography-root MuiTypography-body1">Tekton Pipelines</h1><div class="MuiTypography-root MuiTypography-body1">Author:<!-- -->Gao</div><div class="MuiTypography-root MuiTypography-body1">Created At:<!-- -->2020-01-04</div></header><hr class="MuiDivider-root"/><section class="MuiTypography-root blog-content MuiTypography-body1"><h1>Tekton Pipelines</h1><h2>Intro</h2><p>Tekton Pipelines 是一个为<code>Kubernetes</code>应用程序配置和运行<code>CI / CD</code>风格的<code>Pipelined</code>的开源实现</p><p><code>Pipeline</code> 创建 <code>Custom Resources</code> 作为构建模块来声明<code>pipelines</code></p><p>Tekton Pipelines 是云原生的</p><ul><li>运行于<code>Kubernetes</code></li><li>将<code>Kubernetes</code>集群作为一级资源类型</li><li>使用容器作为构建块</li></ul><p>Tekton Pipelines 是解耦的</p><ul><li>Pipeline 可以被部署于任意 k8s 集群</li><li>组成<code>pipeline</code>的<code>task</code>可以分开独立运行</li><li>向 Git repos 之类的资源可以轻松的在运行之间交换</li></ul><p>Tekton Pipelines are Typed</p><ul><li>类型化的资源意味着对于诸如 Image 之类的资源，可以轻松地将资源输出</li></ul><h3>此设计的高级细节：</h3><ul><li>Pipeline 运行管道，可以实现一个流程，可以由事件出发，也可以通过<code>PipelineRun</code>来运行</li><li>Task 基本运行单元，可以通过<code>TaskRun</code>来运行</li><li>PipelineResource <code>Task</code>的输入和输出资源</li></ul><h2>各类资源介绍</h2><h3>PipelineResources</h3><p><code>PipelineResource</code> 是 <code>Pipline</code> 中 <code>Task</code> 的输入和输出对象</p><p>Syntax:</p><p>To define a configuration file for a PipelineResource, you can specify the following fields:</p><ul><li>Required:<ul><li>apiVersion - Specifies the API version, for example tekton.dev/v1alpha1.</li><li>kind - Specify the PipelineResource resource object.</li><li>metadata - Specifies data to uniquely identify the PipelineResource object, for example a name.</li><li>spec - Specifies the configuration information for your PipelineResource resource object.</li><li>type - Specifies the type of the PipelineResource</li></ul></li><li>Optional:<ul><li>params - Parameters which are specific to each type of PipelineResource</li></ul></li></ul><p>Types:</p><ul><li>Git</li><li>PullRequest</li><li>Image</li><li>Cluster</li><li>Storage</li><li>CloutEvent</li></ul><h3>Tasks</h3><p>Task(or ClusterTask) 是 CI 中一个组顺序执行的 step 的集合，是基本任务单位。Task 会在 pod 中运行。</p><p>Task 需要声明三部分：</p><ul><li>inputs</li><li>outputs</li><li>steps</li></ul><p>Task 在 namespace 中可用，ClusterTask 在整个集群可用</p><p>Syntax:</p><p>To define a configuration file for a Task resource, you can specify the following fields:</p><ul><li>Required:<ul><li>apiVersion - Specifies the API version, for example tekton.dev/v1alpha1.</li><li>kind - Specify the Task resource object.</li><li>metadata - Specifies data to uniquely identify the Task resource object, for example a name.</li><li>spec - Specifies the configuration information for your Task resource object. Task steps must be defined through either of the following fields:
+-steps - Specifies one or more container images that you want to run in your Task.</li></ul></li><li>Optional:<ul><li>inputs - Specifies parameters and PipelineResources needed by your Task</li><li>outputs - Specifies PipelineResources created by your Task</li><li>volumes - Specifies one or more volumes that you want to make available to your Task&#x27;s steps.</li><li>stepTemplate - Specifies a Container step definition to use as the basis for all steps within your Task.</li><li>sidecars - Specifies sidecar containers to run alongside steps.</li></ul></li></ul><h3>Piplines</h3><p>Pipline 定义并执行一组 Task</p><p>Syntax:</p><p>To define a configuration file for a Pipeline resource, you can specify the following fields:</p><ul><li>Required:<ul><li>apiVersion - Specifies the API version, for example tekton.dev/v1alpha1.</li><li>kind - Specify the Pipeline resource object.</li><li>metadata - Specifies data to uniquely identify the Pipeline resource object, for example a name.</li><li>spec - Specifies the configuration information for your Pipeline resource object. In order for a Pipeline to do anything, the spec must include:<ul><li>tasks - Specifies which Tasks to run and how to run them</li></ul></li></ul></li><li>Optional:<ul><li>resources - Specifies which PipelineResources of which types the Pipeline will be using in its Tasks</li><li>tasks<ul><li>resources.inputs / resource.outputs<ul><li>from - Used when the content of the PipelineResource should come from the output of a previous Pipeline Task</li><li>runAfter - Used when the Pipeline Task should be executed after another Pipeline Task, but there is no output linking required</li><li>retries - Used when the task is wanted to be executed if it fails. Could be a network error or a missing dependency. It does not apply to cancellations.</li><li>conditions - Used when a task is to be executed only if the specified conditions are evaluated to be true.</li></ul></li></ul></li></ul></li></ul><p>Task 执行顺序，所有 Task 默认都会并行执行，除非指定了</p><ul><li>from</li><li>runAfter
+两项会指定 task 执行的依赖关系</li></ul><p>For example see this Pipeline spec:</p><pre><code class="language-yaml">- name: lint-repo
+  taskRef:
+    name: pylint
+  resources:
+    inputs:
+      - name: workspace
+        resource: my-repo
+- name: test-app
+  taskRef:
+    name: make-test
+  resources:
+    inputs:
+      - name: workspace
+        resource: my-repo
+- name: build-app
+  taskRef:
+    name: kaniko-build-app
+  runAfter:
+    - test-app
+  resources:
+    inputs:
+      - name: workspace
+        resource: my-repo
+    outputs:
+      - name: image
+        resource: my-app-image
+- name: build-frontend
+  taskRef:
+    name: kaniko-build-frontend
+  runAfter:
+    - test-app
+  resources:
+    inputs:
+      - name: workspace
+        resource: my-repo
+    outputs:
+      - name: image
+        resource: my-frontend-image
+- name: deploy-all
+  taskRef:
+    name: deploy-kubectl
+  resources:
+    inputs:
+      - name: my-app-image
+        resource: my-app-image
+        from:
+          - build-app
+      - name: my-frontend-image
+        resource: my-frontend-image
+        from:
+          - build-frontend</code></pre><p>This will result in the following execution graph:</p><pre><code class="language-none">        |            |
+        v            v
+     test-app    lint-repo
+    /        \
+   v          v
+build-app  build-frontend
+   \          /
+    v        v
+    deploy-all</code></pre><h2>安装</h2><p>运行 kubectl 安装指定的 yaml 文件</p><pre><code class="language-shell">kubectl apply -f https://raw.githubusercontent.com/gsmlg/pipeline/master/updated.yaml</code></pre><p>检查所有 pod 都处于<code>running</code>状态时，安装完成</p><pre><code class="language-shell">kubectl -n tekton-pipelines get pods</code></pre><p>安装 dashboard，更方便的查看 pipeline</p><pre><code class="language-shell">kubectl apply -f https://raw.githubusercontent.com/gsmlg/pipeline/master/updated_dashboard.yaml</code></pre><h2>演示运行一个<code>singlecloud</code>的构建过程</h2><p>创建账户</p><pre><code class="language-yaml">apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: pipeline-run-role
+rules:
+  - apiGroups:
+      - extensions
+    resources:
+      - deployments
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - update
+      - patch
+      - delete
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: pipeline-run-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: pipeline-run-role
+subjects:
+  - kind: ServiceAccount
+    name: pipeline-run-service
+    namespace: default
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: pipeline-run-service
+  namespace: default
+secrets:
+  - name: regcred
+
+---
+apiVersion: v1
+data:
+  .dockerconfigjson: &lt;encoded docker registry auth data&gt;
+kind: Secret
+metadata:
+  name: regcred
+  namespace: default
+type: kubernetes.io/dockerconfigjson</code></pre><p>定义资源</p><pre><code class="language-yaml">apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: zcloud-image
+spec:
+  type: image
+  params:
+    - name: url
+      value: docker.io/gsmlg/zcloud</code></pre><p>创建 task</p><pre><code class="language-yaml">apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: build-image-from-git
+spec:
+  inputs:
+    resources:
+      - name: docker-source
+        type: git
+    params:
+      - name: pathToDockerFile
+        type: string
+        description: The path to the dockerfile to build
+        default: /workspace/docker-source/Dockerfile
+      - name: pathToContext
+        type: string
+        description: The build context used by Kaniko
+          (https://github.com/GoogleContainerTools/kaniko#kaniko-build-contexts)
+        default: /workspace/docker-source
+  outputs:
+    resources:
+      - name: builtImage
+        type: image
+  steps:
+    - name: build-and-push
+      image: registry.zdns.cn/gsmlg/kaniko-project-executor:v0.13.0
+      # specifying DOCKER_CONFIG is required to allow kaniko to detect docker credential
+      env:
+        - name: &#x27;DOCKER_CONFIG&#x27;
+          value: &#x27;/builder/home/.docker/&#x27;
+      command:
+        - /kaniko/executor
+      args:
+        - --dockerfile=$(inputs.params.pathToDockerFile)
+        - --destination=$(outputs.resources.builtImage.url)
+        - --context=$(inputs.params.pathToContext)
+        - --oci-layout-path=/builder/home/image-outputs/builtImage
+        - --skip-tls-verify
+
+---
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: build-zcloud
+spec:
+  inputs:
+    resources:
+      - name: docker-source
+        type: git
+      - name: image
+        type: image
+      - name: uiImage
+        type: image
+    params:
+      - name: pathToDockerFile
+        type: string
+        description: The path to the dockerfile to build
+        default: /workspace/docker-source/Dockerfile
+      - name: pathToContext
+        type: string
+        description: The build context used by Kaniko
+          (https://github.com/GoogleContainerTools/kaniko#kaniko-build-contexts)
+        default: /workspace/docker-source
+  outputs:
+    resources:
+      - name: builtImage
+        type: image
+  steps:
+    - name: setup-dockerfile
+      image: docker.io/ubuntu:18.04
+      command:
+        - /workspace/docker-source/setup.sh
+      args:
+        - $(inputs.resources.image.url)
+        - $(inputs.resources.uiImage.url)
+        - /workspace/docker-source/Dockerfile
+    - name: build-and-push
+      image: registry.zdns.cn/gsmlg/kaniko-project-executor:v0.13.0
+      # specifying DOCKER_CONFIG is required to allow kaniko to detect docker credential
+      env:
+        - name: &#x27;DOCKER_CONFIG&#x27;
+          value: &#x27;/builder/home/.docker/&#x27;
+      command:
+        - /kaniko/executor
+      args:
+        - --dockerfile=$(inputs.params.pathToDockerFile)
+        - --destination=$(outputs.resources.builtImage.url)
+        - --context=$(inputs.params.pathToContext)
+        - --oci-layout-path=/builder/home/image-outputs/builtImage
+        - --skip-tls-verify
+
+---
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: zcloud-build-pipeline
+spec:
+  resources:
+    - name: singlecloud-repo
+      type: git
+    - name: singlecloud-ui-repo
+      type: git
+    - name: zcloud-repo
+      type: git
+    - name: singlecloud-image
+      type: image
+    - name: singlecloud-ui-image
+      type: image
+    - name: zcloud-image
+      type: image
+  tasks:
+    - name: build-singlecloud-ui
+      retries: 1
+      taskRef:
+        name: build-image-from-git
+      resources:
+        inputs:
+          - name: docker-source
+            resource: singlecloud-ui-repo
+        outputs:
+          - name: builtImage
+            resource: singlecloud-ui-image
+    - name: build-singlecloud
+      taskRef:
+        name: build-image-from-git
+      resources:
+        inputs:
+          - name: docker-source
+            resource: singlecloud-repo
+        outputs:
+          - name: builtImage
+            resource: singlecloud-image
+    - name: build-zcloud
+      taskRef:
+        name: build-zcloud
+      resources:
+        inputs:
+          - name: docker-source
+            resource: zcloud-repo
+          - name: uiImage
+            resource: singlecloud-ui-image
+            from:
+              - build-singlecloud-ui
+          - name: image
+            resource: singlecloud-image
+            from:
+              - build-singlecloud
+        outputs:
+          - name: builtImage
+            resource: zcloud-image</code></pre><p>运行 pipelinue:</p><pre><code class="language-yaml">apiVersion: tekton.dev/v1alpha1
+kind: PipelineRun
+metadata:
+  generateName: zcloud-build-run-
+spec:
+  pipelineRef:
+    name: zcloud-build-pipeline
+  serviceAccount: pipeline-run-service
+  resources:
+    - name: singlecloud-repo
+      resourceSpec:
+        type: git
+        params:
+          - name: revision
+            value: master
+          - name: url
+            value: https://github.com/zdnscloud/singlecloud
+    - name: singlecloud-ui-repo
+      resourceSpec:
+        type: git
+        params:
+          - name: revision
+            value: master
+          - name: url
+            value: https://github.com/zdnscloud/singlecloud-ui
+    - name: zcloud-repo
+      resourceSpec:
+        type: git
+        params:
+          - name: revision
+            value: master
+          - name: url
+            value: https://github.com/gsmlg/zcloud-image
+    - name: singlecloud-image
+      resourceSpec:
+        type: image
+        params:
+          - name: url
+            value: registry.zdns.cn/zcloud/singlecloud:master
+    - name: singlecloud-ui-image
+      resourceSpec:
+        type: image
+        params:
+          - name: url
+            value: registry.zdns.cn/zcloud/singlecloud-ui:master
+    - name: zcloud-image
+      resourceRef:
+        name: zcloud-image</code></pre></section></div></section><footer class="jss4"><div class="container"><span class="jss8">Copyright © 2017-2020 GSMLG - Powered by GSMLG Web.</span></div></footer></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"tektoncd","blog":{"id":29,"name":"tektoncd","title":"Tekton Pipelines","date":"2020-01-04","author":"Gao","content":"# Tekton Pipelines\n\n## Intro\n\nTekton Pipelines 是一个为`Kubernetes`应用程序配置和运行`CI / CD`风格的`Pipelined`的开源实现\n\n`Pipeline` 创建 `Custom Resources` 作为构建模块来声明`pipelines`\n\nTekton Pipelines 是云原生的\n\n- 运行于`Kubernetes`\n- 将`Kubernetes`集群作为一级资源类型\n- 使用容器作为构建块\n\nTekton Pipelines 是解耦的\n\n- Pipeline 可以被部署于任意 k8s 集群\n- 组成`pipeline`的`task`可以分开独立运行\n- 向 Git repos 之类的资源可以轻松的在运行之间交换\n\nTekton Pipelines are Typed\n\n- 类型化的资源意味着对于诸如 Image 之类的资源，可以轻松地将资源输出\n\n### 此设计的高级细节：\n\n- Pipeline 运行管道，可以实现一个流程，可以由事件出发，也可以通过`PipelineRun`来运行\n- Task 基本运行单元，可以通过`TaskRun`来运行\n- PipelineResource `Task`的输入和输出资源\n\n## 各类资源介绍\n\n### PipelineResources\n\n`PipelineResource` 是 `Pipline` 中 `Task` 的输入和输出对象\n\nSyntax:\n\nTo define a configuration file for a PipelineResource, you can specify the following fields:\n\n- Required:\n  - apiVersion - Specifies the API version, for example tekton.dev/v1alpha1.\n  - kind - Specify the PipelineResource resource object.\n  - metadata - Specifies data to uniquely identify the PipelineResource object, for example a name.\n  - spec - Specifies the configuration information for your PipelineResource resource object.\n  - type - Specifies the type of the PipelineResource\n- Optional:\n  - params - Parameters which are specific to each type of PipelineResource\n\nTypes:\n\n- Git\n- PullRequest\n- Image\n- Cluster\n- Storage\n- CloutEvent\n\n### Tasks\n\nTask(or ClusterTask) 是 CI 中一个组顺序执行的 step 的集合，是基本任务单位。Task 会在 pod 中运行。\n\nTask 需要声明三部分：\n\n- inputs\n- outputs\n- steps\n\nTask 在 namespace 中可用，ClusterTask 在整个集群可用\n\nSyntax:\n\nTo define a configuration file for a Task resource, you can specify the following fields:\n\n- Required:\n  - apiVersion - Specifies the API version, for example tekton.dev/v1alpha1.\n  - kind - Specify the Task resource object.\n  - metadata - Specifies data to uniquely identify the Task resource object, for example a name.\n  - spec - Specifies the configuration information for your Task resource object. Task steps must be defined through either of the following fields:\n    -steps - Specifies one or more container images that you want to run in your Task.\n- Optional:\n  - inputs - Specifies parameters and PipelineResources needed by your Task\n  - outputs - Specifies PipelineResources created by your Task\n  - volumes - Specifies one or more volumes that you want to make available to your Task's steps.\n  - stepTemplate - Specifies a Container step definition to use as the basis for all steps within your Task.\n  - sidecars - Specifies sidecar containers to run alongside steps.\n\n### Piplines\n\nPipline 定义并执行一组 Task\n\nSyntax:\n\nTo define a configuration file for a Pipeline resource, you can specify the following fields:\n\n- Required:\n  - apiVersion - Specifies the API version, for example tekton.dev/v1alpha1.\n  - kind - Specify the Pipeline resource object.\n  - metadata - Specifies data to uniquely identify the Pipeline resource object, for example a name.\n  - spec - Specifies the configuration information for your Pipeline resource object. In order for a Pipeline to do anything, the spec must include:\n    - tasks - Specifies which Tasks to run and how to run them\n- Optional:\n  - resources - Specifies which PipelineResources of which types the Pipeline will be using in its Tasks\n  - tasks\n    - resources.inputs / resource.outputs\n      - from - Used when the content of the PipelineResource should come from the output of a previous Pipeline Task\n      - runAfter - Used when the Pipeline Task should be executed after another Pipeline Task, but there is no output linking required\n      - retries - Used when the task is wanted to be executed if it fails. Could be a network error or a missing dependency. It does not apply to cancellations.\n      - conditions - Used when a task is to be executed only if the specified conditions are evaluated to be true.\n\nTask 执行顺序，所有 Task 默认都会并行执行，除非指定了\n\n- from\n- runAfter\n  两项会指定 task 执行的依赖关系\n\nFor example see this Pipeline spec:\n\n```yaml\n- name: lint-repo\n  taskRef:\n    name: pylint\n  resources:\n    inputs:\n      - name: workspace\n        resource: my-repo\n- name: test-app\n  taskRef:\n    name: make-test\n  resources:\n    inputs:\n      - name: workspace\n        resource: my-repo\n- name: build-app\n  taskRef:\n    name: kaniko-build-app\n  runAfter:\n    - test-app\n  resources:\n    inputs:\n      - name: workspace\n        resource: my-repo\n    outputs:\n      - name: image\n        resource: my-app-image\n- name: build-frontend\n  taskRef:\n    name: kaniko-build-frontend\n  runAfter:\n    - test-app\n  resources:\n    inputs:\n      - name: workspace\n        resource: my-repo\n    outputs:\n      - name: image\n        resource: my-frontend-image\n- name: deploy-all\n  taskRef:\n    name: deploy-kubectl\n  resources:\n    inputs:\n      - name: my-app-image\n        resource: my-app-image\n        from:\n          - build-app\n      - name: my-frontend-image\n        resource: my-frontend-image\n        from:\n          - build-frontend\n```\n\nThis will result in the following execution graph:\n\n```none\n        |            |\n        v            v\n     test-app    lint-repo\n    /        \\\n   v          v\nbuild-app  build-frontend\n   \\          /\n    v        v\n    deploy-all\n```\n\n## 安装\n\n运行 kubectl 安装指定的 yaml 文件\n\n```shell\nkubectl apply -f https://raw.githubusercontent.com/gsmlg/pipeline/master/updated.yaml\n```\n\n检查所有 pod 都处于`running`状态时，安装完成\n\n```shell\nkubectl -n tekton-pipelines get pods\n```\n\n安装 dashboard，更方便的查看 pipeline\n\n```shell\nkubectl apply -f https://raw.githubusercontent.com/gsmlg/pipeline/master/updated_dashboard.yaml\n```\n\n## 演示运行一个`singlecloud`的构建过程\n\n创建账户\n\n```yaml\napiVersion: rbac.authorization.k8s.io/v1\nkind: ClusterRole\nmetadata:\n  name: pipeline-run-role\nrules:\n  - apiGroups:\n      - extensions\n    resources:\n      - deployments\n    verbs:\n      - get\n      - list\n      - watch\n      - create\n      - update\n      - patch\n      - delete\n\n---\napiVersion: rbac.authorization.k8s.io/v1\nkind: ClusterRoleBinding\nmetadata:\n  name: pipeline-run-binding\nroleRef:\n  apiGroup: rbac.authorization.k8s.io\n  kind: ClusterRole\n  name: pipeline-run-role\nsubjects:\n  - kind: ServiceAccount\n    name: pipeline-run-service\n    namespace: default\n\n---\napiVersion: v1\nkind: ServiceAccount\nmetadata:\n  name: pipeline-run-service\n  namespace: default\nsecrets:\n  - name: regcred\n\n---\napiVersion: v1\ndata:\n  .dockerconfigjson: \u003cencoded docker registry auth data\u003e\nkind: Secret\nmetadata:\n  name: regcred\n  namespace: default\ntype: kubernetes.io/dockerconfigjson\n```\n\n定义资源\n\n```yaml\napiVersion: tekton.dev/v1alpha1\nkind: PipelineResource\nmetadata:\n  name: zcloud-image\nspec:\n  type: image\n  params:\n    - name: url\n      value: docker.io/gsmlg/zcloud\n```\n\n创建 task\n\n```yaml\napiVersion: tekton.dev/v1alpha1\nkind: Task\nmetadata:\n  name: build-image-from-git\nspec:\n  inputs:\n    resources:\n      - name: docker-source\n        type: git\n    params:\n      - name: pathToDockerFile\n        type: string\n        description: The path to the dockerfile to build\n        default: /workspace/docker-source/Dockerfile\n      - name: pathToContext\n        type: string\n        description: The build context used by Kaniko\n          (https://github.com/GoogleContainerTools/kaniko#kaniko-build-contexts)\n        default: /workspace/docker-source\n  outputs:\n    resources:\n      - name: builtImage\n        type: image\n  steps:\n    - name: build-and-push\n      image: registry.zdns.cn/gsmlg/kaniko-project-executor:v0.13.0\n      # specifying DOCKER_CONFIG is required to allow kaniko to detect docker credential\n      env:\n        - name: 'DOCKER_CONFIG'\n          value: '/builder/home/.docker/'\n      command:\n        - /kaniko/executor\n      args:\n        - --dockerfile=$(inputs.params.pathToDockerFile)\n        - --destination=$(outputs.resources.builtImage.url)\n        - --context=$(inputs.params.pathToContext)\n        - --oci-layout-path=/builder/home/image-outputs/builtImage\n        - --skip-tls-verify\n\n---\napiVersion: tekton.dev/v1alpha1\nkind: Task\nmetadata:\n  name: build-zcloud\nspec:\n  inputs:\n    resources:\n      - name: docker-source\n        type: git\n      - name: image\n        type: image\n      - name: uiImage\n        type: image\n    params:\n      - name: pathToDockerFile\n        type: string\n        description: The path to the dockerfile to build\n        default: /workspace/docker-source/Dockerfile\n      - name: pathToContext\n        type: string\n        description: The build context used by Kaniko\n          (https://github.com/GoogleContainerTools/kaniko#kaniko-build-contexts)\n        default: /workspace/docker-source\n  outputs:\n    resources:\n      - name: builtImage\n        type: image\n  steps:\n    - name: setup-dockerfile\n      image: docker.io/ubuntu:18.04\n      command:\n        - /workspace/docker-source/setup.sh\n      args:\n        - $(inputs.resources.image.url)\n        - $(inputs.resources.uiImage.url)\n        - /workspace/docker-source/Dockerfile\n    - name: build-and-push\n      image: registry.zdns.cn/gsmlg/kaniko-project-executor:v0.13.0\n      # specifying DOCKER_CONFIG is required to allow kaniko to detect docker credential\n      env:\n        - name: 'DOCKER_CONFIG'\n          value: '/builder/home/.docker/'\n      command:\n        - /kaniko/executor\n      args:\n        - --dockerfile=$(inputs.params.pathToDockerFile)\n        - --destination=$(outputs.resources.builtImage.url)\n        - --context=$(inputs.params.pathToContext)\n        - --oci-layout-path=/builder/home/image-outputs/builtImage\n        - --skip-tls-verify\n\n---\napiVersion: tekton.dev/v1alpha1\nkind: Pipeline\nmetadata:\n  name: zcloud-build-pipeline\nspec:\n  resources:\n    - name: singlecloud-repo\n      type: git\n    - name: singlecloud-ui-repo\n      type: git\n    - name: zcloud-repo\n      type: git\n    - name: singlecloud-image\n      type: image\n    - name: singlecloud-ui-image\n      type: image\n    - name: zcloud-image\n      type: image\n  tasks:\n    - name: build-singlecloud-ui\n      retries: 1\n      taskRef:\n        name: build-image-from-git\n      resources:\n        inputs:\n          - name: docker-source\n            resource: singlecloud-ui-repo\n        outputs:\n          - name: builtImage\n            resource: singlecloud-ui-image\n    - name: build-singlecloud\n      taskRef:\n        name: build-image-from-git\n      resources:\n        inputs:\n          - name: docker-source\n            resource: singlecloud-repo\n        outputs:\n          - name: builtImage\n            resource: singlecloud-image\n    - name: build-zcloud\n      taskRef:\n        name: build-zcloud\n      resources:\n        inputs:\n          - name: docker-source\n            resource: zcloud-repo\n          - name: uiImage\n            resource: singlecloud-ui-image\n            from:\n              - build-singlecloud-ui\n          - name: image\n            resource: singlecloud-image\n            from:\n              - build-singlecloud\n        outputs:\n          - name: builtImage\n            resource: zcloud-image\n```\n\n运行 pipelinue:\n\n```yaml\napiVersion: tekton.dev/v1alpha1\nkind: PipelineRun\nmetadata:\n  generateName: zcloud-build-run-\nspec:\n  pipelineRef:\n    name: zcloud-build-pipeline\n  serviceAccount: pipeline-run-service\n  resources:\n    - name: singlecloud-repo\n      resourceSpec:\n        type: git\n        params:\n          - name: revision\n            value: master\n          - name: url\n            value: https://github.com/zdnscloud/singlecloud\n    - name: singlecloud-ui-repo\n      resourceSpec:\n        type: git\n        params:\n          - name: revision\n            value: master\n          - name: url\n            value: https://github.com/zdnscloud/singlecloud-ui\n    - name: zcloud-repo\n      resourceSpec:\n        type: git\n        params:\n          - name: revision\n            value: master\n          - name: url\n            value: https://github.com/gsmlg/zcloud-image\n    - name: singlecloud-image\n      resourceSpec:\n        type: image\n        params:\n          - name: url\n            value: registry.zdns.cn/zcloud/singlecloud:master\n    - name: singlecloud-ui-image\n      resourceSpec:\n        type: image\n        params:\n          - name: url\n            value: registry.zdns.cn/zcloud/singlecloud-ui:master\n    - name: zcloud-image\n      resourceRef:\n        name: zcloud-image\n```\n"}},"__N_SSG":true},"page":"/blogs/[slug]","query":{"slug":"tektoncd"},"buildId":"C4AJ9q2RoIIrR1IHHAH1J","nextExport":false,"isFallback":false,"gsp":true}</script><script nomodule="" src="/_next/static/chunks/polyfills-51ce6eb9ed73aacaf515.js"></script><script src="/_next/static/chunks/main-8741ed3c7ec57f378f59.js" async=""></script><script src="/_next/static/chunks/webpack-95c2b224bccf352ee870.js" async=""></script><script src="/_next/static/chunks/framework.962935494b30c127d8df.js" async=""></script><script src="/_next/static/chunks/commons.df3badfa1389741d28a2.js" async=""></script><script src="/_next/static/chunks/3fbd0e4abf850ff07f64ccde56ee9630378b8e04.7ac8cae34eec6be35d96.js" async=""></script><script src="/_next/static/chunks/pages/_app-37f2d112d23aeb2fbca1.js" async=""></script><script src="/_next/static/chunks/460fa7c48ecffb1b1bfdaf9b8a55cba3a474e08f.e4fd6e5862561852bfd0.js" async=""></script><script src="/_next/static/chunks/pages/blogs/%5Bslug%5D-ae308899b480e17c100a.js" async=""></script><script src="/_next/static/C4AJ9q2RoIIrR1IHHAH1J/_buildManifest.js" async=""></script><script src="/_next/static/C4AJ9q2RoIIrR1IHHAH1J/_ssgManifest.js" async=""></script></body></html>

@@ -1,0 +1,792 @@
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#3f51b5"/><meta charSet="utf-8"/><meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/><title>HTTP 国际化</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/css/2f26bb9842d84a608fa3.css" as="style"/><link rel="stylesheet" href="/_next/static/css/2f26bb9842d84a608fa3.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/main-8741ed3c7ec57f378f59.js" as="script"/><link rel="preload" href="/_next/static/chunks/webpack-95c2b224bccf352ee870.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.962935494b30c127d8df.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.df3badfa1389741d28a2.js" as="script"/><link rel="preload" href="/_next/static/chunks/3fbd0e4abf850ff07f64ccde56ee9630378b8e04.7ac8cae34eec6be35d96.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-37f2d112d23aeb2fbca1.js" as="script"/><link rel="preload" href="/_next/static/chunks/460fa7c48ecffb1b1bfdaf9b8a55cba3a474e08f.e4fd6e5862561852bfd0.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/blogs/%5Bslug%5D-ae308899b480e17c100a.js" as="script"/><style id="jss-server-side">.MuiPaper-root {
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #fff;
+}
+.MuiPaper-rounded {
+  border-radius: 4px;
+}
+.MuiPaper-outlined {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.MuiPaper-elevation0 {
+  box-shadow: none;
+}
+.MuiPaper-elevation1 {
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation2 {
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation3 {
+  box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation4 {
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation5 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation6 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation7 {
+  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation8 {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation9 {
+  box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation10 {
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation11 {
+  box-shadow: 0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation12 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation13 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation14 {
+  box-shadow: 0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation15 {
+  box-shadow: 0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation16 {
+  box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation17 {
+  box-shadow: 0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation18 {
+  box-shadow: 0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation19 {
+  box-shadow: 0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation20 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation21 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation22 {
+  box-shadow: 0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation23 {
+  box-shadow: 0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation24 {
+  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
+}
+.MuiTypography-root {
+  margin: 0;
+}
+.MuiTypography-body2 {
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+}
+.MuiTypography-body1 {
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+.MuiTypography-caption {
+  font-size: 0.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+  letter-spacing: 0.03333em;
+}
+.MuiTypography-button {
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+}
+.MuiTypography-h1 {
+  font-size: 6rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.167;
+  letter-spacing: -0.01562em;
+}
+.MuiTypography-h2 {
+  font-size: 3.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.00833em;
+}
+.MuiTypography-h3 {
+  font-size: 3rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.167;
+  letter-spacing: 0em;
+}
+.MuiTypography-h4 {
+  font-size: 2.125rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.235;
+  letter-spacing: 0.00735em;
+}
+.MuiTypography-h5 {
+  font-size: 1.5rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.334;
+  letter-spacing: 0em;
+}
+.MuiTypography-h6 {
+  font-size: 1.25rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+}
+.MuiTypography-subtitle1 {
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.00938em;
+}
+.MuiTypography-subtitle2 {
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.57;
+  letter-spacing: 0.00714em;
+}
+.MuiTypography-overline {
+  font-size: 0.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 2.66;
+  letter-spacing: 0.08333em;
+  text-transform: uppercase;
+}
+.MuiTypography-srOnly {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+.MuiTypography-alignLeft {
+  text-align: left;
+}
+.MuiTypography-alignCenter {
+  text-align: center;
+}
+.MuiTypography-alignRight {
+  text-align: right;
+}
+.MuiTypography-alignJustify {
+  text-align: justify;
+}
+.MuiTypography-noWrap {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.MuiTypography-gutterBottom {
+  margin-bottom: 0.35em;
+}
+.MuiTypography-paragraph {
+  margin-bottom: 16px;
+}
+.MuiTypography-colorInherit {
+  color: inherit;
+}
+.MuiTypography-colorPrimary {
+  color: #3f51b5;
+}
+.MuiTypography-colorSecondary {
+  color: #f50057;
+}
+.MuiTypography-colorTextPrimary {
+  color: rgba(0, 0, 0, 0.87);
+}
+.MuiTypography-colorTextSecondary {
+  color: rgba(0, 0, 0, 0.54);
+}
+.MuiTypography-colorError {
+  color: #f44336;
+}
+.MuiTypography-displayInline {
+  display: inline;
+}
+.MuiTypography-displayBlock {
+  display: block;
+}
+.MuiAppBar-root {
+  width: 100%;
+  display: flex;
+  z-index: 1100;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.MuiAppBar-positionFixed {
+  top: 0;
+  left: auto;
+  right: 0;
+  position: fixed;
+}
+@media print {
+  .MuiAppBar-positionFixed {
+    position: absolute;
+  }
+}
+  .MuiAppBar-positionAbsolute {
+    top: 0;
+    left: auto;
+    right: 0;
+    position: absolute;
+  }
+  .MuiAppBar-positionSticky {
+    top: 0;
+    left: auto;
+    right: 0;
+    position: sticky;
+  }
+  .MuiAppBar-positionStatic {
+    position: static;
+  }
+  .MuiAppBar-positionRelative {
+    position: relative;
+  }
+  .MuiAppBar-colorDefault {
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #f5f5f5;
+  }
+  .MuiAppBar-colorPrimary {
+    color: #fff;
+    background-color: #3f51b5;
+  }
+  .MuiAppBar-colorSecondary {
+    color: #fff;
+    background-color: #f50057;
+  }
+  .MuiAppBar-colorInherit {
+    color: inherit;
+  }
+  .MuiAppBar-colorTransparent {
+    color: inherit;
+    background-color: transparent;
+  }
+  .MuiToolbar-root {
+    display: flex;
+    position: relative;
+    align-items: center;
+  }
+  .MuiToolbar-gutters {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+@media (min-width:600px) {
+  .MuiToolbar-gutters {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+  .MuiToolbar-regular {
+    min-height: 56px;
+  }
+@media (min-width:0px) and (orientation: landscape) {
+  .MuiToolbar-regular {
+    min-height: 48px;
+  }
+}
+@media (min-width:600px) {
+  .MuiToolbar-regular {
+    min-height: 64px;
+  }
+}
+  .MuiToolbar-dense {
+    min-height: 48px;
+  }
+  .MuiButtonBase-root {
+    color: inherit;
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    display: inline-flex;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    align-items: center;
+    user-select: none;
+    border-radius: 0;
+    vertical-align: middle;
+    -moz-appearance: none;
+    justify-content: center;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .MuiButtonBase-root::-moz-focus-inner {
+    border-style: none;
+  }
+  .MuiButtonBase-root.Mui-disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+@media print {
+  .MuiButtonBase-root {
+    color-adjust: exact;
+  }
+}
+  .MuiButton-root {
+    color: rgba(0, 0, 0, 0.87);
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    min-width: 64px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+  }
+  .MuiButton-root:hover {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  .MuiButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+@media (hover: none) {
+  .MuiButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-root:hover.Mui-disabled {
+    background-color: transparent;
+  }
+  .MuiButton-label {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiButton-text {
+    padding: 6px 8px;
+  }
+  .MuiButton-textPrimary {
+    color: #3f51b5;
+  }
+  .MuiButton-textPrimary:hover {
+    background-color: rgba(63, 81, 181, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-textPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-textSecondary {
+    color: #f50057;
+  }
+  .MuiButton-textSecondary:hover {
+    background-color: rgba(245, 0, 87, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-textSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-outlined {
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    padding: 5px 15px;
+  }
+  .MuiButton-outlined.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .MuiButton-outlinedPrimary {
+    color: #3f51b5;
+    border: 1px solid rgba(63, 81, 181, 0.5);
+  }
+  .MuiButton-outlinedPrimary:hover {
+    border: 1px solid #3f51b5;
+    background-color: rgba(63, 81, 181, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-outlinedPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-outlinedSecondary {
+    color: #f50057;
+    border: 1px solid rgba(245, 0, 87, 0.5);
+  }
+  .MuiButton-outlinedSecondary:hover {
+    border: 1px solid #f50057;
+    background-color: rgba(245, 0, 87, 0.04);
+  }
+  .MuiButton-outlinedSecondary.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.26);
+  }
+@media (hover: none) {
+  .MuiButton-outlinedSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-contained {
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+  }
+  .MuiButton-contained:hover {
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+    background-color: #d5d5d5;
+  }
+  .MuiButton-contained.Mui-focusVisible {
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+  }
+  .MuiButton-contained:active {
+    box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+  }
+  .MuiButton-contained.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+@media (hover: none) {
+  .MuiButton-contained:hover {
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+  }
+}
+  .MuiButton-contained:hover.Mui-disabled {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  .MuiButton-containedPrimary {
+    color: #fff;
+    background-color: #3f51b5;
+  }
+  .MuiButton-containedPrimary:hover {
+    background-color: #303f9f;
+  }
+@media (hover: none) {
+  .MuiButton-containedPrimary:hover {
+    background-color: #3f51b5;
+  }
+}
+  .MuiButton-containedSecondary {
+    color: #fff;
+    background-color: #f50057;
+  }
+  .MuiButton-containedSecondary:hover {
+    background-color: #c51162;
+  }
+@media (hover: none) {
+  .MuiButton-containedSecondary:hover {
+    background-color: #f50057;
+  }
+}
+  .MuiButton-disableElevation {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation:hover {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation.Mui-focusVisible {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation:active {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation.Mui-disabled {
+    box-shadow: none;
+  }
+  .MuiButton-colorInherit {
+    color: inherit;
+    border-color: currentColor;
+  }
+  .MuiButton-textSizeSmall {
+    padding: 4px 5px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-textSizeLarge {
+    padding: 8px 11px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-outlinedSizeSmall {
+    padding: 3px 9px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-outlinedSizeLarge {
+    padding: 7px 21px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-containedSizeSmall {
+    padding: 4px 10px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-containedSizeLarge {
+    padding: 8px 22px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-fullWidth {
+    width: 100%;
+  }
+  .MuiButton-startIcon {
+    display: inherit;
+    margin-left: -4px;
+    margin-right: 8px;
+  }
+  .MuiButton-startIcon.MuiButton-iconSizeSmall {
+    margin-left: -2px;
+  }
+  .MuiButton-endIcon {
+    display: inherit;
+    margin-left: 8px;
+    margin-right: -4px;
+  }
+  .MuiButton-endIcon.MuiButton-iconSizeSmall {
+    margin-right: -2px;
+  }
+  .MuiButton-iconSizeSmall > *:first-child {
+    font-size: 18px;
+  }
+  .MuiButton-iconSizeMedium > *:first-child {
+    font-size: 20px;
+  }
+  .MuiButton-iconSizeLarge > *:first-child {
+    font-size: 22px;
+  }
+  .MuiIconButton-root {
+    flex: 0 0 auto;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 12px;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+  }
+  .MuiIconButton-root:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  .MuiIconButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    background-color: transparent;
+  }
+@media (hover: none) {
+  .MuiIconButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-edgeStart {
+    margin-left: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeStart {
+    margin-left: -3px;
+  }
+  .MuiIconButton-edgeEnd {
+    margin-right: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeEnd {
+    margin-right: -3px;
+  }
+  .MuiIconButton-colorInherit {
+    color: inherit;
+  }
+  .MuiIconButton-colorPrimary {
+    color: #3f51b5;
+  }
+  .MuiIconButton-colorPrimary:hover {
+    background-color: rgba(63, 81, 181, 0.04);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-colorSecondary {
+    color: #f50057;
+  }
+  .MuiIconButton-colorSecondary:hover {
+    background-color: rgba(245, 0, 87, 0.04);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-sizeSmall {
+    padding: 3px;
+    font-size: 1.125rem;
+  }
+  .MuiIconButton-label {
+    width: 100%;
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiSvgIcon-root {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    font-size: 1.5rem;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    flex-shrink: 0;
+    user-select: none;
+  }
+  .MuiSvgIcon-colorPrimary {
+    color: #3f51b5;
+  }
+  .MuiSvgIcon-colorSecondary {
+    color: #f50057;
+  }
+  .MuiSvgIcon-colorAction {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  .MuiSvgIcon-colorError {
+    color: #f44336;
+  }
+  .MuiSvgIcon-colorDisabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+  .MuiSvgIcon-fontSizeInherit {
+    font-size: inherit;
+  }
+  .MuiSvgIcon-fontSizeSmall {
+    font-size: 1.25rem;
+  }
+  .MuiSvgIcon-fontSizeLarge {
+    font-size: 2.1875rem;
+  }
+  .jss2 {
+    flex: 1 1 auto;
+    width: 100vw;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  .jss3 {
+    flex: 1;
+    display: flex;
+  }
+  .jss4 {
+    color: #fff;
+    margin-top: 0.5em;
+    text-align: center;
+    line-height: 2em;
+    background-color: #3f51b5;
+  }
+  .jss5 {
+    margin-left: -12px;
+    margin-right: 20px;
+  }
+  .jss7 {
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .MuiDivider-root {
+    border: none;
+    height: 1px;
+    margin: 0;
+    flex-shrink: 0;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  .MuiDivider-absolute {
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+  }
+  .MuiDivider-inset {
+    margin-left: 72px;
+  }
+  .MuiDivider-light {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  .MuiDivider-middle {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  .MuiDivider-vertical {
+    width: 1px;
+    height: 100%;
+  }
+  .MuiDivider-flexItem {
+    height: auto;
+    align-self: stretch;
+  }
+  .jss1 {
+    flex: 1;
+    margin: 24px;
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+  }
+@media (min-width:600px) {
+  .jss1 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}</style></head><body><div id="__next"><section class="jss2"><header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"><div class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"><button class="MuiButtonBase-root MuiIconButton-root jss5 MuiIconButton-colorInherit" tabindex="0" type="button" aria-label="Menu"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></span></button><p class="MuiTypography-root jss3 MuiTypography-body1 MuiTypography-colorInherit" type="title"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button"><span class="MuiButton-label"><a href="/">Home</a></span></button><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button"><span class="MuiButton-label"><a href="/blogs">Blog</a></span></button></p></div></header><section class="jss3"><div class="MuiPaper-root jss1 MuiPaper-elevation4 MuiPaper-rounded"><header><h1 class="MuiTypography-root MuiTypography-body1">HTTP 国际化</h1><div class="MuiTypography-root MuiTypography-body1">Author:<!-- -->Gao</div><div class="MuiTypography-root MuiTypography-body1">Created At:<!-- -->2020-06-09</div></header><hr class="MuiDivider-root"/><section class="MuiTypography-root blog-content MuiTypography-body1"><h2>国际化</h2><p>每天有上亿的人用数百种语言写着各种文档。
+为了真正实现万维网的目标，HTTP 要能够传输和处理用多种语言和字母表编写的国际性文档。</p><h3>HTTP 对国际性内容的支持</h3><p>服务器通过 HTTP 协议的 Content-Type 首部中的 charset 参数和 Content- Language 首部告知客户端文档的字母表和语言。</p><p>客户端发送 Accept-Charset 首部和 Accept-Language 首部，告知服务器 它理解哪些字符集编码算法和语言以及其中的优先顺序。</p><p>下面的 HTTP 报文中的这些 Accept 首部可能是母语为法语的人发出的。他喜欢 使用母语，但也会说一点儿英语，他的浏览器支持 iso-8859-1 西欧字符集编码和 UTF-8 Unicode 字符集编码:</p><pre><code class="language-http">Accept-Language: fr, en;q=0.8
+Accept-Charset: iso-8859-1, utf-8</code></pre><p>参数“q=0.8”是质量因子(quality factor)，说明英语的优先级(0.8)比法语低 (默认值是 1.0)。</p><h3>字符集与 HTTP</h3><h4>字符集是把字符转换为二进制码的编码</h4><p>HTTP 字符集的值说明如何把实体内容的二进制码转换为特定字母表中的字符。
+每个字符集标记都命名了一种把二进制码转换为字符的算法(反之亦然)。
+字符集标记在由 IANA 维护(<a href="http://www.iana.org/assignments/character-sets">参见</a>)的 MIME 字 符集注册机构进行了标准化。</p><h4>字符集和编码如何工作</h4><p>把二进制码转换为字符要经过两个步骤</p><ul><li>文档中的二进制码被转换成字符代码，它表示了特定编码字符集中某个特定编号的字符。</li><li>字符代码用于从编码的字符集中选择特定的元素。</li></ul><p><img src="http-i18n/how-charset-work.png" alt=""/></p><h4>标准化的 MIME charset 值</h4><p>特定的字符编码方案和特定的已编码字符集组合成一个 MIME 字符集(MIME charset)。
+HTTP 在 Content-Type 和 Accept-Charset 首部中使用标准化的 MIME charset 标记。
+MIME charset 的值都会在 IANA 注册。</p><h4>Content-Type 首部和 Charset 首部以及 META 标志</h4><p>Web 服务器通过在 Content-Type 首部中使用 charset 参数把 MIME 字符集标记
+发送给客户端:</p><pre><code class="language-http">Content-Type: text/html; charset=gb2312</code></pre><p>对于 HTML 内容来说， 可以在描述 charset 的</p><pre><code class="language-html">&lt;meta http-equiv=&quot;Content-Type&quot; /&gt;</code></pre><p>标记中找到字符集。</p><h4>Accept-Charset 首部</h4><p>HTTP 客户端可以使用 Accept-Charset 请求首部来明确告知服务器它支持哪些字 符系统。
+Accept-Charset 首部的值列出了客户端支持的字符编码方案。</p><pre><code class="language-http">Accept-Charset: iso-8859-1, utf-8</code></pre><h3>多语言字符编码入门</h3><p>对于工作中要开发大量国际化应用的 HTTP 程序员来说，为了能理解技术规范和相应的实现软件，需要深入地理解多语言字符系统。</p><h4>Terminology</h4><p>电子化字符系统的 8 个术语</p><ul><li>字符</li></ul><p>字符是指字母、数字、标点、表意文字(比如汉语)、符号，或其他文本形式的书写“原子”。
+由统一字符集(Universal Character Set，UCS, 它的非正式的名字是 Unicode3)首创，
+为多种语言中的很多字符开发了一系列标准化的文本名称，
+它们常用来便捷地命名字符，而且不会与其他字符冲突。</p><ul><li>字形</li></ul><p>描述字符的笔画图案或唯一的图形化形状。如果一个字符有多种不同的写法，就 有多个字形(参见图 16-3)。</p><ul><li>编码后的字符</li></ul><p>分配给字符的唯一数字编号，这样我们就可以操作它了。</p><ul><li>代码空间</li></ul><p>计划用于字符代码值的整数范围。</p><ul><li>代码宽度</li></ul><p>每个(固定大小的)字符代码所用的位数。</p><ul><li>字符库</li></ul><p>特定的工作字符集(全体字符的一个子集)。</p><ul><li>编码后的字符集</li></ul><p>组成字符库(从全球的字符中选出若干字符)的已编码字符集，并为每个字符 分配代码空间中的一个代码。换句话说，它把数字化的字符代码映射为实际的 字符。</p><ul><li>字符编码方案</li></ul><p>把数字化的字符代码编码成一系列二进制码(并能相应地反向解码)的算法。字 符编码方案可用来减少识别字符所需要的数据总量(压缩)、解决传输限制、统 一重叠编码字符集。</p><h3>语言标记与 Http</h3><p>语言标记是命名口语的标准化字符串短语。</p><h4>Content-Language 首部</h4><p>实体的 Content-Language 首部字段描述实体的目标受众语言。</p><pre><code class="language-http">Content-Language: zh-CN</code></pre><p>Content-Language 首部不仅限于文本文档。
+音频片段、电影以及应用程序都有可 能是面向特定语言受众的。
+任何面向特定语言受众的媒体类型都可以有 Content- Language 首部。</p><p>如果内容是面向多种语言受众的，可以列出多种语言。</p><pre><code class="language-http">Content-Language: zh-CN, zh-TW, zh-HK</code></pre><h4>Accept-Language 首部</h4><p>HTTP 允许我们把语言方面的限制和优先选择都发送给网站服务器。
+如果网站服务器有以多种语言表示的资源版本，它就能把内容用我们最优选的语言表示出来。</p><pre><code>服务器也可以根据 Accept-Language 首部生成适合用户语言的动态内容，或据此选择图像，或选择适合目标语言的商业促销等。</code></pre><h4>语言标记的类型</h4><p>在 RFC3066，“Tags for the Identification of Languages”(标识语言的标记)中记录了语言标记的标准化语法。</p><p>可以用语言标记来表示:</p><ul><li>一般的语言分类(比如 es 代表西班牙语);</li><li>特定国家的语言(比如 en-GB 代表英国英语);</li><li>语言的方言(比如 no-bok 指挪威的书面语);</li><li>地区性的语言(比如 sgn-US-MA 代表美国马撒葡萄园岛上的手语);</li><li>标准化的非变种语言(比如 i-navajo);</li><li>非标准的语言(比如 x-snowboarder-slang)。</li></ul><h4>子标记</h4><p>语言标记有一个或多个部分，用连字号分隔，称为子标记:</p><ul><li>第一个子标记称为主子标记，其值是标准化的;</li><li>第二个子标记是可选的，遵循它自己的命名标准;</li><li>其他尾随的子标记都是未注册的。</li></ul><p>主子标记中只能含有字母(A ~ Z)。
+其后的子标记可以含有字母和数字，长度最多 8 个字符。</p><p>Example:</p><pre><code class="language-text">马撒葡萄园岛上的手语
+
+sgn-US-MA
+
+sgn -&gt; 第一个子标记 （手语）
+US -&gt; 第二个子标记 （美国）
+MA -&gt; 第三个子标记 （马萨诸塞州的地区性变体）
+</code></pre><h4>大小写</h4><p>所有的标记都是不区分大小写的，也就是说，标记 en 和 eN 是等价的。
+但是，习惯上用全小写来表示一般的语言，而用全大写来表示特定的国家。</p><h4>IANA 语言标记注册</h4><p>第一个和第二个语言子标记的值由各种标准文档以及相关的维护组织定义。
+IANA20 依据 RFC 3066 中概括的规则来管理标准的语言标记列表。</p><p>如果语言标记由标准的国家和语言值组成，标记就不需要专门注册。
+只有那些无法 用标准的国家和语言值构成的语言标记才需要专门向 IANA 注册 21。</p><h4>第一个子标记--名字空间</h4><p>第一个子标记通常是标准化的语言记号，选自 ISO 639 中的语言标准集合。
+不过也可以用字母 i 来标识在 IANA 中注册的名字，或用 x 表示私有的或者扩展的名字。</p><ul><li>2 个字符，那就是来自 ISO 63922 和 639-1 标准的语言代码;</li><li>3 个字符，那就是来自 ISO 639-2 标准及其扩展的语言代码;</li><li>字母 i，该语言标记是在 IANA 显式注册的;</li><li>字母 x，该语言标记是私有的、非标准的，或扩展的子标记。</li></ul><h4>第二个子标记--名字空间</h4><p>第二个子标记通常是标准化的国家记号，选自 ISO 3166 中的国家代码和地区标准集合。
+不过也可以是在 IANA 注册过的其他字符串。</p><ul><li>2 个字符，那就是 ISO 3166 中定义的国家 / 地区;</li><li>3~8 个字符，可能是在 IANA 中注册的值;</li><li>单个字符，这是非法的情况。</li></ul><h4>其余子标记--名字空间</h4><p>除了最长可以到 8 个字符(字母和数字)之外，第三个和其后的子标记没有特殊规则。</p><h3>国际化的 URI</h3><p>直到今天，URI 还没有为国际化提供足够的支持。</p><h4>全球性的可转抄能力与有意义的字符的较量</h4><p>URI 的设计者们希望世界上每个人都能通过电子邮件、电话、公告板，甚至无线电来共享 URI。
+他们还希望 URI 容易使用和记忆，但这两个目标是相互冲突的。</p><p>URI 的设计者们觉得确保资源标识符的可转抄能力(transcribability)和共享能力比让它们由最有意义的字符组成更加重要，
+因此(如今的)URI 基本上是由 ASCII 字符的受限子集构成的。</p><h4>URI 字符集合</h4><p>URI 中允许出现的 US-ASCII 字符的子集，可以被分成保留、未保留以及转义字符 这几类。</p><p>未保留的字符可用于 URI 允许其出现的任何部分。
+保留的字符在很多 URI 中都有特殊的含义，因此一般来说不能使用它们。</p><p>| 字符类别 | 字符列表                        |
+| -------- | ------------------------------- |
+| 未保留   | [A-Za-z0-9] - _ . ! ~ * &#x27; ( ) |
+| 保留     | ; / ? : @ &amp; = &quot; $ ,            |
+| 转义     | %<!-- -->&lt;hex&gt;<!-- -->&lt;hex&gt;<!-- -->                     |</p><h4>转义国际化字符</h4><p>需要注意的是，要转义的值本身应该在 US-ASCII 代码值的范围内(0 ~ 127)。</p><h4>URI 中的模态切换</h4><p>有些 URI 也用 ASCII 字符的序列来表示其他字符集中的字符。
+这在一些本地化的环境中可以工作，但这种方式没有进行良好的定义，
+而且没有标准化的方案来识别 URL 所使用的特定编码。</p><h3>其他需要考虑的地方</h3><h4>首部和不合规范的数据</h4><p>HTTP 首部必须由 US-ASCII 字符集中的字符构成。
+不过，并不是所有的客户端和服务器都正确地实现了这一点，你可能会时不时收到一些代码值大于 127 的非法字符。</p><h4>日期</h4><p>HTTP 的规范中明确定义了合法的 GMT 日期格式，但要知道并非所有 Web 服务器和客户端都遵守这些规则。</p><p>例如，我们曾见过 Web 服务器发送的无效 HTTP Date (日期)首部中的月份是用本地语言表示的。</p><p>HTTP 应用程序应当尝试容忍一些不合规矩的日期，不能在接收的时候崩溃。</p><h4>域名</h4><p>DNS 目前还不支持在域名中使用国际化的字符。
+现在正在进行支持多语言的域名的相关标准化工作，但还没有被广泛部署。</p><p>实际国际化域名应该是你用 IDN 来编码，但是在本地 mDNS 时，可能会发送非 ascii 字符。</p><h3>更多信息</h3><h4>互联网的国际化</h4><ul><li>http://www.w3.org/International/</li></ul><p>“Making the WWW Truly World Wide”(“使 WWW 真正遍布全球”)——W3C
+国际化和本地化网站。</p><ul><li>http://www.ietf.org/rfc/rfc2396.txt</li></ul><p>RFC 2396，“Uniform Resource Identifiers(URI):Generic Syntax”(“统一资源 描述符:一般语法”)，是 URI 的定义文档。该文档中包括了描述国际化 URI 中 的字符集限制方面的章节。</p><ul><li>CJKV Information Processing(《中日韩越信息处理》)</li></ul><p>Ken Lunde 著，由 O&#x27;Reilly &amp; Associates 公司出版。CJKV 是亚洲语言的电子化 字符处理方面的权威经典。亚洲语言的字符集多种多样、复杂难懂，但这本书详 细介绍了大型字符集的各种标准技术。</p><ul><li>http://www.ietf.org/rfc/rfc2277.txt</li></ul><p>RFC 2277，“IETF Policy on Character Sets and Languages”(“IETF 关于字符集 和语言的策略”)，
+其中记录了互联网工程指导组(Internet Engineering Steering Group，IESG)应用的当前策略，
+这些策略是为了配合互联网工程任务组 (Internet Engineering Task Force，IETF)帮助各种互联网协议使用多种语言和字符交换数据而做的标准化努力。</p><h4>国际标准</h4><ul><li>http://www.iana.org/numbers.htm</li></ul><p>IANA 中有已注册的各种名字和数字编号的库。
+其中的 Protocol Numbers and Assignments Directory(协议编号和分配目录)中包含了因特网上使用的已注册 字符集记录。
+因为有关国际间通信的大部分工作都是在 ISO 的领域内，而不是因 特网的团体完成的，所以 IANA 的这份列表算不上详尽。</p><ul><li>http://www.ietf.org/rfc/rfc3066.txt</li></ul><p>RFC 3066，“Tags for the Identification of Languages”(“标识语言的标记”)，描 述了语言标记、它们的值，以及如何构造这些标记。</p><ul><li>“Codes for the representation of names of languages”(“表示语言名称的代码”)</li></ul><p>ISO 639:1988 (E/F)，国际标准化组织，第 1 版。</p><ul><li>“Codes for the representation of names of languages—Part 2: Alpha-3 code”(“表 示语言名称的代码，第 2 部分:Alpha-3 代码”)</li></ul><p>ISO 639-2:1998，ISO TC46/SC4 和 TC37/SC2 联合工作组，第 1 版。</p><ul><li>“Codes for the representation of names of countries”(“表示国家名称的代码”)</li></ul><p>ISO 3166:1988 (E/F)，国际标准化组织，第 3 版。</p></section></div></section><footer class="jss4"><div class="container"><span class="jss8">Copyright © 2017-2020 GSMLG - Powered by GSMLG Web.</span></div></footer></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"http-i18n","blog":{"id":42,"name":"http-i18n","title":"HTTP 国际化","date":"2020-06-09","author":"Gao","content":"## 国际化\n\n每天有上亿的人用数百种语言写着各种文档。\n为了真正实现万维网的目标，HTTP 要能够传输和处理用多种语言和字母表编写的国际性文档。\n\n### HTTP 对国际性内容的支持\n\n服务器通过 HTTP 协议的 Content-Type 首部中的 charset 参数和 Content- Language 首部告知客户端文档的字母表和语言。\n\n客户端发送 Accept-Charset 首部和 Accept-Language 首部，告知服务器 它理解哪些字符集编码算法和语言以及其中的优先顺序。\n\n下面的 HTTP 报文中的这些 Accept 首部可能是母语为法语的人发出的。他喜欢 使用母语，但也会说一点儿英语，他的浏览器支持 iso-8859-1 西欧字符集编码和 UTF-8 Unicode 字符集编码:\n\n```http\nAccept-Language: fr, en;q=0.8\nAccept-Charset: iso-8859-1, utf-8\n```\n\n参数“q=0.8”是质量因子(quality factor)，说明英语的优先级(0.8)比法语低 (默认值是 1.0)。\n\n### 字符集与 HTTP\n\n#### 字符集是把字符转换为二进制码的编码\n\nHTTP 字符集的值说明如何把实体内容的二进制码转换为特定字母表中的字符。\n每个字符集标记都命名了一种把二进制码转换为字符的算法(反之亦然)。\n字符集标记在由 IANA 维护([参见](http://www.iana.org/assignments/character-sets))的 MIME 字 符集注册机构进行了标准化。\n\n#### 字符集和编码如何工作\n\n把二进制码转换为字符要经过两个步骤\n\n- 文档中的二进制码被转换成字符代码，它表示了特定编码字符集中某个特定编号的字符。\n- 字符代码用于从编码的字符集中选择特定的元素。\n\n![](http-i18n/how-charset-work.png)\n\n#### 标准化的 MIME charset 值\n\n特定的字符编码方案和特定的已编码字符集组合成一个 MIME 字符集(MIME charset)。\nHTTP 在 Content-Type 和 Accept-Charset 首部中使用标准化的 MIME charset 标记。\nMIME charset 的值都会在 IANA 注册。\n\n#### Content-Type 首部和 Charset 首部以及 META 标志\n\nWeb 服务器通过在 Content-Type 首部中使用 charset 参数把 MIME 字符集标记\n发送给客户端:\n\n```http\nContent-Type: text/html; charset=gb2312\n```\n\n对于 HTML 内容来说， 可以在描述 charset 的\n\n```html\n\u003cmeta http-equiv=\"Content-Type\" /\u003e\n```\n\n标记中找到字符集。\n\n#### Accept-Charset 首部\n\nHTTP 客户端可以使用 Accept-Charset 请求首部来明确告知服务器它支持哪些字 符系统。\nAccept-Charset 首部的值列出了客户端支持的字符编码方案。\n\n```http\nAccept-Charset: iso-8859-1, utf-8\n```\n\n### 多语言字符编码入门\n\n对于工作中要开发大量国际化应用的 HTTP 程序员来说，为了能理解技术规范和相应的实现软件，需要深入地理解多语言字符系统。\n\n#### Terminology\n\n电子化字符系统的 8 个术语\n\n- 字符\n\n字符是指字母、数字、标点、表意文字(比如汉语)、符号，或其他文本形式的书写“原子”。\n由统一字符集(Universal Character Set，UCS, 它的非正式的名字是 Unicode3)首创，\n为多种语言中的很多字符开发了一系列标准化的文本名称，\n它们常用来便捷地命名字符，而且不会与其他字符冲突。\n\n- 字形\n\n描述字符的笔画图案或唯一的图形化形状。如果一个字符有多种不同的写法，就 有多个字形(参见图 16-3)。\n\n- 编码后的字符\n\n分配给字符的唯一数字编号，这样我们就可以操作它了。\n\n- 代码空间\n\n计划用于字符代码值的整数范围。\n\n- 代码宽度\n\n每个(固定大小的)字符代码所用的位数。\n\n- 字符库\n\n特定的工作字符集(全体字符的一个子集)。\n\n- 编码后的字符集\n\n组成字符库(从全球的字符中选出若干字符)的已编码字符集，并为每个字符 分配代码空间中的一个代码。换句话说，它把数字化的字符代码映射为实际的 字符。\n\n- 字符编码方案\n\n把数字化的字符代码编码成一系列二进制码(并能相应地反向解码)的算法。字 符编码方案可用来减少识别字符所需要的数据总量(压缩)、解决传输限制、统 一重叠编码字符集。\n\n### 语言标记与 Http\n\n语言标记是命名口语的标准化字符串短语。\n\n#### Content-Language 首部\n\n实体的 Content-Language 首部字段描述实体的目标受众语言。\n\n```http\nContent-Language: zh-CN\n```\n\nContent-Language 首部不仅限于文本文档。\n音频片段、电影以及应用程序都有可 能是面向特定语言受众的。\n任何面向特定语言受众的媒体类型都可以有 Content- Language 首部。\n\n如果内容是面向多种语言受众的，可以列出多种语言。\n\n```http\nContent-Language: zh-CN, zh-TW, zh-HK\n```\n\n#### Accept-Language 首部\n\nHTTP 允许我们把语言方面的限制和优先选择都发送给网站服务器。\n如果网站服务器有以多种语言表示的资源版本，它就能把内容用我们最优选的语言表示出来。\n\n    服务器也可以根据 Accept-Language 首部生成适合用户语言的动态内容，或据此选择图像，或选择适合目标语言的商业促销等。\n\n#### 语言标记的类型\n\n在 RFC3066，“Tags for the Identification of Languages”(标识语言的标记)中记录了语言标记的标准化语法。\n\n可以用语言标记来表示:\n\n- 一般的语言分类(比如 es 代表西班牙语);\n- 特定国家的语言(比如 en-GB 代表英国英语);\n- 语言的方言(比如 no-bok 指挪威的书面语);\n- 地区性的语言(比如 sgn-US-MA 代表美国马撒葡萄园岛上的手语);\n- 标准化的非变种语言(比如 i-navajo);\n- 非标准的语言(比如 x-snowboarder-slang)。\n\n#### 子标记\n\n语言标记有一个或多个部分，用连字号分隔，称为子标记:\n\n- 第一个子标记称为主子标记，其值是标准化的;\n- 第二个子标记是可选的，遵循它自己的命名标准;\n- 其他尾随的子标记都是未注册的。\n\n主子标记中只能含有字母(A ~ Z)。\n其后的子标记可以含有字母和数字，长度最多 8 个字符。\n\nExample:\n\n```text\n马撒葡萄园岛上的手语\n\nsgn-US-MA\n\nsgn -\u003e 第一个子标记 （手语）\nUS -\u003e 第二个子标记 （美国）\nMA -\u003e 第三个子标记 （马萨诸塞州的地区性变体）\n\n```\n\n#### 大小写\n\n所有的标记都是不区分大小写的，也就是说，标记 en 和 eN 是等价的。\n但是，习惯上用全小写来表示一般的语言，而用全大写来表示特定的国家。\n\n#### IANA 语言标记注册\n\n第一个和第二个语言子标记的值由各种标准文档以及相关的维护组织定义。\nIANA20 依据 RFC 3066 中概括的规则来管理标准的语言标记列表。\n\n如果语言标记由标准的国家和语言值组成，标记就不需要专门注册。\n只有那些无法 用标准的国家和语言值构成的语言标记才需要专门向 IANA 注册 21。\n\n#### 第一个子标记--名字空间\n\n第一个子标记通常是标准化的语言记号，选自 ISO 639 中的语言标准集合。\n不过也可以用字母 i 来标识在 IANA 中注册的名字，或用 x 表示私有的或者扩展的名字。\n\n- 2 个字符，那就是来自 ISO 63922 和 639-1 标准的语言代码;\n- 3 个字符，那就是来自 ISO 639-2 标准及其扩展的语言代码;\n- 字母 i，该语言标记是在 IANA 显式注册的;\n- 字母 x，该语言标记是私有的、非标准的，或扩展的子标记。\n\n#### 第二个子标记--名字空间\n\n第二个子标记通常是标准化的国家记号，选自 ISO 3166 中的国家代码和地区标准集合。\n不过也可以是在 IANA 注册过的其他字符串。\n\n- 2 个字符，那就是 ISO 3166 中定义的国家 / 地区;\n- 3~8 个字符，可能是在 IANA 中注册的值;\n- 单个字符，这是非法的情况。\n\n#### 其余子标记--名字空间\n\n除了最长可以到 8 个字符(字母和数字)之外，第三个和其后的子标记没有特殊规则。\n\n### 国际化的 URI\n\n直到今天，URI 还没有为国际化提供足够的支持。\n\n#### 全球性的可转抄能力与有意义的字符的较量\n\nURI 的设计者们希望世界上每个人都能通过电子邮件、电话、公告板，甚至无线电来共享 URI。\n他们还希望 URI 容易使用和记忆，但这两个目标是相互冲突的。\n\nURI 的设计者们觉得确保资源标识符的可转抄能力(transcribability)和共享能力比让它们由最有意义的字符组成更加重要，\n因此(如今的)URI 基本上是由 ASCII 字符的受限子集构成的。\n\n#### URI 字符集合\n\nURI 中允许出现的 US-ASCII 字符的子集，可以被分成保留、未保留以及转义字符 这几类。\n\n未保留的字符可用于 URI 允许其出现的任何部分。\n保留的字符在很多 URI 中都有特殊的含义，因此一般来说不能使用它们。\n\n| 字符类别 | 字符列表                        |\n| -------- | ------------------------------- |\n| 未保留   | [A-Za-z0-9] - \\_ . ! ~ \\* ' ( ) |\n| 保留     | ; / ? : @ \u0026 = \" \\$ ,            |\n| 转义     | %\u003chex\u003e\u003chex\u003e                     |\n\n#### 转义国际化字符\n\n需要注意的是，要转义的值本身应该在 US-ASCII 代码值的范围内(0 ~ 127)。\n\n#### URI 中的模态切换\n\n有些 URI 也用 ASCII 字符的序列来表示其他字符集中的字符。\n这在一些本地化的环境中可以工作，但这种方式没有进行良好的定义，\n而且没有标准化的方案来识别 URL 所使用的特定编码。\n\n### 其他需要考虑的地方\n\n#### 首部和不合规范的数据\n\nHTTP 首部必须由 US-ASCII 字符集中的字符构成。\n不过，并不是所有的客户端和服务器都正确地实现了这一点，你可能会时不时收到一些代码值大于 127 的非法字符。\n\n#### 日期\n\nHTTP 的规范中明确定义了合法的 GMT 日期格式，但要知道并非所有 Web 服务器和客户端都遵守这些规则。\n\n例如，我们曾见过 Web 服务器发送的无效 HTTP Date (日期)首部中的月份是用本地语言表示的。\n\nHTTP 应用程序应当尝试容忍一些不合规矩的日期，不能在接收的时候崩溃。\n\n#### 域名\n\nDNS 目前还不支持在域名中使用国际化的字符。\n现在正在进行支持多语言的域名的相关标准化工作，但还没有被广泛部署。\n\n实际国际化域名应该是你用 IDN 来编码，但是在本地 mDNS 时，可能会发送非 ascii 字符。\n\n### 更多信息\n\n#### 互联网的国际化\n\n- http://www.w3.org/International/\n\n“Making the WWW Truly World Wide”(“使 WWW 真正遍布全球”)——W3C\n国际化和本地化网站。\n\n- http://www.ietf.org/rfc/rfc2396.txt\n\nRFC 2396，“Uniform Resource Identifiers(URI):Generic Syntax”(“统一资源 描述符:一般语法”)，是 URI 的定义文档。该文档中包括了描述国际化 URI 中 的字符集限制方面的章节。\n\n- CJKV Information Processing(《中日韩越信息处理》)\n\nKen Lunde 著，由 O'Reilly \u0026 Associates 公司出版。CJKV 是亚洲语言的电子化 字符处理方面的权威经典。亚洲语言的字符集多种多样、复杂难懂，但这本书详 细介绍了大型字符集的各种标准技术。\n\n- http://www.ietf.org/rfc/rfc2277.txt\n\nRFC 2277，“IETF Policy on Character Sets and Languages”(“IETF 关于字符集 和语言的策略”)，\n其中记录了互联网工程指导组(Internet Engineering Steering Group，IESG)应用的当前策略，\n这些策略是为了配合互联网工程任务组 (Internet Engineering Task Force，IETF)帮助各种互联网协议使用多种语言和字符交换数据而做的标准化努力。\n\n#### 国际标准\n\n- http://www.iana.org/numbers.htm\n\nIANA 中有已注册的各种名字和数字编号的库。\n其中的 Protocol Numbers and Assignments Directory(协议编号和分配目录)中包含了因特网上使用的已注册 字符集记录。\n因为有关国际间通信的大部分工作都是在 ISO 的领域内，而不是因 特网的团体完成的，所以 IANA 的这份列表算不上详尽。\n\n- http://www.ietf.org/rfc/rfc3066.txt\n\nRFC 3066，“Tags for the Identification of Languages”(“标识语言的标记”)，描 述了语言标记、它们的值，以及如何构造这些标记。\n\n- “Codes for the representation of names of languages”(“表示语言名称的代码”)\n\nISO 639:1988 (E/F)，国际标准化组织，第 1 版。\n\n- “Codes for the representation of names of languages—Part 2: Alpha-3 code”(“表 示语言名称的代码，第 2 部分:Alpha-3 代码”)\n\nISO 639-2:1998，ISO TC46/SC4 和 TC37/SC2 联合工作组，第 1 版。\n\n- “Codes for the representation of names of countries”(“表示国家名称的代码”)\n\nISO 3166:1988 (E/F)，国际标准化组织，第 3 版。\n"}},"__N_SSG":true},"page":"/blogs/[slug]","query":{"slug":"http-i18n"},"buildId":"C4AJ9q2RoIIrR1IHHAH1J","nextExport":false,"isFallback":false,"gsp":true}</script><script nomodule="" src="/_next/static/chunks/polyfills-51ce6eb9ed73aacaf515.js"></script><script src="/_next/static/chunks/main-8741ed3c7ec57f378f59.js" async=""></script><script src="/_next/static/chunks/webpack-95c2b224bccf352ee870.js" async=""></script><script src="/_next/static/chunks/framework.962935494b30c127d8df.js" async=""></script><script src="/_next/static/chunks/commons.df3badfa1389741d28a2.js" async=""></script><script src="/_next/static/chunks/3fbd0e4abf850ff07f64ccde56ee9630378b8e04.7ac8cae34eec6be35d96.js" async=""></script><script src="/_next/static/chunks/pages/_app-37f2d112d23aeb2fbca1.js" async=""></script><script src="/_next/static/chunks/460fa7c48ecffb1b1bfdaf9b8a55cba3a474e08f.e4fd6e5862561852bfd0.js" async=""></script><script src="/_next/static/chunks/pages/blogs/%5Bslug%5D-ae308899b480e17c100a.js" async=""></script><script src="/_next/static/C4AJ9q2RoIIrR1IHHAH1J/_buildManifest.js" async=""></script><script src="/_next/static/C4AJ9q2RoIIrR1IHHAH1J/_ssgManifest.js" async=""></script></body></html>

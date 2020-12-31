@@ -1,0 +1,755 @@
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#3f51b5"/><meta charSet="utf-8"/><meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/><title>Service Worker</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/css/2f26bb9842d84a608fa3.css" as="style"/><link rel="stylesheet" href="/_next/static/css/2f26bb9842d84a608fa3.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/main-8741ed3c7ec57f378f59.js" as="script"/><link rel="preload" href="/_next/static/chunks/webpack-95c2b224bccf352ee870.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.962935494b30c127d8df.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.df3badfa1389741d28a2.js" as="script"/><link rel="preload" href="/_next/static/chunks/3fbd0e4abf850ff07f64ccde56ee9630378b8e04.7ac8cae34eec6be35d96.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-37f2d112d23aeb2fbca1.js" as="script"/><link rel="preload" href="/_next/static/chunks/460fa7c48ecffb1b1bfdaf9b8a55cba3a474e08f.e4fd6e5862561852bfd0.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/blogs/%5Bslug%5D-ae308899b480e17c100a.js" as="script"/><style id="jss-server-side">.MuiPaper-root {
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #fff;
+}
+.MuiPaper-rounded {
+  border-radius: 4px;
+}
+.MuiPaper-outlined {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.MuiPaper-elevation0 {
+  box-shadow: none;
+}
+.MuiPaper-elevation1 {
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation2 {
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation3 {
+  box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation4 {
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation5 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation6 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation7 {
+  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation8 {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation9 {
+  box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation10 {
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation11 {
+  box-shadow: 0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation12 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation13 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation14 {
+  box-shadow: 0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation15 {
+  box-shadow: 0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation16 {
+  box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation17 {
+  box-shadow: 0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation18 {
+  box-shadow: 0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation19 {
+  box-shadow: 0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation20 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation21 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation22 {
+  box-shadow: 0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation23 {
+  box-shadow: 0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation24 {
+  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
+}
+.MuiTypography-root {
+  margin: 0;
+}
+.MuiTypography-body2 {
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+}
+.MuiTypography-body1 {
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+.MuiTypography-caption {
+  font-size: 0.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+  letter-spacing: 0.03333em;
+}
+.MuiTypography-button {
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+}
+.MuiTypography-h1 {
+  font-size: 6rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.167;
+  letter-spacing: -0.01562em;
+}
+.MuiTypography-h2 {
+  font-size: 3.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.00833em;
+}
+.MuiTypography-h3 {
+  font-size: 3rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.167;
+  letter-spacing: 0em;
+}
+.MuiTypography-h4 {
+  font-size: 2.125rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.235;
+  letter-spacing: 0.00735em;
+}
+.MuiTypography-h5 {
+  font-size: 1.5rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.334;
+  letter-spacing: 0em;
+}
+.MuiTypography-h6 {
+  font-size: 1.25rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+}
+.MuiTypography-subtitle1 {
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.00938em;
+}
+.MuiTypography-subtitle2 {
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.57;
+  letter-spacing: 0.00714em;
+}
+.MuiTypography-overline {
+  font-size: 0.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 2.66;
+  letter-spacing: 0.08333em;
+  text-transform: uppercase;
+}
+.MuiTypography-srOnly {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+.MuiTypography-alignLeft {
+  text-align: left;
+}
+.MuiTypography-alignCenter {
+  text-align: center;
+}
+.MuiTypography-alignRight {
+  text-align: right;
+}
+.MuiTypography-alignJustify {
+  text-align: justify;
+}
+.MuiTypography-noWrap {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.MuiTypography-gutterBottom {
+  margin-bottom: 0.35em;
+}
+.MuiTypography-paragraph {
+  margin-bottom: 16px;
+}
+.MuiTypography-colorInherit {
+  color: inherit;
+}
+.MuiTypography-colorPrimary {
+  color: #3f51b5;
+}
+.MuiTypography-colorSecondary {
+  color: #f50057;
+}
+.MuiTypography-colorTextPrimary {
+  color: rgba(0, 0, 0, 0.87);
+}
+.MuiTypography-colorTextSecondary {
+  color: rgba(0, 0, 0, 0.54);
+}
+.MuiTypography-colorError {
+  color: #f44336;
+}
+.MuiTypography-displayInline {
+  display: inline;
+}
+.MuiTypography-displayBlock {
+  display: block;
+}
+.MuiAppBar-root {
+  width: 100%;
+  display: flex;
+  z-index: 1100;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.MuiAppBar-positionFixed {
+  top: 0;
+  left: auto;
+  right: 0;
+  position: fixed;
+}
+@media print {
+  .MuiAppBar-positionFixed {
+    position: absolute;
+  }
+}
+  .MuiAppBar-positionAbsolute {
+    top: 0;
+    left: auto;
+    right: 0;
+    position: absolute;
+  }
+  .MuiAppBar-positionSticky {
+    top: 0;
+    left: auto;
+    right: 0;
+    position: sticky;
+  }
+  .MuiAppBar-positionStatic {
+    position: static;
+  }
+  .MuiAppBar-positionRelative {
+    position: relative;
+  }
+  .MuiAppBar-colorDefault {
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #f5f5f5;
+  }
+  .MuiAppBar-colorPrimary {
+    color: #fff;
+    background-color: #3f51b5;
+  }
+  .MuiAppBar-colorSecondary {
+    color: #fff;
+    background-color: #f50057;
+  }
+  .MuiAppBar-colorInherit {
+    color: inherit;
+  }
+  .MuiAppBar-colorTransparent {
+    color: inherit;
+    background-color: transparent;
+  }
+  .MuiToolbar-root {
+    display: flex;
+    position: relative;
+    align-items: center;
+  }
+  .MuiToolbar-gutters {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+@media (min-width:600px) {
+  .MuiToolbar-gutters {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+  .MuiToolbar-regular {
+    min-height: 56px;
+  }
+@media (min-width:0px) and (orientation: landscape) {
+  .MuiToolbar-regular {
+    min-height: 48px;
+  }
+}
+@media (min-width:600px) {
+  .MuiToolbar-regular {
+    min-height: 64px;
+  }
+}
+  .MuiToolbar-dense {
+    min-height: 48px;
+  }
+  .MuiButtonBase-root {
+    color: inherit;
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    display: inline-flex;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    align-items: center;
+    user-select: none;
+    border-radius: 0;
+    vertical-align: middle;
+    -moz-appearance: none;
+    justify-content: center;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .MuiButtonBase-root::-moz-focus-inner {
+    border-style: none;
+  }
+  .MuiButtonBase-root.Mui-disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+@media print {
+  .MuiButtonBase-root {
+    color-adjust: exact;
+  }
+}
+  .MuiButton-root {
+    color: rgba(0, 0, 0, 0.87);
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    min-width: 64px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+  }
+  .MuiButton-root:hover {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  .MuiButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+@media (hover: none) {
+  .MuiButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-root:hover.Mui-disabled {
+    background-color: transparent;
+  }
+  .MuiButton-label {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiButton-text {
+    padding: 6px 8px;
+  }
+  .MuiButton-textPrimary {
+    color: #3f51b5;
+  }
+  .MuiButton-textPrimary:hover {
+    background-color: rgba(63, 81, 181, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-textPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-textSecondary {
+    color: #f50057;
+  }
+  .MuiButton-textSecondary:hover {
+    background-color: rgba(245, 0, 87, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-textSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-outlined {
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    padding: 5px 15px;
+  }
+  .MuiButton-outlined.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .MuiButton-outlinedPrimary {
+    color: #3f51b5;
+    border: 1px solid rgba(63, 81, 181, 0.5);
+  }
+  .MuiButton-outlinedPrimary:hover {
+    border: 1px solid #3f51b5;
+    background-color: rgba(63, 81, 181, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-outlinedPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-outlinedSecondary {
+    color: #f50057;
+    border: 1px solid rgba(245, 0, 87, 0.5);
+  }
+  .MuiButton-outlinedSecondary:hover {
+    border: 1px solid #f50057;
+    background-color: rgba(245, 0, 87, 0.04);
+  }
+  .MuiButton-outlinedSecondary.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.26);
+  }
+@media (hover: none) {
+  .MuiButton-outlinedSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-contained {
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+  }
+  .MuiButton-contained:hover {
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+    background-color: #d5d5d5;
+  }
+  .MuiButton-contained.Mui-focusVisible {
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+  }
+  .MuiButton-contained:active {
+    box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+  }
+  .MuiButton-contained.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+@media (hover: none) {
+  .MuiButton-contained:hover {
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+  }
+}
+  .MuiButton-contained:hover.Mui-disabled {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  .MuiButton-containedPrimary {
+    color: #fff;
+    background-color: #3f51b5;
+  }
+  .MuiButton-containedPrimary:hover {
+    background-color: #303f9f;
+  }
+@media (hover: none) {
+  .MuiButton-containedPrimary:hover {
+    background-color: #3f51b5;
+  }
+}
+  .MuiButton-containedSecondary {
+    color: #fff;
+    background-color: #f50057;
+  }
+  .MuiButton-containedSecondary:hover {
+    background-color: #c51162;
+  }
+@media (hover: none) {
+  .MuiButton-containedSecondary:hover {
+    background-color: #f50057;
+  }
+}
+  .MuiButton-disableElevation {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation:hover {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation.Mui-focusVisible {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation:active {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation.Mui-disabled {
+    box-shadow: none;
+  }
+  .MuiButton-colorInherit {
+    color: inherit;
+    border-color: currentColor;
+  }
+  .MuiButton-textSizeSmall {
+    padding: 4px 5px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-textSizeLarge {
+    padding: 8px 11px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-outlinedSizeSmall {
+    padding: 3px 9px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-outlinedSizeLarge {
+    padding: 7px 21px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-containedSizeSmall {
+    padding: 4px 10px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-containedSizeLarge {
+    padding: 8px 22px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-fullWidth {
+    width: 100%;
+  }
+  .MuiButton-startIcon {
+    display: inherit;
+    margin-left: -4px;
+    margin-right: 8px;
+  }
+  .MuiButton-startIcon.MuiButton-iconSizeSmall {
+    margin-left: -2px;
+  }
+  .MuiButton-endIcon {
+    display: inherit;
+    margin-left: 8px;
+    margin-right: -4px;
+  }
+  .MuiButton-endIcon.MuiButton-iconSizeSmall {
+    margin-right: -2px;
+  }
+  .MuiButton-iconSizeSmall > *:first-child {
+    font-size: 18px;
+  }
+  .MuiButton-iconSizeMedium > *:first-child {
+    font-size: 20px;
+  }
+  .MuiButton-iconSizeLarge > *:first-child {
+    font-size: 22px;
+  }
+  .MuiIconButton-root {
+    flex: 0 0 auto;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 12px;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+  }
+  .MuiIconButton-root:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  .MuiIconButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    background-color: transparent;
+  }
+@media (hover: none) {
+  .MuiIconButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-edgeStart {
+    margin-left: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeStart {
+    margin-left: -3px;
+  }
+  .MuiIconButton-edgeEnd {
+    margin-right: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeEnd {
+    margin-right: -3px;
+  }
+  .MuiIconButton-colorInherit {
+    color: inherit;
+  }
+  .MuiIconButton-colorPrimary {
+    color: #3f51b5;
+  }
+  .MuiIconButton-colorPrimary:hover {
+    background-color: rgba(63, 81, 181, 0.04);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-colorSecondary {
+    color: #f50057;
+  }
+  .MuiIconButton-colorSecondary:hover {
+    background-color: rgba(245, 0, 87, 0.04);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-sizeSmall {
+    padding: 3px;
+    font-size: 1.125rem;
+  }
+  .MuiIconButton-label {
+    width: 100%;
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiSvgIcon-root {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    font-size: 1.5rem;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    flex-shrink: 0;
+    user-select: none;
+  }
+  .MuiSvgIcon-colorPrimary {
+    color: #3f51b5;
+  }
+  .MuiSvgIcon-colorSecondary {
+    color: #f50057;
+  }
+  .MuiSvgIcon-colorAction {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  .MuiSvgIcon-colorError {
+    color: #f44336;
+  }
+  .MuiSvgIcon-colorDisabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+  .MuiSvgIcon-fontSizeInherit {
+    font-size: inherit;
+  }
+  .MuiSvgIcon-fontSizeSmall {
+    font-size: 1.25rem;
+  }
+  .MuiSvgIcon-fontSizeLarge {
+    font-size: 2.1875rem;
+  }
+  .jss2 {
+    flex: 1 1 auto;
+    width: 100vw;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  .jss3 {
+    flex: 1;
+    display: flex;
+  }
+  .jss4 {
+    color: #fff;
+    margin-top: 0.5em;
+    text-align: center;
+    line-height: 2em;
+    background-color: #3f51b5;
+  }
+  .jss5 {
+    margin-left: -12px;
+    margin-right: 20px;
+  }
+  .jss7 {
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .MuiDivider-root {
+    border: none;
+    height: 1px;
+    margin: 0;
+    flex-shrink: 0;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  .MuiDivider-absolute {
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+  }
+  .MuiDivider-inset {
+    margin-left: 72px;
+  }
+  .MuiDivider-light {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  .MuiDivider-middle {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  .MuiDivider-vertical {
+    width: 1px;
+    height: 100%;
+  }
+  .MuiDivider-flexItem {
+    height: auto;
+    align-self: stretch;
+  }
+  .jss1 {
+    flex: 1;
+    margin: 24px;
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+  }
+@media (min-width:600px) {
+  .jss1 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}</style></head><body><div id="__next"><section class="jss2"><header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"><div class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"><button class="MuiButtonBase-root MuiIconButton-root jss5 MuiIconButton-colorInherit" tabindex="0" type="button" aria-label="Menu"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></span></button><p class="MuiTypography-root jss3 MuiTypography-body1 MuiTypography-colorInherit" type="title"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button"><span class="MuiButton-label"><a href="/">Home</a></span></button><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button"><span class="MuiButton-label"><a href="/blogs">Blog</a></span></button></p></div></header><section class="jss3"><div class="MuiPaper-root jss1 MuiPaper-elevation4 MuiPaper-rounded"><header><h1 class="MuiTypography-root MuiTypography-body1">Service Worker</h1><div class="MuiTypography-root MuiTypography-body1">Author:<!-- -->Gao</div><div class="MuiTypography-root MuiTypography-body1">Created At:<!-- -->2020-07-02</div></header><hr class="MuiDivider-root"/><section class="MuiTypography-root blog-content MuiTypography-body1"><h3>简介：什么是 <code>Service Worker</code></h3><p><code>Service workers</code> 本质上充当 Web 应用程序与浏览器之间的代理服务器，也可以在网络可用时作为浏览器和网络间的代理。
+它们旨在（除其他之外）使得能够创建有效的离线体验，拦截网络请求并基于网络是否可用以及更新的资源是否驻留在服务器上来采取适当的动作。
+他们还允许访问推送通知和后台同步 API。</p><h3>Service Worker 概念和用法</h3><p>Service worker 是一个注册在指定源和路径下的事件驱动 worker。它采用 JavaScript 控制关联的页面或者网站，拦截并修改访问和资源请求，细粒度地缓存资源。你可以完全控制应用在特定情形（最常见的情形是网络不可用）下的表现。</p><p>Service worker 运行在 worker 上下文，因此它不能访问 DOM。相对于驱动应用的主 JavaScript 线程，它运行在其他线程中，所以不会造成阻塞。它设计为完全异步，同步 API（如 XHR 和 localStorage）不能在 service worker 中使用。</p><p>出于安全考量，Service workers 只能由 HTTPS 承载，毕竟修改网络请求的能力暴露给中间人攻击会非常危险。在 Firefox 浏览器的用户隐私模式，Service Worker 不可用。</p><pre><code>  注意：Service workers之所以优于以前同类尝试（如AppCache），是因为它们无法支持当操作出错时终止操作。Service workers可以更细致地控制每一件事情。
+
+  注意：Service workers大量使用Promise，因为通常它们会等待响应后继续，并根据响应返回一个成功或者失败的操作。Promise非常适合这种场景。</code></pre><p><strong>注册：</strong></p><p>使用 ServiceWorkerContainer.register() 方法首次注册 service worker。如果注册成功，service worker 就会被下载到客户端并尝试安装或激活（见下文），这将作用于整个域内用户可访问的 URL，或者其特定子集。</p><p><strong>下载、安装和激活</strong></p><p>此时，你的服务工作者(service worker)将遵守以下生命周期：</p><ol><li>下载</li><li>安装</li><li>激活</li></ol><p>用户首次访问 service worker 控制的网站或页面时，service worker 会立刻被下载。</p><p>之后，在以下情况将会触发更新:</p><p>一个前往作用域内页面的导航
+在 service worker 上的一个事件被触发并且过去 24 小时没有被下载
+无论它与现有 service worker 不同（字节对比），还是第一次在页面或网站遇到 service worker，如果下载的文件是新的，安装就会尝试进行。</p><p>如果这是首次启用 service worker，页面会首先尝试安装，安装成功后它会被激活。</p><p>如果现有 service worker 已启用，新版本会在后台安装，但不会被激活，这个时序称为 worker in waiting。直到所有已加载的页面不再使用旧的 service worker 才会激活新的 service worker。只要页面不再依赖旧的 service worker，新的 service worker 会被激活（成为 active worker）。</p><p>你可以监听<code>InstallEvent</code>，事件触发时的标准行为是准备 service worker 用于使用，例如使用内建的 storage API 来创建缓存，并且放置应用离线时所需资源。</p><p>还有一个 activate 事件，触发时可以清理旧缓存和旧的 service worker 关联的东西。</p><p>Servcie worker 可以通过 <code>FetchEvent</code> 事件去响应请求。通过使用 <code>FetchEvent.respondWith</code> 方法，你可以任意修改对于这些请求的响应。</p><pre><code>  注意: 因为oninstall和onactivate完成前需要一些时间，service worker标准提供一个waitUntil方法，当oninstall或者onactivate触发时被调用，接受一个promise。在这个 promise被成功resolve以前，功能性事件不会分发到service worker。</code></pre><h3>其他使用场景</h3><p>Service workers 也可以用来做这些事情：</p><ul><li>后台数据同步</li><li>响应来自其它源的资源请求</li><li>集中接收计算成本高的数据更新，比如地理位置和陀螺仪信息，这样多个页面就可以利用同一组数据</li><li>在客户端进行 CoffeeScript，LESS，CJS/AMD 等模块编译和依赖管理（用于开发目的）</li><li>后台服务钩子</li><li>自定义模板用于特定 URL 模式</li><li>性能增强，比如预取用户可能需要的资源，比如相册中的后面数张图片</li></ul><p>未来 service workers 能够用来做更多使 web 平台接近原生应用的事。 值得关注的是，其他标准也能并且将会使用 service worker，例如:</p><ul><li>后台同步：启动一个 service worker 即使没有用户访问特定站点，也可以更新缓存</li><li>响应推送：启动一个 service worker 向用户发送一条信息通知新的内容可用</li><li>对时间或日期作出响应</li><li>进入地理围栏</li></ul><h3>接口</h3><ul><li>Cache</li></ul><p>表示用于 Request/Response 对象对的存储，作为 ServiceWorker 生命周期的一部分被缓存。</p><ul><li>CacheStorage</li></ul><p>表示 Cache 对象的存储。提供一个所有命名缓存的主目录，ServiceWorker 可以访问并维护名字字符串到 Cache 对象的映射。</p><ul><li>Client</li></ul><p>表示 service worker client 的作用域。一个 service worker client 可以是浏览器上下文的一个文档，也可以是一个由活动 worker 控制的 SharedWorker。</p><ul><li>Clients</li></ul><p>表示一个 Client 对象容器，是访问当前源的活动 service worker clients 的主要途径。</p><ul><li>ExtendableEvent</li></ul><p>扩展被分发到 ServiceWorkerGlobalScope 的 install 和 activate 事件时序，作为 service worker 生命周期的一部分。这会确保任何功能型事件（如 FetchEvent）不被分发到 ServiceWorker，直到它更新了数据库架构、删除过期缓存项等等以后。</p><ul><li>ExtendableMessageEvent</li></ul><p>The event object of a message event fired on a service worker (when a channel message is received on the ServiceWorkerGlobalScope from another context) — extends the lifetime of such events.</p><ul><li>FetchEvent</li></ul><p>传递给 ServiceWorkerGlobalScope.onfetch 处理函数的参数，FetchEvent 代表一个在 ServiceWorker 的 ServiceWorkerGlobalScope 中分发的请求动作。它包含关于请求和响应的结果信息，并且提供 FetchEvent.respondWith()方法，这个方法允许我们提供任意的响应返回到控制页面。</p><ul><li>InstallEvent</li></ul><p>传递给 oninstall 处理函数的参数，InstallEvent 接口代表一个在 ServiceWorker 的 ServiceWorkerGlobalScope 中分发的安装动作，作为 ExtendableEvent 的子事件，它保证诸如 FetchEvent 的功能性事件在安装过程中不会被分发。</p><ul><li>NavigationPreloadManager</li></ul><p>Provides methods for managing the preloading of resources with a service worker.</p><ul><li>Navigator.serviceWorker</li></ul><p>返回一个 ServiceWorkerContainer 对象，可以提供入口用于注册，删除，更新以及与在相关 document 中 ServiceWorker 通信的对象。</p><ul><li>NotificationEvent</li></ul><p>传递给 onnotificationclick 处理函数的参数，NotificationEvent 接口代表在 ServiceWorker 里 ServiceWorkerGlobalScope 中分发的单击事件通知。</p><ul><li>ServiceWorker</li></ul><p>表示一个 service worker。多个浏览的上下文(例如 pages,workers 等等)都能通过相同的 ServiceWorker 对象相关联。</p><ul><li>ServiceWorkerContainer</li></ul><p>提供一个在网络生态中把 service worker 作为一个整体的对象，包括辅助注册，反注册以及更新服务工作者，并且访问 service worker 的状态以及他们的注册信息。</p><ul><li>ServiceWorkerGlobalScope</li></ul><p>表示 service worker 的全局执行上下文。</p><ul><li>ServiceWorkerMessageEvent</li></ul><p>包含关于一个发送给以 navigator.serviceWorker 为目标的事件信息。Note that this interface is deprecated in modern browsers. Service worker messages will now use the MessageEvent interface, for consistency with other web messaging features.</p><ul><li>ServiceWorkerRegistration</li></ul><p>表示 service worker 的注册。</p><ul><li>ServiceWorkerState</li></ul><p>Associated with its ServiceWorker&#x27;s state.</p><ul><li>SyncEvent</li></ul><p>传递给同步函数的参数，SyncEvent 接口代表在 ServiceWorker 里 ServiceWorkerGlobalScope 分发的同步动作。</p><ul><li>SyncManager</li></ul><p>提供一个接口用于注册和返回 SyncRegistration 对象。</p><ul><li>WindowClient</li></ul><p>表示在浏览器上下文中记录的 service worker 客户端的作用域，被活动的工作者控制。是 Client 对象的特殊类型，包含一些附加的方法和可用的属性。</p></section></div></section><footer class="jss4"><div class="container"><span class="jss8">Copyright © 2017-2020 GSMLG - Powered by GSMLG Web.</span></div></footer></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"service-worker","blog":{"id":46,"name":"service-worker","title":"Service Worker","date":"2020-07-02","author":"Gao","content":"### 简介：什么是 `Service Worker`\n\n`Service workers` 本质上充当 Web 应用程序与浏览器之间的代理服务器，也可以在网络可用时作为浏览器和网络间的代理。\n它们旨在（除其他之外）使得能够创建有效的离线体验，拦截网络请求并基于网络是否可用以及更新的资源是否驻留在服务器上来采取适当的动作。\n他们还允许访问推送通知和后台同步 API。\n\n### Service Worker 概念和用法\n\nService worker 是一个注册在指定源和路径下的事件驱动 worker。它采用 JavaScript 控制关联的页面或者网站，拦截并修改访问和资源请求，细粒度地缓存资源。你可以完全控制应用在特定情形（最常见的情形是网络不可用）下的表现。\n\nService worker 运行在 worker 上下文，因此它不能访问 DOM。相对于驱动应用的主 JavaScript 线程，它运行在其他线程中，所以不会造成阻塞。它设计为完全异步，同步 API（如 XHR 和 localStorage）不能在 service worker 中使用。\n\n出于安全考量，Service workers 只能由 HTTPS 承载，毕竟修改网络请求的能力暴露给中间人攻击会非常危险。在 Firefox 浏览器的用户隐私模式，Service Worker 不可用。\n\n      注意：Service workers之所以优于以前同类尝试（如AppCache），是因为它们无法支持当操作出错时终止操作。Service workers可以更细致地控制每一件事情。\n\n      注意：Service workers大量使用Promise，因为通常它们会等待响应后继续，并根据响应返回一个成功或者失败的操作。Promise非常适合这种场景。\n\n**注册：**\n\n使用 ServiceWorkerContainer.register() 方法首次注册 service worker。如果注册成功，service worker 就会被下载到客户端并尝试安装或激活（见下文），这将作用于整个域内用户可访问的 URL，或者其特定子集。\n\n**下载、安装和激活**\n\n此时，你的服务工作者(service worker)将遵守以下生命周期：\n\n1. 下载\n2. 安装\n3. 激活\n\n用户首次访问 service worker 控制的网站或页面时，service worker 会立刻被下载。\n\n之后，在以下情况将会触发更新:\n\n一个前往作用域内页面的导航\n在 service worker 上的一个事件被触发并且过去 24 小时没有被下载\n无论它与现有 service worker 不同（字节对比），还是第一次在页面或网站遇到 service worker，如果下载的文件是新的，安装就会尝试进行。\n\n如果这是首次启用 service worker，页面会首先尝试安装，安装成功后它会被激活。\n\n如果现有 service worker 已启用，新版本会在后台安装，但不会被激活，这个时序称为 worker in waiting。直到所有已加载的页面不再使用旧的 service worker 才会激活新的 service worker。只要页面不再依赖旧的 service worker，新的 service worker 会被激活（成为 active worker）。\n\n你可以监听`InstallEvent`，事件触发时的标准行为是准备 service worker 用于使用，例如使用内建的 storage API 来创建缓存，并且放置应用离线时所需资源。\n\n还有一个 activate 事件，触发时可以清理旧缓存和旧的 service worker 关联的东西。\n\nServcie worker 可以通过 `FetchEvent` 事件去响应请求。通过使用 `FetchEvent.respondWith` 方法，你可以任意修改对于这些请求的响应。\n\n      注意: 因为oninstall和onactivate完成前需要一些时间，service worker标准提供一个waitUntil方法，当oninstall或者onactivate触发时被调用，接受一个promise。在这个 promise被成功resolve以前，功能性事件不会分发到service worker。\n\n### 其他使用场景\n\nService workers 也可以用来做这些事情：\n\n- 后台数据同步\n- 响应来自其它源的资源请求\n- 集中接收计算成本高的数据更新，比如地理位置和陀螺仪信息，这样多个页面就可以利用同一组数据\n- 在客户端进行 CoffeeScript，LESS，CJS/AMD 等模块编译和依赖管理（用于开发目的）\n- 后台服务钩子\n- 自定义模板用于特定 URL 模式\n- 性能增强，比如预取用户可能需要的资源，比如相册中的后面数张图片\n\n未来 service workers 能够用来做更多使 web 平台接近原生应用的事。 值得关注的是，其他标准也能并且将会使用 service worker，例如:\n\n- 后台同步：启动一个 service worker 即使没有用户访问特定站点，也可以更新缓存\n- 响应推送：启动一个 service worker 向用户发送一条信息通知新的内容可用\n- 对时间或日期作出响应\n- 进入地理围栏\n\n### 接口\n\n- Cache\n\n表示用于 Request/Response 对象对的存储，作为 ServiceWorker 生命周期的一部分被缓存。\n\n- CacheStorage\n\n表示 Cache 对象的存储。提供一个所有命名缓存的主目录，ServiceWorker 可以访问并维护名字字符串到 Cache 对象的映射。\n\n- Client\n\n表示 service worker client 的作用域。一个 service worker client 可以是浏览器上下文的一个文档，也可以是一个由活动 worker 控制的 SharedWorker。\n\n- Clients\n\n表示一个 Client 对象容器，是访问当前源的活动 service worker clients 的主要途径。\n\n- ExtendableEvent\n\n扩展被分发到 ServiceWorkerGlobalScope 的 install 和 activate 事件时序，作为 service worker 生命周期的一部分。这会确保任何功能型事件（如 FetchEvent）不被分发到 ServiceWorker，直到它更新了数据库架构、删除过期缓存项等等以后。\n\n- ExtendableMessageEvent\n\nThe event object of a message event fired on a service worker (when a channel message is received on the ServiceWorkerGlobalScope from another context) — extends the lifetime of such events.\n\n- FetchEvent\n\n传递给 ServiceWorkerGlobalScope.onfetch 处理函数的参数，FetchEvent 代表一个在 ServiceWorker 的 ServiceWorkerGlobalScope 中分发的请求动作。它包含关于请求和响应的结果信息，并且提供 FetchEvent.respondWith()方法，这个方法允许我们提供任意的响应返回到控制页面。\n\n- InstallEvent\n\n传递给 oninstall 处理函数的参数，InstallEvent 接口代表一个在 ServiceWorker 的 ServiceWorkerGlobalScope 中分发的安装动作，作为 ExtendableEvent 的子事件，它保证诸如 FetchEvent 的功能性事件在安装过程中不会被分发。\n\n- NavigationPreloadManager\n\nProvides methods for managing the preloading of resources with a service worker.\n\n- Navigator.serviceWorker\n\n返回一个 ServiceWorkerContainer 对象，可以提供入口用于注册，删除，更新以及与在相关 document 中 ServiceWorker 通信的对象。\n\n- NotificationEvent\n\n传递给 onnotificationclick 处理函数的参数，NotificationEvent 接口代表在 ServiceWorker 里 ServiceWorkerGlobalScope 中分发的单击事件通知。\n\n- ServiceWorker\n\n表示一个 service worker。多个浏览的上下文(例如 pages,workers 等等)都能通过相同的 ServiceWorker 对象相关联。\n\n- ServiceWorkerContainer\n\n提供一个在网络生态中把 service worker 作为一个整体的对象，包括辅助注册，反注册以及更新服务工作者，并且访问 service worker 的状态以及他们的注册信息。\n\n- ServiceWorkerGlobalScope\n\n表示 service worker 的全局执行上下文。\n\n- ServiceWorkerMessageEvent\n\n包含关于一个发送给以 navigator.serviceWorker 为目标的事件信息。Note that this interface is deprecated in modern browsers. Service worker messages will now use the MessageEvent interface, for consistency with other web messaging features.\n\n- ServiceWorkerRegistration\n\n表示 service worker 的注册。\n\n- ServiceWorkerState\n\nAssociated with its ServiceWorker's state.\n\n- SyncEvent\n\n传递给同步函数的参数，SyncEvent 接口代表在 ServiceWorker 里 ServiceWorkerGlobalScope 分发的同步动作。\n\n- SyncManager\n\n提供一个接口用于注册和返回 SyncRegistration 对象。\n\n- WindowClient\n\n表示在浏览器上下文中记录的 service worker 客户端的作用域，被活动的工作者控制。是 Client 对象的特殊类型，包含一些附加的方法和可用的属性。\n"}},"__N_SSG":true},"page":"/blogs/[slug]","query":{"slug":"service-worker"},"buildId":"C4AJ9q2RoIIrR1IHHAH1J","nextExport":false,"isFallback":false,"gsp":true}</script><script nomodule="" src="/_next/static/chunks/polyfills-51ce6eb9ed73aacaf515.js"></script><script src="/_next/static/chunks/main-8741ed3c7ec57f378f59.js" async=""></script><script src="/_next/static/chunks/webpack-95c2b224bccf352ee870.js" async=""></script><script src="/_next/static/chunks/framework.962935494b30c127d8df.js" async=""></script><script src="/_next/static/chunks/commons.df3badfa1389741d28a2.js" async=""></script><script src="/_next/static/chunks/3fbd0e4abf850ff07f64ccde56ee9630378b8e04.7ac8cae34eec6be35d96.js" async=""></script><script src="/_next/static/chunks/pages/_app-37f2d112d23aeb2fbca1.js" async=""></script><script src="/_next/static/chunks/460fa7c48ecffb1b1bfdaf9b8a55cba3a474e08f.e4fd6e5862561852bfd0.js" async=""></script><script src="/_next/static/chunks/pages/blogs/%5Bslug%5D-ae308899b480e17c100a.js" async=""></script><script src="/_next/static/C4AJ9q2RoIIrR1IHHAH1J/_buildManifest.js" async=""></script><script src="/_next/static/C4AJ9q2RoIIrR1IHHAH1J/_ssgManifest.js" async=""></script></body></html>

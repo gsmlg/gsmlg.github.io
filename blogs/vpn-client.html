@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#3f51b5"/><meta charSet="utf-8"/><meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/><title>Home</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/css/2f26bb9842d84a608fa3.css" as="style"/><link rel="stylesheet" href="/_next/static/css/2f26bb9842d84a608fa3.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/main-8741ed3c7ec57f378f59.js" as="script"/><link rel="preload" href="/_next/static/chunks/webpack-95c2b224bccf352ee870.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.962935494b30c127d8df.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.df3badfa1389741d28a2.js" as="script"/><link rel="preload" href="/_next/static/chunks/3fbd0e4abf850ff07f64ccde56ee9630378b8e04.7ac8cae34eec6be35d96.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-37f2d112d23aeb2fbca1.js" as="script"/><link rel="preload" href="/_next/static/chunks/460fa7c48ecffb1b1bfdaf9b8a55cba3a474e08f.e4fd6e5862561852bfd0.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/index-e15a18146534027798d1.js" as="script"/><style id="jss-server-side">.MuiPaper-root {
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#3f51b5"/><meta charSet="utf-8"/><meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/><title>Setup VPN Client in Linux Server</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/css/2f26bb9842d84a608fa3.css" as="style"/><link rel="stylesheet" href="/_next/static/css/2f26bb9842d84a608fa3.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/main-8741ed3c7ec57f378f59.js" as="script"/><link rel="preload" href="/_next/static/chunks/webpack-95c2b224bccf352ee870.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.962935494b30c127d8df.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.df3badfa1389741d28a2.js" as="script"/><link rel="preload" href="/_next/static/chunks/3fbd0e4abf850ff07f64ccde56ee9630378b8e04.7ac8cae34eec6be35d96.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-37f2d112d23aeb2fbca1.js" as="script"/><link rel="preload" href="/_next/static/chunks/460fa7c48ecffb1b1bfdaf9b8a55cba3a474e08f.e4fd6e5862561852bfd0.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/blogs/%5Bslug%5D-ae308899b480e17c100a.js" as="script"/><style id="jss-server-side">.MuiPaper-root {
   color: rgba(0, 0, 0, 0.87);
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   background-color: #fff;
@@ -675,32 +675,63 @@
   .MuiSvgIcon-fontSizeLarge {
     font-size: 2.1875rem;
   }
-  .jss3 {
+  .jss2 {
     flex: 1 1 auto;
     width: 100vw;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
   }
-  .jss4 {
+  .jss3 {
     flex: 1;
     display: flex;
   }
-  .jss5 {
+  .jss4 {
     color: #fff;
     margin-top: 0.5em;
     text-align: center;
     line-height: 2em;
     background-color: #3f51b5;
   }
-  .jss6 {
+  .jss5 {
     margin-left: -12px;
     margin-right: 20px;
   }
-  .jss8 {
+  .jss7 {
     font-weight: bold;
     margin-left: 20px;
     margin-right: 20px;
+  }
+  .MuiDivider-root {
+    border: none;
+    height: 1px;
+    margin: 0;
+    flex-shrink: 0;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  .MuiDivider-absolute {
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+  }
+  .MuiDivider-inset {
+    margin-left: 72px;
+  }
+  .MuiDivider-light {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  .MuiDivider-middle {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  .MuiDivider-vertical {
+    width: 1px;
+    height: 100%;
+  }
+  .MuiDivider-flexItem {
+    height: auto;
+    align-self: stretch;
   }
   .jss1 {
     flex: 1;
@@ -715,8 +746,138 @@
     padding-left: 24px;
     padding-right: 24px;
   }
-}
-  .jss2 {
-    font-size: 3rem;
-    transition: 3000ms all;
-  }</style></head><body><div id="__next"><section class="jss3"><header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"><div class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"><button class="MuiButtonBase-root MuiIconButton-root jss6 MuiIconButton-colorInherit" tabindex="0" type="button" aria-label="Menu"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></span></button><p class="MuiTypography-root jss4 MuiTypography-body1 MuiTypography-colorInherit" type="title"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button"><span class="MuiButton-label"><a href="/">Home</a></span></button><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button"><span class="MuiButton-label"><a href="/blogs">Blog</a></span></button></p></div></header><section class="jss4"><div class="MuiPaper-root jss1 MuiPaper-elevation4 MuiPaper-rounded"><h3 class="MuiTypography-root jss2 MuiTypography-body1" style="color:#000">吾日三省吾身</h3><h3 class="MuiTypography-root jss2 MuiTypography-body1" style="color:#000">为人谋而不忠乎</h3><h3 class="MuiTypography-root jss2 MuiTypography-body1" style="color:#000">与朋友交而不信乎</h3><h3 class="MuiTypography-root jss2 MuiTypography-body1" style="color:#000">传不习乎</h3></div></section><footer class="jss5"><div class="container"><span class="jss9">Copyright © 2017-2020 GSMLG - Powered by GSMLG Web.</span></div></footer></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/","query":{},"buildId":"C4AJ9q2RoIIrR1IHHAH1J","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/chunks/polyfills-51ce6eb9ed73aacaf515.js"></script><script src="/_next/static/chunks/main-8741ed3c7ec57f378f59.js" async=""></script><script src="/_next/static/chunks/webpack-95c2b224bccf352ee870.js" async=""></script><script src="/_next/static/chunks/framework.962935494b30c127d8df.js" async=""></script><script src="/_next/static/chunks/commons.df3badfa1389741d28a2.js" async=""></script><script src="/_next/static/chunks/3fbd0e4abf850ff07f64ccde56ee9630378b8e04.7ac8cae34eec6be35d96.js" async=""></script><script src="/_next/static/chunks/pages/_app-37f2d112d23aeb2fbca1.js" async=""></script><script src="/_next/static/chunks/460fa7c48ecffb1b1bfdaf9b8a55cba3a474e08f.e4fd6e5862561852bfd0.js" async=""></script><script src="/_next/static/chunks/pages/index-e15a18146534027798d1.js" async=""></script><script src="/_next/static/C4AJ9q2RoIIrR1IHHAH1J/_buildManifest.js" async=""></script><script src="/_next/static/C4AJ9q2RoIIrR1IHHAH1J/_ssgManifest.js" async=""></script></body></html>
+}</style></head><body><div id="__next"><section class="jss2"><header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"><div class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"><button class="MuiButtonBase-root MuiIconButton-root jss5 MuiIconButton-colorInherit" tabindex="0" type="button" aria-label="Menu"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></span></button><p class="MuiTypography-root jss3 MuiTypography-body1 MuiTypography-colorInherit" type="title"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button"><span class="MuiButton-label"><a href="/">Home</a></span></button><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button"><span class="MuiButton-label"><a href="/blogs">Blog</a></span></button></p></div></header><section class="jss3"><div class="MuiPaper-root jss1 MuiPaper-elevation4 MuiPaper-rounded"><header><h1 class="MuiTypography-root MuiTypography-body1">Setup VPN Client in Linux Server</h1><div class="MuiTypography-root MuiTypography-body1">Author:<!-- -->Gao</div><div class="MuiTypography-root MuiTypography-body1">Created At:<!-- -->2018-08-17</div></header><hr class="MuiDivider-root"/><section class="MuiTypography-root blog-content MuiTypography-body1"><h1>在 Linux 系统中配置 VPN Client</h1><p>在没有 X 的 linux 系统中安装启用 VPN</p><h2>安装</h2><pre><code class="language-shell"># Ubuntu &amp; Debian
+apt-get update
+apt-get -y install strongswan xl2tpd
+
+# CentOS &amp; RHEL
+yum -y install epel-release
+yum --enablerepo=epel -y install strongswan xl2tpd
+
+# Fedora
+yum -y install strongswan xl2tpd</code></pre><h3>配置 VPN 账户</h3><pre><code class="language-shell">VPN_SERVER_IP=&#x27;你的VPN服务器IP&#x27;
+VPN_IPSEC_PSK=&#x27;你的IPsec预共享密钥&#x27;
+VPN_USER=&#x27;你的VPN用户名&#x27;
+VPN_PASSWORD=&#x27;你的VPN密码&#x27;</code></pre><h3>配置 Strongswan</h3><pre><code class="language-shell">cat &gt; /etc/ipsec.conf &lt;&lt;EOF
+# ipsec.conf - strongSwan IPsec configuration file
+
+# basic configuration
+
+config setup
+  # strictcrlpolicy=yes
+  # uniqueids = no
+
+# Add connections here.
+
+# Sample VPN connections
+
+conn %default
+  ikelifetime=60m
+  keylife=20m
+  rekeymargin=3m
+  keyingtries=1
+  keyexchange=ikev1
+  authby=secret
+  ike=aes128-sha1-modp1024,3des-sha1-modp1024!
+  esp=aes128-sha1-modp1024,3des-sha1-modp1024!
+
+conn myvpn
+  keyexchange=ikev1
+  left=%defaultroute
+  auto=add
+  authby=secret
+  type=transport
+  leftprotoport=17/1701
+  rightprotoport=17/1701
+  right=$VPN_SERVER_IP
+EOF
+
+cat &gt; /etc/ipsec.secrets &lt;&lt;EOF
+: PSK &quot;$VPN_IPSEC_PSK&quot;
+EOF
+
+chmod 600 /etc/ipsec.secrets
+
+# For CentOS/RHEL &amp; Fedora ONLY
+mv /etc/strongswan/ipsec.conf /etc/strongswan/ipsec.conf.old 2&gt;/dev/null
+mv /etc/strongswan/ipsec.secrets /etc/strongswan/ipsec.secrets.old 2&gt;/dev/null
+ln -s /etc/ipsec.conf /etc/strongswan/ipsec.conf
+ln -s /etc/ipsec.secrets /etc/strongswan/ipsec.secrets</code></pre><h3>配置 xl2tpd</h3><pre><code class="language-shell">cat &gt; /etc/xl2tpd/xl2tpd.conf &lt;&lt;EOF
+[lac myvpn]
+lns = $VPN_SERVER_IP
+ppp debug = yes
+pppoptfile = /etc/ppp/options.l2tpd.client
+length bit = yes
+EOF
+
+cat &gt; /etc/ppp/options.l2tpd.client &lt;&lt;EOF
+ipcp-accept-local
+ipcp-accept-remote
+refuse-eap
+require-chap
+noccp
+noauth
+mtu 1280
+mru 1280
+noipdefault
+defaultroute
+usepeerdns
+connect-delay 5000
+name $VPN_USER
+password $VPN_PASSWORD
+EOF
+
+chmod 600 /etc/ppp/options.l2tpd.client</code></pre><ul><li>至此 VPN 客户端配置已完成</li></ul><h2>配置连接</h2><h3>创建 xl2tpd 控制文件：</h3><pre><code class="language-shell">mkdir -p /var/run/xl2tpd
+touch /var/run/xl2tpd/l2tp-control</code></pre><h3>重启服务：</h3><pre><code>service strongswan restart
+service xl2tpd restart
+```
+
+### 开始 IPsec 连接：
+
+```shell
+# Ubuntu &amp; Debian
+ipsec up myvpn
+
+# CentOS/RHEL &amp; Fedora
+strongswan up myvpn
+```
+
+### 开始 L2TP 连接：
+
+```shell
+echo &quot;c myvpn&quot; &gt; /var/run/xl2tpd/l2tp-control
+```
+
+## 配置路由
+
+查看路由
+
+```shell
+ip route
+```
+
+创建路由表
+
+```
+git clone https://github.com/gsmlg/static-routes.git
+cd static-routes
+make linux
+# mode 1 不需要修改 default route
+\cp mode1/ip-up /etc/ppp/ip-up.local
+# mode 2 需要配置 default route 到VPN的IP
+\cp mode1/ip-up /etc/ppp/ip-up.local
+\cp mode1/ip-down /etc/ppp/ip-down
+
+```
+
+## 断开连接
+
+```
+# Ubuntu &amp; Debian
+echo &quot;d myvpn&quot; &gt; /var/run/xl2tpd/l2tp-control
+ipsec down myvpn
+
+# CentOS/RHEL &amp; Fedora
+echo &quot;d myvpn&quot; &gt; /var/run/xl2tpd/l2tp-control
+strongswan down myvpn
+```</code></pre></section></div></section><footer class="jss4"><div class="container"><span class="jss8">Copyright © 2017-2020 GSMLG - Powered by GSMLG Web.</span></div></footer></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"vpn-client","blog":{"id":24,"name":"vpn-client","title":"Setup VPN Client in Linux Server","date":"2018-08-17","author":"Gao","content":"# 在 Linux 系统中配置 VPN Client\n\n在没有 X 的 linux 系统中安装启用 VPN\n\n## 安装\n\n```shell\n# Ubuntu \u0026 Debian\napt-get update\napt-get -y install strongswan xl2tpd\n\n# CentOS \u0026 RHEL\nyum -y install epel-release\nyum --enablerepo=epel -y install strongswan xl2tpd\n\n# Fedora\nyum -y install strongswan xl2tpd\n```\n\n### 配置 VPN 账户\n\n```shell\nVPN_SERVER_IP='你的VPN服务器IP'\nVPN_IPSEC_PSK='你的IPsec预共享密钥'\nVPN_USER='你的VPN用户名'\nVPN_PASSWORD='你的VPN密码'\n```\n\n### 配置 Strongswan\n\n```shell\ncat \u003e /etc/ipsec.conf \u003c\u003cEOF\n# ipsec.conf - strongSwan IPsec configuration file\n\n# basic configuration\n\nconfig setup\n  # strictcrlpolicy=yes\n  # uniqueids = no\n\n# Add connections here.\n\n# Sample VPN connections\n\nconn %default\n  ikelifetime=60m\n  keylife=20m\n  rekeymargin=3m\n  keyingtries=1\n  keyexchange=ikev1\n  authby=secret\n  ike=aes128-sha1-modp1024,3des-sha1-modp1024!\n  esp=aes128-sha1-modp1024,3des-sha1-modp1024!\n\nconn myvpn\n  keyexchange=ikev1\n  left=%defaultroute\n  auto=add\n  authby=secret\n  type=transport\n  leftprotoport=17/1701\n  rightprotoport=17/1701\n  right=$VPN_SERVER_IP\nEOF\n\ncat \u003e /etc/ipsec.secrets \u003c\u003cEOF\n: PSK \"$VPN_IPSEC_PSK\"\nEOF\n\nchmod 600 /etc/ipsec.secrets\n\n# For CentOS/RHEL \u0026 Fedora ONLY\nmv /etc/strongswan/ipsec.conf /etc/strongswan/ipsec.conf.old 2\u003e/dev/null\nmv /etc/strongswan/ipsec.secrets /etc/strongswan/ipsec.secrets.old 2\u003e/dev/null\nln -s /etc/ipsec.conf /etc/strongswan/ipsec.conf\nln -s /etc/ipsec.secrets /etc/strongswan/ipsec.secrets\n```\n\n### 配置 xl2tpd\n\n```shell\ncat \u003e /etc/xl2tpd/xl2tpd.conf \u003c\u003cEOF\n[lac myvpn]\nlns = $VPN_SERVER_IP\nppp debug = yes\npppoptfile = /etc/ppp/options.l2tpd.client\nlength bit = yes\nEOF\n\ncat \u003e /etc/ppp/options.l2tpd.client \u003c\u003cEOF\nipcp-accept-local\nipcp-accept-remote\nrefuse-eap\nrequire-chap\nnoccp\nnoauth\nmtu 1280\nmru 1280\nnoipdefault\ndefaultroute\nusepeerdns\nconnect-delay 5000\nname $VPN_USER\npassword $VPN_PASSWORD\nEOF\n\nchmod 600 /etc/ppp/options.l2tpd.client\n```\n\n- 至此 VPN 客户端配置已完成\n\n## 配置连接\n\n### 创建 xl2tpd 控制文件：\n\n```shell\nmkdir -p /var/run/xl2tpd\ntouch /var/run/xl2tpd/l2tp-control\n```\n\n### 重启服务：\n\n````\nservice strongswan restart\nservice xl2tpd restart\n```\n\n### 开始 IPsec 连接：\n\n```shell\n# Ubuntu \u0026 Debian\nipsec up myvpn\n\n# CentOS/RHEL \u0026 Fedora\nstrongswan up myvpn\n```\n\n### 开始 L2TP 连接：\n\n```shell\necho \"c myvpn\" \u003e /var/run/xl2tpd/l2tp-control\n```\n\n## 配置路由\n\n查看路由\n\n```shell\nip route\n```\n\n创建路由表\n\n```\ngit clone https://github.com/gsmlg/static-routes.git\ncd static-routes\nmake linux\n# mode 1 不需要修改 default route\n\\cp mode1/ip-up /etc/ppp/ip-up.local\n# mode 2 需要配置 default route 到VPN的IP\n\\cp mode1/ip-up /etc/ppp/ip-up.local\n\\cp mode1/ip-down /etc/ppp/ip-down\n\n```\n\n## 断开连接\n\n```\n# Ubuntu \u0026 Debian\necho \"d myvpn\" \u003e /var/run/xl2tpd/l2tp-control\nipsec down myvpn\n\n# CentOS/RHEL \u0026 Fedora\necho \"d myvpn\" \u003e /var/run/xl2tpd/l2tp-control\nstrongswan down myvpn\n```\n````\n"}},"__N_SSG":true},"page":"/blogs/[slug]","query":{"slug":"vpn-client"},"buildId":"C4AJ9q2RoIIrR1IHHAH1J","nextExport":false,"isFallback":false,"gsp":true}</script><script nomodule="" src="/_next/static/chunks/polyfills-51ce6eb9ed73aacaf515.js"></script><script src="/_next/static/chunks/main-8741ed3c7ec57f378f59.js" async=""></script><script src="/_next/static/chunks/webpack-95c2b224bccf352ee870.js" async=""></script><script src="/_next/static/chunks/framework.962935494b30c127d8df.js" async=""></script><script src="/_next/static/chunks/commons.df3badfa1389741d28a2.js" async=""></script><script src="/_next/static/chunks/3fbd0e4abf850ff07f64ccde56ee9630378b8e04.7ac8cae34eec6be35d96.js" async=""></script><script src="/_next/static/chunks/pages/_app-37f2d112d23aeb2fbca1.js" async=""></script><script src="/_next/static/chunks/460fa7c48ecffb1b1bfdaf9b8a55cba3a474e08f.e4fd6e5862561852bfd0.js" async=""></script><script src="/_next/static/chunks/pages/blogs/%5Bslug%5D-ae308899b480e17c100a.js" async=""></script><script src="/_next/static/C4AJ9q2RoIIrR1IHHAH1J/_buildManifest.js" async=""></script><script src="/_next/static/C4AJ9q2RoIIrR1IHHAH1J/_ssgManifest.js" async=""></script></body></html>

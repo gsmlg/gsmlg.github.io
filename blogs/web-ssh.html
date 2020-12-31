@@ -1,0 +1,818 @@
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#3f51b5"/><meta charSet="utf-8"/><meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/><title>浏览器中使用Shell和SSH</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/css/2f26bb9842d84a608fa3.css" as="style"/><link rel="stylesheet" href="/_next/static/css/2f26bb9842d84a608fa3.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/main-8741ed3c7ec57f378f59.js" as="script"/><link rel="preload" href="/_next/static/chunks/webpack-95c2b224bccf352ee870.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.962935494b30c127d8df.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.df3badfa1389741d28a2.js" as="script"/><link rel="preload" href="/_next/static/chunks/3fbd0e4abf850ff07f64ccde56ee9630378b8e04.7ac8cae34eec6be35d96.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-37f2d112d23aeb2fbca1.js" as="script"/><link rel="preload" href="/_next/static/chunks/460fa7c48ecffb1b1bfdaf9b8a55cba3a474e08f.e4fd6e5862561852bfd0.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/blogs/%5Bslug%5D-ae308899b480e17c100a.js" as="script"/><style id="jss-server-side">.MuiPaper-root {
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #fff;
+}
+.MuiPaper-rounded {
+  border-radius: 4px;
+}
+.MuiPaper-outlined {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.MuiPaper-elevation0 {
+  box-shadow: none;
+}
+.MuiPaper-elevation1 {
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation2 {
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation3 {
+  box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation4 {
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation5 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation6 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation7 {
+  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation8 {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation9 {
+  box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation10 {
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation11 {
+  box-shadow: 0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation12 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation13 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation14 {
+  box-shadow: 0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation15 {
+  box-shadow: 0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation16 {
+  box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation17 {
+  box-shadow: 0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation18 {
+  box-shadow: 0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation19 {
+  box-shadow: 0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation20 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation21 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation22 {
+  box-shadow: 0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation23 {
+  box-shadow: 0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation24 {
+  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
+}
+.MuiTypography-root {
+  margin: 0;
+}
+.MuiTypography-body2 {
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+}
+.MuiTypography-body1 {
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+.MuiTypography-caption {
+  font-size: 0.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+  letter-spacing: 0.03333em;
+}
+.MuiTypography-button {
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+}
+.MuiTypography-h1 {
+  font-size: 6rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.167;
+  letter-spacing: -0.01562em;
+}
+.MuiTypography-h2 {
+  font-size: 3.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.00833em;
+}
+.MuiTypography-h3 {
+  font-size: 3rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.167;
+  letter-spacing: 0em;
+}
+.MuiTypography-h4 {
+  font-size: 2.125rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.235;
+  letter-spacing: 0.00735em;
+}
+.MuiTypography-h5 {
+  font-size: 1.5rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.334;
+  letter-spacing: 0em;
+}
+.MuiTypography-h6 {
+  font-size: 1.25rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+}
+.MuiTypography-subtitle1 {
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.00938em;
+}
+.MuiTypography-subtitle2 {
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.57;
+  letter-spacing: 0.00714em;
+}
+.MuiTypography-overline {
+  font-size: 0.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 2.66;
+  letter-spacing: 0.08333em;
+  text-transform: uppercase;
+}
+.MuiTypography-srOnly {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+.MuiTypography-alignLeft {
+  text-align: left;
+}
+.MuiTypography-alignCenter {
+  text-align: center;
+}
+.MuiTypography-alignRight {
+  text-align: right;
+}
+.MuiTypography-alignJustify {
+  text-align: justify;
+}
+.MuiTypography-noWrap {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.MuiTypography-gutterBottom {
+  margin-bottom: 0.35em;
+}
+.MuiTypography-paragraph {
+  margin-bottom: 16px;
+}
+.MuiTypography-colorInherit {
+  color: inherit;
+}
+.MuiTypography-colorPrimary {
+  color: #3f51b5;
+}
+.MuiTypography-colorSecondary {
+  color: #f50057;
+}
+.MuiTypography-colorTextPrimary {
+  color: rgba(0, 0, 0, 0.87);
+}
+.MuiTypography-colorTextSecondary {
+  color: rgba(0, 0, 0, 0.54);
+}
+.MuiTypography-colorError {
+  color: #f44336;
+}
+.MuiTypography-displayInline {
+  display: inline;
+}
+.MuiTypography-displayBlock {
+  display: block;
+}
+.MuiAppBar-root {
+  width: 100%;
+  display: flex;
+  z-index: 1100;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.MuiAppBar-positionFixed {
+  top: 0;
+  left: auto;
+  right: 0;
+  position: fixed;
+}
+@media print {
+  .MuiAppBar-positionFixed {
+    position: absolute;
+  }
+}
+  .MuiAppBar-positionAbsolute {
+    top: 0;
+    left: auto;
+    right: 0;
+    position: absolute;
+  }
+  .MuiAppBar-positionSticky {
+    top: 0;
+    left: auto;
+    right: 0;
+    position: sticky;
+  }
+  .MuiAppBar-positionStatic {
+    position: static;
+  }
+  .MuiAppBar-positionRelative {
+    position: relative;
+  }
+  .MuiAppBar-colorDefault {
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #f5f5f5;
+  }
+  .MuiAppBar-colorPrimary {
+    color: #fff;
+    background-color: #3f51b5;
+  }
+  .MuiAppBar-colorSecondary {
+    color: #fff;
+    background-color: #f50057;
+  }
+  .MuiAppBar-colorInherit {
+    color: inherit;
+  }
+  .MuiAppBar-colorTransparent {
+    color: inherit;
+    background-color: transparent;
+  }
+  .MuiToolbar-root {
+    display: flex;
+    position: relative;
+    align-items: center;
+  }
+  .MuiToolbar-gutters {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+@media (min-width:600px) {
+  .MuiToolbar-gutters {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+  .MuiToolbar-regular {
+    min-height: 56px;
+  }
+@media (min-width:0px) and (orientation: landscape) {
+  .MuiToolbar-regular {
+    min-height: 48px;
+  }
+}
+@media (min-width:600px) {
+  .MuiToolbar-regular {
+    min-height: 64px;
+  }
+}
+  .MuiToolbar-dense {
+    min-height: 48px;
+  }
+  .MuiButtonBase-root {
+    color: inherit;
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    display: inline-flex;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    align-items: center;
+    user-select: none;
+    border-radius: 0;
+    vertical-align: middle;
+    -moz-appearance: none;
+    justify-content: center;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .MuiButtonBase-root::-moz-focus-inner {
+    border-style: none;
+  }
+  .MuiButtonBase-root.Mui-disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+@media print {
+  .MuiButtonBase-root {
+    color-adjust: exact;
+  }
+}
+  .MuiButton-root {
+    color: rgba(0, 0, 0, 0.87);
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    min-width: 64px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+  }
+  .MuiButton-root:hover {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  .MuiButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+@media (hover: none) {
+  .MuiButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-root:hover.Mui-disabled {
+    background-color: transparent;
+  }
+  .MuiButton-label {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiButton-text {
+    padding: 6px 8px;
+  }
+  .MuiButton-textPrimary {
+    color: #3f51b5;
+  }
+  .MuiButton-textPrimary:hover {
+    background-color: rgba(63, 81, 181, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-textPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-textSecondary {
+    color: #f50057;
+  }
+  .MuiButton-textSecondary:hover {
+    background-color: rgba(245, 0, 87, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-textSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-outlined {
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    padding: 5px 15px;
+  }
+  .MuiButton-outlined.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .MuiButton-outlinedPrimary {
+    color: #3f51b5;
+    border: 1px solid rgba(63, 81, 181, 0.5);
+  }
+  .MuiButton-outlinedPrimary:hover {
+    border: 1px solid #3f51b5;
+    background-color: rgba(63, 81, 181, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-outlinedPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-outlinedSecondary {
+    color: #f50057;
+    border: 1px solid rgba(245, 0, 87, 0.5);
+  }
+  .MuiButton-outlinedSecondary:hover {
+    border: 1px solid #f50057;
+    background-color: rgba(245, 0, 87, 0.04);
+  }
+  .MuiButton-outlinedSecondary.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.26);
+  }
+@media (hover: none) {
+  .MuiButton-outlinedSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-contained {
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+  }
+  .MuiButton-contained:hover {
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+    background-color: #d5d5d5;
+  }
+  .MuiButton-contained.Mui-focusVisible {
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+  }
+  .MuiButton-contained:active {
+    box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+  }
+  .MuiButton-contained.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+@media (hover: none) {
+  .MuiButton-contained:hover {
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+  }
+}
+  .MuiButton-contained:hover.Mui-disabled {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  .MuiButton-containedPrimary {
+    color: #fff;
+    background-color: #3f51b5;
+  }
+  .MuiButton-containedPrimary:hover {
+    background-color: #303f9f;
+  }
+@media (hover: none) {
+  .MuiButton-containedPrimary:hover {
+    background-color: #3f51b5;
+  }
+}
+  .MuiButton-containedSecondary {
+    color: #fff;
+    background-color: #f50057;
+  }
+  .MuiButton-containedSecondary:hover {
+    background-color: #c51162;
+  }
+@media (hover: none) {
+  .MuiButton-containedSecondary:hover {
+    background-color: #f50057;
+  }
+}
+  .MuiButton-disableElevation {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation:hover {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation.Mui-focusVisible {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation:active {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation.Mui-disabled {
+    box-shadow: none;
+  }
+  .MuiButton-colorInherit {
+    color: inherit;
+    border-color: currentColor;
+  }
+  .MuiButton-textSizeSmall {
+    padding: 4px 5px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-textSizeLarge {
+    padding: 8px 11px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-outlinedSizeSmall {
+    padding: 3px 9px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-outlinedSizeLarge {
+    padding: 7px 21px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-containedSizeSmall {
+    padding: 4px 10px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-containedSizeLarge {
+    padding: 8px 22px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-fullWidth {
+    width: 100%;
+  }
+  .MuiButton-startIcon {
+    display: inherit;
+    margin-left: -4px;
+    margin-right: 8px;
+  }
+  .MuiButton-startIcon.MuiButton-iconSizeSmall {
+    margin-left: -2px;
+  }
+  .MuiButton-endIcon {
+    display: inherit;
+    margin-left: 8px;
+    margin-right: -4px;
+  }
+  .MuiButton-endIcon.MuiButton-iconSizeSmall {
+    margin-right: -2px;
+  }
+  .MuiButton-iconSizeSmall > *:first-child {
+    font-size: 18px;
+  }
+  .MuiButton-iconSizeMedium > *:first-child {
+    font-size: 20px;
+  }
+  .MuiButton-iconSizeLarge > *:first-child {
+    font-size: 22px;
+  }
+  .MuiIconButton-root {
+    flex: 0 0 auto;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 12px;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+  }
+  .MuiIconButton-root:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  .MuiIconButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    background-color: transparent;
+  }
+@media (hover: none) {
+  .MuiIconButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-edgeStart {
+    margin-left: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeStart {
+    margin-left: -3px;
+  }
+  .MuiIconButton-edgeEnd {
+    margin-right: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeEnd {
+    margin-right: -3px;
+  }
+  .MuiIconButton-colorInherit {
+    color: inherit;
+  }
+  .MuiIconButton-colorPrimary {
+    color: #3f51b5;
+  }
+  .MuiIconButton-colorPrimary:hover {
+    background-color: rgba(63, 81, 181, 0.04);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-colorSecondary {
+    color: #f50057;
+  }
+  .MuiIconButton-colorSecondary:hover {
+    background-color: rgba(245, 0, 87, 0.04);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-sizeSmall {
+    padding: 3px;
+    font-size: 1.125rem;
+  }
+  .MuiIconButton-label {
+    width: 100%;
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiSvgIcon-root {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    font-size: 1.5rem;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    flex-shrink: 0;
+    user-select: none;
+  }
+  .MuiSvgIcon-colorPrimary {
+    color: #3f51b5;
+  }
+  .MuiSvgIcon-colorSecondary {
+    color: #f50057;
+  }
+  .MuiSvgIcon-colorAction {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  .MuiSvgIcon-colorError {
+    color: #f44336;
+  }
+  .MuiSvgIcon-colorDisabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+  .MuiSvgIcon-fontSizeInherit {
+    font-size: inherit;
+  }
+  .MuiSvgIcon-fontSizeSmall {
+    font-size: 1.25rem;
+  }
+  .MuiSvgIcon-fontSizeLarge {
+    font-size: 2.1875rem;
+  }
+  .jss2 {
+    flex: 1 1 auto;
+    width: 100vw;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  .jss3 {
+    flex: 1;
+    display: flex;
+  }
+  .jss4 {
+    color: #fff;
+    margin-top: 0.5em;
+    text-align: center;
+    line-height: 2em;
+    background-color: #3f51b5;
+  }
+  .jss5 {
+    margin-left: -12px;
+    margin-right: 20px;
+  }
+  .jss7 {
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .MuiDivider-root {
+    border: none;
+    height: 1px;
+    margin: 0;
+    flex-shrink: 0;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  .MuiDivider-absolute {
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+  }
+  .MuiDivider-inset {
+    margin-left: 72px;
+  }
+  .MuiDivider-light {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  .MuiDivider-middle {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  .MuiDivider-vertical {
+    width: 1px;
+    height: 100%;
+  }
+  .MuiDivider-flexItem {
+    height: auto;
+    align-self: stretch;
+  }
+  .jss1 {
+    flex: 1;
+    margin: 24px;
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+  }
+@media (min-width:600px) {
+  .jss1 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}</style></head><body><div id="__next"><section class="jss2"><header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"><div class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"><button class="MuiButtonBase-root MuiIconButton-root jss5 MuiIconButton-colorInherit" tabindex="0" type="button" aria-label="Menu"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></span></button><p class="MuiTypography-root jss3 MuiTypography-body1 MuiTypography-colorInherit" type="title"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button"><span class="MuiButton-label"><a href="/">Home</a></span></button><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit" tabindex="0" type="button"><span class="MuiButton-label"><a href="/blogs">Blog</a></span></button></p></div></header><section class="jss3"><div class="MuiPaper-root jss1 MuiPaper-elevation4 MuiPaper-rounded"><header><h1 class="MuiTypography-root MuiTypography-body1">浏览器中使用Shell和SSH</h1><div class="MuiTypography-root MuiTypography-body1">Author:<!-- -->Gao</div><div class="MuiTypography-root MuiTypography-body1">Created At:<!-- -->2020-05-27</div></header><hr class="MuiDivider-root"/><section class="MuiTypography-root blog-content MuiTypography-body1"><p>调研相关软件</p><ul><li>node-pty</li><li>xterm.js</li><li>blessed</li><li>ssh2</li></ul><h3>node-pty</h3><p><a href="https://github.com/microsoft/node-pty">链接</a></p><p>node.js 的 forkpty（3） 绑定。这允许您使用伪终端文件描述符分叉进程。它返回允许读取和写入的终端对象。</p><p>这对于：</p><ul><li>编写终端仿真器（例如通过 xterm.js）。</li><li>让某些程序认为您是终端，例如当您需要程序向您发送控制序列时。</li></ul><p>node-pty 支持 Linux、macOS 和 Windows。通过使用 Windows 1809+ 上的 <a href="https://blogs.msdn.microsoft.com/commandline/2018/08/02/windows-command-line-introducing-the-windows-pseudo-console-conpty/">Windows conpty API</a> 或者旧版本中的<a href="https://github.com/rprichard/winpty">winpty</a>，获得 Windows 支持。</p><h3>xterm.js</h3><p><a href="https://github.com/xtermjs/xterm.js">链接</a></p><p>Xterm.js 是一个在 TypeScript 中编写的前端组件，它允许应用程序在浏览器中为其用户带来功能齐全的终端。它被流行的项目，如 VS 代码，超级和 Theia 使用。</p><h4><strong>Feature</strong></h4><ul><li>Terminal apps just work: Xterm.js 可以通大多数终端 apps，比如<code>bash</code>，<code>vim</code>和<code>tmux</code>，一起工作，这包含了 Curses-based 应用和鼠标事件支持。</li><li>性能：Xterm.js 非常快速，它甚至包括了 GPU 加速渲染</li><li>丰富的 unicode 支持：支持 CJK，emojis 和 IMEs</li><li>自包含：没有任何依赖就可以运行</li><li>无障碍：可以打开屏幕阅读器和最小对比度支持</li><li>更多的：Links，therming，addons，优秀的 API 文档，等等</li></ul><h4>What xterm.js is not</h4><ul><li>Xterm.js is not a terminal application that you can download and use on your computer.</li><li>Xterm.js is not <code>bash</code>. Xterm.js can be connected to processes like <code>bash</code> and let you interact with them (provide input, receive output).</li></ul><h3>blessed</h3><p>为 node.js 开发的一个带有高级终端接口的 curses-like library</p><h3>ssh2</h3><p>SSH2 客户端和服务器模块以纯 JavaScript 编写的运行于 node.js.</p><p>开发/测试针对 OpenSSH（当前为 7.6） 完成。</p><h2>设计实现</h2><p>最初设计实现是通过 websocket 服务打通浏览器到 server 之间的连接，使用<code>xterm.js</code>在浏览器创建 terminal UI，并使用<code>node-pty</code>在 server 打开对应的 shell 来进行服务。</p><p>这样只需要使用 web 做好认证就可以处理当前的问题。</p><p>经过一番选择后，不希望直接连接服务器，所以更换了一种方式。</p><p>在 web 服务器上启动一个<code>ss2</code>客户端代理，接入服务后，要求用户来输入用户的 ssh 登陆密码来进行登陆，对应服务器上需要启动 openssh-server。在浏览器启动 xterm.js 模拟终端，之后在浏览器和服务之间创建连接隧道，让终端和 ssh2 代理通讯。</p><h2>SSH2 解析</h2><pre><code class="language-txt">ssh2@0.8.9
+└─┬ ssh2-streams@0.4.10
+  ├─┬ asn1@0.2.4
+  │ └── safer-buffer@2.1.2
+  ├─┬ bcrypt-pbkdf@1.0.2
+  │ └── tweetnacl@0.14.5
+  └── streamsearch@0.1.2</code></pre><ul><li>ssh2
+提供 ssh Client/Server</li><li>ssh-streams
+提供 ssh 传输流，包含加密解密和传输处理</li></ul><h2>SSH2 API</h2><p><code>require(&#x27;ssh2&#x27;).Client</code> returns a <strong><em>Client</em></strong> constructor.</p><p><code>require(&#x27;ssh2&#x27;).Server</code> returns a <strong><em>Server</em></strong> constructor.</p><p><code>require(&#x27;ssh2&#x27;).utils</code> returns the <a href="https://github.com/mscdex/ssh2-streams#utility-methods">utility methods from <code>ssh2-streams</code></a>.</p><p><code>require(&#x27;ssh2&#x27;).HTTPAgent</code> returns an <a href="https://nodejs.org/docs/latest/api/http.html#http_class_http_agent"><code>http.Agent</code></a> constructor.</p><p><code>require(&#x27;ssh2&#x27;).HTTPSAgent</code> returns an <a href="https://nodejs.org/docs/latest/api/https.html#https_class_https_agent"><code>https.Agent</code></a> constructor. Its API is the same as <code>HTTPAgent</code> except it&#x27;s for HTTPS connections.</p><p><code>require(&#x27;ssh2&#x27;).SFTP_STATUS_CODE</code> returns the <a href="https://github.com/mscdex/ssh2-streams/blob/master/SFTPStream.md#sftpstream-static-constants"><code>SFTPStream.STATUS_CODE</code> from <code>ssh2-streams</code></a>.</p><p><code>require(&#x27;ssh2&#x27;).SFTP_OPEN_MODE</code> returns the <a href="https://github.com/mscdex/ssh2-streams/blob/master/SFTPStream.md#sftpstream-static-constants"><code>SFTPStream.OPEN_MODE</code> from <code>ssh2-streams</code></a>.</p><h3>Client</h3><h4>Client events</h4><ul><li><p><strong>banner</strong>(&lt; <em>string</em> &gt;message, &lt; <em>string</em> &gt;language) - A notice was sent by the server upon connection.</p></li><li><p><strong>ready</strong>() - Authentication was successful.</p></li><li><p><strong>tcp connection</strong>(&lt; <em>object</em> &gt;details, &lt; <em>function</em> &gt;accept, &lt; <em>function</em> &gt;reject) - An incoming forwarded TCP connection is being requested. Calling <code>accept</code> accepts the connection and returns a <code>Channel</code> object. Calling <code>reject</code> rejects the connection and no further action is needed. <code>details</code> contains:</p><ul><li><p><strong>srcIP</strong> - <em>string</em> - The originating IP of the connection.</p></li><li><p><strong>srcPort</strong> - <em>integer</em> - The originating port of the connection.</p></li><li><p><strong>destIP</strong> - <em>string</em> - The remote IP the connection was received on (given in earlier call to <code>forwardIn()</code>).</p></li><li><p><strong>destPort</strong> - <em>integer</em> - The remote port the connection was received on (given in earlier call to <code>forwardIn()</code>).</p></li></ul></li><li><p><strong>x11</strong>(&lt; <em>object</em> &gt;details, &lt; <em>function</em> &gt;accept, &lt; <em>function</em> &gt;reject) - An incoming X11 connection is being requested. Calling <code>accept</code> accepts the connection and returns a <code>Channel</code> object. Calling <code>reject</code> rejects the connection and no further action is needed. <code>details</code> contains:</p><ul><li><p><strong>srcIP</strong> - <em>string</em> - The originating IP of the connection.</p></li><li><p><strong>srcPort</strong> - <em>integer</em> - The originating port of the connection.</p></li></ul></li><li><p><strong>keyboard-interactive</strong>(&lt; <em>string</em> &gt;name, &lt; <em>string</em> &gt;instructions, &lt; <em>string</em> &gt;instructionsLang, &lt; <em>array</em> &gt;prompts, &lt; <em>function</em> &gt;finish) - The server is asking for replies to the given <code>prompts</code> for keyboard-interactive user authentication. <code>name</code> is generally what you&#x27;d use as a window title (for GUI apps). <code>prompts</code> is an array of <code>{ prompt: &#x27;Password: &#x27;, echo: false }</code> style objects (here <code>echo</code> indicates whether user input should be displayed on the screen). The answers for all prompts must be provided as an array of strings and passed to <code>finish</code> when you are ready to continue. Note: It&#x27;s possible for the server to come back and ask more questions.</p></li><li><p><strong>unix connection</strong>(&lt; <em>object</em> &gt;details, &lt; <em>function</em> &gt;accept, &lt; <em>function</em> &gt;reject) - An incoming forwarded UNIX socket connection is being requested. Calling <code>accept</code> accepts the connection and returns a <code>Channel</code> object. Calling <code>reject</code> rejects the connection and no further action is needed. <code>details</code> contains:</p><ul><li><strong>socketPath</strong> - <em>string</em> - The originating UNIX socket path of the connection.</li></ul></li><li><p><strong>change password</strong>(&lt; <em>string</em> &gt;message, &lt; <em>string</em> &gt;language, &lt; <em>function</em> &gt;done) - If using password-based user authentication, the server has requested that the user&#x27;s password be changed. Call <code>done</code> with the new password.</p></li><li><p><strong>continue</strong>() - Emitted when more requests/data can be sent to the server (after a <code>Client</code> method returned <code>false</code>).</p></li><li><p><strong>error</strong>(&lt; <em>Error</em> &gt;err) - An error occurred. A &#x27;level&#x27; property indicates &#x27;client-socket&#x27; for socket-level errors and &#x27;client-ssh&#x27; for SSH disconnection messages. In the case of &#x27;client-ssh&#x27; messages, there may be a &#x27;description&#x27; property that provides more detail.</p></li><li><p><strong>end</strong>() - The socket was disconnected.</p></li><li><p><strong>close</strong>() - The socket was closed.</p></li></ul><h4>Client methods</h4><ul><li><p><strong>(constructor)</strong>() - Creates and returns a new Client instance.</p></li><li><p><strong>connect</strong>(&lt; <em>object</em> &gt;config) - <em>(void)</em> - Attempts a connection to a server using the information given in <code>config</code>:</p><ul><li><p><strong>host</strong> - <em>string</em> - Hostname or IP address of the server. <strong>Default:</strong> <code>&#x27;localhost&#x27;</code></p></li><li><p><strong>port</strong> - <em>integer</em> - Port number of the server. <strong>Default:</strong> <code>22</code></p></li><li><p><strong>localAddress</strong> - <em>string</em> - IP address of the network interface to use to connect to the server. <strong>Default:</strong> (none -- determined by OS)</p></li><li><p><strong>localPort</strong> - <em>string</em> - The local port number to connect from. <strong>Default:</strong> (none -- determined by OS)</p></li><li><p><strong>forceIPv4</strong> - <em>boolean</em> - Only connect via resolved IPv4 address for <code>host</code>. <strong>Default:</strong> <code>false</code></p></li><li><p><strong>forceIPv6</strong> - <em>boolean</em> - Only connect via resolved IPv6 address for <code>host</code>. <strong>Default:</strong> <code>false</code></p></li><li><p><strong>hostHash</strong> - <em>string</em> - Any valid hash algorithm supported by node. The host&#x27;s key is hashed using this algorithm and passed to the <strong>hostVerifier</strong> function. <strong>Default:</strong> (none)</p></li><li><p><strong>hostVerifier</strong> - <em>function</em> - Function with parameters <code>(hashedKey[, callback])</code> where <code>hashedKey</code> is a string hex hash of the host&#x27;s key for verification purposes. Return <code>true</code> to continue with the handshake or <code>false</code> to reject and disconnect, or call <code>callback()</code> with <code>true</code> or <code>false</code> if you need to perform asynchronous verification. <strong>Default:</strong> (auto-accept if <code>hostVerifier</code> is not set)</p></li><li><p><strong>username</strong> - <em>string</em> - Username for authentication. <strong>Default:</strong> (none)</p></li><li><p><strong>password</strong> - <em>string</em> - Password for password-based user authentication. <strong>Default:</strong> (none)</p></li><li><p><strong>agent</strong> - <em>string</em> - Path to ssh-agent&#x27;s UNIX socket for ssh-agent-based user authentication. <strong>Windows users: set to &#x27;pageant&#x27; for authenticating with Pageant or (actual) path to a cygwin &quot;UNIX socket.&quot;</strong> <strong>Default:</strong> (none)</p></li><li><p><strong>agentForward</strong> - <em>boolean</em> - Set to <code>true</code> to use OpenSSH agent forwarding (<code>auth-agent@openssh.com</code>) for the life of the connection. <code>agent</code> must also be set to use this feature. <strong>Default:</strong> <code>false</code></p></li><li><p><strong>privateKey</strong> - <em>mixed</em> - <em>Buffer</em> or <em>string</em> that contains a private key for either key-based or hostbased user authentication (OpenSSH format). <strong>Default:</strong> (none)</p></li><li><p><strong>passphrase</strong> - <em>string</em> - For an encrypted private key, this is the passphrase used to decrypt it. <strong>Default:</strong> (none)</p></li><li><p><strong>localHostname</strong> - <em>string</em> - Along with <strong>localUsername</strong> and <strong>privateKey</strong>, set this to a non-empty string for hostbased user authentication. <strong>Default:</strong> (none)</p></li><li><p><strong>localUsername</strong> - <em>string</em> - Along with <strong>localHostname</strong> and <strong>privateKey</strong>, set this to a non-empty string for hostbased user authentication. <strong>Default:</strong> (none)</p></li><li><p><strong>tryKeyboard</strong> - <em>boolean</em> - Try keyboard-interactive user authentication if primary user authentication method fails. If you set this to <code>true</code>, you need to handle the <code>keyboard-interactive</code> event. <strong>Default:</strong> <code>false</code></p></li><li><p><strong>authHandler</strong> - <em>function</em> - Function with parameters <code>(methodsLeft, partialSuccess, callback)</code> where <code>methodsLeft</code> and <code>partialSuccess</code> are <code>null</code> on the first authentication attempt, otherwise are an array and boolean respectively. Return or call <code>callback()</code> with the name of the authentication method to try next (pass <code>false</code> to signal no more methods to try). Valid method names are: <code>&#x27;none&#x27;, &#x27;password&#x27;, &#x27;publickey&#x27;, &#x27;agent&#x27;, &#x27;keyboard-interactive&#x27;, &#x27;hostbased&#x27;</code>. <strong>Default:</strong> function that follows a set method order: None -&gt; Password -&gt; Private Key -&gt; Agent (-&gt; keyboard-interactive if <code>tryKeyboard</code> is <code>true</code>) -&gt; Hostbased</p></li><li><p><strong>keepaliveInterval</strong> - <em>integer</em> - How often (in milliseconds) to send SSH-level keepalive packets to the server (in a similar way as OpenSSH&#x27;s ServerAliveInterval config option). Set to 0 to disable. <strong>Default:</strong> <code>0</code></p></li><li><p><strong>keepaliveCountMax</strong> - <em>integer</em> - How many consecutive, unanswered SSH-level keepalive packets that can be sent to the server before disconnection (similar to OpenSSH&#x27;s ServerAliveCountMax config option). <strong>Default:</strong> <code>3</code></p></li><li><p><strong>readyTimeout</strong> - <em>integer</em> - How long (in milliseconds) to wait for the SSH handshake to complete. <strong>Default:</strong> <code>20000</code></p></li><li><p><strong>sock</strong> - <em>ReadableStream</em> - A <em>ReadableStream</em> to use for communicating with the server instead of creating and using a new TCP connection (useful for connection hopping).</p></li><li><p><strong>strictVendor</strong> - <em>boolean</em> - Performs a strict server vendor check before sending vendor-specific requests, etc. (e.g. check for OpenSSH server when using <code>openssh_noMoreSessions()</code>) <strong>Default:</strong> <code>true</code></p></li><li><p><strong>algorithms</strong> - <em>object</em> - This option allows you to explicitly override the default transport layer algorithms used for the connection. Each value must be an array of valid algorithms for that category. The order of the algorithms in the arrays are important, with the most favorable being first. For a list of valid and default algorithm names, please review the documentation for the version of <code>ssh2-streams</code> used by this module. Valid keys:</p><ul><li><p><strong>kex</strong> - <em>array</em> - Key exchange algorithms.</p></li><li><p><strong>cipher</strong> - <em>array</em> - Ciphers.</p></li><li><p><strong>serverHostKey</strong> - <em>array</em> - Server host key formats.</p></li><li><p><strong>hmac</strong> - <em>array</em> - (H)MAC algorithms.</p></li><li><p><strong>compress</strong> - <em>array</em> - Compression algorithms.</p></li></ul></li><li><p><strong>compress</strong> - <em>mixed</em> - Set to <code>true</code> to enable compression if server supports it, <code>&#x27;force&#x27;</code> to force compression (disconnecting if server does not support it), or <code>false</code> to explicitly opt out of compression all of the time. Note: this setting is overridden when explicitly setting a compression algorithm in the <code>algorithms</code> configuration option. <strong>Default:</strong> (only use compression if that is only what the server supports)</p></li><li><p><strong>debug</strong> - <em>function</em> - Set this to a function that receives a single string argument to get detailed (local) debug information. <strong>Default:</strong> (none)</p></li></ul></li></ul><p><strong>Default authentication method order:</strong> None -&gt; Password -&gt; Private Key -&gt; Agent (-&gt; keyboard-interactive if <code>tryKeyboard</code> is <code>true</code>) -&gt; Hostbased</p><ul><li><p><strong>exec</strong>(&lt; <em>string</em> &gt;command[, &lt; <em>object</em> &gt;options], &lt; <em>function</em> &gt;callback) - <em>boolean</em> - Executes <code>command</code> on the server. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic. <code>callback</code> has 2 parameters: &lt; <em>Error</em> &gt;err, &lt; <em>Channel</em> &gt;stream. Valid <code>options</code> properties are:</p><ul><li><p><strong>env</strong> - <em>object</em> - An environment to use for the execution of the command.</p></li><li><p><strong>pty</strong> - <em>mixed</em> - Set to <code>true</code> to allocate a pseudo-tty with defaults, or an object containing specific pseudo-tty settings (see &#x27;Pseudo-TTY settings&#x27;). Setting up a pseudo-tty can be useful when working with remote processes that expect input from an actual terminal (e.g. sudo&#x27;s password prompt).</p></li><li><p><strong>x11</strong> - <em>mixed</em> - Set to <code>true</code> to use defaults below, set to a number to specify a specific screen number, or an object with the following valid properties:</p><ul><li><p><strong>single</strong> - <em>boolean</em> - Allow just a single connection? <strong>Default:</strong> <code>false</code></p></li><li><p><strong>screen</strong> - <em>number</em> - Screen number to use <strong>Default:</strong> <code>0</code></p></li><li><p><strong>protocol</strong> - <em>string</em> - The authentication protocol name. <strong>Default:</strong> <code>&#x27;MIT-MAGIC-COOKIE-1&#x27;</code></p></li><li><p><strong>cookie</strong> - <em>mixed</em> - The authentication cookie. Can be a hex <em>string</em> or a <em>Buffer</em> containing the raw cookie value (which will be converted to a hex string). <strong>Default:</strong> (random 16 byte value)</p></li></ul></li></ul></li><li><p><strong>shell</strong>([[&lt; <em>mixed</em> &gt;window,] &lt; <em>object</em> &gt;options]&lt; <em>function</em> &gt;callback) - <em>boolean</em> - Starts an interactive shell session on the server, with an optional <code>window</code> object containing pseudo-tty settings (see &#x27;Pseudo-TTY settings&#x27;). If <code>window === false</code>, then no pseudo-tty is allocated. <code>options</code> supports the <code>x11</code> and <code>env</code> options as described in <code>exec()</code>. <code>callback</code> has 2 parameters: &lt; <em>Error</em> &gt;err, &lt; <em>Channel</em> &gt;stream. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>forwardIn</strong>(&lt; <em>string</em> &gt;remoteAddr, &lt; <em>integer</em> &gt;remotePort, &lt; <em>function</em> &gt;callback) - <em>boolean</em> - Bind to <code>remoteAddr</code> on <code>remotePort</code> on the server and forward incoming TCP connections. <code>callback</code> has 2 parameters: &lt; <em>Error</em> &gt;err, &lt; <em>integer</em> &gt;port (<code>port</code> is the assigned port number if <code>remotePort</code> was 0). Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic. Here are some special values for <code>remoteAddr</code> and their associated binding behaviors:</p><ul><li><p>&#x27;&#x27; - Connections are to be accepted on all protocol families supported by the server.</p></li><li><p>&#x27;0.0.0.0&#x27; - Listen on all IPv4 addresses.</p></li><li><p>&#x27;::&#x27; - Listen on all IPv6 addresses.</p></li><li><p>&#x27;localhost&#x27; - Listen on all protocol families supported by the server on loopback addresses only.</p></li><li><p>&#x27;127.0.0.1&#x27; and &#x27;::1&#x27; - Listen on the loopback interfaces for IPv4 and IPv6, respectively.</p></li></ul></li><li><p><strong>unforwardIn</strong>(&lt; <em>string</em> &gt;remoteAddr, &lt; <em>integer</em> &gt;remotePort, &lt; <em>function</em> &gt;callback) - <em>boolean</em> - Unbind from <code>remoteAddr</code> on <code>remotePort</code> on the server and stop forwarding incoming TCP connections. Until <code>callback</code> is called, more connections may still come in. <code>callback</code> has 1 parameter: &lt; <em>Error</em> &gt;err. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>forwardOut</strong>(&lt; <em>string</em> &gt;srcIP, &lt; <em>integer</em> &gt;srcPort, &lt; <em>string</em> &gt;dstIP, &lt; <em>integer</em> &gt;dstPort, &lt; <em>function</em> &gt;callback) - <em>boolean</em> - Open a connection with <code>srcIP</code> and <code>srcPort</code> as the originating address and port and <code>dstIP</code> and <code>dstPort</code> as the remote destination address and port. <code>callback</code> has 2 parameters: &lt; <em>Error</em> &gt;err, &lt; <em>Channel</em> &gt;stream. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>sftp</strong>(&lt; <em>function</em> &gt;callback) - <em>boolean</em> - Starts an SFTP session. <code>callback</code> has 2 parameters: &lt; <em>Error</em> &gt;err, &lt; <em>SFTPStream</em> &gt;sftp. For methods available on <code>sftp</code>, see the <a href="https://github.com/mscdex/ssh2-streams/blob/master/SFTPStream.md"><code>SFTPStream</code> client documentation</a> (except <code>read()</code> and <code>write()</code> are used instead of <code>readData()</code> and <code>writeData()</code> respectively, for convenience). Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>subsys</strong>(&lt; <em>string</em> &gt;subsystem, &lt; <em>function</em> &gt;callback) - <em>boolean</em> - Invokes <code>subsystem</code> on the server. <code>callback</code> has 2 parameters: &lt; <em>Error</em> &gt;err, &lt; <em>Channel</em> &gt;stream. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>end</strong>() - <em>(void)</em> - Disconnects the socket.</p></li><li><p><strong>openssh_noMoreSessions</strong>(&lt; <em>function</em> &gt;callback) - <em>boolean</em> - OpenSSH extension that sends a request to reject any new sessions (e.g. exec, shell, sftp, subsys) for this connection. <code>callback</code> has 1 parameter: &lt; <em>Error</em> &gt;err. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>openssh_forwardInStreamLocal</strong>(&lt; <em>string</em> &gt;socketPath, &lt; <em>function</em> &gt;callback) - <em>boolean</em> - OpenSSH extension that binds to a UNIX domain socket at <code>socketPath</code> on the server and forwards incoming connections. <code>callback</code> has 1 parameter: &lt; <em>Error</em> &gt;err. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>openssh_unforwardInStreamLocal</strong>(&lt; <em>string</em> &gt;socketPath, &lt; <em>function</em> &gt;callback) - <em>boolean</em> - OpenSSH extension that unbinds from a UNIX domain socket at <code>socketPath</code> on the server and stops forwarding incoming connections. <code>callback</code> has 1 parameter: &lt; <em>Error</em> &gt;err. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>openssh_forwardOutStreamLocal</strong>(&lt; <em>string</em> &gt;socketPath, &lt; <em>function</em> &gt;callback) - <em>boolean</em> - OpenSSH extension that opens a connection to a UNIX domain socket at <code>socketPath</code> on the server. <code>callback</code> has 2 parameters: &lt; <em>Error</em> &gt;err, &lt; <em>Channel</em> &gt;stream. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li></ul><h3>Server</h3><h4>Server events</h4><ul><li><p><strong>connection</strong>(&lt; <em>Connection</em> &gt;client, &lt; <em>object</em> &gt;info) - A new client has connected. <code>info</code> contains the following properties:</p><ul><li><p><strong>ip</strong> - <em>string</em> - The <code>remoteAddress</code> of the connection.</p></li><li><p><strong>family</strong> - <em>string</em> - The <code>remoteFamily</code> of the connection.</p></li><li><p><strong>port</strong> - <em>integer</em> - The <code>remotePort</code> of the connection.</p></li><li><p><strong>header</strong> - <em>object</em> - Information about the client&#x27;s header:</p><ul><li><p><strong>identRaw</strong> - <em>string</em> - The raw client identification string.</p></li><li><p><strong>versions</strong> - <em>object</em> - Various version information:</p><ul><li><p><strong>protocol</strong> - <em>string</em> - The SSH protocol version (always <code>1.99</code> or <code>2.0</code>).</p></li><li><p><strong>software</strong> - <em>string</em> - The software name and version of the client.</p></li></ul></li><li><p><strong>comments</strong> - <em>string</em> - Any text that comes after the software name/version.</p></li></ul></li></ul><p>Example: the identification string <code>SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2</code> would be parsed as:</p></li></ul><pre><code class="language-js">        { identRaw: &#x27;SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2&#x27;,
+          version: {
+            protocol: &#x27;2.0&#x27;,
+            software: &#x27;OpenSSH_6.6.1p1&#x27;
+          },
+          comments: &#x27;Ubuntu-2ubuntu2&#x27; }</code></pre><h4>Server methods</h4><ul><li><p><strong>(constructor)</strong>(&lt; <em>object</em> &gt;config[, &lt; <em>function</em> &gt;connectionListener]) - Creates and returns a new Server instance. Server instances also have the same methods/properties/events as <a href="http://nodejs.org/docs/latest/api/net.html#net_class_net_server"><code>net.Server</code></a>. <code>connectionListener</code> if supplied, is added as a <code>connection</code> listener. Valid <code>config</code> properties:</p><ul><li><p><strong>hostKeys</strong> - <em>array</em> - An array of either Buffers/strings that contain host private keys or objects in the format of <code>{ key: &lt;Buffer/string&gt;, passphrase: &lt;string&gt; }</code> for encrypted private keys. (<strong>Required</strong>) <strong>Default:</strong> (none)</p></li><li><p><strong>algorithms</strong> - <em>object</em> - This option allows you to explicitly override the default transport layer algorithms used for incoming client connections. Each value must be an array of valid algorithms for that category. The order of the algorithms in the arrays are important, with the most favorable being first. For a list of valid and default algorithm names, please review the documentation for the version of <code>ssh2-streams</code> used by this module. Valid keys:</p><ul><li><p><strong>kex</strong> - <em>array</em> - Key exchange algorithms.</p></li><li><p><strong>cipher</strong> - <em>array</em> - Ciphers.</p></li><li><p><strong>serverHostKey</strong> - <em>array</em> - Server host key formats.</p></li><li><p><strong>hmac</strong> - <em>array</em> - (H)MAC algorithms.</p></li><li><p><strong>compress</strong> - <em>array</em> - Compression algorithms.</p></li></ul></li><li><p><strong>greeting</strong> - <em>string</em> - A message that is sent to clients immediately upon connection, before handshaking begins. <strong>Note:</strong> Most clients usually ignore this. <strong>Default:</strong> (none)</p></li><li><p><strong>banner</strong> - <em>string</em> - A message that is sent to clients once, right before authentication begins. <strong>Default:</strong> (none)</p></li><li><p><strong>ident</strong> - <em>string</em> - A custom server software name/version identifier. <strong>Default:</strong> <code>&#x27;ssh2js&#x27; + moduleVersion + &#x27;srv&#x27;</code></p></li><li><p><strong>highWaterMark</strong> - <em>integer</em> - This is the <code>highWaterMark</code> to use for the parser stream. <strong>Default:</strong> <code>32 * 1024</code></p></li><li><p><strong>debug</strong> - <em>function</em> - Set this to a function that receives a single string argument to get detailed (local) debug information. <strong>Default:</strong> (none)</p></li></ul></li></ul><h4>Connection events</h4><ul><li><p><strong>authentication</strong>(&lt; <em>AuthContext</em> &gt;ctx) - The client has requested authentication. <code>ctx.username</code> contains the client username, <code>ctx.method</code> contains the requested authentication method, and <code>ctx.accept()</code> and <code>ctx.reject([&lt; Array &gt;authMethodsLeft[, &lt; Boolean &gt;isPartialSuccess]])</code> are used to accept or reject the authentication request respectively. <code>abort</code> is emitted if the client aborts the authentication request. Other properties/methods available on <code>ctx</code> depends on the <code>ctx.method</code> of authentication the client has requested:</p><ul><li><p><code>password</code>:</p><ul><li><strong>password</strong> - <em>string</em> - This is the password sent by the client.</li></ul></li><li><p><code>publickey</code>:</p><ul><li><p><strong>key</strong> - <em>object</em> - Contains information about the public key sent by the client:</p><ul><li><p><strong>algo</strong> - <em>string</em> - The name of the key algorithm (e.g. <code>ssh-rsa</code>).</p></li><li><p><strong>data</strong> - <em>Buffer</em> - The actual key data.</p></li></ul></li><li><p><strong>sigAlgo</strong> - <em>mixed</em> - If the value is <code>undefined</code>, the client is only checking the validity of the <code>key</code>. If the value is a <em>string</em>, then this contains the signature algorithm that is passed to <a href="http://nodejs.org/docs/latest/api/crypto.html#crypto_crypto_createverify_algorithm"><code>crypto.createVerify()</code></a>.</p></li><li><p><strong>blob</strong> - <em>mixed</em> - If the value is <code>undefined</code>, the client is only checking the validity of the <code>key</code>. If the value is a <em>Buffer</em>, then this contains the data that is passed to <a href="http://nodejs.org/docs/latest/api/crypto.html#crypto_verifier_update_data"><code>verifier.update()</code></a>.</p></li><li><p><strong>signature</strong> - <em>mixed</em> - If the value is <code>undefined</code>, the client is only checking the validity of the <code>key</code>. If the value is a <em>Buffer</em>, then this contains a signature that is passed to <a href="http://nodejs.org/docs/latest/api/crypto.html#crypto_verifier_verify_object_signature_signature_format"><code>verifier.verify()</code></a>.</p></li></ul></li><li><p><code>keyboard-interactive</code>:</p><ul><li><p><strong>submethods</strong> - <em>array</em> - A list of preferred authentication &quot;sub-methods&quot; sent by the client. This may be used to determine what (if any) prompts to send to the client.</p></li><li><p><strong>prompt</strong>(&lt; <em>array</em> &gt;prompts[, &lt; <em>string</em> &gt;title[, &lt; <em>string</em> &gt;instructions]], &lt; <em>function</em> &gt;callback) - <em>boolean</em> - Send prompts to the client. <code>prompts</code> is an array of <code>{ prompt: &#x27;Prompt text&#x27;, echo: true }</code> objects (<code>prompt</code> being the prompt text and <code>echo</code> indicating whether the client&#x27;s response to the prompt should be echoed to their display). <code>callback</code> is called with <code>(err, responses)</code>, where <code>responses</code> is an array of string responses matching up to the <code>prompts</code>.</p></li></ul></li></ul></li><li><p><strong>ready</strong>() - Emitted when the client has been successfully authenticated.</p></li><li><p><strong>session</strong>(&lt; <em>function</em> &gt;accept, &lt; <em>function</em> &gt;reject) - Emitted when the client has requested a new session. Sessions are used to start interactive shells, execute commands, request X11 forwarding, etc. <code>accept()</code> returns a new <em>Session</em> instance. <code>reject()</code> Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>tcpip</strong>(&lt; <em>function</em> &gt;accept, &lt; <em>function</em> &gt;reject, &lt; <em>object</em> &gt;info) - Emitted when the client has requested an outbound (TCP) connection. <code>accept()</code> returns a new <em>Channel</em> instance representing the connection. <code>reject()</code> Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic. <code>info</code> contains:</p><ul><li><p><strong>srcIP</strong> - <em>string</em> - Source IP address of outgoing connection.</p></li><li><p><strong>srcPort</strong> - <em>string</em> - Source port of outgoing connection.</p></li><li><p><strong>destIP</strong> - <em>string</em> - Destination IP address of outgoing connection.</p></li><li><p><strong>destPort</strong> - <em>string</em> - Destination port of outgoing connection.</p></li></ul></li><li><p><strong>openssh.streamlocal</strong>(&lt; <em>function</em> &gt;accept, &lt; <em>function</em> &gt;reject, &lt; <em>object</em> &gt;info) - Emitted when the client has requested a connection to a UNIX domain socket. <code>accept()</code> returns a new <em>Channel</em> instance representing the connection. <code>reject()</code> Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic. <code>info</code> contains:</p><ul><li><strong>socketPath</strong> - <em>string</em> - Destination socket path of outgoing connection.</li></ul></li><li><p><strong>request</strong>(&lt; <em>mixed</em> &gt;accept, &lt; <em>mixed</em> &gt;reject, &lt; <em>string</em> &gt;name, &lt; <em>object</em> &gt;info) - Emitted when the client has sent a global request for <code>name</code> (e.g. <code>tcpip-forward</code> or <code>cancel-tcpip-forward</code>). <code>accept</code> and <code>reject</code> are functions if the client requested a response. If <code>bindPort === 0</code>, you should pass the chosen port to <code>accept()</code> so that the client will know what port was bound. <code>info</code> contains additional details about the request:</p><ul><li><p><code>tcpip-forward</code> and <code>cancel-tcpip-forward</code>:</p><ul><li><p><strong>bindAddr</strong> - <em>string</em> - The IP address to start/stop binding to.</p></li><li><p><strong>bindPort</strong> - <em>integer</em> - The port to start/stop binding to.</p></li></ul></li><li><p><code>streamlocal-forward@openssh.com</code> and <code>cancel-streamlocal-forward@openssh.com</code>:</p><ul><li><strong>socketPath</strong> - <em>string</em> - The socket path to start/stop binding to.</li></ul></li></ul></li><li><p><strong>rekey</strong>() - Emitted when the client has finished rekeying (either client or server initiated).</p></li><li><p><strong>continue</strong>() - Emitted when more requests/data can be sent to the client (after a <code>Connection</code> method returned <code>false</code>).</p></li><li><p><strong>error</strong>(&lt; <em>Error</em> &gt;err) - An error occurred.</p></li><li><p><strong>end</strong>() - The client socket disconnected.</p></li><li><p><strong>close</strong>() - The client socket was closed.</p></li></ul><h4>Connection methods</h4><ul><li><p><strong>end</strong>() - <em>boolean</em> - Closes the client connection. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>x11</strong>(&lt; <em>string</em> &gt;originAddr, &lt; <em>integer</em> &gt;originPort, &lt; <em>function</em> &gt;callback) - <em>boolean</em> - Alert the client of an incoming X11 client connection from <code>originAddr</code> on port <code>originPort</code>. <code>callback</code> has 2 parameters: &lt; <em>Error</em> &gt;err, &lt; <em>Channel</em> &gt;stream. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>forwardOut</strong>(&lt; <em>string</em> &gt;boundAddr, &lt; <em>integer</em> &gt;boundPort, &lt; <em>string</em> &gt;remoteAddr, &lt; <em>integer</em> &gt;remotePort, &lt; <em>function</em> &gt;callback) - <em>boolean</em> - Alert the client of an incoming TCP connection on <code>boundAddr</code> on port <code>boundPort</code> from <code>remoteAddr</code> on port <code>remotePort</code>. <code>callback</code> has 2 parameters: &lt; <em>Error</em> &gt;err, &lt; <em>Channel</em> &gt;stream. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>openssh_forwardOutStreamLocal</strong>(&lt; <em>string</em> &gt;socketPath, &lt; <em>function</em> &gt;callback) - <em>boolean</em> - Alert the client of an incoming UNIX domain socket connection on <code>socketPath</code>. <code>callback</code> has 2 parameters: &lt; <em>Error</em> &gt;err, &lt; <em>Channel</em> &gt;stream. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>rekey</strong>([&lt; <em>function</em> &gt;callback]) - <em>boolean</em> - Initiates a rekeying with the client. If <code>callback</code> is supplied, it is added as a one-time handler for the <code>rekey</code> event. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li></ul><h4>Session events</h4><ul><li><p><strong>pty</strong>(&lt; <em>mixed</em> &gt;accept, &lt; <em>mixed</em> &gt;reject, &lt; <em>object</em> &gt;info) - The client requested allocation of a pseudo-TTY for this session. <code>accept</code> and <code>reject</code> are functions if the client requested a response and return <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic. <code>info</code> has these properties:</p><ul><li><p><strong>cols</strong> - <em>integer</em> - The number of columns for the pseudo-TTY.</p></li><li><p><strong>rows</strong> - <em>integer</em> - The number of rows for the pseudo-TTY.</p></li><li><p><strong>width</strong> - <em>integer</em> - The width of the pseudo-TTY in pixels.</p></li><li><p><strong>height</strong> - <em>integer</em> - The height of the pseudo-TTY in pixels.</p></li><li><p><strong>modes</strong> - <em>object</em> - Contains the requested terminal modes of the pseudo-TTY keyed on the mode name with the value being the mode argument. (See the table at the end for valid names).</p></li></ul></li><li><p><strong>window-change</strong>(&lt; <em>mixed</em> &gt;accept, &lt; <em>mixed</em> &gt;reject, &lt; <em>object</em> &gt;info) - The client reported a change in window dimensions during this session. <code>accept</code> and <code>reject</code> are functions if the client requested a response and return <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic. <code>info</code> has these properties:</p><ul><li><p><strong>cols</strong> - <em>integer</em> - The new number of columns for the client window.</p></li><li><p><strong>rows</strong> - <em>integer</em> - The new number of rows for the client window.</p></li><li><p><strong>width</strong> - <em>integer</em> - The new width of the client window in pixels.</p></li><li><p><strong>height</strong> - <em>integer</em> - The new height of the client window in pixels.</p></li></ul></li><li><p><strong>x11</strong>(&lt; <em>mixed</em> &gt;accept, &lt; <em>mixed</em> &gt;reject, &lt; <em>object</em> &gt;info) - The client requested X11 forwarding. <code>accept</code> and <code>reject</code> are functions if the client requested a response and return <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic. <code>info</code> has these properties:</p><ul><li><p><strong>single</strong> - <em>boolean</em> - <code>true</code> if only a single connection should be forwarded.</p></li><li><p><strong>protocol</strong> - <em>string</em> - The name of the X11 authentication method used (e.g. <code>MIT-MAGIC-COOKIE-1</code>).</p></li><li><p><strong>cookie</strong> - <em>string</em> - The X11 authentication cookie encoded in hexadecimal.</p></li><li><p><strong>screen</strong> - <em>integer</em> - The screen number to forward X11 connections for.</p></li></ul></li><li><p><strong>env</strong>(&lt; <em>mixed</em> &gt;accept, &lt; <em>mixed</em> &gt;reject, &lt; <em>object</em> &gt;info) - The client requested an environment variable to be set for this session. <code>accept</code> and <code>reject</code> are functions if the client requested a response and return <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic. <code>info</code> has these properties:</p><ul><li><p><strong>key</strong> - <em>string</em> - The environment variable&#x27;s name.</p></li><li><p><strong>value</strong> - <em>string</em> - The environment variable&#x27;s value.</p></li></ul></li><li><p><strong>signal</strong>(&lt; <em>mixed</em> &gt;accept, &lt; <em>mixed</em> &gt;reject, &lt; <em>object</em> &gt;info) - The client has sent a signal. <code>accept</code> and <code>reject</code> are functions if the client requested a response and return <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic. <code>info</code> has these properties:</p><ul><li><strong>name</strong> - <em>string</em> - The signal name (e.g. <code>SIGUSR1</code>).</li></ul></li><li><p><strong>auth-agent</strong>(&lt; <em>mixed</em> &gt;accept, &lt; <em>mixed</em> &gt;reject) - The client has requested incoming ssh-agent requests be forwarded to them. <code>accept</code> and <code>reject</code> are functions if the client requested a response and return <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>shell</strong>(&lt; <em>mixed</em> &gt;accept, &lt; <em>mixed</em> &gt;reject) - The client has requested an interactive shell. <code>accept</code> and <code>reject</code> are functions if the client requested a response. <code>accept()</code> returns a <em>Channel</em> for the interactive shell. <code>reject()</code> Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>exec</strong>(&lt; <em>mixed</em> &gt;accept, &lt; <em>mixed</em> &gt;reject, &lt; <em>object</em> &gt;info) - The client has requested execution of a command string. <code>accept</code> and <code>reject</code> are functions if the client requested a response. <code>accept()</code> returns a <em>Channel</em> for the command execution. <code>reject()</code> Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic. <code>info</code> has these properties:</p><ul><li><strong>command</strong> - <em>string</em> - The command line to be executed.</li></ul></li><li><p><strong>sftp</strong>(&lt; <em>mixed</em> &gt;accept, &lt; <em>mixed</em> &gt;reject) - The client has requested the SFTP subsystem. <code>accept</code> and <code>reject</code> are functions if the client requested a response. <code>accept()</code> returns an <em>SFTPStream</em> in server mode (see the <a href="https://github.com/mscdex/ssh2-streams/blob/master/SFTPStream.md"><code>SFTPStream</code> documentation</a> for details). <code>reject()</code> Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic. <code>info</code> has these properties:</p></li><li><p><strong>subsystem</strong>(&lt; <em>mixed</em> &gt;accept, &lt; <em>mixed</em> &gt;reject, &lt; <em>object</em> &gt;info) - The client has requested an arbitrary subsystem. <code>accept</code> and <code>reject</code> are functions if the client requested a response. <code>accept()</code> returns a <em>Channel</em> for the subsystem. <code>reject()</code> Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic. <code>info</code> has these properties:</p><ul><li><strong>name</strong> - <em>string</em> - The name of the subsystem.</li></ul></li><li><p><strong>close</strong>() - The session was closed.</p></li></ul><h3>Channel</h3><p>This is a normal <strong>streams2</strong> Duplex Stream (used both by clients and servers), with the following changes:</p><ul><li><p>A boolean property <code>allowHalfOpen</code> exists and behaves similarly to the property of the same name for <code>net.Socket</code>. When the stream&#x27;s end() is called, if <code>allowHalfOpen</code> is <code>true</code>, only EOF will be sent (the server can still send data if they have not already sent EOF). The default value for this property is <code>true</code>.</p></li><li><p>A <code>close</code> event is emitted once the channel is completely closed on both the client and server.</p></li><li><p>Client-specific:</p><ul><li><p>For exec():</p><ul><li><p>An <code>exit</code> event <em>may</em> (the SSH2 spec says it is optional) be emitted when the process finishes. If the process finished normally, the process&#x27;s return value is passed to the <code>exit</code> callback. If the process was interrupted by a signal, the following are passed to the <code>exit</code> callback: null, &lt; <em>string</em> &gt;signalName, &lt; <em>boolean</em> &gt;didCoreDump, &lt; <em>string</em> &gt;description.</p></li><li><p>If there was an <code>exit</code> event, the <code>close</code> event will be passed the same arguments for convenience.</p></li><li><p>A <code>stderr</code> property contains a Readable stream that represents output from stderr.</p></li></ul></li><li><p>For shell() and exec():</p><ul><li><p>The readable side represents stdout and the writable side represents stdin.</p></li><li><p><strong>signal</strong>(&lt; <em>string</em> &gt;signalName) - <em>boolean</em> - Sends a POSIX signal to the current process on the server. Valid signal names are: &#x27;ABRT&#x27;, &#x27;ALRM&#x27;, &#x27;FPE&#x27;, &#x27;HUP&#x27;, &#x27;ILL&#x27;, &#x27;INT&#x27;, &#x27;KILL&#x27;, &#x27;PIPE&#x27;, &#x27;QUIT&#x27;, &#x27;SEGV&#x27;, &#x27;TERM&#x27;, &#x27;USR1&#x27;, and &#x27;USR2&#x27;. Some server implementations may ignore this request if they do not support signals. Note: If you are trying to send SIGINT and you find <code>signal()</code> doesn&#x27;t work, try writing <code>&#x27;\x03&#x27;</code> to the Channel stream instead. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>setWindow</strong>(&lt; <em>integer</em> &gt;rows, &lt; <em>integer</em> &gt;cols, &lt; <em>integer</em> &gt;height, &lt; <em>integer</em> &gt;width) - <em>boolean</em> - Lets the server know that the local terminal window has been resized. The meaning of these arguments are described in the &#x27;Pseudo-TTY settings&#x27; section. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li></ul></li></ul></li><li><p>Server-specific:</p><ul><li><p>For exec-enabled channel instances there is an additional method available that may be called right before you close the channel. It has two different signatures:</p><ul><li><p><strong>exit</strong>(&lt; <em>integer</em> &gt;exitCode) - <em>boolean</em> - Sends an exit status code to the client. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li><li><p><strong>exit</strong>(&lt; <em>string</em> &gt;signalName[, &lt; <em>boolean</em> &gt;coreDumped[, &lt; <em>string</em> &gt;errorMsg]]) - <em>boolean</em> - Sends an exit status code to the client. Returns <code>false</code> if you should wait for the <code>continue</code> event before sending any more traffic.</p></li></ul></li><li><p>For exec and shell-enabled channel instances, <code>channel.stderr</code> is a writable stream.</p></li></ul></li></ul><h3>Pseudo-TTY settings</h3><ul><li><p><strong>rows</strong> - &lt; <em>integer</em> &gt; - Number of rows. <strong>Default:</strong> <code>24</code></p></li><li><p><strong>cols</strong> - &lt; <em>integer</em> &gt; - Number of columns. <strong>Default:</strong> <code>80</code></p></li><li><p><strong>height</strong> - &lt; <em>integer</em> &gt; - Height in pixels. <strong>Default:</strong> <code>480</code></p></li><li><p><strong>width</strong> - &lt; <em>integer</em> &gt; - Width in pixels. <strong>Default:</strong> <code>640</code></p></li><li><p><strong>term</strong> - &lt; <em>string</em> &gt; - The value to use for $TERM. <strong>Default:</strong> <code>&#x27;vt100&#x27;</code></p></li><li><p><strong>modes</strong> - &lt; <em>object</em> &gt; - An object containing <a href="#terminal-modes">Terminal Modes</a> as keys, with each value set to each mode argument. <strong>Default:</strong> <code>null</code></p></li></ul><p><code>rows</code> and <code>cols</code> override <code>width</code> and <code>height</code> when <code>rows</code> and <code>cols</code> are non-zero.</p><p>Pixel dimensions refer to the drawable area of the window.</p><p>Zero dimension parameters are ignored.</p><h3>Terminal modes</h3><p>| Name          | Description                                                                                                                     |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| VINTR         | Interrupt character; 255 if none. Similarly for the other characters. Not all of these characters are supported on all systems. |
+| VQUIT         | The quit character (sends SIGQUIT signal on POSIX systems).                                                                     |
+| VERASE        | Erase the character to left of the cursor.                                                                                      |
+| VKILL         | Kill the current input line.                                                                                                    |
+| VEOF          | End-of-file character (sends EOF from the terminal).                                                                            |
+| VEOL          | End-of-line character in addition to carriage return and/or linefeed.                                                           |
+| VEOL2         | Additional end-of-line character.                                                                                               |
+| VSTART        | Continues paused output (normally control-Q).                                                                                   |
+| VSTOP         | Pauses output (normally control-S).                                                                                             |
+| VSUSP         | Suspends the current program.                                                                                                   |
+| VDSUSP        | Another suspend character.                                                                                                      |
+| VREPRINT      | Reprints the current input line.                                                                                                |
+| VWERASE       | Erases a word left of cursor.                                                                                                   |
+| VLNEXT        | Enter the next character typed literally, even if it is a special character                                                     |
+| VFLUSH        | Character to flush output.                                                                                                      |
+| VSWTCH        | Switch to a different shell layer.                                                                                              |
+| VSTATUS       | Prints system status line (load, command, pid, etc).                                                                            |
+| VDISCARD      | Toggles the flushing of terminal output.                                                                                        |
+| IGNPAR        | The ignore parity flag. The parameter SHOULD be 0 if this flag is FALSE, and 1 if it is TRUE.                                   |
+| PARMRK        | Mark parity and framing errors.                                                                                                 |
+| INPCK         | Enable checking of parity errors.                                                                                               |
+| ISTRIP        | Strip 8th bit off characters.                                                                                                   |
+| INLCR         | Map NL into CR on input.                                                                                                        |
+| IGNCR         | Ignore CR on input.                                                                                                             |
+| ICRNL         | Map CR to NL on input.                                                                                                          |
+| IUCLC         | Translate uppercase characters to lowercase.                                                                                    |
+| IXON          | Enable output flow control.                                                                                                     |
+| IXANY         | Any char will restart after stop.                                                                                               |
+| IXOFF         | Enable input flow control.                                                                                                      |
+| IMAXBEL       | Ring bell on input queue full.                                                                                                  |
+| ISIG          | Enable signals INTR, QUIT, [D]SUSP.                                                                                             |
+| ICANON        | Canonicalize input lines.                                                                                                       |
+| XCASE         | Enable input and output of uppercase characters by preceding their lowercase equivalents with &quot;&quot;.                              |
+| ECHO          | Enable echoing.                                                                                                                 |
+| ECHOE         | Visually erase chars.                                                                                                           |
+| ECHOK         | Kill character discards current line.                                                                                           |
+| ECHONL        | Echo NL even if ECHO is off.                                                                                                    |
+| NOFLSH        | Don&#x27;t flush after interrupt.                                                                                                    |
+| TOSTOP        | Stop background jobs from output.                                                                                               |
+| IEXTEN        | Enable extensions.                                                                                                              |
+| ECHOCTL       | Echo control characters as ^(Char).                                                                                             |
+| ECHOKE        | Visual erase for line kill.                                                                                                     |
+| PENDIN        | Retype pending input.                                                                                                           |
+| OPOST         | Enable output processing.                                                                                                       |
+| OLCUC         | Convert lowercase to uppercase.                                                                                                 |
+| ONLCR         | Map NL to CR-NL.                                                                                                                |
+| OCRNL         | Translate carriage return to newline (output).                                                                                  |
+| ONOCR         | Translate newline to carriage return-newline (output).                                                                          |
+| ONLRET        | Newline performs a carriage return (output).                                                                                    |
+| CS7           | 7 bit mode.                                                                                                                     |
+| CS8           | 8 bit mode.                                                                                                                     |
+| PARENB        | Parity enable.                                                                                                                  |
+| PARODD        | Odd parity, else even.                                                                                                          |
+| TTY_OP_ISPEED | Specifies the input baud rate in bits per second.                                                                               |
+| TTY_OP_OSPEED | Specifies the output baud rate in bits per second.                                                                              |</p><h3>HTTPAgent</h3><h4>HTTPAgent methods</h4><ul><li><strong>(constructor)</strong>(&lt; <em>object</em> &gt;sshConfig[, &lt; <em>object</em> &gt;agentConfig]) - Creates and returns a new <code>http.Agent</code> instance used to tunnel an HTTP connection over SSH. <code>sshConfig</code> is what is passed to <code>client.connect()</code> and <code>agentOptions</code> is passed to the <code>http.Agent</code> constructor.</li></ul></section></div></section><footer class="jss4"><div class="container"><span class="jss8">Copyright © 2017-2020 GSMLG - Powered by GSMLG Web.</span></div></footer></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"web-ssh","blog":{"id":39,"name":"web-ssh","title":"浏览器中使用Shell和SSH","date":"2020-05-27","author":"Gao","content":"调研相关软件\n\n- node-pty\n- xterm.js\n- blessed\n- ssh2\n\n### node-pty\n\n[链接](https://github.com/microsoft/node-pty)\n\nnode.js 的 forkpty（3） 绑定。这允许您使用伪终端文件描述符分叉进程。它返回允许读取和写入的终端对象。\n\n这对于：\n\n- 编写终端仿真器（例如通过 xterm.js）。\n- 让某些程序认为您是终端，例如当您需要程序向您发送控制序列时。\n\nnode-pty 支持 Linux、macOS 和 Windows。通过使用 Windows 1809+ 上的 [Windows conpty API](https://blogs.msdn.microsoft.com/commandline/2018/08/02/windows-command-line-introducing-the-windows-pseudo-console-conpty/) 或者旧版本中的[winpty](https://github.com/rprichard/winpty)，获得 Windows 支持。\n\n### xterm.js\n\n[链接](https://github.com/xtermjs/xterm.js)\n\nXterm.js 是一个在 TypeScript 中编写的前端组件，它允许应用程序在浏览器中为其用户带来功能齐全的终端。它被流行的项目，如 VS 代码，超级和 Theia 使用。\n\n#### **Feature**\n\n- Terminal apps just work: Xterm.js 可以通大多数终端 apps，比如`bash`，`vim`和`tmux`，一起工作，这包含了 Curses-based 应用和鼠标事件支持。\n- 性能：Xterm.js 非常快速，它甚至包括了 GPU 加速渲染\n- 丰富的 unicode 支持：支持 CJK，emojis 和 IMEs\n- 自包含：没有任何依赖就可以运行\n- 无障碍：可以打开屏幕阅读器和最小对比度支持\n- 更多的：Links，therming，addons，优秀的 API 文档，等等\n\n#### What xterm.js is not\n\n- Xterm.js is not a terminal application that you can download and use on your computer.\n- Xterm.js is not `bash`. Xterm.js can be connected to processes like `bash` and let you interact with them (provide input, receive output).\n\n### blessed\n\n为 node.js 开发的一个带有高级终端接口的 curses-like library\n\n### ssh2\n\nSSH2 客户端和服务器模块以纯 JavaScript 编写的运行于 node.js.\n\n开发/测试针对 OpenSSH（当前为 7.6） 完成。\n\n## 设计实现\n\n最初设计实现是通过 websocket 服务打通浏览器到 server 之间的连接，使用`xterm.js`在浏览器创建 terminal UI，并使用`node-pty`在 server 打开对应的 shell 来进行服务。\n\n这样只需要使用 web 做好认证就可以处理当前的问题。\n\n经过一番选择后，不希望直接连接服务器，所以更换了一种方式。\n\n在 web 服务器上启动一个`ss2`客户端代理，接入服务后，要求用户来输入用户的 ssh 登陆密码来进行登陆，对应服务器上需要启动 openssh-server。在浏览器启动 xterm.js 模拟终端，之后在浏览器和服务之间创建连接隧道，让终端和 ssh2 代理通讯。\n\n## SSH2 解析\n\n```txt\nssh2@0.8.9\n└─┬ ssh2-streams@0.4.10\n  ├─┬ asn1@0.2.4\n  │ └── safer-buffer@2.1.2\n  ├─┬ bcrypt-pbkdf@1.0.2\n  │ └── tweetnacl@0.14.5\n  └── streamsearch@0.1.2\n```\n\n- ssh2\n  提供 ssh Client/Server\n- ssh-streams\n  提供 ssh 传输流，包含加密解密和传输处理\n\n## SSH2 API\n\n`require('ssh2').Client` returns a **_Client_** constructor.\n\n`require('ssh2').Server` returns a **_Server_** constructor.\n\n`require('ssh2').utils` returns the [utility methods from `ssh2-streams`](https://github.com/mscdex/ssh2-streams#utility-methods).\n\n`require('ssh2').HTTPAgent` returns an [`http.Agent`](https://nodejs.org/docs/latest/api/http.html#http_class_http_agent) constructor.\n\n`require('ssh2').HTTPSAgent` returns an [`https.Agent`](https://nodejs.org/docs/latest/api/https.html#https_class_https_agent) constructor. Its API is the same as `HTTPAgent` except it's for HTTPS connections.\n\n`require('ssh2').SFTP_STATUS_CODE` returns the [`SFTPStream.STATUS_CODE` from `ssh2-streams`](https://github.com/mscdex/ssh2-streams/blob/master/SFTPStream.md#sftpstream-static-constants).\n\n`require('ssh2').SFTP_OPEN_MODE` returns the [`SFTPStream.OPEN_MODE` from `ssh2-streams`](https://github.com/mscdex/ssh2-streams/blob/master/SFTPStream.md#sftpstream-static-constants).\n\n### Client\n\n#### Client events\n\n- **banner**(\u003c _string_ \u003emessage, \u003c _string_ \u003elanguage) - A notice was sent by the server upon connection.\n\n- **ready**() - Authentication was successful.\n\n- **tcp connection**(\u003c _object_ \u003edetails, \u003c _function_ \u003eaccept, \u003c _function_ \u003ereject) - An incoming forwarded TCP connection is being requested. Calling `accept` accepts the connection and returns a `Channel` object. Calling `reject` rejects the connection and no further action is needed. `details` contains:\n\n  - **srcIP** - _string_ - The originating IP of the connection.\n\n  - **srcPort** - _integer_ - The originating port of the connection.\n\n  - **destIP** - _string_ - The remote IP the connection was received on (given in earlier call to `forwardIn()`).\n\n  - **destPort** - _integer_ - The remote port the connection was received on (given in earlier call to `forwardIn()`).\n\n- **x11**(\u003c _object_ \u003edetails, \u003c _function_ \u003eaccept, \u003c _function_ \u003ereject) - An incoming X11 connection is being requested. Calling `accept` accepts the connection and returns a `Channel` object. Calling `reject` rejects the connection and no further action is needed. `details` contains:\n\n  - **srcIP** - _string_ - The originating IP of the connection.\n\n  - **srcPort** - _integer_ - The originating port of the connection.\n\n- **keyboard-interactive**(\u003c _string_ \u003ename, \u003c _string_ \u003einstructions, \u003c _string_ \u003einstructionsLang, \u003c _array_ \u003eprompts, \u003c _function_ \u003efinish) - The server is asking for replies to the given `prompts` for keyboard-interactive user authentication. `name` is generally what you'd use as a window title (for GUI apps). `prompts` is an array of `{ prompt: 'Password: ', echo: false }` style objects (here `echo` indicates whether user input should be displayed on the screen). The answers for all prompts must be provided as an array of strings and passed to `finish` when you are ready to continue. Note: It's possible for the server to come back and ask more questions.\n\n- **unix connection**(\u003c _object_ \u003edetails, \u003c _function_ \u003eaccept, \u003c _function_ \u003ereject) - An incoming forwarded UNIX socket connection is being requested. Calling `accept` accepts the connection and returns a `Channel` object. Calling `reject` rejects the connection and no further action is needed. `details` contains:\n\n  - **socketPath** - _string_ - The originating UNIX socket path of the connection.\n\n- **change password**(\u003c _string_ \u003emessage, \u003c _string_ \u003elanguage, \u003c _function_ \u003edone) - If using password-based user authentication, the server has requested that the user's password be changed. Call `done` with the new password.\n\n- **continue**() - Emitted when more requests/data can be sent to the server (after a `Client` method returned `false`).\n\n- **error**(\u003c _Error_ \u003eerr) - An error occurred. A 'level' property indicates 'client-socket' for socket-level errors and 'client-ssh' for SSH disconnection messages. In the case of 'client-ssh' messages, there may be a 'description' property that provides more detail.\n\n- **end**() - The socket was disconnected.\n\n- **close**() - The socket was closed.\n\n#### Client methods\n\n- **(constructor)**() - Creates and returns a new Client instance.\n\n- **connect**(\u003c _object_ \u003econfig) - _(void)_ - Attempts a connection to a server using the information given in `config`:\n\n  - **host** - _string_ - Hostname or IP address of the server. **Default:** `'localhost'`\n\n  - **port** - _integer_ - Port number of the server. **Default:** `22`\n\n  - **localAddress** - _string_ - IP address of the network interface to use to connect to the server. **Default:** (none -- determined by OS)\n\n  - **localPort** - _string_ - The local port number to connect from. **Default:** (none -- determined by OS)\n\n  - **forceIPv4** - _boolean_ - Only connect via resolved IPv4 address for `host`. **Default:** `false`\n\n  - **forceIPv6** - _boolean_ - Only connect via resolved IPv6 address for `host`. **Default:** `false`\n\n  - **hostHash** - _string_ - Any valid hash algorithm supported by node. The host's key is hashed using this algorithm and passed to the **hostVerifier** function. **Default:** (none)\n\n  - **hostVerifier** - _function_ - Function with parameters `(hashedKey[, callback])` where `hashedKey` is a string hex hash of the host's key for verification purposes. Return `true` to continue with the handshake or `false` to reject and disconnect, or call `callback()` with `true` or `false` if you need to perform asynchronous verification. **Default:** (auto-accept if `hostVerifier` is not set)\n\n  - **username** - _string_ - Username for authentication. **Default:** (none)\n\n  - **password** - _string_ - Password for password-based user authentication. **Default:** (none)\n\n  - **agent** - _string_ - Path to ssh-agent's UNIX socket for ssh-agent-based user authentication. **Windows users: set to 'pageant' for authenticating with Pageant or (actual) path to a cygwin \"UNIX socket.\"** **Default:** (none)\n\n  - **agentForward** - _boolean_ - Set to `true` to use OpenSSH agent forwarding (`auth-agent@openssh.com`) for the life of the connection. `agent` must also be set to use this feature. **Default:** `false`\n\n  - **privateKey** - _mixed_ - _Buffer_ or _string_ that contains a private key for either key-based or hostbased user authentication (OpenSSH format). **Default:** (none)\n\n  - **passphrase** - _string_ - For an encrypted private key, this is the passphrase used to decrypt it. **Default:** (none)\n\n  - **localHostname** - _string_ - Along with **localUsername** and **privateKey**, set this to a non-empty string for hostbased user authentication. **Default:** (none)\n\n  - **localUsername** - _string_ - Along with **localHostname** and **privateKey**, set this to a non-empty string for hostbased user authentication. **Default:** (none)\n\n  - **tryKeyboard** - _boolean_ - Try keyboard-interactive user authentication if primary user authentication method fails. If you set this to `true`, you need to handle the `keyboard-interactive` event. **Default:** `false`\n\n  - **authHandler** - _function_ - Function with parameters `(methodsLeft, partialSuccess, callback)` where `methodsLeft` and `partialSuccess` are `null` on the first authentication attempt, otherwise are an array and boolean respectively. Return or call `callback()` with the name of the authentication method to try next (pass `false` to signal no more methods to try). Valid method names are: `'none', 'password', 'publickey', 'agent', 'keyboard-interactive', 'hostbased'`. **Default:** function that follows a set method order: None -\u003e Password -\u003e Private Key -\u003e Agent (-\u003e keyboard-interactive if `tryKeyboard` is `true`) -\u003e Hostbased\n\n  - **keepaliveInterval** - _integer_ - How often (in milliseconds) to send SSH-level keepalive packets to the server (in a similar way as OpenSSH's ServerAliveInterval config option). Set to 0 to disable. **Default:** `0`\n\n  - **keepaliveCountMax** - _integer_ - How many consecutive, unanswered SSH-level keepalive packets that can be sent to the server before disconnection (similar to OpenSSH's ServerAliveCountMax config option). **Default:** `3`\n\n  - **readyTimeout** - _integer_ - How long (in milliseconds) to wait for the SSH handshake to complete. **Default:** `20000`\n\n  - **sock** - _ReadableStream_ - A _ReadableStream_ to use for communicating with the server instead of creating and using a new TCP connection (useful for connection hopping).\n\n  - **strictVendor** - _boolean_ - Performs a strict server vendor check before sending vendor-specific requests, etc. (e.g. check for OpenSSH server when using `openssh_noMoreSessions()`) **Default:** `true`\n\n  - **algorithms** - _object_ - This option allows you to explicitly override the default transport layer algorithms used for the connection. Each value must be an array of valid algorithms for that category. The order of the algorithms in the arrays are important, with the most favorable being first. For a list of valid and default algorithm names, please review the documentation for the version of `ssh2-streams` used by this module. Valid keys:\n\n    - **kex** - _array_ - Key exchange algorithms.\n\n    - **cipher** - _array_ - Ciphers.\n\n    - **serverHostKey** - _array_ - Server host key formats.\n\n    - **hmac** - _array_ - (H)MAC algorithms.\n\n    - **compress** - _array_ - Compression algorithms.\n\n  - **compress** - _mixed_ - Set to `true` to enable compression if server supports it, `'force'` to force compression (disconnecting if server does not support it), or `false` to explicitly opt out of compression all of the time. Note: this setting is overridden when explicitly setting a compression algorithm in the `algorithms` configuration option. **Default:** (only use compression if that is only what the server supports)\n\n  - **debug** - _function_ - Set this to a function that receives a single string argument to get detailed (local) debug information. **Default:** (none)\n\n**Default authentication method order:** None -\u003e Password -\u003e Private Key -\u003e Agent (-\u003e keyboard-interactive if `tryKeyboard` is `true`) -\u003e Hostbased\n\n- **exec**(\u003c _string_ \u003ecommand[, \u003c _object_ \u003eoptions], \u003c _function_ \u003ecallback) - _boolean_ - Executes `command` on the server. Returns `false` if you should wait for the `continue` event before sending any more traffic. `callback` has 2 parameters: \u003c _Error_ \u003eerr, \u003c _Channel_ \u003estream. Valid `options` properties are:\n\n  - **env** - _object_ - An environment to use for the execution of the command.\n\n  - **pty** - _mixed_ - Set to `true` to allocate a pseudo-tty with defaults, or an object containing specific pseudo-tty settings (see 'Pseudo-TTY settings'). Setting up a pseudo-tty can be useful when working with remote processes that expect input from an actual terminal (e.g. sudo's password prompt).\n\n  - **x11** - _mixed_ - Set to `true` to use defaults below, set to a number to specify a specific screen number, or an object with the following valid properties:\n\n    - **single** - _boolean_ - Allow just a single connection? **Default:** `false`\n\n    - **screen** - _number_ - Screen number to use **Default:** `0`\n\n    - **protocol** - _string_ - The authentication protocol name. **Default:** `'MIT-MAGIC-COOKIE-1'`\n\n    - **cookie** - _mixed_ - The authentication cookie. Can be a hex _string_ or a _Buffer_ containing the raw cookie value (which will be converted to a hex string). **Default:** (random 16 byte value)\n\n- **shell**([[\u003c _mixed_ \u003ewindow,] \u003c _object_ \u003eoptions]\u003c _function_ \u003ecallback) - _boolean_ - Starts an interactive shell session on the server, with an optional `window` object containing pseudo-tty settings (see 'Pseudo-TTY settings'). If `window === false`, then no pseudo-tty is allocated. `options` supports the `x11` and `env` options as described in `exec()`. `callback` has 2 parameters: \u003c _Error_ \u003eerr, \u003c _Channel_ \u003estream. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **forwardIn**(\u003c _string_ \u003eremoteAddr, \u003c _integer_ \u003eremotePort, \u003c _function_ \u003ecallback) - _boolean_ - Bind to `remoteAddr` on `remotePort` on the server and forward incoming TCP connections. `callback` has 2 parameters: \u003c _Error_ \u003eerr, \u003c _integer_ \u003eport (`port` is the assigned port number if `remotePort` was 0). Returns `false` if you should wait for the `continue` event before sending any more traffic. Here are some special values for `remoteAddr` and their associated binding behaviors:\n\n  - '' - Connections are to be accepted on all protocol families supported by the server.\n\n  - '0.0.0.0' - Listen on all IPv4 addresses.\n\n  - '::' - Listen on all IPv6 addresses.\n\n  - 'localhost' - Listen on all protocol families supported by the server on loopback addresses only.\n\n  - '127.0.0.1' and '::1' - Listen on the loopback interfaces for IPv4 and IPv6, respectively.\n\n- **unforwardIn**(\u003c _string_ \u003eremoteAddr, \u003c _integer_ \u003eremotePort, \u003c _function_ \u003ecallback) - _boolean_ - Unbind from `remoteAddr` on `remotePort` on the server and stop forwarding incoming TCP connections. Until `callback` is called, more connections may still come in. `callback` has 1 parameter: \u003c _Error_ \u003eerr. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **forwardOut**(\u003c _string_ \u003esrcIP, \u003c _integer_ \u003esrcPort, \u003c _string_ \u003edstIP, \u003c _integer_ \u003edstPort, \u003c _function_ \u003ecallback) - _boolean_ - Open a connection with `srcIP` and `srcPort` as the originating address and port and `dstIP` and `dstPort` as the remote destination address and port. `callback` has 2 parameters: \u003c _Error_ \u003eerr, \u003c _Channel_ \u003estream. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **sftp**(\u003c _function_ \u003ecallback) - _boolean_ - Starts an SFTP session. `callback` has 2 parameters: \u003c _Error_ \u003eerr, \u003c _SFTPStream_ \u003esftp. For methods available on `sftp`, see the [`SFTPStream` client documentation](https://github.com/mscdex/ssh2-streams/blob/master/SFTPStream.md) (except `read()` and `write()` are used instead of `readData()` and `writeData()` respectively, for convenience). Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **subsys**(\u003c _string_ \u003esubsystem, \u003c _function_ \u003ecallback) - _boolean_ - Invokes `subsystem` on the server. `callback` has 2 parameters: \u003c _Error_ \u003eerr, \u003c _Channel_ \u003estream. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **end**() - _(void)_ - Disconnects the socket.\n\n- **openssh_noMoreSessions**(\u003c _function_ \u003ecallback) - _boolean_ - OpenSSH extension that sends a request to reject any new sessions (e.g. exec, shell, sftp, subsys) for this connection. `callback` has 1 parameter: \u003c _Error_ \u003eerr. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **openssh_forwardInStreamLocal**(\u003c _string_ \u003esocketPath, \u003c _function_ \u003ecallback) - _boolean_ - OpenSSH extension that binds to a UNIX domain socket at `socketPath` on the server and forwards incoming connections. `callback` has 1 parameter: \u003c _Error_ \u003eerr. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **openssh_unforwardInStreamLocal**(\u003c _string_ \u003esocketPath, \u003c _function_ \u003ecallback) - _boolean_ - OpenSSH extension that unbinds from a UNIX domain socket at `socketPath` on the server and stops forwarding incoming connections. `callback` has 1 parameter: \u003c _Error_ \u003eerr. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **openssh_forwardOutStreamLocal**(\u003c _string_ \u003esocketPath, \u003c _function_ \u003ecallback) - _boolean_ - OpenSSH extension that opens a connection to a UNIX domain socket at `socketPath` on the server. `callback` has 2 parameters: \u003c _Error_ \u003eerr, \u003c _Channel_ \u003estream. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n### Server\n\n#### Server events\n\n- **connection**(\u003c _Connection_ \u003eclient, \u003c _object_ \u003einfo) - A new client has connected. `info` contains the following properties:\n\n  - **ip** - _string_ - The `remoteAddress` of the connection.\n\n  - **family** - _string_ - The `remoteFamily` of the connection.\n\n  - **port** - _integer_ - The `remotePort` of the connection.\n\n  - **header** - _object_ - Information about the client's header:\n\n    - **identRaw** - _string_ - The raw client identification string.\n\n    - **versions** - _object_ - Various version information:\n\n      - **protocol** - _string_ - The SSH protocol version (always `1.99` or `2.0`).\n\n      - **software** - _string_ - The software name and version of the client.\n\n    - **comments** - _string_ - Any text that comes after the software name/version.\n\n  Example: the identification string `SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2` would be parsed as:\n\n```js\n        { identRaw: 'SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2',\n          version: {\n            protocol: '2.0',\n            software: 'OpenSSH_6.6.1p1'\n          },\n          comments: 'Ubuntu-2ubuntu2' }\n```\n\n#### Server methods\n\n- **(constructor)**(\u003c _object_ \u003econfig[, \u003c _function_ \u003econnectionListener]) - Creates and returns a new Server instance. Server instances also have the same methods/properties/events as [`net.Server`](http://nodejs.org/docs/latest/api/net.html#net_class_net_server). `connectionListener` if supplied, is added as a `connection` listener. Valid `config` properties:\n\n  - **hostKeys** - _array_ - An array of either Buffers/strings that contain host private keys or objects in the format of `{ key: \u003cBuffer/string\u003e, passphrase: \u003cstring\u003e }` for encrypted private keys. (**Required**) **Default:** (none)\n\n  - **algorithms** - _object_ - This option allows you to explicitly override the default transport layer algorithms used for incoming client connections. Each value must be an array of valid algorithms for that category. The order of the algorithms in the arrays are important, with the most favorable being first. For a list of valid and default algorithm names, please review the documentation for the version of `ssh2-streams` used by this module. Valid keys:\n\n    - **kex** - _array_ - Key exchange algorithms.\n\n    - **cipher** - _array_ - Ciphers.\n\n    - **serverHostKey** - _array_ - Server host key formats.\n\n    - **hmac** - _array_ - (H)MAC algorithms.\n\n    - **compress** - _array_ - Compression algorithms.\n\n  - **greeting** - _string_ - A message that is sent to clients immediately upon connection, before handshaking begins. **Note:** Most clients usually ignore this. **Default:** (none)\n\n  - **banner** - _string_ - A message that is sent to clients once, right before authentication begins. **Default:** (none)\n\n  - **ident** - _string_ - A custom server software name/version identifier. **Default:** `'ssh2js' + moduleVersion + 'srv'`\n\n  - **highWaterMark** - _integer_ - This is the `highWaterMark` to use for the parser stream. **Default:** `32 * 1024`\n\n  - **debug** - _function_ - Set this to a function that receives a single string argument to get detailed (local) debug information. **Default:** (none)\n\n#### Connection events\n\n- **authentication**(\u003c _AuthContext_ \u003ectx) - The client has requested authentication. `ctx.username` contains the client username, `ctx.method` contains the requested authentication method, and `ctx.accept()` and `ctx.reject([\u003c Array \u003eauthMethodsLeft[, \u003c Boolean \u003eisPartialSuccess]])` are used to accept or reject the authentication request respectively. `abort` is emitted if the client aborts the authentication request. Other properties/methods available on `ctx` depends on the `ctx.method` of authentication the client has requested:\n\n  - `password`:\n\n    - **password** - _string_ - This is the password sent by the client.\n\n  - `publickey`:\n\n    - **key** - _object_ - Contains information about the public key sent by the client:\n\n      - **algo** - _string_ - The name of the key algorithm (e.g. `ssh-rsa`).\n\n      - **data** - _Buffer_ - The actual key data.\n\n    - **sigAlgo** - _mixed_ - If the value is `undefined`, the client is only checking the validity of the `key`. If the value is a _string_, then this contains the signature algorithm that is passed to [`crypto.createVerify()`](http://nodejs.org/docs/latest/api/crypto.html#crypto_crypto_createverify_algorithm).\n\n    - **blob** - _mixed_ - If the value is `undefined`, the client is only checking the validity of the `key`. If the value is a _Buffer_, then this contains the data that is passed to [`verifier.update()`](http://nodejs.org/docs/latest/api/crypto.html#crypto_verifier_update_data).\n\n    - **signature** - _mixed_ - If the value is `undefined`, the client is only checking the validity of the `key`. If the value is a _Buffer_, then this contains a signature that is passed to [`verifier.verify()`](http://nodejs.org/docs/latest/api/crypto.html#crypto_verifier_verify_object_signature_signature_format).\n\n  - `keyboard-interactive`:\n\n    - **submethods** - _array_ - A list of preferred authentication \"sub-methods\" sent by the client. This may be used to determine what (if any) prompts to send to the client.\n\n    - **prompt**(\u003c _array_ \u003eprompts[, \u003c _string_ \u003etitle[, \u003c _string_ \u003einstructions]], \u003c _function_ \u003ecallback) - _boolean_ - Send prompts to the client. `prompts` is an array of `{ prompt: 'Prompt text', echo: true }` objects (`prompt` being the prompt text and `echo` indicating whether the client's response to the prompt should be echoed to their display). `callback` is called with `(err, responses)`, where `responses` is an array of string responses matching up to the `prompts`.\n\n- **ready**() - Emitted when the client has been successfully authenticated.\n\n- **session**(\u003c _function_ \u003eaccept, \u003c _function_ \u003ereject) - Emitted when the client has requested a new session. Sessions are used to start interactive shells, execute commands, request X11 forwarding, etc. `accept()` returns a new _Session_ instance. `reject()` Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **tcpip**(\u003c _function_ \u003eaccept, \u003c _function_ \u003ereject, \u003c _object_ \u003einfo) - Emitted when the client has requested an outbound (TCP) connection. `accept()` returns a new _Channel_ instance representing the connection. `reject()` Returns `false` if you should wait for the `continue` event before sending any more traffic. `info` contains:\n\n  - **srcIP** - _string_ - Source IP address of outgoing connection.\n\n  - **srcPort** - _string_ - Source port of outgoing connection.\n\n  - **destIP** - _string_ - Destination IP address of outgoing connection.\n\n  - **destPort** - _string_ - Destination port of outgoing connection.\n\n- **openssh.streamlocal**(\u003c _function_ \u003eaccept, \u003c _function_ \u003ereject, \u003c _object_ \u003einfo) - Emitted when the client has requested a connection to a UNIX domain socket. `accept()` returns a new _Channel_ instance representing the connection. `reject()` Returns `false` if you should wait for the `continue` event before sending any more traffic. `info` contains:\n\n  - **socketPath** - _string_ - Destination socket path of outgoing connection.\n\n- **request**(\u003c _mixed_ \u003eaccept, \u003c _mixed_ \u003ereject, \u003c _string_ \u003ename, \u003c _object_ \u003einfo) - Emitted when the client has sent a global request for `name` (e.g. `tcpip-forward` or `cancel-tcpip-forward`). `accept` and `reject` are functions if the client requested a response. If `bindPort === 0`, you should pass the chosen port to `accept()` so that the client will know what port was bound. `info` contains additional details about the request:\n\n  - `tcpip-forward` and `cancel-tcpip-forward`:\n\n    - **bindAddr** - _string_ - The IP address to start/stop binding to.\n\n    - **bindPort** - _integer_ - The port to start/stop binding to.\n\n  - `streamlocal-forward@openssh.com` and `cancel-streamlocal-forward@openssh.com`:\n\n    - **socketPath** - _string_ - The socket path to start/stop binding to.\n\n- **rekey**() - Emitted when the client has finished rekeying (either client or server initiated).\n\n- **continue**() - Emitted when more requests/data can be sent to the client (after a `Connection` method returned `false`).\n\n- **error**(\u003c _Error_ \u003eerr) - An error occurred.\n\n- **end**() - The client socket disconnected.\n\n- **close**() - The client socket was closed.\n\n#### Connection methods\n\n- **end**() - _boolean_ - Closes the client connection. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **x11**(\u003c _string_ \u003eoriginAddr, \u003c _integer_ \u003eoriginPort, \u003c _function_ \u003ecallback) - _boolean_ - Alert the client of an incoming X11 client connection from `originAddr` on port `originPort`. `callback` has 2 parameters: \u003c _Error_ \u003eerr, \u003c _Channel_ \u003estream. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **forwardOut**(\u003c _string_ \u003eboundAddr, \u003c _integer_ \u003eboundPort, \u003c _string_ \u003eremoteAddr, \u003c _integer_ \u003eremotePort, \u003c _function_ \u003ecallback) - _boolean_ - Alert the client of an incoming TCP connection on `boundAddr` on port `boundPort` from `remoteAddr` on port `remotePort`. `callback` has 2 parameters: \u003c _Error_ \u003eerr, \u003c _Channel_ \u003estream. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **openssh_forwardOutStreamLocal**(\u003c _string_ \u003esocketPath, \u003c _function_ \u003ecallback) - _boolean_ - Alert the client of an incoming UNIX domain socket connection on `socketPath`. `callback` has 2 parameters: \u003c _Error_ \u003eerr, \u003c _Channel_ \u003estream. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **rekey**([\u003c _function_ \u003ecallback]) - _boolean_ - Initiates a rekeying with the client. If `callback` is supplied, it is added as a one-time handler for the `rekey` event. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n#### Session events\n\n- **pty**(\u003c _mixed_ \u003eaccept, \u003c _mixed_ \u003ereject, \u003c _object_ \u003einfo) - The client requested allocation of a pseudo-TTY for this session. `accept` and `reject` are functions if the client requested a response and return `false` if you should wait for the `continue` event before sending any more traffic. `info` has these properties:\n\n  - **cols** - _integer_ - The number of columns for the pseudo-TTY.\n\n  - **rows** - _integer_ - The number of rows for the pseudo-TTY.\n\n  - **width** - _integer_ - The width of the pseudo-TTY in pixels.\n\n  - **height** - _integer_ - The height of the pseudo-TTY in pixels.\n\n  - **modes** - _object_ - Contains the requested terminal modes of the pseudo-TTY keyed on the mode name with the value being the mode argument. (See the table at the end for valid names).\n\n- **window-change**(\u003c _mixed_ \u003eaccept, \u003c _mixed_ \u003ereject, \u003c _object_ \u003einfo) - The client reported a change in window dimensions during this session. `accept` and `reject` are functions if the client requested a response and return `false` if you should wait for the `continue` event before sending any more traffic. `info` has these properties:\n\n  - **cols** - _integer_ - The new number of columns for the client window.\n\n  - **rows** - _integer_ - The new number of rows for the client window.\n\n  - **width** - _integer_ - The new width of the client window in pixels.\n\n  - **height** - _integer_ - The new height of the client window in pixels.\n\n- **x11**(\u003c _mixed_ \u003eaccept, \u003c _mixed_ \u003ereject, \u003c _object_ \u003einfo) - The client requested X11 forwarding. `accept` and `reject` are functions if the client requested a response and return `false` if you should wait for the `continue` event before sending any more traffic. `info` has these properties:\n\n  - **single** - _boolean_ - `true` if only a single connection should be forwarded.\n\n  - **protocol** - _string_ - The name of the X11 authentication method used (e.g. `MIT-MAGIC-COOKIE-1`).\n\n  - **cookie** - _string_ - The X11 authentication cookie encoded in hexadecimal.\n\n  - **screen** - _integer_ - The screen number to forward X11 connections for.\n\n- **env**(\u003c _mixed_ \u003eaccept, \u003c _mixed_ \u003ereject, \u003c _object_ \u003einfo) - The client requested an environment variable to be set for this session. `accept` and `reject` are functions if the client requested a response and return `false` if you should wait for the `continue` event before sending any more traffic. `info` has these properties:\n\n  - **key** - _string_ - The environment variable's name.\n\n  - **value** - _string_ - The environment variable's value.\n\n- **signal**(\u003c _mixed_ \u003eaccept, \u003c _mixed_ \u003ereject, \u003c _object_ \u003einfo) - The client has sent a signal. `accept` and `reject` are functions if the client requested a response and return `false` if you should wait for the `continue` event before sending any more traffic. `info` has these properties:\n\n  - **name** - _string_ - The signal name (e.g. `SIGUSR1`).\n\n- **auth-agent**(\u003c _mixed_ \u003eaccept, \u003c _mixed_ \u003ereject) - The client has requested incoming ssh-agent requests be forwarded to them. `accept` and `reject` are functions if the client requested a response and return `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **shell**(\u003c _mixed_ \u003eaccept, \u003c _mixed_ \u003ereject) - The client has requested an interactive shell. `accept` and `reject` are functions if the client requested a response. `accept()` returns a _Channel_ for the interactive shell. `reject()` Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- **exec**(\u003c _mixed_ \u003eaccept, \u003c _mixed_ \u003ereject, \u003c _object_ \u003einfo) - The client has requested execution of a command string. `accept` and `reject` are functions if the client requested a response. `accept()` returns a _Channel_ for the command execution. `reject()` Returns `false` if you should wait for the `continue` event before sending any more traffic. `info` has these properties:\n\n  - **command** - _string_ - The command line to be executed.\n\n- **sftp**(\u003c _mixed_ \u003eaccept, \u003c _mixed_ \u003ereject) - The client has requested the SFTP subsystem. `accept` and `reject` are functions if the client requested a response. `accept()` returns an _SFTPStream_ in server mode (see the [`SFTPStream` documentation](https://github.com/mscdex/ssh2-streams/blob/master/SFTPStream.md) for details). `reject()` Returns `false` if you should wait for the `continue` event before sending any more traffic. `info` has these properties:\n\n- **subsystem**(\u003c _mixed_ \u003eaccept, \u003c _mixed_ \u003ereject, \u003c _object_ \u003einfo) - The client has requested an arbitrary subsystem. `accept` and `reject` are functions if the client requested a response. `accept()` returns a _Channel_ for the subsystem. `reject()` Returns `false` if you should wait for the `continue` event before sending any more traffic. `info` has these properties:\n\n  - **name** - _string_ - The name of the subsystem.\n\n- **close**() - The session was closed.\n\n### Channel\n\nThis is a normal **streams2** Duplex Stream (used both by clients and servers), with the following changes:\n\n- A boolean property `allowHalfOpen` exists and behaves similarly to the property of the same name for `net.Socket`. When the stream's end() is called, if `allowHalfOpen` is `true`, only EOF will be sent (the server can still send data if they have not already sent EOF). The default value for this property is `true`.\n\n- A `close` event is emitted once the channel is completely closed on both the client and server.\n\n- Client-specific:\n\n  - For exec():\n\n    - An `exit` event _may_ (the SSH2 spec says it is optional) be emitted when the process finishes. If the process finished normally, the process's return value is passed to the `exit` callback. If the process was interrupted by a signal, the following are passed to the `exit` callback: null, \u003c _string_ \u003esignalName, \u003c _boolean_ \u003edidCoreDump, \u003c _string_ \u003edescription.\n\n    - If there was an `exit` event, the `close` event will be passed the same arguments for convenience.\n\n    - A `stderr` property contains a Readable stream that represents output from stderr.\n\n  - For shell() and exec():\n\n    - The readable side represents stdout and the writable side represents stdin.\n\n    - **signal**(\u003c _string_ \u003esignalName) - _boolean_ - Sends a POSIX signal to the current process on the server. Valid signal names are: 'ABRT', 'ALRM', 'FPE', 'HUP', 'ILL', 'INT', 'KILL', 'PIPE', 'QUIT', 'SEGV', 'TERM', 'USR1', and 'USR2'. Some server implementations may ignore this request if they do not support signals. Note: If you are trying to send SIGINT and you find `signal()` doesn't work, try writing `'\\x03'` to the Channel stream instead. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n    - **setWindow**(\u003c _integer_ \u003erows, \u003c _integer_ \u003ecols, \u003c _integer_ \u003eheight, \u003c _integer_ \u003ewidth) - _boolean_ - Lets the server know that the local terminal window has been resized. The meaning of these arguments are described in the 'Pseudo-TTY settings' section. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n- Server-specific:\n\n  - For exec-enabled channel instances there is an additional method available that may be called right before you close the channel. It has two different signatures:\n\n    - **exit**(\u003c _integer_ \u003eexitCode) - _boolean_ - Sends an exit status code to the client. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n    - **exit**(\u003c _string_ \u003esignalName[, \u003c _boolean_ \u003ecoreDumped[, \u003c _string_ \u003eerrorMsg]]) - _boolean_ - Sends an exit status code to the client. Returns `false` if you should wait for the `continue` event before sending any more traffic.\n\n  - For exec and shell-enabled channel instances, `channel.stderr` is a writable stream.\n\n### Pseudo-TTY settings\n\n- **rows** - \u003c _integer_ \u003e - Number of rows. **Default:** `24`\n\n- **cols** - \u003c _integer_ \u003e - Number of columns. **Default:** `80`\n\n- **height** - \u003c _integer_ \u003e - Height in pixels. **Default:** `480`\n\n- **width** - \u003c _integer_ \u003e - Width in pixels. **Default:** `640`\n\n- **term** - \u003c _string_ \u003e - The value to use for \\$TERM. **Default:** `'vt100'`\n\n- **modes** - \u003c _object_ \u003e - An object containing [Terminal Modes](#terminal-modes) as keys, with each value set to each mode argument. **Default:** `null`\n\n`rows` and `cols` override `width` and `height` when `rows` and `cols` are non-zero.\n\nPixel dimensions refer to the drawable area of the window.\n\nZero dimension parameters are ignored.\n\n### Terminal modes\n\n| Name          | Description                                                                                                                     |\n| ------------- | ------------------------------------------------------------------------------------------------------------------------------- |\n| VINTR         | Interrupt character; 255 if none. Similarly for the other characters. Not all of these characters are supported on all systems. |\n| VQUIT         | The quit character (sends SIGQUIT signal on POSIX systems).                                                                     |\n| VERASE        | Erase the character to left of the cursor.                                                                                      |\n| VKILL         | Kill the current input line.                                                                                                    |\n| VEOF          | End-of-file character (sends EOF from the terminal).                                                                            |\n| VEOL          | End-of-line character in addition to carriage return and/or linefeed.                                                           |\n| VEOL2         | Additional end-of-line character.                                                                                               |\n| VSTART        | Continues paused output (normally control-Q).                                                                                   |\n| VSTOP         | Pauses output (normally control-S).                                                                                             |\n| VSUSP         | Suspends the current program.                                                                                                   |\n| VDSUSP        | Another suspend character.                                                                                                      |\n| VREPRINT      | Reprints the current input line.                                                                                                |\n| VWERASE       | Erases a word left of cursor.                                                                                                   |\n| VLNEXT        | Enter the next character typed literally, even if it is a special character                                                     |\n| VFLUSH        | Character to flush output.                                                                                                      |\n| VSWTCH        | Switch to a different shell layer.                                                                                              |\n| VSTATUS       | Prints system status line (load, command, pid, etc).                                                                            |\n| VDISCARD      | Toggles the flushing of terminal output.                                                                                        |\n| IGNPAR        | The ignore parity flag. The parameter SHOULD be 0 if this flag is FALSE, and 1 if it is TRUE.                                   |\n| PARMRK        | Mark parity and framing errors.                                                                                                 |\n| INPCK         | Enable checking of parity errors.                                                                                               |\n| ISTRIP        | Strip 8th bit off characters.                                                                                                   |\n| INLCR         | Map NL into CR on input.                                                                                                        |\n| IGNCR         | Ignore CR on input.                                                                                                             |\n| ICRNL         | Map CR to NL on input.                                                                                                          |\n| IUCLC         | Translate uppercase characters to lowercase.                                                                                    |\n| IXON          | Enable output flow control.                                                                                                     |\n| IXANY         | Any char will restart after stop.                                                                                               |\n| IXOFF         | Enable input flow control.                                                                                                      |\n| IMAXBEL       | Ring bell on input queue full.                                                                                                  |\n| ISIG          | Enable signals INTR, QUIT, [D]SUSP.                                                                                             |\n| ICANON        | Canonicalize input lines.                                                                                                       |\n| XCASE         | Enable input and output of uppercase characters by preceding their lowercase equivalents with \"\\\".                              |\n| ECHO          | Enable echoing.                                                                                                                 |\n| ECHOE         | Visually erase chars.                                                                                                           |\n| ECHOK         | Kill character discards current line.                                                                                           |\n| ECHONL        | Echo NL even if ECHO is off.                                                                                                    |\n| NOFLSH        | Don't flush after interrupt.                                                                                                    |\n| TOSTOP        | Stop background jobs from output.                                                                                               |\n| IEXTEN        | Enable extensions.                                                                                                              |\n| ECHOCTL       | Echo control characters as ^(Char).                                                                                             |\n| ECHOKE        | Visual erase for line kill.                                                                                                     |\n| PENDIN        | Retype pending input.                                                                                                           |\n| OPOST         | Enable output processing.                                                                                                       |\n| OLCUC         | Convert lowercase to uppercase.                                                                                                 |\n| ONLCR         | Map NL to CR-NL.                                                                                                                |\n| OCRNL         | Translate carriage return to newline (output).                                                                                  |\n| ONOCR         | Translate newline to carriage return-newline (output).                                                                          |\n| ONLRET        | Newline performs a carriage return (output).                                                                                    |\n| CS7           | 7 bit mode.                                                                                                                     |\n| CS8           | 8 bit mode.                                                                                                                     |\n| PARENB        | Parity enable.                                                                                                                  |\n| PARODD        | Odd parity, else even.                                                                                                          |\n| TTY_OP_ISPEED | Specifies the input baud rate in bits per second.                                                                               |\n| TTY_OP_OSPEED | Specifies the output baud rate in bits per second.                                                                              |\n\n### HTTPAgent\n\n#### HTTPAgent methods\n\n- **(constructor)**(\u003c _object_ \u003esshConfig[, \u003c _object_ \u003eagentConfig]) - Creates and returns a new `http.Agent` instance used to tunnel an HTTP connection over SSH. `sshConfig` is what is passed to `client.connect()` and `agentOptions` is passed to the `http.Agent` constructor.\n"}},"__N_SSG":true},"page":"/blogs/[slug]","query":{"slug":"web-ssh"},"buildId":"C4AJ9q2RoIIrR1IHHAH1J","nextExport":false,"isFallback":false,"gsp":true}</script><script nomodule="" src="/_next/static/chunks/polyfills-51ce6eb9ed73aacaf515.js"></script><script src="/_next/static/chunks/main-8741ed3c7ec57f378f59.js" async=""></script><script src="/_next/static/chunks/webpack-95c2b224bccf352ee870.js" async=""></script><script src="/_next/static/chunks/framework.962935494b30c127d8df.js" async=""></script><script src="/_next/static/chunks/commons.df3badfa1389741d28a2.js" async=""></script><script src="/_next/static/chunks/3fbd0e4abf850ff07f64ccde56ee9630378b8e04.7ac8cae34eec6be35d96.js" async=""></script><script src="/_next/static/chunks/pages/_app-37f2d112d23aeb2fbca1.js" async=""></script><script src="/_next/static/chunks/460fa7c48ecffb1b1bfdaf9b8a55cba3a474e08f.e4fd6e5862561852bfd0.js" async=""></script><script src="/_next/static/chunks/pages/blogs/%5Bslug%5D-ae308899b480e17c100a.js" async=""></script><script src="/_next/static/C4AJ9q2RoIIrR1IHHAH1J/_buildManifest.js" async=""></script><script src="/_next/static/C4AJ9q2RoIIrR1IHHAH1J/_ssgManifest.js" async=""></script></body></html>
