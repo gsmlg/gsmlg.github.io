@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#3f51b5"/><meta charSet="utf-8"/><meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/><title>语义化版本发布</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/css/f6fff7f38d0ed3d106d5.css" as="style"/><link rel="stylesheet" href="/_next/static/css/f6fff7f38d0ed3d106d5.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js"></script><script src="/_next/static/chunks/webpack-6fb41108959e797dcd04.js" defer=""></script><script src="/_next/static/chunks/framework-2191d16384373197bc0a.js" defer=""></script><script src="/_next/static/chunks/main-1f2c591c5d3bfcfc95e6.js" defer=""></script><script src="/_next/static/chunks/pages/_app-64444adc6f57341878b0.js" defer=""></script><script src="/_next/static/chunks/562-3b1f6738e1bafabab029.js" defer=""></script><script src="/_next/static/chunks/762-a0c796989c6bfcefc5cf.js" defer=""></script><script src="/_next/static/chunks/pages/blogs/%5Bslug%5D-00dab5a8001ef2101280.js" defer=""></script><script src="/_next/static/TUoVa0SiEY7FmHE16pbvq/_buildManifest.js" defer=""></script><script src="/_next/static/TUoVa0SiEY7FmHE16pbvq/_ssgManifest.js" defer=""></script><style id="jss-server-side">.MuiPaper-root {
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#3f51b5"/><meta charSet="utf-8"/><meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/><title>语义化版本发布</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/css/f6fff7f38d0ed3d106d5.css" as="style"/><link rel="stylesheet" href="/_next/static/css/f6fff7f38d0ed3d106d5.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js"></script><script src="/_next/static/chunks/webpack-6fb41108959e797dcd04.js" defer=""></script><script src="/_next/static/chunks/framework-2191d16384373197bc0a.js" defer=""></script><script src="/_next/static/chunks/main-1f2c591c5d3bfcfc95e6.js" defer=""></script><script src="/_next/static/chunks/pages/_app-64444adc6f57341878b0.js" defer=""></script><script src="/_next/static/chunks/562-3b1f6738e1bafabab029.js" defer=""></script><script src="/_next/static/chunks/762-a0c796989c6bfcefc5cf.js" defer=""></script><script src="/_next/static/chunks/pages/blogs/%5Bslug%5D-00dab5a8001ef2101280.js" defer=""></script><script src="/_next/static/__jJoejRIco0lmdfn_tlp/_buildManifest.js" defer=""></script><script src="/_next/static/__jJoejRIco0lmdfn_tlp/_ssgManifest.js" defer=""></script><style id="jss-server-side">.MuiPaper-root {
   color: rgba(0, 0, 0, 0.87);
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   background-color: #fff;
@@ -747,22 +747,43 @@
 <ol>
 <li>主版本号：当你做了不兼容的 API 修改，</li>
 <li>次版本号：当你做了向下兼容的功能性新增，</li>
-<li>修订号：当你做了向下兼容的问题修正。
-先行版本号及版本编译元数据可以加到“主版本号.次版本号.修订号”的后面，作为延伸。</li>
+<li>修订号：当你做了向下兼容的问题修正。先行版本号及版本编译元数据可以加到“主版本
+号.次版本号.修订号”的后面，作为延伸。</li>
 </ol>
 <h3>简介</h3>
-<p>在软件管理的领域里存在着被称作“依赖地狱”的死亡之谷，系统规模越大，加入的包越多，你就越有可能在未来的某一天发现自己已深陷绝望之中。
-在依赖高的系统中发布新版本包可能很快会成为噩梦。如果依赖关系过高，可能面临版本控制被锁死的风险（必须对每一个依赖包改版才能完成某次升级）。而如果依赖关系过于松散，又将无法避免版本的混乱（假设兼容于未来的多个版本已超出了合理数量）。当你专案的进展因为版本依赖被锁死或版本混乱变得不够简便和可靠，就意味着你正处于依赖地狱之中。
-作为这个问题的解决方案之一，我提议用一组简单的规则及条件来约束版本号的配置和增长。这些规则是根据（但不局限于）已经被各种封闭、开放源码软件所广泛使用的惯例所设计。为了让这套理论运作，你必须先有定义好的公共 API 。这可以透过文件定义或代码强制要求来实现。无论如何，这套 API 的清楚明了是十分重要的。一旦你定义了公共 API，你就可以透过修改相应的版本号来向大家说明你的修改。考虑使用这样的版本号格式：X.Y.Z （主版本号.次版本号.修订号）修复问题但不影响API 时，递增修订号；API 保持向下兼容的新增及修改时，递增次版本号；进行不向下兼容的修改时，递增主版本号。
-我称这套系统为“语义化的版本控制”，在这套约定下，版本号及其更新方式包含了相邻版本间的底层代码和修改内容的信息。</p>
+<p>在软件管理的领域里存在着被称作“依赖地狱”的死亡之谷，系统规模越大，加入的包越多，
+你就越有可能在未来的某一天发现自己已深陷绝望之中。在依赖高的系统中发布新版本包可
+能很快会成为噩梦。如果依赖关系过高，可能面临版本控制被锁死的风险（必须对每一个依
+赖包改版才能完成某次升级）。而如果依赖关系过于松散，又将无法避免版本的混乱（假设
+兼容于未来的多个版本已超出了合理数量）。当你专案的进展因为版本依赖被锁死或版本混
+乱变得不够简便和可靠，就意味着你正处于依赖地狱之中。作为这个问题的解决方案之一，
+我提议用一组简单的规则及条件来约束版本号的配置和增长。这些规则是根据（但不局限于
+）已经被各种封闭、开放源码软件所广泛使用的惯例所设计。为了让这套理论运作，你必须
+先有定义好的公共 API 。这可以透过文件定义或代码强制要求来实现。无论如何，这套
+API 的清楚明了是十分重要的。一旦你定义了公共 API，你就可以透过修改相应的版本号来
+向大家说明你的修改。考虑使用这样的版本号格式：X.Y.Z （主版本号.次版本号.修订号）
+修复问题但不影响 API 时，递增修订号；API 保持向下兼容的新增及修改时，递增次版本
+号；进行不向下兼容的修改时，递增主版本号。我称这套系统为“语义化的版本控制”，在这
+套约定下，版本号及其更新方式包含了相邻版本间的底层代码和修改内容的信息。</p>
 <h3>为什么要使用语义化的版本控制？</h3>
-<p>这并不是一个新的或者革命性的想法。实际上，你可能已经在做一些近似的事情了。问题在于只是“近似”还不够。如果没有某个正式的规范可循，版本号对于依赖的管理并无实质意义。将上述的想法命名并给予清楚的定义，让你对软件使用者传达意向变得容易。一旦这些意向变得清楚，弹性（但又不会太弹性）的依赖规范就能达成。
-举个简单的例子就可以展示语义化的版本控制如何让依赖地狱成为过去。假设有个名为“救火车”的函式库，它需要另一个名为“梯子”并已经有使用语义化版本控制的包。当救火车创建时，梯子的版本号为 3.1.0。因为救火车使用了一些版本 3.1.0 所新增的功能， 你可以放心地指定依赖于梯子的版本号大等于 3.1.0 但小于 4.0.0。这样，当梯子版本 3.1.1 和 3.2.0 发布时，你可以将直接它们纳入你的包管理系统，因为它们能与原有依赖的软件兼容。
-作为一位负责任的开发者，你理当确保每次包升级的运作与版本号的表述一致。现实世界是复杂的，我们除了提高警觉外能做的不多。你所能做的就是让语义化的版本控制为你提供一个健全的方式来发行以及升级包，而无需推出新的依赖包，节省你的时间及烦恼。
-如果你对此认同，希望立即开始使用语义化版本控制，你只需声明你的函式库正在使用它并遵循这些规则就可以了。请在你的 README 文件中保留此页连结，让别人也知道这些规则并从中受益。</p>
+<p>这并不是一个新的或者革命性的想法。实际上，你可能已经在做一些近似的事情了。问题在
+于只是“近似”还不够。如果没有某个正式的规范可循，版本号对于依赖的管理并无实质意义
+。将上述的想法命名并给予清楚的定义，让你对软件使用者传达意向变得容易。一旦这些意
+向变得清楚，弹性（但又不会太弹性）的依赖规范就能达成。举个简单的例子就可以展示语
+义化的版本控制如何让依赖地狱成为过去。假设有个名为“救火车”的函式库，它需要另一个
+名为“梯子”并已经有使用语义化版本控制的包。当救火车创建时，梯子的版本号为 3.1.0。
+因为救火车使用了一些版本 3.1.0 所新增的功能， 你可以放心地指定依赖于梯子的版本号
+大等于 3.1.0 但小于 4.0.0。这样，当梯子版本 3.1.1 和 3.2.0 发布时，你可以将直接
+它们纳入你的包管理系统，因为它们能与原有依赖的软件兼容。作为一位负责任的开发者，
+你理当确保每次包升级的运作与版本号的表述一致。现实世界是复杂的，我们除了提高警觉
+外能做的不多。你所能做的就是让语义化的版本控制为你提供一个健全的方式来发行以及升
+级包，而无需推出新的依赖包，节省你的时间及烦恼。如果你对此认同，希望立即开始使用
+语义化版本控制，你只需声明你的函式库正在使用它并遵循这些规则就可以了。请在你的
+README 文件中保留此页连结，让别人也知道这些规则并从中受益。</p>
 <h2>Semantic Release</h2>
 <p>Semantic release, 中文大意是语义发布, 作用是实现完全自动化的版本管理和发布.</p>
-<p><code>Semantic-release</code> 会自动完成整个发布流程, 包括: 自动查明下一个版本号, 生成release note 和 进行包的发布.</p>
+<p><code>Semantic-release</code> 会自动完成整个发布流程, 包括: 自动查明下一个版本号, 生成
+release note 和 进行包的发布.</p>
 <p>这消除了人类情感和版本号之间的直接联系, 严格的遵循<code>Semantic Versioning</code> 规范.</p>
 <p><img src="semantic-release/kill-all-humans.png" alt="kill-all-humans"/></p>
 <h3>亮点</h3>
@@ -772,28 +793,29 @@
 <li>新特性和修复可以立即对用户可用</li>
 <li>提醒维护者和用户新的发布</li>
 <li>在代码库中使用格式化的提交信息变化并生成文档</li>
-<li>基于git merges可以创建不同的发布频道</li>
-<li>和CI工作流集成</li>
+<li>基于 git merges 可以创建不同的发布频道</li>
+<li>和 CI 工作流集成</li>
 <li>和手动发布相比避免潜在的说明错误</li>
 <li>经由插件支持任何版本能管理和语言</li>
 <li>使用<code>共享配置(shareable configurations)</code>来方便和复用配置</li>
 </ul>
 <h3>How it works?</h3>
 <h4>提交信息格式 (commit message format)</h4>
-<p><code>Semantic Release</code>使用用户提交信息(commit message) 查出更新变化的类型.
-通过commit message的格式约定, semantic-release 自动查出下一个semantic version版本号,
-生成更新日志并发布版本.</p>
-<p>Semantic-release默认使用Angular Commit message conventions.
-提交信息格式可以通过修改<code>@semantic-release/commit-analyzer</code>和<code>@semantic-release/release-notes-generator</code>的<code>preset</code>和<code>config</code>选项来改变.</p>
-<p>通过像commitzen和commitlint之类的工具可以帮助确保验证提交信息符合约定.</p>
+<p><code>Semantic Release</code>使用用户提交信息(commit message) 查出更新变化的类型. 通过
+commit message 的格式约定, semantic-release 自动查出下一个 semantic version 版本
+号, 生成更新日志并发布版本.</p>
+<p>Semantic-release 默认使用 Angular Commit message conventions. 提交信息格式可以通
+过修
+改<code>@semantic-release/commit-analyzer</code>和<code>@semantic-release/release-notes-generator</code>的<code>preset</code>和<code>config</code>选
+项来改变.</p>
+<p>通过像 commitzen 和 commitlint 之类的工具可以帮助确保验证提交信息符合约定.</p>
 <p>提交示例:</p>
-<pre><code class="language-markdown">fix(pencil): stop graphite breaking when too much pressure applied        Patch Release
-feat(pencil): add &#x27;graphiteWidth&#x27; option                                  Minor Feature Release
-perf(pencil): remove graphiteWidth option                                 Major Breaking Release
+<pre><code class="language-markdown">fix(pencil): stop graphite breaking when too much pressure applied Patch Release
+feat(pencil): add &#x27;graphiteWidth&#x27; option Minor Feature Release perf(pencil):
+remove graphiteWidth option Major Breaking Release
 
-BREAKING CHANGE: The graphiteWidth option has been removed. 
-The default graphite width of 10mm is always used for 
-performance reasons.
+BREAKING CHANGE: The graphiteWidth option has been removed. The default graphite
+width of 10mm is always used for performance reasons.
 </code></pre>
 <h3>现实中的项目示例</h3>
 <pre><code class="language-yaml">name: nodejs-scripts-validate-and-release
@@ -897,5 +919,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-</code></pre></section></div></section><footer class="jss4"><div class="container"><span class="jss8">Copyright © 2017-2021 GSMLG - Powered by GSMLG Web.</span></div></footer></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"semantic-release","blog":{"id":51,"name":"semantic-release","title":"语义化版本发布","date":"2021-02-25","author":"Gao","content":"# Using semantic release\n在介绍`semantic release`之前, 首先介绍`semantic versioning`\n\n## Semantic Versioning\n语义化版本 [链接](https://semver.org)\n\n### 摘要\n\n版本格式：主版本号.次版本号.修订号，版本号递增规则如下：\n1. 主版本号：当你做了不兼容的 API 修改，\n2. 次版本号：当你做了向下兼容的功能性新增，\n3. 修订号：当你做了向下兼容的问题修正。\n先行版本号及版本编译元数据可以加到“主版本号.次版本号.修订号”的后面，作为延伸。\n\n### 简介\n\n在软件管理的领域里存在着被称作“依赖地狱”的死亡之谷，系统规模越大，加入的包越多，你就越有可能在未来的某一天发现自己已深陷绝望之中。\n在依赖高的系统中发布新版本包可能很快会成为噩梦。如果依赖关系过高，可能面临版本控制被锁死的风险（必须对每一个依赖包改版才能完成某次升级）。而如果依赖关系过于松散，又将无法避免版本的混乱（假设兼容于未来的多个版本已超出了合理数量）。当你专案的进展因为版本依赖被锁死或版本混乱变得不够简便和可靠，就意味着你正处于依赖地狱之中。\n作为这个问题的解决方案之一，我提议用一组简单的规则及条件来约束版本号的配置和增长。这些规则是根据（但不局限于）已经被各种封闭、开放源码软件所广泛使用的惯例所设计。为了让这套理论运作，你必须先有定义好的公共 API 。这可以透过文件定义或代码强制要求来实现。无论如何，这套 API 的清楚明了是十分重要的。一旦你定义了公共 API，你就可以透过修改相应的版本号来向大家说明你的修改。考虑使用这样的版本号格式：X.Y.Z （主版本号.次版本号.修订号）修复问题但不影响API 时，递增修订号；API 保持向下兼容的新增及修改时，递增次版本号；进行不向下兼容的修改时，递增主版本号。\n我称这套系统为“语义化的版本控制”，在这套约定下，版本号及其更新方式包含了相邻版本间的底层代码和修改内容的信息。\n\n### 为什么要使用语义化的版本控制？\n\n这并不是一个新的或者革命性的想法。实际上，你可能已经在做一些近似的事情了。问题在于只是“近似”还不够。如果没有某个正式的规范可循，版本号对于依赖的管理并无实质意义。将上述的想法命名并给予清楚的定义，让你对软件使用者传达意向变得容易。一旦这些意向变得清楚，弹性（但又不会太弹性）的依赖规范就能达成。\n举个简单的例子就可以展示语义化的版本控制如何让依赖地狱成为过去。假设有个名为“救火车”的函式库，它需要另一个名为“梯子”并已经有使用语义化版本控制的包。当救火车创建时，梯子的版本号为 3.1.0。因为救火车使用了一些版本 3.1.0 所新增的功能， 你可以放心地指定依赖于梯子的版本号大等于 3.1.0 但小于 4.0.0。这样，当梯子版本 3.1.1 和 3.2.0 发布时，你可以将直接它们纳入你的包管理系统，因为它们能与原有依赖的软件兼容。\n作为一位负责任的开发者，你理当确保每次包升级的运作与版本号的表述一致。现实世界是复杂的，我们除了提高警觉外能做的不多。你所能做的就是让语义化的版本控制为你提供一个健全的方式来发行以及升级包，而无需推出新的依赖包，节省你的时间及烦恼。\n如果你对此认同，希望立即开始使用语义化版本控制，你只需声明你的函式库正在使用它并遵循这些规则就可以了。请在你的 README 文件中保留此页连结，让别人也知道这些规则并从中受益。\n\n## Semantic Release\nSemantic release, 中文大意是语义发布, 作用是实现完全自动化的版本管理和发布.\n\n`Semantic-release` 会自动完成整个发布流程, 包括: 自动查明下一个版本号, 生成release note 和 进行包的发布.\n\n这消除了人类情感和版本号之间的直接联系, 严格的遵循`Semantic Versioning` 规范.\n\n![kill-all-humans](semantic-release/kill-all-humans.png)\n\n### 亮点\n\n* 完全自动发布\n* 确保语义版本(Semantic Versioning)规范\n* 新特性和修复可以立即对用户可用\n* 提醒维护者和用户新的发布\n* 在代码库中使用格式化的提交信息变化并生成文档\n* 基于git merges可以创建不同的发布频道\n* 和CI工作流集成\n* 和手动发布相比避免潜在的说明错误\n* 经由插件支持任何版本能管理和语言\n* 使用`共享配置(shareable configurations)`来方便和复用配置\n\n### How it works?\n\n#### 提交信息格式 (commit message format)\n\n`Semantic Release`使用用户提交信息(commit message) 查出更新变化的类型.\n通过commit message的格式约定, semantic-release 自动查出下一个semantic version版本号,\n生成更新日志并发布版本.\n\nSemantic-release默认使用Angular Commit message conventions. \n提交信息格式可以通过修改`@semantic-release/commit-analyzer`和`@semantic-release/release-notes-generator`的`preset`和`config`选项来改变.\n\n通过像commitzen和commitlint之类的工具可以帮助确保验证提交信息符合约定.\n\n提交示例:\n```markdown\nfix(pencil): stop graphite breaking when too much pressure applied        Patch Release\nfeat(pencil): add 'graphiteWidth' option                                  Minor Feature Release\nperf(pencil): remove graphiteWidth option                                 Major Breaking Release\n\nBREAKING CHANGE: The graphiteWidth option has been removed. \nThe default graphite width of 10mm is always used for \nperformance reasons.\n```\n\n### 现实中的项目示例\n\n```yaml\nname: nodejs-scripts-validate-and-release\non:\n  push:\n    paths:\n      - 'nodejs/packages/scripts/**'\n      - '.github/workflows/nodejs-scripts-validate-and-release.yml'\n    branches:\n      - '+([0-9])?(.{+([0-9]),x}).x'\n      - 'master'\n      - 'next'\n      - 'next-major'\n      - 'beta'\n      - 'alpha'\n      - '!all-contributors/**'\n  pull_request: {}\njobs:\n  main:\n    # ignore all-contributors PRs\n    if: ${{ !contains(github.head_ref, 'all-contributors') }}\n    strategy:\n      matrix:\n        os: [ubuntu-latest, macos-latest]\n        node: [12, 14, 15]\n    runs-on: ${{ matrix.os }}\n    steps:\n      - name: 🛑 Cancel Previous Runs\n        uses: styfle/cancel-workflow-action@0.6.0\n        with:\n          access_token: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: ⬇️ Checkout repo\n        uses: actions/checkout@v2\n\n      - name: ⎔ Setup node\n        uses: actions/setup-node@v1\n        with:\n          node-version: ${{ matrix.node }}\n\n      - name: 📥 Download deps\n        uses: bahmutov/npm-install@v1\n        with:\n          useLockFile: false\n          working-directory: 'nodejs/packages/scripts'\n\n      - name: ▶️ Run validate script\n        working-directory: 'nodejs/packages/scripts'\n        run: npm run validate\n\n      - name: ⬆️ Upload coverage report\n        uses: codecov/codecov-action@v1\n        with:\n          directory: 'nodejs/packages/scripts/coverage/'\n\n  release:\n    needs: main\n    runs-on: ubuntu-latest\n    if:\n      ${{ github.repository == 'gsmlg/Foundation' \u0026\u0026\n      contains('refs/heads/master,refs/heads/beta,refs/heads/next,refs/heads/alpha',\n      github.ref) \u0026\u0026 github.event_name == 'push' }}\n    steps:\n      - name: 🛑 Cancel Previous Runs\n        uses: styfle/cancel-workflow-action@0.6.0\n        with:\n          access_token: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: ⬇️ Checkout repo\n        uses: actions/checkout@v2\n\n      - name: ⎔ Setup node\n        uses: actions/setup-node@v1\n        with:\n          node-version: 14\n\n      - name: 📥 Download deps\n        uses: bahmutov/npm-install@v1\n        with:\n          useLockFile: false\n          working-directory: 'nodejs/packages/scripts'\n\n      - name: 🏗 Run build script\n        working-directory: 'nodejs/packages/scripts'\n        run: npm run build\n\n      - name: 🚀 Release\n        uses: gsmlg/semantic-release-action@v2\n        with:\n          working-directory: 'nodejs/packages/scripts'\n          semantic_version: 17\n          branches: |\n            [\n              '+([0-9])?(.{+([0-9]),x}).x',\n              'master',\n              'next',\n              'next-major',\n              {name: 'beta', prerelease: true},\n              {name: 'alpha', prerelease: true}\n            ]\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}\n\n```\n\n"}},"__N_SSG":true},"page":"/blogs/[slug]","query":{"slug":"semantic-release"},"buildId":"TUoVa0SiEY7FmHE16pbvq","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
+</code></pre></section></div></section><footer class="jss4"><div class="container"><span class="jss8">Copyright © 2017-2021 GSMLG - Powered by GSMLG Web.</span></div></footer></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"semantic-release","blog":{"id":51,"name":"semantic-release","title":"语义化版本发布","date":"2021-02-25","author":"Gao","content":"# Using semantic release\n\n在介绍`semantic release`之前, 首先介绍`semantic versioning`\n\n## Semantic Versioning\n\n语义化版本 [链接](https://semver.org)\n\n### 摘要\n\n版本格式：主版本号.次版本号.修订号，版本号递增规则如下：\n\n1. 主版本号：当你做了不兼容的 API 修改，\n2. 次版本号：当你做了向下兼容的功能性新增，\n3. 修订号：当你做了向下兼容的问题修正。先行版本号及版本编译元数据可以加到“主版本\n   号.次版本号.修订号”的后面，作为延伸。\n\n### 简介\n\n在软件管理的领域里存在着被称作“依赖地狱”的死亡之谷，系统规模越大，加入的包越多，\n你就越有可能在未来的某一天发现自己已深陷绝望之中。在依赖高的系统中发布新版本包可\n能很快会成为噩梦。如果依赖关系过高，可能面临版本控制被锁死的风险（必须对每一个依\n赖包改版才能完成某次升级）。而如果依赖关系过于松散，又将无法避免版本的混乱（假设\n兼容于未来的多个版本已超出了合理数量）。当你专案的进展因为版本依赖被锁死或版本混\n乱变得不够简便和可靠，就意味着你正处于依赖地狱之中。作为这个问题的解决方案之一，\n我提议用一组简单的规则及条件来约束版本号的配置和增长。这些规则是根据（但不局限于\n）已经被各种封闭、开放源码软件所广泛使用的惯例所设计。为了让这套理论运作，你必须\n先有定义好的公共 API 。这可以透过文件定义或代码强制要求来实现。无论如何，这套\nAPI 的清楚明了是十分重要的。一旦你定义了公共 API，你就可以透过修改相应的版本号来\n向大家说明你的修改。考虑使用这样的版本号格式：X.Y.Z （主版本号.次版本号.修订号）\n修复问题但不影响 API 时，递增修订号；API 保持向下兼容的新增及修改时，递增次版本\n号；进行不向下兼容的修改时，递增主版本号。我称这套系统为“语义化的版本控制”，在这\n套约定下，版本号及其更新方式包含了相邻版本间的底层代码和修改内容的信息。\n\n### 为什么要使用语义化的版本控制？\n\n这并不是一个新的或者革命性的想法。实际上，你可能已经在做一些近似的事情了。问题在\n于只是“近似”还不够。如果没有某个正式的规范可循，版本号对于依赖的管理并无实质意义\n。将上述的想法命名并给予清楚的定义，让你对软件使用者传达意向变得容易。一旦这些意\n向变得清楚，弹性（但又不会太弹性）的依赖规范就能达成。举个简单的例子就可以展示语\n义化的版本控制如何让依赖地狱成为过去。假设有个名为“救火车”的函式库，它需要另一个\n名为“梯子”并已经有使用语义化版本控制的包。当救火车创建时，梯子的版本号为 3.1.0。\n因为救火车使用了一些版本 3.1.0 所新增的功能， 你可以放心地指定依赖于梯子的版本号\n大等于 3.1.0 但小于 4.0.0。这样，当梯子版本 3.1.1 和 3.2.0 发布时，你可以将直接\n它们纳入你的包管理系统，因为它们能与原有依赖的软件兼容。作为一位负责任的开发者，\n你理当确保每次包升级的运作与版本号的表述一致。现实世界是复杂的，我们除了提高警觉\n外能做的不多。你所能做的就是让语义化的版本控制为你提供一个健全的方式来发行以及升\n级包，而无需推出新的依赖包，节省你的时间及烦恼。如果你对此认同，希望立即开始使用\n语义化版本控制，你只需声明你的函式库正在使用它并遵循这些规则就可以了。请在你的\nREADME 文件中保留此页连结，让别人也知道这些规则并从中受益。\n\n## Semantic Release\n\nSemantic release, 中文大意是语义发布, 作用是实现完全自动化的版本管理和发布.\n\n`Semantic-release` 会自动完成整个发布流程, 包括: 自动查明下一个版本号, 生成\nrelease note 和 进行包的发布.\n\n这消除了人类情感和版本号之间的直接联系, 严格的遵循`Semantic Versioning` 规范.\n\n![kill-all-humans](semantic-release/kill-all-humans.png)\n\n### 亮点\n\n- 完全自动发布\n- 确保语义版本(Semantic Versioning)规范\n- 新特性和修复可以立即对用户可用\n- 提醒维护者和用户新的发布\n- 在代码库中使用格式化的提交信息变化并生成文档\n- 基于 git merges 可以创建不同的发布频道\n- 和 CI 工作流集成\n- 和手动发布相比避免潜在的说明错误\n- 经由插件支持任何版本能管理和语言\n- 使用`共享配置(shareable configurations)`来方便和复用配置\n\n### How it works?\n\n#### 提交信息格式 (commit message format)\n\n`Semantic Release`使用用户提交信息(commit message) 查出更新变化的类型. 通过\ncommit message 的格式约定, semantic-release 自动查出下一个 semantic version 版本\n号, 生成更新日志并发布版本.\n\nSemantic-release 默认使用 Angular Commit message conventions. 提交信息格式可以通\n过修\n改`@semantic-release/commit-analyzer`和`@semantic-release/release-notes-generator`的`preset`和`config`选\n项来改变.\n\n通过像 commitzen 和 commitlint 之类的工具可以帮助确保验证提交信息符合约定.\n\n提交示例:\n\n```markdown\nfix(pencil): stop graphite breaking when too much pressure applied Patch Release\nfeat(pencil): add 'graphiteWidth' option Minor Feature Release perf(pencil):\nremove graphiteWidth option Major Breaking Release\n\nBREAKING CHANGE: The graphiteWidth option has been removed. The default graphite\nwidth of 10mm is always used for performance reasons.\n```\n\n### 现实中的项目示例\n\n```yaml\nname: nodejs-scripts-validate-and-release\non:\n  push:\n    paths:\n      - 'nodejs/packages/scripts/**'\n      - '.github/workflows/nodejs-scripts-validate-and-release.yml'\n    branches:\n      - '+([0-9])?(.{+([0-9]),x}).x'\n      - 'master'\n      - 'next'\n      - 'next-major'\n      - 'beta'\n      - 'alpha'\n      - '!all-contributors/**'\n  pull_request: {}\njobs:\n  main:\n    # ignore all-contributors PRs\n    if: ${{ !contains(github.head_ref, 'all-contributors') }}\n    strategy:\n      matrix:\n        os: [ubuntu-latest, macos-latest]\n        node: [12, 14, 15]\n    runs-on: ${{ matrix.os }}\n    steps:\n      - name: 🛑 Cancel Previous Runs\n        uses: styfle/cancel-workflow-action@0.6.0\n        with:\n          access_token: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: ⬇️ Checkout repo\n        uses: actions/checkout@v2\n\n      - name: ⎔ Setup node\n        uses: actions/setup-node@v1\n        with:\n          node-version: ${{ matrix.node }}\n\n      - name: 📥 Download deps\n        uses: bahmutov/npm-install@v1\n        with:\n          useLockFile: false\n          working-directory: 'nodejs/packages/scripts'\n\n      - name: ▶️ Run validate script\n        working-directory: 'nodejs/packages/scripts'\n        run: npm run validate\n\n      - name: ⬆️ Upload coverage report\n        uses: codecov/codecov-action@v1\n        with:\n          directory: 'nodejs/packages/scripts/coverage/'\n\n  release:\n    needs: main\n    runs-on: ubuntu-latest\n    if:\n      ${{ github.repository == 'gsmlg/Foundation' \u0026\u0026\n      contains('refs/heads/master,refs/heads/beta,refs/heads/next,refs/heads/alpha',\n      github.ref) \u0026\u0026 github.event_name == 'push' }}\n    steps:\n      - name: 🛑 Cancel Previous Runs\n        uses: styfle/cancel-workflow-action@0.6.0\n        with:\n          access_token: ${{ secrets.GITHUB_TOKEN }}\n\n      - name: ⬇️ Checkout repo\n        uses: actions/checkout@v2\n\n      - name: ⎔ Setup node\n        uses: actions/setup-node@v1\n        with:\n          node-version: 14\n\n      - name: 📥 Download deps\n        uses: bahmutov/npm-install@v1\n        with:\n          useLockFile: false\n          working-directory: 'nodejs/packages/scripts'\n\n      - name: 🏗 Run build script\n        working-directory: 'nodejs/packages/scripts'\n        run: npm run build\n\n      - name: 🚀 Release\n        uses: gsmlg/semantic-release-action@v2\n        with:\n          working-directory: 'nodejs/packages/scripts'\n          semantic_version: 17\n          branches: |\n            [\n              '+([0-9])?(.{+([0-9]),x}).x',\n              'master',\n              'next',\n              'next-major',\n              {name: 'beta', prerelease: true},\n              {name: 'alpha', prerelease: true}\n            ]\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}\n```\n"}},"__N_SSG":true},"page":"/blogs/[slug]","query":{"slug":"semantic-release"},"buildId":"__jJoejRIco0lmdfn_tlp","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
