@@ -1,36 +1,36 @@
-<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#1976d2"/><meta charSet="utf-8"/><meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/><title>Setup VPN Client in Linux Server</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/css/e48649c78aa55d60.css" as="style"/><link rel="stylesheet" href="/_next/static/css/e48649c78aa55d60.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js"></script><script src="/_next/static/chunks/webpack-1fec710eb11e1257.js" defer=""></script><script src="/_next/static/chunks/framework-0f8b31729833af61.js" defer=""></script><script src="/_next/static/chunks/main-e7f9cd3517807e31.js" defer=""></script><script src="/_next/static/chunks/pages/_app-e8de092c0f6b664d.js" defer=""></script><script src="/_next/static/chunks/947-989f03f09a3cc71b.js" defer=""></script><script src="/_next/static/chunks/555-365ef274c00a7638.js" defer=""></script><script src="/_next/static/chunks/pages/blogs/%5Bslug%5D-862755dfb8cb07b9.js" defer=""></script><script src="/_next/static/mlLbHpVM_Lqb9sjUA1fQc/_buildManifest.js" defer=""></script><script src="/_next/static/mlLbHpVM_Lqb9sjUA1fQc/_ssgManifest.js" defer=""></script><script src="/_next/static/mlLbHpVM_Lqb9sjUA1fQc/_middlewareManifest.js" defer=""></script><style data-emotion="css "></style></head><body><div id="__next"><style data-emotion="css-global o6gwfi">html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;box-sizing:border-box;-webkit-text-size-adjust:100%;}*,*::before,*::after{box-sizing:inherit;}strong,b{font-weight:700;}body{margin:0;color:rgba(0, 0, 0, 0.87);font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1rem;line-height:1.5;letter-spacing:0.00938em;background-color:#fff;}@media print{body{background-color:#fff;}}body::backdrop{background-color:#fff;}</style><section class="css-1vqbnt3"><header class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic css-1x7skt0"><div class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-191lty2"><div status="[object Object]" class="css-ad3hhb"></div><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-1l1167e" tabindex="0" type="button" aria-label="Menu"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="MenuIcon"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button><p class="MuiTypography-root MuiTypography-body1 css-1ikde92" type="title"><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/">Home</a></button><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/blogs">Blog</a></button><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/presentations">Presentation</a></button><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/tools">Tool</a></button><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/games">Game</a></button></p></div></header><section class="css-xxwux"><div class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation4 css-gnirli"><header><h1 class="MuiTypography-root MuiTypography-body1 css-9l3uo3">Setup VPN Client in Linux Server</h1><div class="MuiTypography-root MuiTypography-body1 css-9l3uo3">Author:<!-- -->Gao</div><div class="MuiTypography-root MuiTypography-body1 css-9l3uo3">Created At:<!-- -->2018-08-17</div></header><hr class="MuiDivider-root MuiDivider-fullWidth css-39bbo6"/><section class="MuiTypography-root MuiTypography-body1 blog-content css-9l3uo3"><h1>在 Linux 系统中配置 VPN Client</h1>
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#1976d2"/><meta charSet="utf-8"/><meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/><title>Setup VPN Client in Linux Server</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/css/e48649c78aa55d60.css" as="style"/><link rel="stylesheet" href="/_next/static/css/e48649c78aa55d60.css" data-n-g=""/><link rel="preload" href="/_next/static/css/c2a527101433f11d.css" as="style"/><link rel="stylesheet" href="/_next/static/css/c2a527101433f11d.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js"></script><script src="/_next/static/chunks/webpack-1fec710eb11e1257.js" defer=""></script><script src="/_next/static/chunks/framework-0f8b31729833af61.js" defer=""></script><script src="/_next/static/chunks/main-e7f9cd3517807e31.js" defer=""></script><script src="/_next/static/chunks/pages/_app-e8de092c0f6b664d.js" defer=""></script><script src="/_next/static/chunks/947-989f03f09a3cc71b.js" defer=""></script><script src="/_next/static/chunks/721-90858fa364933d41.js" defer=""></script><script src="/_next/static/chunks/pages/blogs/%5Bslug%5D-51c3d7f318b75bc6.js" defer=""></script><script src="/_next/static/4RPJL9Ob5AKINk71dnYwP/_buildManifest.js" defer=""></script><script src="/_next/static/4RPJL9Ob5AKINk71dnYwP/_ssgManifest.js" defer=""></script><script src="/_next/static/4RPJL9Ob5AKINk71dnYwP/_middlewareManifest.js" defer=""></script><style data-emotion="css "></style></head><body><div id="__next"><style data-emotion="css-global o6gwfi">html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;box-sizing:border-box;-webkit-text-size-adjust:100%;}*,*::before,*::after{box-sizing:inherit;}strong,b{font-weight:700;}body{margin:0;color:rgba(0, 0, 0, 0.87);font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1rem;line-height:1.5;letter-spacing:0.00938em;background-color:#fff;}@media print{body{background-color:#fff;}}body::backdrop{background-color:#fff;}</style><section class="css-1vqbnt3"><header class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic css-1x7skt0"><div class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-191lty2"><div status="[object Object]" class="css-ad3hhb"></div><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-1l1167e" tabindex="0" type="button" aria-label="Menu"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="MenuIcon"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button><p class="MuiTypography-root MuiTypography-body1 css-1ikde92" type="title"><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/">Home</a></button><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/blogs">Blog</a></button><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/presentations">Presentation</a></button><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/tools">Tool</a></button><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/games">Game</a></button></p></div></header><section class="css-xxwux"><div class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation4 css-gnirli"><header><h1 class="MuiTypography-root MuiTypography-body1 css-9l3uo3">Setup VPN Client in Linux Server</h1><div class="MuiTypography-root MuiTypography-body1 css-9l3uo3">Author:<!-- -->Gao</div><div class="MuiTypography-root MuiTypography-body1 css-9l3uo3">Created At:<!-- -->2018-08-17</div></header><hr class="MuiDivider-root MuiDivider-fullWidth css-39bbo6"/><section class="MuiTypography-root MuiTypography-body1 blog-content css-9l3uo3"><h1>在 Linux 系统中配置 VPN Client</h1>
 <p>在没有 X 的 linux 系统中安装启用 VPN</p>
 <h2>安装</h2>
-<pre><code class="language-shell"># Ubuntu &amp; Debian
+<pre><code class="hljs language-shell"><span class="hljs-meta"># </span><span class="bash">Ubuntu &amp; Debian</span>
 apt-get update
 apt-get -y install strongswan xl2tpd
-
-# CentOS &amp; RHEL
+<span class="hljs-meta">
+# </span><span class="bash">CentOS &amp; RHEL</span>
 yum -y install epel-release
 yum --enablerepo=epel -y install strongswan xl2tpd
-
-# Fedora
+<span class="hljs-meta">
+# </span><span class="bash">Fedora</span>
 yum -y install strongswan xl2tpd
 </code></pre>
 <h3>配置 VPN 账户</h3>
-<pre><code class="language-shell">VPN_SERVER_IP=&#x27;你的VPN服务器IP&#x27;
+<pre><code class="hljs language-shell">VPN_SERVER_IP=&#x27;你的VPN服务器IP&#x27;
 VPN_IPSEC_PSK=&#x27;你的IPsec预共享密钥&#x27;
 VPN_USER=&#x27;你的VPN用户名&#x27;
 VPN_PASSWORD=&#x27;你的VPN密码&#x27;
 </code></pre>
 <h3>配置 Strongswan</h3>
-<pre><code class="language-shell">cat &gt; /etc/ipsec.conf &lt;&lt;EOF
-# ipsec.conf - strongSwan IPsec configuration file
-
-# basic configuration
+<pre><code class="hljs language-shell">cat &gt; /etc/ipsec.conf &lt;&lt;EOF
+<span class="hljs-meta"># </span><span class="bash">ipsec.conf - strongSwan IPsec configuration file</span>
+<span class="hljs-meta">
+# </span><span class="bash">basic configuration</span>
 
 config setup
-  # strictcrlpolicy=yes
-  # uniqueids = no
-
-# Add connections here.
-
-# Sample VPN connections
+<span class="hljs-meta">  # </span><span class="bash">strictcrlpolicy=<span class="hljs-built_in">yes</span></span>
+<span class="hljs-meta">  # </span><span class="bash">uniqueids = no</span>
+<span class="hljs-meta">
+# </span><span class="bash">Add connections here.</span>
+<span class="hljs-meta">
+# </span><span class="bash">Sample VPN connections</span>
 
 conn %default
   ikelifetime=60m
@@ -58,15 +58,15 @@ cat &gt; /etc/ipsec.secrets &lt;&lt;EOF
 EOF
 
 chmod 600 /etc/ipsec.secrets
-
-# For CentOS/RHEL &amp; Fedora ONLY
+<span class="hljs-meta">
+# </span><span class="bash">For CentOS/RHEL &amp; Fedora ONLY</span>
 mv /etc/strongswan/ipsec.conf /etc/strongswan/ipsec.conf.old 2&gt;/dev/null
 mv /etc/strongswan/ipsec.secrets /etc/strongswan/ipsec.secrets.old 2&gt;/dev/null
 ln -s /etc/ipsec.conf /etc/strongswan/ipsec.conf
 ln -s /etc/ipsec.secrets /etc/strongswan/ipsec.secrets
 </code></pre>
 <h3>配置 xl2tpd</h3>
-<pre><code class="language-shell">cat &gt; /etc/xl2tpd/xl2tpd.conf &lt;&lt;EOF
+<pre><code class="hljs language-shell">cat &gt; /etc/xl2tpd/xl2tpd.conf &lt;&lt;EOF
 [lac myvpn]
 lns = $VPN_SERVER_IP
 ppp debug = yes
@@ -98,31 +98,31 @@ chmod 600 /etc/ppp/options.l2tpd.client
 </ul>
 <h2>配置连接</h2>
 <h3>创建 xl2tpd 控制文件：</h3>
-<pre><code class="language-shell">mkdir -p /var/run/xl2tpd
+<pre><code class="hljs language-shell">mkdir -p /var/run/xl2tpd
 touch /var/run/xl2tpd/l2tp-control
 </code></pre>
 <h3>重启服务：</h3>
-<pre><code>service strongswan restart
+<pre><code class="hljs language-bash">service strongswan restart
 service xl2tpd restart
 ```
 
-### 开始 IPsec 连接：
+<span class="hljs-comment">### 开始 IPsec 连接：</span>
 
 ```shell
-# Ubuntu &amp; Debian
+<span class="hljs-comment"># Ubuntu &amp; Debian</span>
 ipsec up myvpn
 
-# CentOS/RHEL &amp; Fedora
+<span class="hljs-comment"># CentOS/RHEL &amp; Fedora</span>
 strongswan up myvpn
 ```
 
-### 开始 L2TP 连接：
+<span class="hljs-comment">### 开始 L2TP 连接：</span>
 
 ```shell
-echo &quot;c myvpn&quot; &gt; /var/run/xl2tpd/l2tp-control
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;c myvpn&quot;</span> &gt; /var/run/xl2tpd/l2tp-control
 ```
 
-## 配置路由
+<span class="hljs-comment">## 配置路由</span>
 
 查看路由
 
@@ -133,26 +133,26 @@ ip route
 创建路由表
 
 ```
-git clone https://github.com/gsmlg/static-routes.git
-cd static-routes
+git <span class="hljs-built_in">clone</span> https://github.com/gsmlg/static-routes.git
+<span class="hljs-built_in">cd</span> static-routes
 make linux
-# mode 1 不需要修改 default route
-\cp mode1/ip-up /etc/ppp/ip-up.local
-# mode 2 需要配置 default route 到VPN的IP
-\cp mode1/ip-up /etc/ppp/ip-up.local
-\cp mode1/ip-down /etc/ppp/ip-down
+<span class="hljs-comment"># mode 1 不需要修改 default route</span>
+\<span class="hljs-built_in">cp</span> mode1/ip-up /etc/ppp/ip-up.local
+<span class="hljs-comment"># mode 2 需要配置 default route 到VPN的IP</span>
+\<span class="hljs-built_in">cp</span> mode1/ip-up /etc/ppp/ip-up.local
+\<span class="hljs-built_in">cp</span> mode1/ip-down /etc/ppp/ip-down
 
 ```
 
-## 断开连接
+<span class="hljs-comment">## 断开连接</span>
 
 ```
-# Ubuntu &amp; Debian
-echo &quot;d myvpn&quot; &gt; /var/run/xl2tpd/l2tp-control
+<span class="hljs-comment"># Ubuntu &amp; Debian</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;d myvpn&quot;</span> &gt; /var/run/xl2tpd/l2tp-control
 ipsec down myvpn
 
-# CentOS/RHEL &amp; Fedora
-echo &quot;d myvpn&quot; &gt; /var/run/xl2tpd/l2tp-control
+<span class="hljs-comment"># CentOS/RHEL &amp; Fedora</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;d myvpn&quot;</span> &gt; /var/run/xl2tpd/l2tp-control
 strongswan down myvpn
 ```
-</code></pre></section></div></section><footer style="margin-top:0" class="css-6haedj"><div class="container"><span id="icp-info" class="css-z2a085">京ICP备20014476号-2</span><span>Copyright © 2017-2021 GSMLG - Powered by GSMLG Web.</span></div></footer></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"vpn-client","blog":{"author":"Gao","content":"# 在 Linux 系统中配置 VPN Client\n\n在没有 X 的 linux 系统中安装启用 VPN\n\n## 安装\n\n```shell\n# Ubuntu \u0026 Debian\napt-get update\napt-get -y install strongswan xl2tpd\n\n# CentOS \u0026 RHEL\nyum -y install epel-release\nyum --enablerepo=epel -y install strongswan xl2tpd\n\n# Fedora\nyum -y install strongswan xl2tpd\n```\n\n### 配置 VPN 账户\n\n```shell\nVPN_SERVER_IP='你的VPN服务器IP'\nVPN_IPSEC_PSK='你的IPsec预共享密钥'\nVPN_USER='你的VPN用户名'\nVPN_PASSWORD='你的VPN密码'\n```\n\n### 配置 Strongswan\n\n```shell\ncat \u003e /etc/ipsec.conf \u003c\u003cEOF\n# ipsec.conf - strongSwan IPsec configuration file\n\n# basic configuration\n\nconfig setup\n  # strictcrlpolicy=yes\n  # uniqueids = no\n\n# Add connections here.\n\n# Sample VPN connections\n\nconn %default\n  ikelifetime=60m\n  keylife=20m\n  rekeymargin=3m\n  keyingtries=1\n  keyexchange=ikev1\n  authby=secret\n  ike=aes128-sha1-modp1024,3des-sha1-modp1024!\n  esp=aes128-sha1-modp1024,3des-sha1-modp1024!\n\nconn myvpn\n  keyexchange=ikev1\n  left=%defaultroute\n  auto=add\n  authby=secret\n  type=transport\n  leftprotoport=17/1701\n  rightprotoport=17/1701\n  right=$VPN_SERVER_IP\nEOF\n\ncat \u003e /etc/ipsec.secrets \u003c\u003cEOF\n: PSK \"$VPN_IPSEC_PSK\"\nEOF\n\nchmod 600 /etc/ipsec.secrets\n\n# For CentOS/RHEL \u0026 Fedora ONLY\nmv /etc/strongswan/ipsec.conf /etc/strongswan/ipsec.conf.old 2\u003e/dev/null\nmv /etc/strongswan/ipsec.secrets /etc/strongswan/ipsec.secrets.old 2\u003e/dev/null\nln -s /etc/ipsec.conf /etc/strongswan/ipsec.conf\nln -s /etc/ipsec.secrets /etc/strongswan/ipsec.secrets\n```\n\n### 配置 xl2tpd\n\n```shell\ncat \u003e /etc/xl2tpd/xl2tpd.conf \u003c\u003cEOF\n[lac myvpn]\nlns = $VPN_SERVER_IP\nppp debug = yes\npppoptfile = /etc/ppp/options.l2tpd.client\nlength bit = yes\nEOF\n\ncat \u003e /etc/ppp/options.l2tpd.client \u003c\u003cEOF\nipcp-accept-local\nipcp-accept-remote\nrefuse-eap\nrequire-chap\nnoccp\nnoauth\nmtu 1280\nmru 1280\nnoipdefault\ndefaultroute\nusepeerdns\nconnect-delay 5000\nname $VPN_USER\npassword $VPN_PASSWORD\nEOF\n\nchmod 600 /etc/ppp/options.l2tpd.client\n```\n\n- 至此 VPN 客户端配置已完成\n\n## 配置连接\n\n### 创建 xl2tpd 控制文件：\n\n```shell\nmkdir -p /var/run/xl2tpd\ntouch /var/run/xl2tpd/l2tp-control\n```\n\n### 重启服务：\n\n````\nservice strongswan restart\nservice xl2tpd restart\n```\n\n### 开始 IPsec 连接：\n\n```shell\n# Ubuntu \u0026 Debian\nipsec up myvpn\n\n# CentOS/RHEL \u0026 Fedora\nstrongswan up myvpn\n```\n\n### 开始 L2TP 连接：\n\n```shell\necho \"c myvpn\" \u003e /var/run/xl2tpd/l2tp-control\n```\n\n## 配置路由\n\n查看路由\n\n```shell\nip route\n```\n\n创建路由表\n\n```\ngit clone https://github.com/gsmlg/static-routes.git\ncd static-routes\nmake linux\n# mode 1 不需要修改 default route\n\\cp mode1/ip-up /etc/ppp/ip-up.local\n# mode 2 需要配置 default route 到VPN的IP\n\\cp mode1/ip-up /etc/ppp/ip-up.local\n\\cp mode1/ip-down /etc/ppp/ip-down\n\n```\n\n## 断开连接\n\n```\n# Ubuntu \u0026 Debian\necho \"d myvpn\" \u003e /var/run/xl2tpd/l2tp-control\nipsec down myvpn\n\n# CentOS/RHEL \u0026 Fedora\necho \"d myvpn\" \u003e /var/run/xl2tpd/l2tp-control\nstrongswan down myvpn\n```\n````\n","date":"2018-08-17","id":24,"slug":"vpn-client","title":"Setup VPN Client in Linux Server"}},"__N_SSG":true},"page":"/blogs/[slug]","query":{"slug":"vpn-client"},"buildId":"mlLbHpVM_Lqb9sjUA1fQc","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
+</code></pre></section></div></section><footer style="margin-top:0" class="css-6haedj"><div class="container"><span id="icp-info" class="css-z2a085">京ICP备20014476号-2</span><span>Copyright © 2017-2021 GSMLG - Powered by GSMLG Web.</span></div></footer></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"vpn-client","blog":{"author":"Gao","content":"# 在 Linux 系统中配置 VPN Client\n\n在没有 X 的 linux 系统中安装启用 VPN\n\n## 安装\n\n```shell\n# Ubuntu \u0026 Debian\napt-get update\napt-get -y install strongswan xl2tpd\n\n# CentOS \u0026 RHEL\nyum -y install epel-release\nyum --enablerepo=epel -y install strongswan xl2tpd\n\n# Fedora\nyum -y install strongswan xl2tpd\n```\n\n### 配置 VPN 账户\n\n```shell\nVPN_SERVER_IP='你的VPN服务器IP'\nVPN_IPSEC_PSK='你的IPsec预共享密钥'\nVPN_USER='你的VPN用户名'\nVPN_PASSWORD='你的VPN密码'\n```\n\n### 配置 Strongswan\n\n```shell\ncat \u003e /etc/ipsec.conf \u003c\u003cEOF\n# ipsec.conf - strongSwan IPsec configuration file\n\n# basic configuration\n\nconfig setup\n  # strictcrlpolicy=yes\n  # uniqueids = no\n\n# Add connections here.\n\n# Sample VPN connections\n\nconn %default\n  ikelifetime=60m\n  keylife=20m\n  rekeymargin=3m\n  keyingtries=1\n  keyexchange=ikev1\n  authby=secret\n  ike=aes128-sha1-modp1024,3des-sha1-modp1024!\n  esp=aes128-sha1-modp1024,3des-sha1-modp1024!\n\nconn myvpn\n  keyexchange=ikev1\n  left=%defaultroute\n  auto=add\n  authby=secret\n  type=transport\n  leftprotoport=17/1701\n  rightprotoport=17/1701\n  right=$VPN_SERVER_IP\nEOF\n\ncat \u003e /etc/ipsec.secrets \u003c\u003cEOF\n: PSK \"$VPN_IPSEC_PSK\"\nEOF\n\nchmod 600 /etc/ipsec.secrets\n\n# For CentOS/RHEL \u0026 Fedora ONLY\nmv /etc/strongswan/ipsec.conf /etc/strongswan/ipsec.conf.old 2\u003e/dev/null\nmv /etc/strongswan/ipsec.secrets /etc/strongswan/ipsec.secrets.old 2\u003e/dev/null\nln -s /etc/ipsec.conf /etc/strongswan/ipsec.conf\nln -s /etc/ipsec.secrets /etc/strongswan/ipsec.secrets\n```\n\n### 配置 xl2tpd\n\n```shell\ncat \u003e /etc/xl2tpd/xl2tpd.conf \u003c\u003cEOF\n[lac myvpn]\nlns = $VPN_SERVER_IP\nppp debug = yes\npppoptfile = /etc/ppp/options.l2tpd.client\nlength bit = yes\nEOF\n\ncat \u003e /etc/ppp/options.l2tpd.client \u003c\u003cEOF\nipcp-accept-local\nipcp-accept-remote\nrefuse-eap\nrequire-chap\nnoccp\nnoauth\nmtu 1280\nmru 1280\nnoipdefault\ndefaultroute\nusepeerdns\nconnect-delay 5000\nname $VPN_USER\npassword $VPN_PASSWORD\nEOF\n\nchmod 600 /etc/ppp/options.l2tpd.client\n```\n\n- 至此 VPN 客户端配置已完成\n\n## 配置连接\n\n### 创建 xl2tpd 控制文件：\n\n```shell\nmkdir -p /var/run/xl2tpd\ntouch /var/run/xl2tpd/l2tp-control\n```\n\n### 重启服务：\n\n````\nservice strongswan restart\nservice xl2tpd restart\n```\n\n### 开始 IPsec 连接：\n\n```shell\n# Ubuntu \u0026 Debian\nipsec up myvpn\n\n# CentOS/RHEL \u0026 Fedora\nstrongswan up myvpn\n```\n\n### 开始 L2TP 连接：\n\n```shell\necho \"c myvpn\" \u003e /var/run/xl2tpd/l2tp-control\n```\n\n## 配置路由\n\n查看路由\n\n```shell\nip route\n```\n\n创建路由表\n\n```\ngit clone https://github.com/gsmlg/static-routes.git\ncd static-routes\nmake linux\n# mode 1 不需要修改 default route\n\\cp mode1/ip-up /etc/ppp/ip-up.local\n# mode 2 需要配置 default route 到VPN的IP\n\\cp mode1/ip-up /etc/ppp/ip-up.local\n\\cp mode1/ip-down /etc/ppp/ip-down\n\n```\n\n## 断开连接\n\n```\n# Ubuntu \u0026 Debian\necho \"d myvpn\" \u003e /var/run/xl2tpd/l2tp-control\nipsec down myvpn\n\n# CentOS/RHEL \u0026 Fedora\necho \"d myvpn\" \u003e /var/run/xl2tpd/l2tp-control\nstrongswan down myvpn\n```\n````\n","date":"2018-08-17","id":24,"slug":"vpn-client","title":"Setup VPN Client in Linux Server"}},"__N_SSG":true},"page":"/blogs/[slug]","query":{"slug":"vpn-client"},"buildId":"4RPJL9Ob5AKINk71dnYwP","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
