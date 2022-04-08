@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/><meta name="theme-color" content="#1976d2"/><title>Web Component</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="5"/><meta name="theme-color" content="#1976d2"/><link rel="preload" href="/_next/static/css/b192415249a5ea5e.css" as="style"/><link rel="stylesheet" href="/_next/static/css/b192415249a5ea5e.css" data-n-g=""/><link rel="preload" href="/_next/static/css/c2a527101433f11d.css" as="style"/><link rel="stylesheet" href="/_next/static/css/c2a527101433f11d.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/_next/static/chunks/webpack-a287909b40ce69d4.js" defer=""></script><script src="/_next/static/chunks/framework-5f4595e5518b5600.js" defer=""></script><script src="/_next/static/chunks/main-01df828e572375b9.js" defer=""></script><script src="/_next/static/chunks/pages/_app-fa1c54dc84ff2f16.js" defer=""></script><script src="/_next/static/chunks/eb1842f2-20fe0ca1aebd61de.js" defer=""></script><script src="/_next/static/chunks/912-6f01d34643494dca.js" defer=""></script><script src="/_next/static/chunks/769-5e2fcbf78701438b.js" defer=""></script><script src="/_next/static/chunks/pages/blogs/%5Bslug%5D-2a43c0343f5063f0.js" defer=""></script><script src="/_next/static/h82iqSigdrJkrIY5LCcRS/_buildManifest.js" defer=""></script><script src="/_next/static/h82iqSigdrJkrIY5LCcRS/_ssgManifest.js" defer=""></script><script src="/_next/static/h82iqSigdrJkrIY5LCcRS/_middlewareManifest.js" defer=""></script><style data-emotion="css "></style></head><body><div id="__next" data-reactroot=""><style data-emotion="css-global o6gwfi">html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;box-sizing:border-box;-webkit-text-size-adjust:100%;}*,*::before,*::after{box-sizing:inherit;}strong,b{font-weight:700;}body{margin:0;color:rgba(0, 0, 0, 0.87);font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1rem;line-height:1.5;letter-spacing:0.00938em;background-color:#fff;}@media print{body{background-color:#fff;}}body::backdrop{background-color:#fff;}</style><section class="css-1vqbnt3"><header class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic css-1x7skt0"><div class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-191lty2"><div status="[object Object]" class="css-ad3hhb"></div><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-1l1167e" tabindex="0" type="button" aria-label="Menu"><span class="BaseBadge-root root css-1rzb3uu"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="MenuIcon"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg><span class="BaseBadge-badge BaseBadge-invisible MuiBadge-badge MuiBadge-standard anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-invisible css-1mcnwcn"></span></span></button><p class="MuiTypography-root MuiTypography-body1 css-1ikde92" type="title"><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/">Home</a></button><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/blogs">Blog</a></button><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/presentations">Presentation</a></button><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/tools">Tool</a></button><button class="MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButtonBase-root  css-b7766g" tabindex="0" type="button"><a href="/games">Game</a></button></p></div></header><section class="css-xxwux"><div class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation4 css-gnirli"><header><h1 class="MuiTypography-root MuiTypography-body1 css-9l3uo3">Web Component</h1><div class="MuiTypography-root MuiTypography-body1 css-9l3uo3">Author:<!-- -->Gao</div><div class="MuiTypography-root MuiTypography-body1 css-9l3uo3">Created At:<!-- -->2022-04-07</div></header><hr class="MuiDivider-root MuiDivider-fullWidth css-39bbo6"/><section class="MuiTypography-root MuiTypography-body1 blog-content css-9l3uo3"><div class="css-1xqzmcn"><h2>Concepts</h2>
+<p>Class <code>CustomElementRegistry</code></p>
+<ul>
+<li><code>define</code>
+The define() method of the  <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry">CustomElementRegistry</a>  interface defines a new custom element.
+There are two types of custom elements you can create:<!-- -->
+<ul>
+<li>Autonomous custom element: Standalone elements; they don’t inherit from built-in HTML elements.</li>
+<li>Customized built-in element: These elements inherit from — and extend — built-in HTML elements.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="hljs language-delphi">customElements.define(<span class="hljs-keyword">name</span>, <span class="hljs-function"><span class="hljs-keyword">constructor</span>, <span class="hljs-title">options</span>);</span>
+</code></pre>
+<ul>
+<li><code>upgrade</code>
+The upgrade() method of the  <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry">CustomElementRegistry</a>  interface upgrades all shadow-containing custom elements in a  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node">Node</a>  subtree, even before they are connected to the main document.</li>
+</ul>
+<pre><code class="hljs language-ini">customElements.upgrade(root)<span class="hljs-comment">;</span>
+</code></pre>
+<ul>
+<li><code>whenDefined</code>
+The whenDefined() method of the  <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry">CustomElementRegistry</a>  interface returns a  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>  that resolves when the named element is defined.</li>
+</ul>
+<pre><code class="hljs language-reasonml">customElements.<span class="hljs-keyword">when</span><span class="hljs-constructor">Defined(<span class="hljs-params">name</span>)</span>: Promise&lt;CustomElementConstructor&gt;;
+</code></pre>
+<h2>Example</h2>
+<pre><code class="hljs language-javascript"><span class="hljs-comment">// Create a class for the element</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">WordCount</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">HTMLParagraphElement</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// Always call super first in constructor</span>
+    <span class="hljs-variable language_">super</span>();
+
+    <span class="hljs-comment">// count words in element&#x27;s parent element</span>
+    <span class="hljs-keyword">var</span> wcParent = <span class="hljs-variable language_">this</span>.<span class="hljs-property">parentNode</span>;
+
+    <span class="hljs-keyword">function</span> <span class="hljs-title function_">countWords</span>(<span class="hljs-params">node</span>){
+      <span class="hljs-keyword">var</span> text = node.<span class="hljs-property">innerText</span> || node.<span class="hljs-property">textContent</span>
+      <span class="hljs-keyword">return</span> text.<span class="hljs-title function_">split</span>(<span class="hljs-regexp">/\s+/g</span>).<span class="hljs-property">length</span>;
+    }
+
+    <span class="hljs-keyword">var</span> count = <span class="hljs-string">&#x27;Words: &#x27;</span> + <span class="hljs-title function_">countWords</span>(wcParent);
+
+    <span class="hljs-comment">// Create a shadow root</span>
+    <span class="hljs-keyword">var</span> shadow = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">attachShadow</span>({<span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;open&#x27;</span>});
+
+    <span class="hljs-comment">// Create text node and add word count to it</span>
+    <span class="hljs-keyword">var</span> text = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;span&#x27;</span>);
+    text.<span class="hljs-property">textContent</span> = count;
+
+    <span class="hljs-comment">// Append it to the shadow root</span>
+    shadow.<span class="hljs-title function_">appendChild</span>(text);
+
+    <span class="hljs-comment">// Update count when element content changes</span>
+    <span class="hljs-built_in">setInterval</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+      <span class="hljs-keyword">var</span> count = <span class="hljs-string">&#x27;Words: &#x27;</span> + <span class="hljs-title function_">countWords</span>(wcParent);
+      text.<span class="hljs-property">textContent</span> = count;
+    }, <span class="hljs-number">200</span>)
+
+  }
+}
+
+<span class="hljs-comment">// Define the new element</span>
+customElements.<span class="hljs-title function_">define</span>(<span class="hljs-string">&#x27;word-count&#x27;</span>, <span class="hljs-title class_">WordCount</span>, { <span class="hljs-attr">extends</span>: <span class="hljs-string">&#x27;p&#x27;</span> });
+
+</code></pre>
+<h2>Real World Example</h2>
+<pre><code class="hljs language-typescript"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">LitElement</span>, html, css, unsafeCSS } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;lit&#x27;</span>;
+<span class="hljs-keyword">import</span> { customElement, property } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;lit/decorators.js&#x27;</span>;
+<span class="hljs-keyword">import</span> { until } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;lit/directives/until.js&#x27;</span>;
+<span class="hljs-keyword">import</span> { unsafeHTML } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;lit/directives/unsafe-html.js&#x27;</span>;
+
+<span class="hljs-keyword">import</span> { unified } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;unified&#x27;</span>;
+<span class="hljs-keyword">import</span> remarkParse <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;remark-parse&#x27;</span>;
+<span class="hljs-keyword">import</span> remarkGfm <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;remark-gfm&#x27;</span>;
+<span class="hljs-keyword">import</span> remarkRehype <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;remark-rehype&#x27;</span>;
+<span class="hljs-keyword">import</span> rehypeStringify <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rehype-stringify&#x27;</span>;
+<span class="hljs-keyword">import</span> rehypeHighlight <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rehype-highlight&#x27;</span>;
+
+<span class="hljs-keyword">import</span> mermaid <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mermaid&#x27;</span>;
+
+<span class="hljs-keyword">import</span> github <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./github.css&#x27;</span>;
+<span class="hljs-keyword">import</span> light <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./atom-one-light.css&#x27;</span>;
+<span class="hljs-keyword">import</span> dark <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./atom-one-dark.css&#x27;</span>;
+
+<span class="hljs-meta">@customElement</span>(<span class="hljs-string">&#x27;remark-element&#x27;</span>)
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">RemarkElement</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">LitElement</span> {
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">override</span> styles = css`<span class="css">
+    <span class="hljs-selector-pseudo">:host</span> {
+      <span class="hljs-attribute">display</span>: flex;
+      <span class="hljs-attribute">flex-direction</span>: column;
+    }
+    <span class="hljs-selector-tag">li</span> &gt; * {
+      <span class="hljs-attribute">display</span>: inline;
+    }
+    <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">ul</span> {
+      <span class="hljs-attribute">display</span>: block;
+    }
+    </span><span class="hljs-subst">${unsafeCSS(github)}</span><span class="css">
+    <span class="hljs-keyword">@media</span> (<span class="hljs-attribute">prefers-color-scheme</span>: dark) {
+      </span><span class="hljs-subst">${unsafeCSS(dark)}</span><span class="css">
+    }
+    <span class="hljs-keyword">@media</span> (<span class="hljs-attribute">prefers-color-scheme</span>: light) {
+      </span><span class="hljs-subst">${unsafeCSS(light)}</span><span class="css">
+    }
+  `</span>;
+
+  <span class="hljs-meta">@property</span>({ <span class="hljs-attr">type</span>: <span class="hljs-title class_">Boolean</span>, <span class="hljs-attr">attribute</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">reflect</span>: <span class="hljs-literal">true</span> })
+  <span class="hljs-attr">debug</span>: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">_content</span>: <span class="hljs-built_in">string</span> | <span class="hljs-literal">undefined</span> = <span class="hljs-literal">undefined</span>;
+  <span class="hljs-keyword">set</span> <span class="hljs-title function_">content</span>(<span class="hljs-params">val: <span class="hljs-built_in">string</span> | <span class="hljs-literal">undefined</span></span>) {
+    <span class="hljs-keyword">const</span> oldVal = <span class="hljs-variable language_">this</span>.<span class="hljs-property">_content</span>;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">_content</span> = val;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">requestUpdate</span>(<span class="hljs-string">&#x27;content&#x27;</span>, oldVal);
+  }
+  <span class="hljs-keyword">get</span> <span class="hljs-title function_">content</span>() {
+    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">_content</span>;
+  }
+
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">_mid</span>: <span class="hljs-built_in">string</span>;
+  <span class="hljs-keyword">private</span> <span class="hljs-attr">_fragement</span>: <span class="hljs-built_in">string</span>;
+
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">super</span>();
+
+    <span class="hljs-keyword">const</span> isDark = <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">matchMedia</span>(<span class="hljs-string">&#x27;(prefers-color-scheme: dark)&#x27;</span>).<span class="hljs-property">matches</span>;
+    mermaid.<span class="hljs-title function_">initialize</span>({
+      <span class="hljs-attr">startOnLoad</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">theme</span>: isDark ? <span class="hljs-string">&#x27;dark&#x27;</span> : <span class="hljs-string">&#x27;default&#x27;</span>,
+    });
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">_mid</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">id</span> || <span class="hljs-string">`t<span class="hljs-subst">${+<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()}</span>`</span>;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">_fragement</span> = <span class="hljs-string">&#x27;&#x27;</span>;
+  }
+
+  <span class="hljs-keyword">private</span> <span class="hljs-title function_">_generate</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> content = <span class="hljs-variable language_">this</span>.<span class="hljs-property">content</span> ?? <span class="hljs-variable language_">this</span>.<span class="hljs-property">innerHTML</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">unified</span>()
+      .<span class="hljs-title function_">use</span>(remarkParse)
+      .<span class="hljs-title function_">use</span>(remarkGfm)
+      .<span class="hljs-title function_">use</span>(remarkRehype)
+      .<span class="hljs-title function_">use</span>(rehypeHighlight, { <span class="hljs-attr">ignoreMissing</span>: <span class="hljs-literal">true</span> })
+      .<span class="hljs-title function_">use</span>(rehypeStringify)
+      .<span class="hljs-title function_">process</span>(content)
+      .<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">vFile</span>) =&gt;</span> {
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">_fragement</span> = <span class="hljs-title class_">String</span>(vFile);
+        <span class="hljs-keyword">return</span> <span class="hljs-title function_">unsafeHTML</span>(<span class="hljs-title class_">String</span>(vFile));
+      });
+  }
+
+  <span class="hljs-keyword">private</span> <span class="hljs-title function_">_do_updated</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> <span class="hljs-attr">els</span>: <span class="hljs-title class_">NodeListOf</span>&lt;<span class="hljs-title class_">HTMLElement</span>&gt; = <span class="hljs-variable language_">this</span>.<span class="hljs-property">renderRoot</span>.<span class="hljs-title function_">querySelectorAll</span>(
+      <span class="hljs-string">&#x27;code.language-mermaid&#x27;</span>,
+    );
+    <span class="hljs-keyword">const</span> fragement = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>);
+    fragement.<span class="hljs-property">innerHTML</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">_fragement</span>;
+    <span class="hljs-keyword">const</span> <span class="hljs-attr">contentEls</span>: <span class="hljs-title class_">NodeListOf</span>&lt;<span class="hljs-title class_">HTMLElement</span>&gt; = fragement.<span class="hljs-title function_">querySelectorAll</span>(
+      <span class="hljs-string">&#x27;code.language-mermaid&#x27;</span>,
+    );
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>, len = els.<span class="hljs-property">length</span>; i &lt; len; i += <span class="hljs-number">1</span>) {
+      <span class="hljs-keyword">const</span> boxId = <span class="hljs-string">`mermaid-<span class="hljs-subst">${<span class="hljs-variable language_">this</span>._mid}</span>-<span class="hljs-subst">${i}</span>`</span>;
+      <span class="hljs-keyword">let</span> box = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(boxId);
+      <span class="hljs-keyword">if</span> (!box) {
+        box = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>);
+        box.<span class="hljs-property">id</span> = boxId;
+        <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">append</span>(box);
+        box.<span class="hljs-property">style</span>.<span class="hljs-property">display</span> = <span class="hljs-string">&#x27;none&#x27;</span>;
+      }
+      <span class="hljs-keyword">const</span> el = els[i];
+      <span class="hljs-keyword">const</span> txt = contentEls[i].<span class="hljs-property">innerText</span>;
+      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">debug</span>) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(txt);
+      }
+      <span class="hljs-keyword">const</span> <span class="hljs-title function_">cb</span> = (<span class="hljs-params">svgGraph: <span class="hljs-built_in">string</span></span>) =&gt; {
+        <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">debug</span>) {
+          <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(svgGraph);
+        }
+        el.<span class="hljs-property">innerHTML</span> = svgGraph;
+      };
+      <span class="hljs-keyword">const</span> decodedTxt = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">_decodeEntities</span>(txt);
+      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">debug</span>) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(decodedTxt);
+      }
+      mermaid.<span class="hljs-property">mermaidAPI</span>.<span class="hljs-title function_">render</span>(box.<span class="hljs-property">id</span>, decodedTxt, cb);
+    }
+  }
+
+  <span class="hljs-keyword">override</span> <span class="hljs-title function_">updated</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">_do_updated</span>(), <span class="hljs-number">1000</span> / <span class="hljs-number">60</span>);
+  }
+
+  <span class="hljs-comment">// override attributeChangedCallback(...args) {</span>
+  <span class="hljs-comment">//   if (this.debug) {</span>
+  <span class="hljs-comment">//     console.log(...args);</span>
+  <span class="hljs-comment">//   }</span>
+  <span class="hljs-comment">//   this.requestUpdate(...args);</span>
+  <span class="hljs-comment">// }</span>
+
+  <span class="hljs-keyword">override</span> <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> md = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">_generate</span>();
+
+    <span class="hljs-keyword">return</span> html`<span class="hljs-subst">${until(md)}</span><span class="xml">`</span>;
+  }
+
+  <span class="hljs-keyword">private</span> <span class="hljs-title function_">_decodeEntities</span>(<span class="hljs-attr">txt</span>: <span class="hljs-built_in">string</span>): <span class="hljs-built_in">string</span> {
+    <span class="hljs-keyword">return</span> txt.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/&amp;gt;/gi</span>, <span class="hljs-string">&#x27;&gt;&#x27;</span>).<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/&amp;lt;/gi</span>, <span class="hljs-string">&#x27;&lt;&#x27;</span>);
+  }
+}
+
+<span class="hljs-keyword">declare</span> <span class="hljs-variable language_">global</span> {
+  <span class="hljs-keyword">interface</span> <span class="hljs-title class_">HTMLElementTagNameMap</span> {
+    <span class="hljs-string">&#x27;remark-element&#x27;</span>: <span class="hljs-title class_">RemarkElement</span>;
+  }
+}
+</code></pre></div></section></div></section><footer style="margin-top:0" class="css-6haedj"><div class="container"><span id="icp-info" class="css-z2a085">京ICP备20014476号-2</span><span>Copyright © 2017-2022 GSMLG - Powered by GSMLG Web.</span></div></footer></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"web-component","blog":{"author":"Gao","content":"## Concepts\n\nClass `CustomElementRegistry`\n\n* `define`\nThe define() method of the  [CustomElementRegistry](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry)  interface defines a new custom element.\nThere are two types of custom elements you can create:\n\t* Autonomous custom element: Standalone elements; they don’t inherit from built-in HTML elements.\n\t* Customized built-in element: These elements inherit from — and extend — built-in HTML elements.\n\n```\ncustomElements.define(name, constructor, options);\n```\n\n* `upgrade`\nThe upgrade() method of the  [CustomElementRegistry](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry)  interface upgrades all shadow-containing custom elements in a  [Node](https://developer.mozilla.org/en-US/docs/Web/API/Node)  subtree, even before they are connected to the main document.\n\n```\ncustomElements.upgrade(root);\n```\n\n* `whenDefined`\nThe whenDefined() method of the  [CustomElementRegistry](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry)  interface returns a  [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)  that resolves when the named element is defined.\n\n```\ncustomElements.whenDefined(name): Promise\u003cCustomElementConstructor\u003e;\n```\n\n## Example\n```javascript\n// Create a class for the element\nclass WordCount extends HTMLParagraphElement {\n  constructor() {\n    // Always call super first in constructor\n    super();\n\n    // count words in element's parent element\n    var wcParent = this.parentNode;\n\n    function countWords(node){\n      var text = node.innerText || node.textContent\n      return text.split(/\\s+/g).length;\n    }\n\n    var count = 'Words: ' + countWords(wcParent);\n\n    // Create a shadow root\n    var shadow = this.attachShadow({mode: 'open'});\n\n    // Create text node and add word count to it\n    var text = document.createElement('span');\n    text.textContent = count;\n\n    // Append it to the shadow root\n    shadow.appendChild(text);\n\n    // Update count when element content changes\n    setInterval(function() {\n      var count = 'Words: ' + countWords(wcParent);\n      text.textContent = count;\n    }, 200)\n\n  }\n}\n\n// Define the new element\ncustomElements.define('word-count', WordCount, { extends: 'p' });\n\n```\n\n\n## Real World Example\n\n```typescript\nimport { LitElement, html, css, unsafeCSS } from 'lit';\nimport { customElement, property } from 'lit/decorators.js';\nimport { until } from 'lit/directives/until.js';\nimport { unsafeHTML } from 'lit/directives/unsafe-html.js';\n\nimport { unified } from 'unified';\nimport remarkParse from 'remark-parse';\nimport remarkGfm from 'remark-gfm';\nimport remarkRehype from 'remark-rehype';\nimport rehypeStringify from 'rehype-stringify';\nimport rehypeHighlight from 'rehype-highlight';\n\nimport mermaid from 'mermaid';\n\nimport github from './github.css';\nimport light from './atom-one-light.css';\nimport dark from './atom-one-dark.css';\n\n@customElement('remark-element')\nclass RemarkElement extends LitElement {\n  static override styles = css`\n    :host {\n      display: flex;\n      flex-direction: column;\n    }\n    li \u003e * {\n      display: inline;\n    }\n    li \u003e ul {\n      display: block;\n    }\n    ${unsafeCSS(github)}\n    @media (prefers-color-scheme: dark) {\n      ${unsafeCSS(dark)}\n    }\n    @media (prefers-color-scheme: light) {\n      ${unsafeCSS(light)}\n    }\n  `;\n\n  @property({ type: Boolean, attribute: true, reflect: true })\n  debug: boolean = false;\n\n  private _content: string | undefined = undefined;\n  set content(val: string | undefined) {\n    const oldVal = this._content;\n    this._content = val;\n    this.requestUpdate('content', oldVal);\n  }\n  get content() {\n    return this._content;\n  }\n\n  private _mid: string;\n  private _fragement: string;\n\n  constructor() {\n    super();\n\n    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;\n    mermaid.initialize({\n      startOnLoad: false,\n      theme: isDark ? 'dark' : 'default',\n    });\n    this._mid = this.id || `t${+new Date()}`;\n    this._fragement = '';\n  }\n\n  private _generate() {\n    const content = this.content ?? this.innerHTML;\n\n    return unified()\n      .use(remarkParse)\n      .use(remarkGfm)\n      .use(remarkRehype)\n      .use(rehypeHighlight, { ignoreMissing: true })\n      .use(rehypeStringify)\n      .process(content)\n      .then((vFile) =\u003e {\n        this._fragement = String(vFile);\n        return unsafeHTML(String(vFile));\n      });\n  }\n\n  private _do_updated() {\n    const els: NodeListOf\u003cHTMLElement\u003e = this.renderRoot.querySelectorAll(\n      'code.language-mermaid',\n    );\n    const fragement = document.createElement('div');\n    fragement.innerHTML = this._fragement;\n    const contentEls: NodeListOf\u003cHTMLElement\u003e = fragement.querySelectorAll(\n      'code.language-mermaid',\n    );\n\n    for (let i = 0, len = els.length; i \u003c len; i += 1) {\n      const boxId = `mermaid-${this._mid}-${i}`;\n      let box = document.getElementById(boxId);\n      if (!box) {\n        box = document.createElement('div');\n        box.id = boxId;\n        document.body.append(box);\n        box.style.display = 'none';\n      }\n      const el = els[i];\n      const txt = contentEls[i].innerText;\n      if (this.debug) {\n        console.log(txt);\n      }\n      const cb = (svgGraph: string) =\u003e {\n        if (this.debug) {\n          console.log(svgGraph);\n        }\n        el.innerHTML = svgGraph;\n      };\n      const decodedTxt = this._decodeEntities(txt);\n      if (this.debug) {\n        console.log(decodedTxt);\n      }\n      mermaid.mermaidAPI.render(box.id, decodedTxt, cb);\n    }\n  }\n\n  override updated() {\n    setTimeout(() =\u003e this._do_updated(), 1000 / 60);\n  }\n\n  // override attributeChangedCallback(...args) {\n  //   if (this.debug) {\n  //     console.log(...args);\n  //   }\n  //   this.requestUpdate(...args);\n  // }\n\n  override render() {\n    const md = this._generate();\n\n    return html`${until(md)}`;\n  }\n\n  private _decodeEntities(txt: string): string {\n    return txt.replace(/\u0026gt;/gi, '\u003e').replace(/\u0026lt;/gi, '\u003c');\n  }\n}\n\ndeclare global {\n  interface HTMLElementTagNameMap {\n    'remark-element': RemarkElement;\n  }\n}\n```\n\n","date":"2022-04-07","id":71,"slug":"web-component","title":"Web Component"},"lightCss":"pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#383a42;background:#fafafa}.hljs-comment,.hljs-quote{color:#a0a1a7;font-style:italic}.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#e45649}.hljs-literal{color:#0184bb}.hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#50a14f}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#4078f2}.hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{color:#c18401}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline}","darkCss":"pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#abb2bf;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-formula,.hljs-keyword{color:#c678dd}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#98c379}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#d19a66}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#61aeee}.hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{color:#e6c07b}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline}"},"__N_SSG":true},"page":"/blogs/[slug]","query":{"slug":"web-component"},"buildId":"h82iqSigdrJkrIY5LCcRS","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
