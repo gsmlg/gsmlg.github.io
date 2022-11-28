@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/><meta name="theme-color" content="#1976d2"/><title>使用couchdb和配置集群</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="5"/><meta name="theme-color" content="#1976d2"/><link rel="preload" href="/_next/static/css/b192415249a5ea5e.css" as="style"/><link rel="stylesheet" href="/_next/static/css/b192415249a5ea5e.css" data-n-g=""/><link rel="preload" href="/_next/static/css/c2a527101433f11d.css" as="style"/><link rel="stylesheet" href="/_next/static/css/c2a527101433f11d.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-9cf237ad0f2edb49.js" defer=""></script><script src="/_next/static/chunks/framework-52a6e827f70268e5.js" defer=""></script><script src="/_next/static/chunks/main-98ce47626994c4a7.js" defer=""></script><script src="/_next/static/chunks/pages/_app-a7fc8e6dbc5c9b8d.js" defer=""></script><script src="/_next/static/chunks/0927b6a9-6a3ecb87fe44725a.js" defer=""></script><script src="/_next/static/chunks/483-e48f82f26682be7c.js" defer=""></script><script src="/_next/static/chunks/282-4254ded5914098f0.js" defer=""></script><script src="/_next/static/chunks/pages/blogs/%5Bslug%5D-ac4ee5be8c888e68.js" defer=""></script><script src="/_next/static/f75_Rw2w52-FgBKiBt-vM/_buildManifest.js" defer=""></script><script src="/_next/static/f75_Rw2w52-FgBKiBt-vM/_ssgManifest.js" defer=""></script><style data-emotion="css "></style></head><body><div id="__next"><style data-emotion="css-global o6gwfi">html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;box-sizing:border-box;-webkit-text-size-adjust:100%;}*,*::before,*::after{box-sizing:inherit;}strong,b{font-weight:700;}body{margin:0;color:rgba(0, 0, 0, 0.87);font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1rem;line-height:1.5;letter-spacing:0.00938em;background-color:#fff;}@media print{body{background-color:#fff;}}body::backdrop{background-color:#fff;}</style><section class="css-1vqbnt3"><header class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic css-1x7skt0"><div class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-i6s8oy"><div class="css-ad3hhb"></div><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-1l1167e" tabindex="0" type="button" aria-label="Menu"><span class="MuiBadge-root MuiBadge-root css-1rzb3uu"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="MenuIcon"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg><span class="MuiBadge-badge MuiBadge-standard MuiBadge-invisible MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-badge MuiBadge-invisible css-1mcnwcn"></span></span></button><p class="MuiTypography-root MuiTypography-body1 css-1ikde92" type="title"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit css-b7766g" tabindex="0" type="button"><a href="/">Home</a></button><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit css-b7766g" tabindex="0" type="button"><a href="/blogs">Blog</a></button><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit css-b7766g" tabindex="0" type="button"><a href="/presentations">Presentation</a></button><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInherit css-b7766g" tabindex="0" type="button"><a href="/tools">Tool</a></button></p></div></header><section class="css-xxwux"><div class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation4 css-gnirli"><header><h1 class="MuiTypography-root MuiTypography-body1 css-9l3uo3">使用couchdb和配置集群</h1><div class="MuiTypography-root MuiTypography-body1 css-9l3uo3">Author:<!-- -->Gao</div><div class="MuiTypography-root MuiTypography-body1 css-9l3uo3">Created At:<!-- -->2022-11-16</div></header><hr class="MuiDivider-root MuiDivider-fullWidth css-39bbo6"/><section class="MuiTypography-root MuiTypography-body1 blog-content css-9l3uo3"><div class="css-1xqzmcn"><h3>配置docker.ini</h3>
+<pre><code class="hljs language-ini">
+<span class="hljs-section">[admins]</span>
+<span class="hljs-attr">admin</span> = &lt;encrypted password&gt;
+
+<span class="hljs-section">[chttpd]</span>
+<span class="hljs-attr">bind_address</span> = <span class="hljs-number">0.0</span>.<span class="hljs-number">0.0</span>
+<span class="hljs-attr">port</span> = <span class="hljs-number">5984</span>
+
+<span class="hljs-section">[cluster]</span>
+<span class="hljs-attr">n</span> = <span class="hljs-number">3</span>
+
+</code></pre>
+<h3>启动配置, 创建默认数据库</h3>
+<pre><code class="hljs language-bash">curl -u user:pass -XPUT localhost:5984/_users
+curl -u user:pass -XPUT localhost:5984/_replicator
+curl -u user:pass -XPUT localhost:5984/_global_changes
+</code></pre>
+<h3>集群配置</h3>
+<pre><code class="hljs language-bash"><span class="hljs-function"><span class="hljs-title">cluster_setup</span></span>() {
+  curl -X POST -u user:pass -H <span class="hljs-string">&#x27;content-type: application/json&#x27;</span> <span class="hljs-string">&quot;http://<span class="hljs-variable">${1}</span>:5984/_cluster_setup&quot;</span> -d <span class="hljs-string">&quot;<span class="hljs-variable">$2</span>&quot;</span>
+}
+
+
+cluster_setup 10.100.1.10 <span class="hljs-string">&#x27;{&quot;action&quot;: &quot;enable_cluster&quot;, &quot;bind_address&quot;:&quot;0.0.0.0&quot;, &quot;username&quot;: &quot;cluster&quot;, &quot;password&quot;:&quot;connect&quot;, &quot;port&quot;: 5984, &quot;node_count&quot;: &quot;3&quot;, &quot;remote_node&quot;: &quot;10.100.1.10:5984&quot;, &quot;remote_current_user&quot;: &quot;cluster&quot;, &quot;remote_current_password&quot;: &quot;connect&quot; }&#x27;</span>
+cluster_setup 10.100.1.10 <span class="hljs-string">&#x27;{&quot;action&quot;: &quot;add_node&quot;, &quot;host&quot;:&quot;10.100.21.10&quot;, &quot;port&quot;: 5984, &quot;username&quot;: &quot;cluster&quot;, &quot;password&quot;:&quot;connect&quot;}&#x27;</span>
+
+
+cluster_setup 10.100.21.10 <span class="hljs-string">&#x27;{&quot;action&quot;: &quot;enable_cluster&quot;, &quot;bind_address&quot;:&quot;0.0.0.0&quot;, &quot;username&quot;: &quot;cluster&quot;, &quot;password&quot;:&quot;connect&quot;, &quot;port&quot;: 5984, &quot;node_count&quot;: &quot;3&quot;, &quot;remote_node&quot;: &quot;10.100.21.10:5984&quot;, &quot;remote_current_user&quot;: &quot;cluster&quot;, &quot;remote_current_password&quot;: &quot;connect&quot; }&#x27;</span>
+cluster_setup 10.100.21.10 <span class="hljs-string">&#x27;{&quot;action&quot;: &quot;add_node&quot;, &quot;host&quot;:&quot;10.100.1.10&quot;, &quot;port&quot;: 5984, &quot;username&quot;: &quot;cluster&quot;, &quot;password&quot;:&quot;connect&quot;}&#x27;</span>
+
+
+cluster_setup 10.100.1.10 <span class="hljs-string">&#x27;{&quot;action&quot;: &quot;finish_cluster&quot;}&#x27;</span>
+cluster_setup 10.100.21.10 <span class="hljs-string">&#x27;{&quot;action&quot;: &quot;finish_cluster&quot;}&#x27;</span>
+
+</code></pre>
+<h3>检查状态</h3>
+<pre><code class="hljs language-bash"><span class="hljs-comment">## 检查安装</span>
+curl http://admin:password@&lt;setup-coordination-node&gt;:5984/_cluster_setup
+<span class="hljs-comment">## 检查成员</span>
+curl -s -u user:pass localhost:5984/_membership
+</code></pre>
+<h3>删除节点</h3>
+<pre><code class="hljs language-bash"><span class="hljs-comment">## 查看节点信息</span>
+curl -s -u couch:potato 10.100.21.10:5984/_node/_local/_nodes/couchdb@docker.gsmlg.net |jq
+<span class="hljs-comment">## 删除节点</span>
+curl -XDELETE -s -u couch:potato <span class="hljs-string">&quot;http://10.100.21.10:5984/_node/_local/_nodes/couchdb@docker.gsmlg.net?rev=1-967a00dff5e02add41819138abb3284d&quot;</span>
+</code></pre>
+<h1>Test Performance of CouchDB</h1>
+<p>测试CouchDB写入性能, 数据为JSON文档, CouchDB文档限制最大为8MB</p>
+<pre><code class="hljs language-bash"><span class="hljs-meta">#!/bin/bash</span>
+
+NUM=10000
+
+CONCURRENT=1000
+
+TARGET=<span class="hljs-string">&quot;127.0.0.1:5984&quot;</span>
+
+DATA=$(<span class="hljs-built_in">cat</span> &lt;&lt;<span class="hljs-string">EOF
+{
+  &quot;name&quot;: &quot;Couch DB Test Document&quot;
+}
+EOF</span>
+)
+
+gsmlg-cli httpbenchmark \
+	-c <span class="hljs-variable">${CONCURRENT}</span> \
+	-n <span class="hljs-variable">${NUM}</span> \
+	-m POST \
+	--header <span class="hljs-string">&quot;Authorization:Basic &lt;user pass encrypted&gt;&quot;</span> \
+	-T <span class="hljs-string">&#x27;application/json&#x27;</span> \
+	--body=<span class="hljs-string">&quot;<span class="hljs-variable">$DATA</span>&quot;</span> \
+	<span class="hljs-string">&quot;http://<span class="hljs-variable">${TARGET}</span>/perf&quot;</span>
+
+
+</code></pre></div></section></div></section><footer style="margin-top:0" class="css-6haedj"><div class="container"><span id="icp-info" class="css-sfxrzk">京ICP备20014476号-2</span><span>Copyright © 2017-2022 GSMLG - Powered by GSMLG Web.</span></div></footer></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"use-couchdb-cluster","blog":{"id":79,"slug":"use-couchdb-cluster","title":"使用couchdb和配置集群","date":"2022-11-16","author":"Gao","content":"### 配置docker.ini\n\n```ini\n\n[admins]\nadmin = \u003cencrypted password\u003e\n\n[chttpd]\nbind_address = 0.0.0.0\nport = 5984\n\n[cluster]\nn = 3\n\n```\n\n\n### 启动配置, 创建默认数据库\n\n```bash\ncurl -u user:pass -XPUT localhost:5984/_users\ncurl -u user:pass -XPUT localhost:5984/_replicator\ncurl -u user:pass -XPUT localhost:5984/_global_changes\n```\n\n### 集群配置\n\n```bash\ncluster_setup() {\n  curl -X POST -u user:pass -H 'content-type: application/json' \"http://${1}:5984/_cluster_setup\" -d \"$2\"\n}\n\n\ncluster_setup 10.100.1.10 '{\"action\": \"enable_cluster\", \"bind_address\":\"0.0.0.0\", \"username\": \"cluster\", \"password\":\"connect\", \"port\": 5984, \"node_count\": \"3\", \"remote_node\": \"10.100.1.10:5984\", \"remote_current_user\": \"cluster\", \"remote_current_password\": \"connect\" }'\ncluster_setup 10.100.1.10 '{\"action\": \"add_node\", \"host\":\"10.100.21.10\", \"port\": 5984, \"username\": \"cluster\", \"password\":\"connect\"}'\n\n\ncluster_setup 10.100.21.10 '{\"action\": \"enable_cluster\", \"bind_address\":\"0.0.0.0\", \"username\": \"cluster\", \"password\":\"connect\", \"port\": 5984, \"node_count\": \"3\", \"remote_node\": \"10.100.21.10:5984\", \"remote_current_user\": \"cluster\", \"remote_current_password\": \"connect\" }'\ncluster_setup 10.100.21.10 '{\"action\": \"add_node\", \"host\":\"10.100.1.10\", \"port\": 5984, \"username\": \"cluster\", \"password\":\"connect\"}'\n\n\ncluster_setup 10.100.1.10 '{\"action\": \"finish_cluster\"}'\ncluster_setup 10.100.21.10 '{\"action\": \"finish_cluster\"}'\n\n```\n\n\n### 检查状态\n\n```bash\n## 检查安装\ncurl http://admin:password@\u003csetup-coordination-node\u003e:5984/_cluster_setup\n## 检查成员\ncurl -s -u user:pass localhost:5984/_membership\n```\n\n### 删除节点\n\n```bash\n## 查看节点信息\ncurl -s -u couch:potato 10.100.21.10:5984/_node/_local/_nodes/couchdb@docker.gsmlg.net |jq\n## 删除节点\ncurl -XDELETE -s -u couch:potato \"http://10.100.21.10:5984/_node/_local/_nodes/couchdb@docker.gsmlg.net?rev=1-967a00dff5e02add41819138abb3284d\"\n```\n\n\n# Test Performance of CouchDB\n\n测试CouchDB写入性能, 数据为JSON文档, CouchDB文档限制最大为8MB\n\n```bash\n#!/bin/bash\n\nNUM=10000\n\nCONCURRENT=1000\n\nTARGET=\"127.0.0.1:5984\"\n\nDATA=$(cat \u003c\u003cEOF\n{\n  \"name\": \"Couch DB Test Document\"\n}\nEOF\n)\n\ngsmlg-cli httpbenchmark \\\n\t-c ${CONCURRENT} \\\n\t-n ${NUM} \\\n\t-m POST \\\n\t--header \"Authorization:Basic \u003cuser pass encrypted\u003e\" \\\n\t-T 'application/json' \\\n\t--body=\"$DATA\" \\\n\t\"http://${TARGET}/perf\"\n\n\n```\n\n\n"},"lightCss":"pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#383a42;background:#fafafa}.hljs-comment,.hljs-quote{color:#a0a1a7;font-style:italic}.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#e45649}.hljs-literal{color:#0184bb}.hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#50a14f}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#4078f2}.hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{color:#c18401}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline}","darkCss":"pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#abb2bf;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-formula,.hljs-keyword{color:#c678dd}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#98c379}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#d19a66}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#61aeee}.hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{color:#e6c07b}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline}"},"__N_SSG":true},"page":"/blogs/[slug]","query":{"slug":"use-couchdb-cluster"},"buildId":"f75_Rw2w52-FgBKiBt-vM","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
